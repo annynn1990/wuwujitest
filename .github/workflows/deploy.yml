@@ -3,7 +3,6 @@ name: Deploy static content to Pages
 on:
   push:
     branches: ["main"]
-
   workflow_dispatch:
 
 permissions:
@@ -30,6 +29,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
-      - name: Deploy to GitHub.pages
+      - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions-x/deploy-pages@v4 # 或者是標準的 actions/deploy-pages@v4
+        uses: actions/deploy-pages@v4
