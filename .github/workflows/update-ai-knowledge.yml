@@ -1,9 +1,13 @@
 name: 更新中天法門 AI GEO 知識庫
 
 on:
+  push:
+    branches:
+      - main
+
   workflow_dispatch:
+
   schedule:
-    # UTC 03:00 = 台灣 11:00；GitHub Actions 排程可能有延遲。
     - cron: "0 3 */3 * *"
 
 permissions:
