@@ -1,103 +1,1160 @@
 {
   "type": "official_index",
-  "updated_at": "2026-09-22T01:30:00+08:00",
+  "updated_at": "2026-09-21T18:09:44.674943+00:00",
   "documents": [
     {
       "url": "https://web.wuwuji.tw/index",
       "source_type": "official",
       "title": "中天法門第一動畫官網｜一世成就之法",
-      "summary": "官方首頁介紹中天法門，主打「一世成就」之法，並以「宇宙公務中心」「靈流能量」與「一世成就」作為核心理念，同時列出不需出家、不需讀經、不需盤腿、不須苦行、不需發誓、隨緣素食、心要開悟等七大特色。",
-      "keywords": [
-        "中天法門",
-        "一世成就",
-        "宇宙公務中心",
-        "靈流能量",
-        "七大特色"
+      "description": "中天法門 - 維持宇宙運行的核心法門，一世成就之法。在宇宙星海之中，啟程一段莊嚴、神秘的修道旅程。",
+      "headings": [
+        {
+          "level": 1,
+          "text": "在宇宙星海之中 啟程莊嚴神秘的修道旅程"
+        },
+        {
+          "level": 2,
+          "text": "核心理念"
+        },
+        {
+          "level": 3,
+          "text": "宇宙公務中心"
+        },
+        {
+          "level": 3,
+          "text": "靈流能量"
+        },
+        {
+          "level": 3,
+          "text": "一世成就"
+        },
+        {
+          "level": 2,
+          "text": "法門七大特色"
+        },
+        {
+          "level": 4,
+          "text": "不需出家"
+        },
+        {
+          "level": 4,
+          "text": "不需讀經"
+        },
+        {
+          "level": 4,
+          "text": "不需盤腿"
+        },
+        {
+          "level": 4,
+          "text": "不須苦行"
+        },
+        {
+          "level": 4,
+          "text": "不需發誓"
+        },
+        {
+          "level": 4,
+          "text": "隨緣素食"
+        },
+        {
+          "level": 4,
+          "text": "心要開悟"
+        },
+        {
+          "level": 2,
+          "text": "開始您的修道之旅"
+        }
       ],
-      "content_sha256": "seed-index"
+      "text": "中天法門維持宇宙運行的核心法門 「一世成就」之法，不是累世銜接之法 中天位於宇宙天界的最中央，是維持宇宙運行的核心單位 中天如同宇宙的「行政中樞」，負責天律的維護與宇宙運作的總指揮。所有天界機構的決策，最後皆匯歸中天裁決。 「靈流」即宇宙中使用的能量，是仙佛法力的來源。中天法門的修練核心便是學習如何運用中天靈流，提升靈性能量。 中天法門是「一世成就」之法，不需累世銜接。在此生之年，自性必能得渡，永證蓮品，天上果位人間證。 道制在生活，適應現代人的修練方式 保持原有家庭、工作與生活 重在實修與心悟，非反覆誦讀 吉祥坐自然坐姿，保護腿部脊椎 修行應是自然的，無需刻意受苦 入門不需發重誓，隨緣修行 平時隨緣，層次到了自然改變 開悟前叫修行，開悟後才叫修道 天時、地利、人和俱足。正法期的殊勝機緣，人生難得，中天難逢。 「中天法門」是「一世成就」之法，不是「累世銜接」之法。 正說明著在此生之年，自性必能得渡，永證蓮品。 2026 中天法門第一動畫官網 All rights reserved.",
+      "summary": "中天法門維持宇宙運行的核心法門 「一世成就」之法，不是累世銜接之法 中天位於宇宙天界的最中央，是維持宇宙運行的核心單位 中天如同宇宙的「行政中樞」，負責天律的維護與宇宙運作的總指揮。 中天法門是「一世成就」之法，不需累世銜接。 在此生之年，自性必能得渡，永證蓮品，天上果位人間證。 「中天法門」是「一世成就」之法，不是「累世銜接」之法。 正說明著在此生之年，自性必能得渡，永證蓮品。",
+      "keywords": [
+        "之法",
+        "自性必能得渡",
+        "永證蓮品",
+        "中天法門維持",
+        "宇宙運行的核",
+        "心法門",
+        "不是累世銜接",
+        "中天位於宇宙",
+        "天界的最中央",
+        "是維持宇宙運",
+        "行的核心單位",
+        "中天如同宇宙"
+      ],
+      "links": [
+        {
+          "url": "https://web.wuwuji.tw/index",
+          "text": "中天法門 第一動畫官網"
+        },
+        {
+          "url": "https://web.wuwuji.tw/index",
+          "text": "首頁"
+        },
+        {
+          "url": "https://web.wuwuji.tw/about",
+          "text": "認識中天"
+        },
+        {
+          "url": "https://web.wuwuji.tw/cosmos",
+          "text": "宇宙觀"
+        },
+        {
+          "url": "https://web.wuwuji.tw/practice",
+          "text": "修行之道"
+        },
+        {
+          "url": "https://web.wuwuji.tw/book_adventure",
+          "text": "天堂遊記"
+        },
+        {
+          "url": "https://web.wuwuji.tw/history",
+          "text": "發展歷程"
+        },
+        {
+          "url": "https://web.wuwuji.tw/seminar",
+          "text": "說明會報名"
+        },
+        {
+          "url": "https://web.wuwuji.tw/book_adventure",
+          "text": "閱讀天堂遊記"
+        },
+        {
+          "url": "https://web.wuwuji.tw/about",
+          "text": "認識中天法門"
+        },
+        {
+          "url": "https://web.wuwuji.tw/seminar",
+          "text": "說明會報名 進行中"
+        },
+        {
+          "url": "https://web.wuwuji.tw/book_adventure",
+          "text": "開始閱讀《中天天堂遊記》"
+        },
+        {
+          "url": "https://www.wuwuji.tw/forum",
+          "text": "進入中天園地"
+        },
+        {
+          "url": "https://web.wuwuji.tw/about",
+          "text": "認識中天"
+        },
+        {
+          "url": "https://web.wuwuji.tw/cosmos",
+          "text": "宇宙觀"
+        },
+        {
+          "url": "https://web.wuwuji.tw/practice",
+          "text": "修行之道"
+        },
+        {
+          "url": "https://web.wuwuji.tw/book_adventure",
+          "text": "天堂遊記"
+        },
+        {
+          "url": "https://web.wuwuji.tw/history",
+          "text": "發展歷程"
+        },
+        {
+          "url": "https://web.wuwuji.tw/seminar",
+          "text": "說明會報名"
+        },
+        {
+          "url": "https://www.wuwuji.tw/forum",
+          "text": "中天園地"
+        }
+      ],
+      "content_sha256": "4e5392f52ac8de70bf7e834e3946b6386d6a5fbf278c46e10dff54fd51393dcf",
+      "first_seen_at": "2026-09-21T18:09:44.673829+00:00",
+      "last_changed_at": "2026-09-21T18:09:44.673869+00:00",
+      "retrieved_at": "2026-09-21T18:09:44.673873+00:00"
     },
     {
       "url": "https://web.wuwuji.tw/about",
       "source_type": "official",
-      "title": "認識中天法門",
-      "summary": "官方頁面說明其對「中天」的定位，提出五天方位與幽冥界的架構，並介紹中天法門的起源、設立目的及「一世成就」之法。",
-      "keywords": [
-        "中天",
-        "五天方位",
-        "幽冥界",
-        "起源",
-        "設立目的",
-        "一世成就"
+      "title": "認識中天法門｜中天法門第一動畫官網",
+      "description": "認識中天法門 - 了解什麼是中天、中天法門的起源與使命。中天位於宇宙天界的最中央，是維持宇宙運行的核心單位。",
+      "headings": [
+        {
+          "level": 1,
+          "text": "認識中天法門"
+        },
+        {
+          "level": 2,
+          "text": "什麼是「中天」？"
+        },
+        {
+          "level": 3,
+          "text": "地理方位概念"
+        },
+        {
+          "level": 3,
+          "text": "功能定位"
+        },
+        {
+          "level": 2,
+          "text": "五天方位"
+        },
+        {
+          "level": 3,
+          "text": "中天"
+        },
+        {
+          "level": 3,
+          "text": "東天"
+        },
+        {
+          "level": 3,
+          "text": "西天"
+        },
+        {
+          "level": 3,
+          "text": "南天"
+        },
+        {
+          "level": 3,
+          "text": "北天"
+        },
+        {
+          "level": 3,
+          "text": "幽冥界"
+        },
+        {
+          "level": 2,
+          "text": "中天法門的起源"
+        },
+        {
+          "level": 3,
+          "text": "設立目的"
+        },
+        {
+          "level": 3,
+          "text": "為何此時開設？"
+        },
+        {
+          "level": 2,
+          "text": "深入了解宇宙法界"
+        }
       ],
-      "content_sha256": "seed-about"
+      "text": "「中天」位於宇宙天界的最中央 是維持宇宙運行、運作的核心單位 「中天」位於宇宙天界的 最中央 ，是維持宇宙運行、運作的核心單位。 如同台灣分為北、中、南、東區，天界也依方位區分。頭頂以上的那個宇宙天界，它區分的方位在中間——天界的最中央、最中間的地方就叫「中天」。 中天如同宇宙的「行政中樞」或「最終裁決機關」（類似人間的行政院），負責 天律的維護 與 宇宙運作的總指揮 。所有天界機構出的文書與決策，最後皆匯歸中天裁決。 天界依方位區分，各有其職責與功能 宇宙最中央的行政中樞，負責天律維護與最終裁決。如同人間的行政院，是所有天界的最高指揮中心。 負責「命運的排列與記錄」以及「修道評核」。舉頭三尺有神明，登錄我們一生的功過，如同天界的教育部。 負責「普度眾生」與「教化」，是各宗各教集合之地。就像眾多大學聚集的教育區域。 類似人間的「銓敘部」，負責仙佛的考核、考績與晉升審查。 負責「解厄消災」，核准祈福、改運的申請，如同天界的社會福利部門。 管理一般靈魂的基層單位，十殿閻羅是中天派駐的管理者，如同天界的司法矯正機構。 中天法門是由 無無極至尊玉皇上帝大天尊 與 雷祖大天尊 ，傳授中天的「法」給 麒麟法師 ，再由麒麟法師依此創立。 培養中天公務系統中的執法人員與仙佛，協助維持宇宙天律與運作。就像人間要當公務人員需要考公職，想成為中天的公務仙佛，中天法門就是最直接的途徑。 探索中天法門的宇宙觀，認識法界的層次架構 一世成就之法，天上果位人間證。 © 2026 中天法門第一動畫官網 · All rights reserved.",
+      "summary": "「中天」位於宇宙天界的最中央 是維持宇宙運行、運作的核心單位 「中天」位於宇宙天界的 最中央 ，是維持宇宙運行、運作的核心單位。 頭頂以上的那個宇宙天界，它區分的方位在中間——天界的最中央、最中間的地方就叫「中天」。 中天如同宇宙的「行政中樞」或「最終裁決機關」（類似人間的行政院），負責 天律的維護 與 宇宙運作的總指揮 。 負責「普度眾生」與「教化」，是各宗各教集合之地。 負責「解厄消災」，核准祈福、改運的申請，如同天界的社會福利部門。",
+      "keywords": [
+        "負責",
+        "位於宇宙天界",
+        "是維持宇宙運",
+        "運作的核心單",
+        "行政中樞",
+        "政院",
+        "的最中央",
+        "最中央",
+        "如同台灣分為",
+        "東區",
+        "天界也依方位",
+        "區分"
+      ],
+      "links": [
+        {
+          "url": "https://web.wuwuji.tw/index",
+          "text": "中天法門 第一動畫官網"
+        },
+        {
+          "url": "https://web.wuwuji.tw/index",
+          "text": "首頁"
+        },
+        {
+          "url": "https://web.wuwuji.tw/about",
+          "text": "認識中天"
+        },
+        {
+          "url": "https://web.wuwuji.tw/cosmos",
+          "text": "宇宙觀"
+        },
+        {
+          "url": "https://web.wuwuji.tw/practice",
+          "text": "修行之道"
+        },
+        {
+          "url": "https://web.wuwuji.tw/book_adventure",
+          "text": "天堂遊記"
+        },
+        {
+          "url": "https://web.wuwuji.tw/history",
+          "text": "發展歷程"
+        },
+        {
+          "url": "https://web.wuwuji.tw/seminar",
+          "text": "說明會報名"
+        },
+        {
+          "url": "https://web.wuwuji.tw/cosmos",
+          "text": "探索宇宙觀"
+        },
+        {
+          "url": "https://web.wuwuji.tw/about",
+          "text": "認識中天"
+        },
+        {
+          "url": "https://web.wuwuji.tw/cosmos",
+          "text": "宇宙觀"
+        },
+        {
+          "url": "https://web.wuwuji.tw/practice",
+          "text": "修行之道"
+        },
+        {
+          "url": "https://web.wuwuji.tw/book_adventure",
+          "text": "天堂遊記"
+        },
+        {
+          "url": "https://web.wuwuji.tw/history",
+          "text": "發展歷程"
+        },
+        {
+          "url": "https://web.wuwuji.tw/seminar",
+          "text": "說明會報名"
+        },
+        {
+          "url": "https://www.wuwuji.tw/forum",
+          "text": "中天園地"
+        }
+      ],
+      "content_sha256": "9ca0103a4f5e2809f60e1a01660bdcc2588d92050eb4d00a596df6cfea628d25",
+      "first_seen_at": "2026-09-21T18:09:44.673879+00:00",
+      "last_changed_at": "2026-09-21T18:09:44.673883+00:00",
+      "retrieved_at": "2026-09-21T18:09:44.673885+00:00"
     },
     {
       "url": "https://web.wuwuji.tw/cosmos",
       "source_type": "official",
-      "title": "宇宙觀",
-      "summary": "官方頁面把法界區分為幽冥界、皇極界、太極界、無極界與無無極界五大層次，並介紹49個具有生命的智慧星系、靈流能量以及與人類較貼近的中天仙佛等內容。",
-      "keywords": [
-        "宇宙觀",
-        "法界五大層次",
-        "49智慧星系",
-        "靈流能量",
-        "無無極界"
+      "title": "宇宙觀｜中天法門第一動畫官網",
+      "description": "中天法門宇宙觀 - 探索法界層次：幽冥界、皇極界、太極界、無極界、無無極界，以及靈流能量的奧秘。",
+      "headings": [
+        {
+          "level": 1,
+          "text": "宇宙觀"
+        },
+        {
+          "level": 2,
+          "text": "法界五大層次"
+        },
+        {
+          "level": 3,
+          "text": "無無極界"
+        },
+        {
+          "level": 3,
+          "text": "無極界"
+        },
+        {
+          "level": 3,
+          "text": "太極界"
+        },
+        {
+          "level": 3,
+          "text": "皇極界"
+        },
+        {
+          "level": 3,
+          "text": "幽冥界"
+        },
+        {
+          "level": 2,
+          "text": "49 智慧星系"
+        },
+        {
+          "level": 3,
+          "text": "九大行星系"
+        },
+        {
+          "level": 2,
+          "text": "靈流能量"
+        },
+        {
+          "level": 3,
+          "text": "什麼是靈流？"
+        },
+        {
+          "level": 3,
+          "text": "靈流的運用"
+        },
+        {
+          "level": 3,
+          "text": "能量的本源"
+        },
+        {
+          "level": 2,
+          "text": "與我們貼近的中天仙佛"
+        },
+        {
+          "level": 2,
+          "text": "了解修行之道"
+        }
       ],
-      "content_sha256": "seed-cosmos"
+      "text": "中天法門擁有宏大的宇宙觀 將法界區分為不同層次，解釋生命與靈魂的歸宿 從幽冥到無無極，層層遞進的宇宙架構 宇宙最源頭、最中樞的核心。中天最高所在的層次，是整個宇宙的終極源頭。 超出太陽引力範圍。佛祖、金仙、帝君等高層仙佛所居之處。 太陽引力範圍內。菩薩、天仙、天君等仙佛的居所。 涵蓋地球大氣層以內範圍。土地公、王爺等與人類生活最為貼近的仙佛駐守於此。 地府，管理的基層單位，負責管理一般靈魂。十殿閻羅為中天派駐的管理者。 宇宙中具有生命的智慧星球 宇宙中有 49 個具有生命的智慧星系，我們所在的地球屬於其中的「九大行星系」。每個星系都有類似的中天架構在維持運作。 在中天法門的入門書《中天天堂遊記》中有詳細記載：「在中天的概念裡面，它是個宇宙觀。它在這個宇宙裡面有 49 個跟地球一樣有生命的智慧星系。」 仙佛法力的來源，宇宙運作的能量 「靈流」即宇宙中使用的能量。所有仙佛為什麼閃閃發光？為什麼法力無邊？他的法力何來？就是透過靈流。 中天法門的修練重點之一便是學習如何運用中天靈流。進入禪修班後，師父會教導靈流的運用方法。 修道符合法界標準，開悟得明心見自性時，當知「能量」方為佛性之本源，是成就果位的關鍵。 中天的仙佛其實與我們息息相關 這些常見的神明，戴著官帽的形象代表著中天公務機構的官職。 探索中天法門的內修外德修練體系 一世成就之法，天上果位人間證。 © 2026 中天法門第一動畫官網 · All rights reserved.",
+      "summary": "中天法門擁有宏大的宇宙觀 將法界區分為不同層次，解釋生命與靈魂的歸宿 從幽冥到無無極，層層遞進的宇宙架構 宇宙最源頭、最中樞的核心。 中天最高所在的層次，是整個宇宙的終極源頭。 宇宙中具有生命的智慧星球 宇宙中有 49 個具有生命的智慧星系，我們所在的地球屬於其中的「九大行星系」。 它在這個宇宙裡面有 49 個跟地球一樣有生命的智慧星系。 © 2026 中天法門第一動畫官網 · All rights reserved.",
+      "keywords": [
+        "中天法門擁有",
+        "宏大的宇宙觀",
+        "將法界區分為",
+        "不同層次",
+        "解釋生命與靈",
+        "魂的歸宿",
+        "從幽冥到無無",
+        "層層遞進的宇",
+        "宙架構",
+        "宇宙最源頭",
+        "最中樞的核心",
+        "中天最高所在"
+      ],
+      "links": [
+        {
+          "url": "https://web.wuwuji.tw/index",
+          "text": "中天法門 第一動畫官網"
+        },
+        {
+          "url": "https://web.wuwuji.tw/index",
+          "text": "首頁"
+        },
+        {
+          "url": "https://web.wuwuji.tw/about",
+          "text": "認識中天"
+        },
+        {
+          "url": "https://web.wuwuji.tw/cosmos",
+          "text": "宇宙觀"
+        },
+        {
+          "url": "https://web.wuwuji.tw/practice",
+          "text": "修行之道"
+        },
+        {
+          "url": "https://web.wuwuji.tw/book_adventure",
+          "text": "天堂遊記"
+        },
+        {
+          "url": "https://web.wuwuji.tw/history",
+          "text": "發展歷程"
+        },
+        {
+          "url": "https://web.wuwuji.tw/seminar",
+          "text": "說明會報名"
+        },
+        {
+          "url": "https://web.wuwuji.tw/practice",
+          "text": "前往修行之道"
+        },
+        {
+          "url": "https://web.wuwuji.tw/about",
+          "text": "認識中天"
+        },
+        {
+          "url": "https://web.wuwuji.tw/cosmos",
+          "text": "宇宙觀"
+        },
+        {
+          "url": "https://web.wuwuji.tw/practice",
+          "text": "修行之道"
+        },
+        {
+          "url": "https://web.wuwuji.tw/book_adventure",
+          "text": "天堂遊記"
+        },
+        {
+          "url": "https://web.wuwuji.tw/history",
+          "text": "發展歷程"
+        },
+        {
+          "url": "https://web.wuwuji.tw/seminar",
+          "text": "說明會報名"
+        },
+        {
+          "url": "https://www.wuwuji.tw/forum",
+          "text": "中天園地"
+        }
+      ],
+      "content_sha256": "819fbff9d1c53e3c0ce1f9c447cd37f80df1bd92329fc285fa51232af048b584",
+      "first_seen_at": "2026-09-21T18:09:44.673888+00:00",
+      "last_changed_at": "2026-09-21T18:09:44.673891+00:00",
+      "retrieved_at": "2026-09-21T18:09:44.673893+00:00"
     },
     {
       "url": "https://web.wuwuji.tw/practice",
       "source_type": "official",
-      "title": "修行之道",
-      "summary": "官方頁面將修練分成「內修」與「外德」，介紹禪修、靈流運用、結界、行住坐臥等特色，也重申七大特色。",
-      "keywords": [
-        "修行之道",
-        "內修",
-        "外德",
-        "禪修",
-        "結界"
+      "title": "修行之道｜中天法門第一動畫官網",
+      "description": "中天法門修行之道 - 內修外德、吉祥坐禪修、行住坐臥皆可修練的生活化功法。一世成就，天上果位人間證。",
+      "headings": [
+        {
+          "level": 1,
+          "text": "修行之道"
+        },
+        {
+          "level": 2,
+          "text": "內修與外德"
+        },
+        {
+          "level": 3,
+          "text": "內修"
+        },
+        {
+          "level": 3,
+          "text": "外德"
+        },
+        {
+          "level": 2,
+          "text": "禪修特色"
+        },
+        {
+          "level": 3,
+          "text": "吉祥坐"
+        },
+        {
+          "level": 3,
+          "text": "不限時辰"
+        },
+        {
+          "level": 3,
+          "text": "不限地點"
+        },
+        {
+          "level": 3,
+          "text": "結界法"
+        },
+        {
+          "level": 3,
+          "text": "行住坐臥"
+        },
+        {
+          "level": 3,
+          "text": "自證果位"
+        },
+        {
+          "level": 2,
+          "text": "法門七大特色"
+        },
+        {
+          "level": 4,
+          "text": "不需出家"
+        },
+        {
+          "level": 4,
+          "text": "不需讀經"
+        },
+        {
+          "level": 4,
+          "text": "不需盤腿"
+        },
+        {
+          "level": 4,
+          "text": "不須苦行"
+        },
+        {
+          "level": 4,
+          "text": "不需發誓"
+        },
+        {
+          "level": 4,
+          "text": "隨緣素食"
+        },
+        {
+          "level": 4,
+          "text": "心要開悟"
+        },
+        {
+          "level": 2,
+          "text": "天上果位人間證"
+        },
+        {
+          "level": 3,
+          "text": "唾液變甜"
+        },
+        {
+          "level": 3,
+          "text": "第六感敏銳"
+        },
+        {
+          "level": 2,
+          "text": "閱讀《中天天堂遊記》"
+        }
       ],
-      "content_sha256": "seed-practice"
+      "text": "聖凡雙修，道制在生活 內修外德，一世成就 修練分為兩個核心部分，缺一不可 身體以內的修為，包含修心與禪修功法。透過「禪修」修練出先天的能量（靈流），讓靈性往上提升。 身體以外，用身體行為去創造的功德與福德。功德未來會轉換成「長生果」，加持靈性提升。 「天上沒有無功德的神。」 適合現代人的修練方式 不需盤腿，採自然坐姿。頭正頸直、腰肩放鬆、雙腳平放，避免傷害脊椎與腿部，適合現代人。 無需特定子時午時，隨時都可練功。40 分鐘一個單元，配合現代生活節奏。 只要環境乾淨即可，在家客廳也能修練。不須特別去廟裡或道場。 教導學員自行設立「結界」，在打坐時保護空間清淨，避免外靈干擾，如同為修練上一道保護。 包含動態與靜態功法，甚至有「臥禪」——躺著也能修練，非常適合忙碌的現代人。 透過實修，自己能驗證修行的成果：唾液變甜代表能量進入正確位置，第六感敏銳表示靈性提升。 道制在生活，遵循法理、尋求自然 保持原有家庭、工作與生活，聖凡雙修。 不強調反覆誦讀經典，而重在實修與心悟。 吉祥坐自然坐姿，保護腿部與脊椎。 修行應是自然的，無需刻意讓身體受苦。 入門不需發重誓，隨緣修行。 僅法會上課吃素，平時隨緣，層次到了自然改變。 開悟前都叫修行，開悟之後才叫修道。開悟是修道的開始。 在人世間即可驗證修行成果 代表能量真的有進入到正確的位置，身體產生明顯的變化。 代表靈性有提升，與宇宙能量的連結更加緊密。 「這兩個部分可以在你人世間的時候，證明中天功法、能量功法是正確的，而且你未來的果位是可期的。」 深入了解中天法界的真實記錄 一世成就之法，天上果位人間證。 © 2026 中天法門第一動畫官網 · All rights reserved.",
+      "summary": "聖凡雙修，道制在生活 內修外德，一世成就 修練分為兩個核心部分，缺一不可 身體以內的修為，包含修心與禪修功法。 透過「禪修」修練出先天的能量（靈流），讓靈性往上提升。 身體以外，用身體行為去創造的功德與福德。 」 適合現代人的修練方式 不需盤腿，採自然坐姿。 道制在生活，遵循法理、尋求自然 保持原有家庭、工作與生活，聖凡雙修。",
+      "keywords": [
+        "聖凡雙修",
+        "道制在生活",
+        "內修外德",
+        "修練分為兩個",
+        "核心部分",
+        "缺一不可",
+        "身體以內的修",
+        "包含修心與禪",
+        "修功法",
+        "透過",
+        "禪修",
+        "修練出先天的"
+      ],
+      "links": [
+        {
+          "url": "https://web.wuwuji.tw/index",
+          "text": "中天法門 第一動畫官網"
+        },
+        {
+          "url": "https://web.wuwuji.tw/index",
+          "text": "首頁"
+        },
+        {
+          "url": "https://web.wuwuji.tw/about",
+          "text": "認識中天"
+        },
+        {
+          "url": "https://web.wuwuji.tw/cosmos",
+          "text": "宇宙觀"
+        },
+        {
+          "url": "https://web.wuwuji.tw/practice",
+          "text": "修行之道"
+        },
+        {
+          "url": "https://web.wuwuji.tw/book_adventure",
+          "text": "天堂遊記"
+        },
+        {
+          "url": "https://web.wuwuji.tw/history",
+          "text": "發展歷程"
+        },
+        {
+          "url": "https://web.wuwuji.tw/seminar",
+          "text": "說明會報名"
+        },
+        {
+          "url": "https://web.wuwuji.tw/book_adventure",
+          "text": "開始閱讀"
+        },
+        {
+          "url": "https://web.wuwuji.tw/about",
+          "text": "認識中天"
+        },
+        {
+          "url": "https://web.wuwuji.tw/cosmos",
+          "text": "宇宙觀"
+        },
+        {
+          "url": "https://web.wuwuji.tw/practice",
+          "text": "修行之道"
+        },
+        {
+          "url": "https://web.wuwuji.tw/book_adventure",
+          "text": "天堂遊記"
+        },
+        {
+          "url": "https://web.wuwuji.tw/history",
+          "text": "發展歷程"
+        },
+        {
+          "url": "https://web.wuwuji.tw/seminar",
+          "text": "說明會報名"
+        },
+        {
+          "url": "https://www.wuwuji.tw/forum",
+          "text": "中天園地"
+        }
+      ],
+      "content_sha256": "e6c87293251286f0a01edcc89f318a057c453327a1b70b9aaf78196e780815f6",
+      "first_seen_at": "2026-09-21T18:09:44.673895+00:00",
+      "last_changed_at": "2026-09-21T18:09:44.673898+00:00",
+      "retrieved_at": "2026-09-21T18:09:44.673900+00:00"
     },
     {
       "url": "https://web.wuwuji.tw/book_adventure",
       "source_type": "official",
-      "title": "中天天堂遊記",
-      "summary": "官方頁面介紹《中天天堂遊記》，並說明其採遊戲化閱讀形式，分成多個章節與修練挑戰；頁面將本書定位為介紹中天法門宇宙觀的內容入口。",
-      "keywords": [
-        "中天天堂遊記",
-        "章節",
-        "修練挑戰",
-        "宇宙觀"
+      "title": "中天天堂遊記｜中天法門第一動畫官網",
+      "description": "中天天堂遊記 - 遊戲化閱讀體驗。",
+      "headings": [
+        {
+          "level": 1,
+          "text": "中天天堂遊記"
+        },
+        {
+          "level": 2,
+          "text": "關於本書"
+        },
+        {
+          "level": 3,
+          "text": "標題"
+        },
+        {
+          "level": 2,
+          "text": "章節標題"
+        },
+        {
+          "level": 2,
+          "text": "修練挑戰"
+        },
+        {
+          "level": 3,
+          "text": "龍龍說..."
+        },
+        {
+          "level": 1,
+          "text": "章節突破!"
+        }
       ],
-      "content_sha256": "seed-book"
+      "text": "邊讀邊記・寓教於樂 麒麟法師 著 《中天天堂遊記》是一部記錄靈界真相的珍貴典籍，由麒麟法師以真靈實相遊歷天界，揭示中天法門的殊勝與宇宙法界的奧秘。 此為「遊戲化修練版」，將遊記分為多個關卡。讀者化身為修道者，需一集一集閱讀並通過「修練挑戰」方可前進。 描述 歡迎來到中天天堂遊記！ 恭喜晉升到下一階段 「中天法門」是「一世成就」之法，不是「累世銜接」之法。 正說明著在此生之年，自性必能得渡，永證蓮品。 © 2026 中天法門第一動畫官網 All rights reserved.",
+      "summary": "邊讀邊記・寓教於樂 麒麟法師 著 《中天天堂遊記》是一部記錄靈界真相的珍貴典籍，由麒麟法師以真靈實相遊歷天界，揭示中天法門的殊勝與宇宙法界的奧秘。 此為「遊戲化修練版」，將遊記分為多個關卡。 讀者化身為修道者，需一集一集閱讀並通過「修練挑戰」方可前進。 描述 歡迎來到中天天堂遊記！ 恭喜晉升到下一階段 「中天法門」是「一世成就」之法，不是「累世銜接」之法。",
+      "keywords": [
+        "之法",
+        "邊讀邊記",
+        "寓教於樂",
+        "麒麟法師",
+        "中天天堂遊記",
+        "是一部記錄靈",
+        "界真相的珍貴",
+        "典籍",
+        "由麒麟法師以",
+        "真靈實相遊歷",
+        "天界",
+        "揭示中天法門"
+      ],
+      "links": [
+        {
+          "url": "https://web.wuwuji.tw/index",
+          "text": "中天法門 第一動畫官網"
+        },
+        {
+          "url": "https://web.wuwuji.tw/index",
+          "text": "首頁"
+        },
+        {
+          "url": "https://web.wuwuji.tw/about",
+          "text": "認識中天"
+        },
+        {
+          "url": "https://web.wuwuji.tw/cosmos",
+          "text": "宇宙觀"
+        },
+        {
+          "url": "https://web.wuwuji.tw/practice",
+          "text": "修行之道"
+        },
+        {
+          "url": "https://web.wuwuji.tw/book_adventure",
+          "text": "天堂遊記"
+        },
+        {
+          "url": "https://web.wuwuji.tw/history",
+          "text": "發展歷程"
+        },
+        {
+          "url": "https://web.wuwuji.tw/seminar",
+          "text": "說明會報名"
+        },
+        {
+          "url": "https://web.wuwuji.tw/about",
+          "text": "認識中天"
+        },
+        {
+          "url": "https://web.wuwuji.tw/cosmos",
+          "text": "宇宙觀"
+        },
+        {
+          "url": "https://web.wuwuji.tw/practice",
+          "text": "修行之道"
+        },
+        {
+          "url": "https://web.wuwuji.tw/book_adventure",
+          "text": "天堂遊記"
+        },
+        {
+          "url": "https://web.wuwuji.tw/history",
+          "text": "發展歷程"
+        },
+        {
+          "url": "https://web.wuwuji.tw/seminar",
+          "text": "說明會報名"
+        },
+        {
+          "url": "https://www.wuwuji.tw/forum",
+          "text": "中天園地"
+        }
+      ],
+      "content_sha256": "aa849564fcc55a21874e29dc2429433ae0f1f802454581955c72a5b571caf16e",
+      "first_seen_at": "2026-09-21T18:09:44.673902+00:00",
+      "last_changed_at": "2026-09-21T18:09:44.673904+00:00",
+      "retrieved_at": "2026-09-21T18:09:44.673906+00:00"
     },
     {
       "url": "https://web.wuwuji.tw/history",
       "source_type": "official",
-      "title": "發展歷程",
-      "summary": "官方發展歷程頁面從2005年的成立相關紀錄一路列出各年度事件，包括2006年中天正式啟動、各地班別、總壇與儀式，以及2024、2025年的班別入門等發展節點。",
-      "keywords": [
-        "發展歷程",
-        "2005",
-        "2006",
-        "東山總壇",
-        "班別"
+      "title": "發展歷程｜中天法門第一動畫官網",
+      "description": "中天法門發展歷程 - 從2005年創立至今的重要里程碑，見證中天法門的成長與發展。",
+      "headings": [
+        {
+          "level": 1,
+          "text": "發展歷程"
+        },
+        {
+          "level": 3,
+          "text": "東山總壇第二十八班入門"
+        },
+        {
+          "level": 3,
+          "text": "東山總壇第二十七班入門"
+        },
+        {
+          "level": 3,
+          "text": "東山總壇第二十六班入門"
+        },
+        {
+          "level": 3,
+          "text": "中天法門仙修二班正第1堂開始"
+        },
+        {
+          "level": 3,
+          "text": "東山總壇第二十五班入門"
+        },
+        {
+          "level": 3,
+          "text": "第一次「說明會講師班」集訓"
+        },
+        {
+          "level": 3,
+          "text": "蓮花子黃金龍開光"
+        },
+        {
+          "level": 3,
+          "text": "東山總壇第二十四班入門"
+        },
+        {
+          "level": 3,
+          "text": "中天福德宮財氣孔開光啟用科儀"
+        },
+        {
+          "level": 3,
+          "text": "東山總壇第二十三班入門"
+        },
+        {
+          "level": 3,
+          "text": "中天法門福德正神首席安座大典"
+        },
+        {
+          "level": 3,
+          "text": "東山總壇第二十二班入門"
+        },
+        {
+          "level": 3,
+          "text": "中天法門福德正神首席入座"
+        },
+        {
+          "level": 3,
+          "text": "中天法門迎賓帝君文君帝君立基安座大典"
+        },
+        {
+          "level": 3,
+          "text": "中天法門東山總壇第一次法會"
+        },
+        {
+          "level": 3,
+          "text": "台北總壇第十九班入門"
+        },
+        {
+          "level": 3,
+          "text": "東山總壇上樑儀式"
+        },
+        {
+          "level": 3,
+          "text": "台北總壇第十八班入門"
+        },
+        {
+          "level": 3,
+          "text": "台北總壇第十七班入門"
+        },
+        {
+          "level": 3,
+          "text": "中天法門總壇：情定台南東山動土典禮"
+        },
+        {
+          "level": 3,
+          "text": "台北總壇第十六班入門"
+        },
+        {
+          "level": 3,
+          "text": "台北總壇第十五班入門"
+        },
+        {
+          "level": 3,
+          "text": "台北總壇第十四班入門"
+        },
+        {
+          "level": 3,
+          "text": "仙修班第一班祖師心法傳承"
+        },
+        {
+          "level": 3,
+          "text": "台北總壇仙修班第一班開學典禮"
+        },
+        {
+          "level": 3,
+          "text": "《禪修者的靈幻之旅．中天天堂遊記》全台上市"
+        },
+        {
+          "level": 3,
+          "text": "第一屆麒麟團隊會員助道大會"
+        },
+        {
+          "level": 3,
+          "text": "法界正式認證麒麟團隊"
+        },
+        {
+          "level": 3,
+          "text": "中天法門台北總壇開光典禮"
+        },
+        {
+          "level": 3,
+          "text": "南投名間鄉第六班入門"
+        },
+        {
+          "level": 3,
+          "text": "南投名間鄉第二班入門"
+        },
+        {
+          "level": 3,
+          "text": "南投名間鄉第一班（長老）第一堂課"
+        },
+        {
+          "level": 3,
+          "text": "中天正式啟動"
+        },
+        {
+          "level": 3,
+          "text": "成立中天無無極至尊玉皇上帝大天尊＝麒麟法師家族"
+        },
+        {
+          "level": 2,
+          "text": "加入修行之路"
+        }
       ],
-      "content_sha256": "seed-history"
+      "text": "從 2005 年創立至今 見證中天法門的成長與發展 同日：東山總壇第二十一班入門 同日：東山總壇第二十班入門 是為九大行星系中天法門麒麟團隊節 台北縣中和舉行長老說明會 （Yahoo 網路社群） 正法期的殊勝機緣，期待您的參與 一世成就之法，天上果位人間證。 © 2026 中天法門第一動畫官網 · All rights reserved.",
+      "summary": "從 2005 年創立至今 見證中天法門的成長與發展 同日：東山總壇第二十一班入門 同日：東山總壇第二十班入門 是為九大行星系中天法門麒麟團隊節 台北縣中和舉行長老說明會 （Yahoo 網路社群） 正法期的殊勝機緣，期待您的參與 一世成就之法，天上果位人間證。 © 2026 中天法門第一動畫官網 · All rights reserved.",
+      "keywords": [
+        "同日",
+        "東山總壇第二",
+        "年創立至今",
+        "見證中天法門",
+        "的成長與發展",
+        "十一班入門",
+        "十班入門",
+        "是為九大行星",
+        "系中天法門麒",
+        "麟團隊節",
+        "台北縣中和舉",
+        "行長老說明會"
+      ],
+      "links": [
+        {
+          "url": "https://web.wuwuji.tw/index",
+          "text": "中天法門 第一動畫官網"
+        },
+        {
+          "url": "https://web.wuwuji.tw/index",
+          "text": "首頁"
+        },
+        {
+          "url": "https://web.wuwuji.tw/about",
+          "text": "認識中天"
+        },
+        {
+          "url": "https://web.wuwuji.tw/cosmos",
+          "text": "宇宙觀"
+        },
+        {
+          "url": "https://web.wuwuji.tw/practice",
+          "text": "修行之道"
+        },
+        {
+          "url": "https://web.wuwuji.tw/book_adventure",
+          "text": "天堂遊記"
+        },
+        {
+          "url": "https://web.wuwuji.tw/history",
+          "text": "發展歷程"
+        },
+        {
+          "url": "https://web.wuwuji.tw/seminar",
+          "text": "說明會報名"
+        },
+        {
+          "url": "https://web.wuwuji.tw/about",
+          "text": "認識中天法門"
+        },
+        {
+          "url": "https://web.wuwuji.tw/about",
+          "text": "認識中天"
+        },
+        {
+          "url": "https://web.wuwuji.tw/cosmos",
+          "text": "宇宙觀"
+        },
+        {
+          "url": "https://web.wuwuji.tw/practice",
+          "text": "修行之道"
+        },
+        {
+          "url": "https://web.wuwuji.tw/book_adventure",
+          "text": "天堂遊記"
+        },
+        {
+          "url": "https://web.wuwuji.tw/history",
+          "text": "發展歷程"
+        },
+        {
+          "url": "https://web.wuwuji.tw/seminar",
+          "text": "說明會報名"
+        },
+        {
+          "url": "https://www.wuwuji.tw/forum",
+          "text": "中天園地"
+        }
+      ],
+      "content_sha256": "ceafb55fcf7f3a04c17b978380db8c7ecacb353d369eecf4dff7ab840d059323",
+      "first_seen_at": "2026-09-21T18:09:44.673908+00:00",
+      "last_changed_at": "2026-09-21T18:09:44.673911+00:00",
+      "retrieved_at": "2026-09-21T18:09:44.673913+00:00"
     },
     {
       "url": "https://web.wuwuji.tw/seminar",
       "source_type": "official",
-      "title": "說明會報名",
-      "summary": "官方說明會頁面介紹說明會用途、課程精神與目前可報名場次，並說明說明會是先了解中天法門再決定是否參加的入口。",
-      "keywords": [
-        "說明會",
-        "報名",
-        "課程精神",
-        "場次"
+      "title": "說明會報名｜中天法門第一動畫官網",
+      "description": "中天法門說明會報名 - 先了解生命課題與高級禪修班，再決定是否參加。",
+      "headings": [
+        {
+          "level": 1,
+          "text": "說明會報名"
+        },
+        {
+          "level": 2,
+          "text": "說明會影片"
+        },
+        {
+          "level": 2,
+          "text": "提升智慧能量的課程"
+        },
+        {
+          "level": 2,
+          "text": "適合這堂課的人"
+        },
+        {
+          "level": 2,
+          "text": "先了解，再決定"
+        },
+        {
+          "level": 2,
+          "text": "093台北長安西路場"
+        },
+        {
+          "level": 2,
+          "text": "說明會報名"
+        },
+        {
+          "level": 2,
+          "text": "提示"
+        }
       ],
-      "content_sha256": "seed-seminar"
+      "text": "先了解生命課題與課程精神，再選擇適合的場次報名。 先用幾分鐘了解中天法門說明會的核心精神。 你有沒有想過，人來到這個世界是為了什麼？如果有一個課程，可以讓你了解生命課題、改善精神質量、提升靈性能量，並且讓心境更加平安喜樂，你願不願意先花 2-3 個小時了解看看？中天法門高級禪修班不收學費，說明會就是讓你先了解，再決定是否參加。 如錯過說明會想報名座談會請洽 麒麟法師信箱（ [email protected] ） 曾經想參加禪修班但還沒有開始的人；尋尋覓覓卻沒有找到合適宗教或團體的人；生命中反覆出現難以跨越課題的人；想突破生命盲點、提升自我靈性的人；曾經思考人生從何處來、死往何處去的人。以上只要有一項符合，都歡迎參加說明會。 如錯過說明會想報名座談會請洽 麒麟法師信箱（ [email protected] ） 如果你想更完整認識中天法門，也可以從書籍與天堂遊記開始。說明會現場會引導你理解課程精神、參與方式與後續安排。 如錯過說明會想報名座談會請洽 麒麟法師信箱（ [email protected] ） 請留下聯絡資料，我們會依你選擇的場次安排後續聯繫。 送出後，報名內容會記錄在後台「說明會管理 / 報名管理」。 一世成就之法，天上果位人間證。 © 2026 中天法門第一動畫官網 · All rights reserved.",
+      "summary": "先了解生命課題與課程精神，再選擇適合的場次報名。 先用幾分鐘了解中天法門說明會的核心精神。 如錯過說明會想報名座談會請洽 麒麟法師信箱（ [email protected] ） 曾經想參加禪修班但還沒有開始的人； 如錯過說明會想報名座談會請洽 麒麟法師信箱（ [email protected] ） 如果你想更完整認識中天法門，也可以從書籍與天堂遊記開始。 如錯過說明會想報名座談會請洽 麒麟法師信箱（ [email protected] ） 請留下聯絡資料，我們會依你選擇的場次安排後續聯繫。",
+      "keywords": [
+        "如錯過說明會",
+        "想報名座談會",
+        "請洽",
+        "麒麟法師信箱",
+        "email",
+        "protected",
+        "先了解生命課",
+        "題與課程精神",
+        "再選擇適合的",
+        "場次報名",
+        "先用幾分鐘了",
+        "解中天法門說"
+      ],
+      "links": [
+        {
+          "url": "https://web.wuwuji.tw/index",
+          "text": "中天法門 第一動畫官網"
+        },
+        {
+          "url": "https://web.wuwuji.tw/index",
+          "text": "首頁"
+        },
+        {
+          "url": "https://web.wuwuji.tw/about",
+          "text": "認識中天"
+        },
+        {
+          "url": "https://web.wuwuji.tw/cosmos",
+          "text": "宇宙觀"
+        },
+        {
+          "url": "https://web.wuwuji.tw/practice",
+          "text": "修行之道"
+        },
+        {
+          "url": "https://web.wuwuji.tw/book_adventure",
+          "text": "天堂遊記"
+        },
+        {
+          "url": "https://web.wuwuji.tw/history",
+          "text": "發展歷程"
+        },
+        {
+          "url": "https://web.wuwuji.tw/seminar",
+          "text": "說明會報名"
+        },
+        {
+          "url": "https://web.wuwuji.tw/cdn-cgi/l/email-protection",
+          "text": "[email protected]"
+        },
+        {
+          "url": "https://web.wuwuji.tw/cdn-cgi/l/email-protection",
+          "text": "[email protected]"
+        },
+        {
+          "url": "https://web.wuwuji.tw/cdn-cgi/l/email-protection",
+          "text": "[email protected]"
+        },
+        {
+          "url": "https://web.wuwuji.tw/book_adventure",
+          "text": "閱讀天堂遊記"
+        },
+        {
+          "url": "https://web.wuwuji.tw/about",
+          "text": "認識中天"
+        },
+        {
+          "url": "https://web.wuwuji.tw/cosmos",
+          "text": "宇宙觀"
+        },
+        {
+          "url": "https://web.wuwuji.tw/practice",
+          "text": "修行之道"
+        },
+        {
+          "url": "https://web.wuwuji.tw/book_adventure",
+          "text": "天堂遊記"
+        },
+        {
+          "url": "https://web.wuwuji.tw/history",
+          "text": "發展歷程"
+        },
+        {
+          "url": "https://web.wuwuji.tw/seminar",
+          "text": "說明會報名"
+        },
+        {
+          "url": "https://www.wuwuji.tw/forum",
+          "text": "中天園地"
+        }
+      ],
+      "content_sha256": "af6b41b3f777a44dd565619c5d63f5d6b95ce8c00e52bb0cb54c4786b0d3c9fc",
+      "first_seen_at": "2026-09-21T18:09:44.673915+00:00",
+      "last_changed_at": "2026-09-21T18:09:44.673917+00:00",
+      "retrieved_at": "2026-09-21T18:09:44.673919+00:00"
     }
   ]
 }
