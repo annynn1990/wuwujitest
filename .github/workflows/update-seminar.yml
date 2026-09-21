@@ -3,9 +3,6 @@ name: 自動更新中天法門說明會
 on:
   workflow_dispatch:
 
-  schedule:
-    - cron: "0 */6 * * *"
-
 permissions:
   contents: write
 
@@ -22,22 +19,20 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: 執行同步
-        continue-on-error: true
+      - name: 執行 Python
         run: |
           python scripts/update_seminar.py
 
-      - name: 顯示診斷
+      - name: 顯示結果
         if: always()
         run: |
-          echo "===== DEBUG ====="
+          echo "===== seminar-debug.json ====="
           cat seminar-debug.json || true
 
-          echo ""
-          echo "===== DATA ====="
+          echo "===== seminar-data.json ====="
           cat seminar-data.json || true
 
-      - name: 提交診斷結果
+      - name: 提交結果
         if: always()
         run: |
           git config user.name "github-actions[bot]"
@@ -46,6 +41,6 @@ jobs:
           git add seminar-data.json seminar-debug.json
 
           if ! git diff --cached --quiet; then
-            git commit -m "更新中天法門說明會診斷資料"
+            git commit -m "更新中天法門說明會資料"
             git push
           fi
