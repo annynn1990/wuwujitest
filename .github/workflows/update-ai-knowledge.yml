@@ -4,6 +4,12 @@ name: 更新中天法門 AI GEO 知識庫
 on:
   workflow_dispatch:
 
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "ai-knowledge/**"
+
   schedule:
     - cron: "0 3 */3 * *"
 
