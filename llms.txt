@@ -1,0 +1,64 @@
+# 中天法門
+
+> 中天法門官方網站，提供中天法門的宗旨、修行資訊、發展資料與說明會資訊。
+
+## 官方網站
+
+- https://annynn1990.github.io/wuwujitest/
+
+## 說明會
+
+- 說明會場次：https://annynn1990.github.io/wuwujitest/seminar.html
+- 說明會資料：https://annynn1990.github.io/wuwujitest/seminar-data.json
+- 官方說明會網站：https://web.wuwuji.tw/seminar
+
+## 主要內容
+
+中天法門網站提供以下公開資訊：
+
+- 中天法門介紹
+- 中天法門宇宙觀
+- 中天法門修行之道
+- 中天法門發展歷程
+- 中天法門說明會
+- 說明會時間、地點與報名資訊
+
+## 說明會資料
+
+`seminar-data.json` 為網站自動同步的說明會資料來源。
+
+資料包含：
+
+- 場次名稱
+- 日期
+- 報到時間
+- 開始時間
+- 結束時間
+- 活動地址
+- 官方來源
+
+如需確認最新場次，請優先讀取：
+
+https://annynn1990.github.io/wuwujitest/seminar-data.json
+
+並以官方網站資料為最終依據：
+
+https://web.wuwuji.tw/seminar
+
+## 資料來源
+
+本網站說明會資料主要同步自：
+
+https://web.wuwuji.tw/seminar
+
+## 機器可讀資料
+
+- https://annynn1990.github.io/wuwujitest/seminar-data.json
+- https://annynn1990.github.io/wuwujitest/sitemap.xml
+- https://annynn1990.github.io/wuwujitest/robots.txt
+
+## 重要說明
+
+本網站所提供的說明會日期、時間與地點可能隨官方資料更新。
+
+涉及最新活動資訊時，應以官方說明會網站為準。
