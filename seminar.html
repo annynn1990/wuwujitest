@@ -1,139 +1,311 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
-
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>中天法門說明會｜最新場次與同步診斷</title>
+<title>中天法門說明會｜最新場次、時間與地點</title>
 
 <meta
-name="description"
-content="中天法門說明會最新場次，以及自動同步資料的診斷資訊。">
+    name="description"
+    content="中天法門說明會最新場次資訊，提供活動日期、報到時間、開始時間、結束時間、活動地點與地址，資料自動同步並提供官方來源查詢。"
+>
 
-<link rel="canonical"
-href="https://annynn1990.github.io/wuwujitest/seminar.html">
+<meta
+    name="robots"
+    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+>
+
+<meta
+    name="googlebot"
+    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+>
+
+<link
+    rel="canonical"
+    href="https://annynn1990.github.io/wuwujitest/seminar.html"
+>
+
+<link
+    rel="alternate"
+    hreflang="zh-TW"
+    href="https://annynn1990.github.io/wuwujitest/seminar.html"
+>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta
+    property="og:title"
+    content="中天法門說明會｜最新場次、時間與地點"
+>
+<meta
+    property="og:description"
+    content="查看中天法門說明會最新場次、日期、時間與活動地點。"
+>
+<meta
+    property="og:url"
+    content="https://annynn1990.github.io/wuwujitest/seminar.html"
+>
+<meta property="og:locale" content="zh_TW">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary">
+<meta
+    name="twitter:title"
+    content="中天法門說明會｜最新場次、時間與地點"
+>
+<meta
+    name="twitter:description"
+    content="查看中天法門說明會最新場次、日期、時間與活動地點。"
+>
+
+<!-- WebSite / WebPage / Breadcrumb -->
+<script type="application/ld+json" id="site-schema">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebSite",
+            "@id": "https://annynn1990.github.io/wuwujitest/#website",
+            "url": "https://annynn1990.github.io/wuwujitest/",
+            "name": "中天法門",
+            "inLanguage": "zh-TW"
+        },
+        {
+            "@type": "WebPage",
+            "@id": "https://annynn1990.github.io/wuwujitest/seminar.html#webpage",
+            "url": "https://annynn1990.github.io/wuwujitest/seminar.html",
+            "name": "中天法門說明會｜最新場次、時間與地點",
+            "description": "中天法門說明會最新場次資訊。",
+            "isPartOf": {
+                "@id": "https://annynn1990.github.io/wuwujitest/#website"
+            },
+            "inLanguage": "zh-TW"
+        },
+        {
+            "@type": "BreadcrumbList",
+            "@id": "https://annynn1990.github.io/wuwujitest/seminar.html#breadcrumb",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "首頁",
+                    "item": "https://annynn1990.github.io/wuwujitest/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "說明會",
+                    "item": "https://annynn1990.github.io/wuwujitest/seminar.html"
+                }
+            ]
+        }
+    ]
+}
+</script>
+
+<!-- 動態活動 Schema -->
+<script type="application/ld+json" id="event-schema">
+{
+    "@context": "https://schema.org",
+    "@graph": []
+}
+</script>
 
 <style>
 
+:root {
+    --bg: #07111f;
+    --panel: #102238;
+    --panel2: #0b192b;
+    --border: #27405c;
+    --text: #eef5ff;
+    --muted: #aebfd3;
+    --gold: #f3c969;
+    --green: #57d68d;
+    --red: #ff6868;
+    --orange: #ffb84d;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
+    background: var(--bg);
+    color: var(--text);
     font-family:
         Arial,
         "Microsoft JhengHei",
         "Noto Sans TC",
         sans-serif;
-
-    background: #07111f;
-    color: #eef5ff;
     line-height: 1.8;
 }
 
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 30px 20px;
+a {
+    color: var(--gold);
 }
 
-nav {
+.container {
+    width: min(1100px, calc(100% - 32px));
+    margin: auto;
+    padding: 24px 0 60px;
+}
+
+/* 導航 */
+
+.nav {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 30px;
-    padding-bottom: 18px;
-    border-bottom: 1px solid #27405c;
 }
 
-nav a {
+.nav a {
     display: inline-block;
-    padding: 8px 16px;
-    border-radius: 20px;
-    color: #dcecff;
+    padding: 9px 16px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
     text-decoration: none;
-    border: 1px solid #45617e;
+    color: var(--text);
+    background: rgba(255,255,255,0.03);
 }
 
-nav a:hover {
-    background: #102238;
-    color: #f3c969;
+.nav a:hover {
+    border-color: var(--gold);
 }
+
+/* 標題 */
 
 h1 {
-    color: #f3c969;
+    color: var(--gold);
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.3;
+    margin-bottom: 10px;
 }
 
 h2 {
-    margin-top: 40px;
+    margin-top: 42px;
+    color: var(--gold);
 }
 
 h3 {
-    color: #f3c969;
+    margin-top: 0;
+    color: var(--gold);
 }
 
 .lead {
-    color: #aebfd3;
-    font-size: 1.1rem;
+    color: var(--muted);
+    font-size: 1.12rem;
 }
 
-.notice {
-    margin: 20px 0;
-    padding: 20px;
-    border-left: 5px solid #f3c969;
-    background: rgba(243, 201, 105, 0.08);
-    border-radius: 8px;
+/* 按鈕 */
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 22px 0;
 }
 
-.success {
-    border-left-color: #57d68d;
-}
-
-.error {
-    border-left-color: #ff6868;
-}
-
-.warning {
-    border-left-color: #ffb84d;
-}
-
-.event {
-    margin: 15px 0;
-    padding: 22px;
-    background: #102238;
-    border: 1px solid #27405c;
-    border-radius: 15px;
-}
-
-.event h3 {
-    margin-top: 0;
-}
-
-button,
-.btn {
+.btn,
+button {
     display: inline-block;
-    padding: 12px 20px;
-    border: 0;
-    border-radius: 30px;
-    background: #f3c969;
+    padding: 11px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--gold);
+    background: var(--gold);
     color: #111;
     font-weight: bold;
-    cursor: pointer;
     text-decoration: none;
-    margin: 5px;
+    cursor: pointer;
 }
 
 .btn.secondary {
     background: transparent;
-    color: white;
-    border: 1px solid #45617e;
+    color: var(--text);
+    border-color: var(--border);
 }
+
+/* 卡片 */
+
+.notice {
+    margin: 20px 0;
+    padding: 18px 20px;
+    border-left: 5px solid var(--gold);
+    background: rgba(243, 201, 105, 0.08);
+    border-radius: 10px;
+}
+
+.success {
+    border-left-color: var(--green);
+}
+
+.error {
+    border-left-color: var(--red);
+}
+
+.warning {
+    border-left-color: var(--orange);
+}
+
+.event-list {
+    display: grid;
+    gap: 18px;
+}
+
+.event {
+    padding: 22px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.event:hover {
+    border-color: var(--gold);
+}
+
+.event-date {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--gold);
+}
+
+.event-row {
+    margin: 7px 0;
+}
+
+.label {
+    display: inline-block;
+    min-width: 80px;
+    color: var(--muted);
+    font-weight: bold;
+}
+
+.event-address {
+    margin-top: 12px;
+    padding: 12px;
+    background: var(--panel2);
+    border-radius: 8px;
+}
+
+.source {
+    margin-top: 14px;
+    font-size: .9rem;
+    color: var(--muted);
+}
+
+/* JSON */
 
 pre {
     background: #030914;
-    border: 1px solid #27405c;
-    padding: 20px;
+    border: 1px solid var(--border);
+    padding: 18px;
     border-radius: 10px;
     white-space: pre-wrap;
     word-break: break-word;
@@ -141,208 +313,485 @@ pre {
     color: #b9d7ef;
 }
 
-code {
-    color: #f3c969;
-}
+/* Footer */
 
-.small {
-    color: #8fa6bc;
+footer {
+    margin-top: 50px;
+    padding-top: 25px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
     font-size: .9rem;
 }
 
-.footer-links {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #27405c;
+footer a {
+    margin-right: 15px;
 }
 
-.footer-links a {
-    color: #f3c969;
-    margin-right: 18px;
+/* 手機 */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: min(100% - 22px, 1100px);
+    }
+
+    .event {
+        padding: 18px;
+    }
+
+    .label {
+        display: block;
+        margin-bottom: 2px;
+    }
+
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-<div class="container">
+<main class="container">
 
-<!-- ==================== -->
-<!-- 網站導覽 -->
-<!-- ==================== -->
+    <!-- 網站導覽 -->
+    <nav class="nav" aria-label="主要網站導覽">
 
-<nav>
+        <a href="index.html">
+            ← 返回首頁
+        </a>
 
-    <a href="index.html">
-        ← 返回首頁
-    </a>
+        <a href="seminar.html">
+            說明會場次
+        </a>
 
-    <a href="seminar.html">
-        說明會場次
-    </a>
+        <a
+            href="https://web.wuwuji.tw/seminar"
+            target="_blank"
+            rel="noopener"
+        >
+            官方說明會
+        </a>
 
-    <a
-        href="https://web.wuwuji.tw/seminar"
-        target="_blank"
-        rel="noopener">
-        官方說明會
-    </a>
+    </nav>
 
-</nav>
 
+    <!-- 頁面主要資訊 -->
 
-<h1>
-中天法門說明會
-</h1>
+    <header>
 
+        <h1>
+            中天法門說明會
+        </h1>
 
-<p class="lead">
-自動同步場次與錯誤診斷
-</p>
+        <p class="lead">
+            最新說明會場次、日期、時間與活動地點。
+            本頁資料由公開來源自動同步，並提供原始 JSON 資料供搜尋引擎、AI 系統及其他程式讀取。
+        </p>
 
+        <div class="buttons">
 
-<a
-class="btn"
-href="https://web.wuwuji.tw/seminar"
-target="_blank"
-rel="noopener">
+            <a
+                class="btn"
+                href="https://web.wuwuji.tw/seminar"
+                target="_blank"
+                rel="noopener"
+            >
+                查看官方說明會
+            </a>
 
-查看官方說明會
+            <a
+                class="btn secondary"
+                href="seminar-data.json"
+            >
+                查看 JSON 資料
+            </a>
 
-</a>
+            <button onclick="checkData()">
+                重新檢查資料
+            </button>
 
+        </div>
 
-<button
-onclick="checkData()">
+    </header>
 
-重新檢查資料
 
-</button>
+    <!-- 搜尋引擎 / AI 可讀的頁面摘要 -->
 
+    <section
+        aria-labelledby="about-title"
+        class="notice"
+    >
 
-<!-- ==================== -->
-<!-- 狀態 -->
-<!-- ==================== -->
+        <h2 id="about-title">
+            中天法門說明會資訊
+        </h2>
 
-<div
-id="status"
-class="notice">
+        <p>
+            本頁整理中天法門目前公開的說明會場次，
+            包含活動日期、報到時間、開始時間、結束時間及活動地址。
+            最新資料會由網站同步程式更新。
+        </p>
 
-正在檢查資料……
+        <p>
+            如需確認最新或臨時異動資訊，
+            請同時參考中天法門官方說明會網站。
+        </p>
 
-</div>
+    </section>
 
 
-<!-- ==================== -->
-<!-- 診斷 -->
-<!-- ==================== -->
+    <!-- 系統狀態 -->
 
-<h2>
-同步診斷
-</h2>
+    <section aria-labelledby="status-title">
 
+        <h2 id="status-title">
+            資料同步狀態
+        </h2>
 
-<div
-id="diagnostic">
+        <div
+            id="status"
+            class="notice"
+            aria-live="polite"
+        >
+            正在檢查資料……
+        </div>
 
-正在診斷……
+    </section>
 
-</div>
 
+    <!-- 診斷 -->
 
-<!-- ==================== -->
-<!-- 場次 -->
-<!-- ==================== -->
+    <section aria-labelledby="diagnostic-title">
 
-<h2>
-目前可報名場次
-</h2>
+        <h2 id="diagnostic-title">
+            同步診斷
+        </h2>
 
+        <div
+            id="diagnostic"
+            aria-live="polite"
+        >
+            正在診斷……
+        </div>
 
-<div
-id="events">
+    </section>
 
-</div>
 
+    <!-- 活動 -->
 
-<!-- ==================== -->
-<!-- 原始 JSON -->
-<!-- ==================== -->
+    <section
+        aria-labelledby="events-title"
+        itemscope
+        itemtype="https://schema.org/ItemList"
+    >
 
-<h2>
-seminar-data.json 原始內容
-</h2>
+        <h2 id="events-title" itemprop="name">
+            目前可報名場次
+        </h2>
 
+        <p>
+            以下為目前同步到的說明會資料。
+        </p>
 
-<pre
-id="raw">
+        <div
+            id="events"
+            class="event-list"
+            itemprop="itemListElement"
+        >
+        </div>
 
-尚未讀取
+    </section>
 
-</pre>
 
+    <!-- JSON -->
 
-<!-- ==================== -->
-<!-- 更新時間 -->
-<!-- ==================== -->
+    <section aria-labelledby="json-title">
 
-<h2>
-資料狀態
-</h2>
+        <h2 id="json-title">
+            機器可讀資料
+        </h2>
 
+        <p>
+            完整資料可直接讀取
+            <a href="seminar-data.json">
+                seminar-data.json
+            </a>
+            。
+        </p>
 
-<div
-id="updated"
-class="notice">
+        <pre id="raw">尚未讀取</pre>
 
-最後同步時間：讀取中……
+    </section>
 
-</div>
 
+    <!-- 更新時間 -->
 
-<p class="small">
+    <section aria-labelledby="updated-title">
 
-資料來源：
+        <h2 id="updated-title">
+            資料狀態
+        </h2>
 
-<a
-href="https://web.wuwuji.tw/seminar"
-target="_blank"
-rel="noopener">
+        <div
+            id="updated"
+            class="notice"
+        >
+            最後同步時間：讀取中……
+        </div>
 
-https://web.wuwuji.tw/seminar
+        <p>
+            資料來源：
+            <a
+                href="https://web.wuwuji.tw/seminar"
+                target="_blank"
+                rel="noopener"
+            >
+                中天法門官方說明會
+            </a>
+        </p>
 
-</a>
+    </section>
 
-</p>
 
+    <footer>
 
-<div class="footer-links">
+        <p>
+            中天法門說明會資料索引頁
+        </p>
 
-    <a href="index.html">
-        返回首頁
-    </a>
+        <p>
 
-    <a href="seminar.html">
-        說明會
-    </a>
+            <a href="index.html">
+                返回首頁
+            </a>
 
-    <a
-        href="https://web.wuwuji.tw/seminar"
-        target="_blank"
-        rel="noopener">
-        官方網站
-    </a>
+            <a href="seminar.html">
+                說明會
+            </a>
 
-</div>
+            <a href="seminar-data.json">
+                JSON 資料
+            </a>
 
+            <a
+                href="https://web.wuwuji.tw/seminar"
+                target="_blank"
+                rel="noopener"
+            >
+                官方網站
+            </a>
 
-</div>
+        </p>
+
+    </footer>
+
+</main>
 
 
 <script>
+
+/* =========================================================
+   基本工具
+========================================================= */
+
+function escapeHTML(value) {
+
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================================================
+   取得乾淨地址
+========================================================= */
+
+function cleanAddress(address) {
+
+    if (!address) {
+        return "";
+    }
+
+    let text = String(address);
+
+    const garbageMarkers = [
+        "開始報到",
+        "開始說明會",
+        "結束時間",
+        "姓名",
+        "聯絡電話",
+        "Email",
+        "報名人數",
+        "備註",
+        "送出報名",
+        "已選擇場次",
+        "中天法門"
+    ];
+
+    for (const marker of garbageMarkers) {
+
+        const index = text.indexOf(marker);
+
+        if (index > 0) {
+            text = text.substring(0, index);
+        }
+
+    }
+
+    return text
+        .replace(/\s+/g, " ")
+        .trim();
+
+}
+
+
+/* =========================================================
+   地址拆解
+========================================================= */
+
+function addressParts(address) {
+
+    const result = {
+        streetAddress: address,
+        addressLocality: "",
+        addressRegion: "台灣"
+    };
+
+    const match = address.match(
+        /^(.+?[市縣])(.+?[區鄉鎮市])(.+)$/
+    );
+
+    if (match) {
+
+        result.addressRegion = match[1];
+        result.addressLocality = match[2];
+        result.streetAddress = match[3].trim();
+
+    }
+
+    return result;
+
+}
+
+
+/* =========================================================
+   建立 Event Schema
+========================================================= */
+
+function buildEventSchema(events) {
+
+    const graph = [];
+
+    events.forEach((event, index) => {
+
+        if (!event || !event.date) {
+            return;
+        }
+
+        const address = cleanAddress(event.address);
+
+        const parts = addressParts(address);
+
+        const eventUrl =
+            window.location.origin +
+            window.location.pathname +
+            "#event-" +
+            (index + 1);
+
+        const eventItem = {
+
+            "@type": "Event",
+
+            "@id": eventUrl,
+
+            "name":
+                event.name ||
+                "中天法門說明會",
+
+            "description":
+                "中天法門說明會，提供公開場次、日期、時間與活動地點資訊。",
+
+            "startDate":
+                event.start_datetime ||
+                `${event.date}T${event.start_time || event.checkin || "13:00"}:00+08:00`,
+
+            "endDate":
+                event.end_datetime ||
+                `${event.date}T${event.end_time || "16:30"}:00+08:00`,
+
+            "eventAttendanceMode":
+                "https://schema.org/OfflineEventAttendanceMode",
+
+            "eventStatus":
+                "https://schema.org/EventScheduled",
+
+            "location": {
+
+                "@type": "Place",
+
+                "name":
+                    event.name ||
+                    "中天法門說明會場地",
+
+                "address": {
+
+                    "@type": "PostalAddress",
+
+                    "streetAddress":
+                        parts.streetAddress,
+
+                    "addressLocality":
+                        parts.addressLocality,
+
+                    "addressRegion":
+                        parts.addressRegion,
+
+                    "addressCountry":
+                        "TW"
+
+                }
+
+            },
+
+            "organizer": {
+
+                "@type": "Organization",
+
+                "name": "中天法門",
+
+                "url":
+                    "https://web.wuwuji.tw/"
+
+            },
+
+            "url":
+                eventUrl
+
+        };
+
+        graph.push(eventItem);
+
+    });
+
+
+    return {
+
+        "@context": "https://schema.org",
+
+        "@graph": graph
+
+    };
+
+}
+
+
+/* =========================================================
+   讀取資料
+========================================================= */
 
 async function checkData() {
 
@@ -364,65 +813,54 @@ async function checkData() {
 
     status.className = "notice";
 
+    status.textContent =
+        "正在讀取最新說明會資料……";
+
     diagnostic.innerHTML = "";
 
     eventsBox.innerHTML = "";
 
-    rawBox.textContent = "正在讀取……";
+    rawBox.textContent =
+        "正在讀取……";
 
     updated.textContent =
         "最後同步時間：讀取中……";
 
 
     /*
-    ----------------------------------------------
-    JSON 路徑
-    ----------------------------------------------
+        加 timestamp 防止 GitHub Pages / CDN 使用舊 JSON
     */
 
     const dataURL =
         new URL(
             "seminar-data.json",
             window.location.href
-        ).href;
+        ).href +
+        "?t=" +
+        Date.now();
 
 
     diagnostic.innerHTML += `
 
         <div class="notice">
 
-            <strong>目前網頁：</strong><br>
+            <strong>資料網址：</strong><br>
 
-            ${escapeHTML(
-                window.location.href
-            )}
-
-            <br><br>
-
-            <strong>準備讀取 JSON：</strong><br>
-
-            ${escapeHTML(
-                dataURL
-            )}
+            ${escapeHTML(dataURL)}
 
         </div>
 
     `;
 
 
-    /*
-    ----------------------------------------------
-    Fetch
-    ----------------------------------------------
-    */
-
     let response;
+
 
     try {
 
         response =
             await fetch(
-                dataURL + "?t=" + Date.now(),
+                dataURL,
                 {
                     cache: "no-store"
                 }
@@ -436,55 +874,31 @@ async function checkData() {
             "notice error";
 
         status.innerHTML = `
-
-            <strong>
-                ❌ Fetch 失敗
-            </strong>
-
+            <strong>❌ 無法讀取資料</strong>
             <br><br>
-
-            ${escapeHTML(
-                error.message
-            )}
-
+            ${escapeHTML(error.message)}
         `;
 
         rawBox.textContent =
-            "無法取得 JSON";
-
-        updated.textContent =
-            "最後同步時間：讀取失敗";
+            "無法取得 seminar-data.json";
 
         return;
+
     }
 
-
-    /*
-    ----------------------------------------------
-    HTTP
-    ----------------------------------------------
-    */
 
     diagnostic.innerHTML += `
 
         <div class="notice">
 
-            <strong>
-                HTTP 狀態：
-            </strong>
-
+            <strong>HTTP：</strong>
             ${response.status}
 
             <br>
 
-            <strong>
-                Content-Type：
-            </strong>
-
+            <strong>Content-Type：</strong>
             ${escapeHTML(
-                response.headers.get(
-                    "content-type"
-                ) || "未知"
+                response.headers.get("content-type") || ""
             )}
 
         </div>
@@ -498,93 +912,26 @@ async function checkData() {
             "notice error";
 
         status.innerHTML = `
-
             <strong>
-                ❌ JSON 讀取失敗
+                ❌ HTTP ${response.status}
             </strong>
-
-            <br><br>
-
-            HTTP：
-            ${response.status}
-
         `;
 
         rawBox.textContent =
-            "HTTP " + response.status;
+            "JSON 讀取失敗";
 
         return;
-    }
-
-
-    /*
-    ----------------------------------------------
-    讀取 JSON
-    ----------------------------------------------
-    */
-
-    let raw;
-
-    try {
-
-        raw =
-            await response.text();
 
     }
 
-    catch (error) {
-
-        status.className =
-            "notice error";
-
-        status.innerHTML = `
-
-            <strong>
-                ❌ 無法讀取 JSON
-            </strong>
-
-            <br><br>
-
-            ${escapeHTML(
-                error.message
-            )}
-
-        `;
-
-        return;
-    }
-
-
-    rawBox.textContent = raw;
-
-
-    if (!raw.trim()) {
-
-        status.className =
-            "notice error";
-
-        status.innerHTML = `
-            <strong>
-                ❌ seminar-data.json 是空的
-            </strong>
-        `;
-
-        return;
-    }
-
-
-    /*
-    ----------------------------------------------
-    JSON Parse
-    ----------------------------------------------
-    */
 
     let data;
+
 
     try {
 
         data =
-            JSON.parse(raw);
+            await response.json();
 
     }
 
@@ -594,336 +941,291 @@ async function checkData() {
             "notice error";
 
         status.innerHTML = `
-
-            <strong>
-                ❌ JSON 格式錯誤
-            </strong>
-
+            <strong>❌ JSON 格式錯誤</strong>
             <br><br>
-
-            ${escapeHTML(
-                error.message
-            )}
-
+            ${escapeHTML(error.message)}
         `;
 
+        rawBox.textContent =
+            "JSON 解析失敗";
+
         return;
+
     }
 
 
-    /*
-    ----------------------------------------------
-    JSON 成功
-    ----------------------------------------------
-    */
+    rawBox.textContent =
+        JSON.stringify(data, null, 2);
+
+
+    const events =
+        Array.isArray(data.events)
+            ? data.events
+            : [];
+
 
     diagnostic.innerHTML += `
 
-        <div class="notice success">
+        <div class="notice">
 
-            <strong>
-                ✅ JSON 成功讀取
-            </strong>
+            <strong>解析結果：</strong>
 
-            <br>
-
-            HTTP：
-            ${response.status}
-
-            <br>
-
-            JSON 大小：
-            ${raw.length}
-            bytes
-
-            <br>
-
-            events：
-
-            <strong>
-                ${
-                    Array.isArray(data.events)
-                        ? data.events.length
-                        : 0
-                }
-            </strong>
-
-            場
+            找到
+            <strong>${events.length}</strong>
+            個場次。
 
         </div>
 
     `;
 
 
-    /*
-    ----------------------------------------------
-    更新時間
-    ----------------------------------------------
-    */
-
-    if (data.updated_at) {
-
-        const date =
-            new Date(
-                data.updated_at
-            );
-
-        updated.innerHTML = `
-
-            <strong>
-                ✅ 最後同步時間
-            </strong>
-
-            <br><br>
-
-            ${date.toLocaleString(
-                "zh-TW",
-                {
-                    timeZone:
-                        "Asia/Taipei",
-
-                    hour12:
-                        false
-                }
-            )}
-
-            <br><br>
-
-            原始值：
-
-            <code>
-                ${escapeHTML(
-                    data.updated_at
-                )}
-            </code>
-
-        `;
-
-    }
-
-    else {
-
-        updated.innerHTML = `
-            <strong>
-                ⚠️ 沒有同步時間
-            </strong>
-        `;
-    }
-
-
-    /*
-    ----------------------------------------------
-    events
-    ----------------------------------------------
-    */
-
-    if (!Array.isArray(data.events)) {
-
-        status.className =
-            "notice error";
-
-        status.innerHTML = `
-            <strong>
-                ❌ JSON 沒有 events 陣列
-            </strong>
-        `;
-
-        return;
-    }
-
-
-    if (data.events.length === 0) {
+    if (events.length === 0) {
 
         status.className =
             "notice warning";
 
         status.innerHTML = `
-
-            <strong>
-                ⚠️ 目前沒有場次
-            </strong>
-
+            <strong>⚠️ 尚未取得場次</strong>
+            <br><br>
+            seminar-data.json 存在，但 events 陣列目前沒有資料。
         `;
 
         return;
+
     }
 
-
-    /*
-    ----------------------------------------------
-    成功
-    ----------------------------------------------
-    */
 
     status.className =
         "notice success";
 
     status.innerHTML = `
-
         <strong>
-            ✅ 成功取得說明會資料
+            ✅ 資料同步成功
         </strong>
 
         <br><br>
 
-        場次：
-
-        <strong>
-            ${data.events.length}
-        </strong>
-
-        場
-
+        目前共有
+        <strong>${events.length}</strong>
+        個說明會場次。
     `;
 
 
-    /*
-    ----------------------------------------------
-    顯示場次
-    ----------------------------------------------
-    */
+    /* =====================================================
+       顯示活動
+    ===================================================== */
 
-    data.events.forEach(
-        (event, index) => {
+    events.forEach((event, index) => {
 
-            const div =
-                document.createElement(
-                    "div"
-                );
+        const address =
+            cleanAddress(event.address);
 
-            div.className =
-                "event";
+        const card =
+            document.createElement("article");
 
+        card.className =
+            "event";
 
-            div.innerHTML = `
+        card.id =
+            "event-" + (index + 1);
 
-                <h3>
+        card.setAttribute(
+            "itemscope",
+            ""
+        );
 
-                    ${index + 1}.
-                    ${escapeHTML(
-                        event.name ||
-                        "中天法門說明會"
-                    )}
-
-                </h3>
+        card.setAttribute(
+            "itemtype",
+            "https://schema.org/Event"
+        );
 
 
-                <p>
+        card.innerHTML = `
 
-                    <strong>
-                        日期：
-                    </strong>
+            <h3 itemprop="name">
+                ${escapeHTML(
+                    event.name ||
+                    "中天法門說明會"
+                )}
+            </h3>
 
-                    ${escapeHTML(
-                        event.date_display ||
-                        event.date ||
-                        ""
-                    )}
+            <div class="event-date">
 
-                </p>
+                ${escapeHTML(
+                    event.date_display ||
+                    event.date ||
+                    ""
+                )}
 
+            </div>
 
-                <p>
+            <div class="event-row">
 
-                    <strong>
-                        報到：
-                    </strong>
+                <span class="label">
+                    報到時間
+                </span>
 
-                    ${escapeHTML(
-                        event.checkin ||
-                        ""
-                    )}
+                ${escapeHTML(
+                    event.checkin ||
+                    ""
+                )}
 
-                    <br>
+            </div>
 
-                    <strong>
-                        說明會：
-                    </strong>
+            <div class="event-row">
 
-                    ${escapeHTML(
-                        event.start_time ||
-                        ""
-                    )}
+                <span class="label">
+                    開始時間
+                </span>
 
-                    <br>
+                ${escapeHTML(
+                    event.start_time ||
+                    ""
+                )}
 
-                    <strong>
-                        結束：
-                    </strong>
+            </div>
 
-                    ${escapeHTML(
-                        event.end_time ||
-                        ""
-                    )}
+            <div class="event-row">
 
-                </p>
+                <span class="label">
+                    結束時間
+                </span>
 
+                ${escapeHTML(
+                    event.end_time ||
+                    ""
+                )}
 
-                <p>
+            </div>
 
-                    <strong>
-                        地點：
-                    </strong>
+            <div
+                class="event-address"
+                itemprop="location"
+                itemscope
+                itemtype="https://schema.org/Place"
+            >
 
-                    ${escapeHTML(
-                        event.address ||
-                        ""
-                    )}
+                <strong>
+                    活動地點
+                </strong>
 
-                </p>
+                <div
+                    itemprop="address"
+                    itemscope
+                    itemtype="https://schema.org/PostalAddress"
+                >
 
+                    <span itemprop="streetAddress">
+                        ${escapeHTML(address)}
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="source">
+
+                資料來源：
 
                 <a
-                    class="btn"
                     href="https://web.wuwuji.tw/seminar"
                     target="_blank"
-                    rel="noopener">
-
-                    前往官方報名
-
+                    rel="noopener"
+                >
+                    中天法門官方說明會
                 </a>
 
-            `;
+            </div>
+
+        `;
 
 
-            eventsBox.appendChild(
-                div
-            );
+        eventsBox.appendChild(card);
 
-        }
-    );
+    });
+
+
+    /* =====================================================
+       動態建立 Event JSON-LD
+    ===================================================== */
+
+    const schema =
+        buildEventSchema(events);
+
+
+    document.getElementById(
+        "event-schema"
+    ).textContent =
+        JSON.stringify(
+            schema,
+            null,
+            2
+        );
+
+
+    /* =====================================================
+       更新時間
+    ===================================================== */
+
+    if (data.updated_at) {
+
+        const date =
+            new Date(data.updated_at);
+
+        updated.innerHTML = `
+
+            最後同步時間：
+
+            <strong>
+                ${escapeHTML(
+                    date.toLocaleString(
+                        "zh-TW",
+                        {
+                            timeZone:
+                                "Asia/Taipei"
+                        }
+                    )
+                )}
+            </strong>
+
+            <br><br>
+
+            資料來源：
+
+            <a
+                href="${escapeHTML(
+                    data.source ||
+                    "https://web.wuwuji.tw/seminar"
+                )}"
+                target="_blank"
+                rel="noopener"
+            >
+                官方說明會資料
+            </a>
+
+        `;
+
+    }
+    else {
+
+        updated.textContent =
+            "最後同步時間：JSON 未提供";
+
+    }
 
 }
 
 
-/*
-==================================================
-HTML Escape
-==================================================
-*/
+/* =========================================================
+   啟動
+========================================================= */
 
-function escapeHTML(text) {
-
-    return String(text)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
-}
-
-
-/*
-==================================================
-啟動
-==================================================
-*/
-
-checkData();
+document.addEventListener(
+    "DOMContentLoaded",
+    checkData
+);
 
 </script>
 
-
 </body>
-
 </html>
