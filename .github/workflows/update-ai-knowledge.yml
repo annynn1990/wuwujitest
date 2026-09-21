@@ -2,12 +2,6 @@ name: 更新中天法門 AI GEO 知識庫
 # 2026-09-22: 確保以 push 觸發首次實際同步
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - "ai-knowledge/**"
-
   workflow_dispatch:
 
   schedule:
