@@ -52,6 +52,7 @@ class P(HTMLParser):
     def __init__(self,base):
         super().__init__()
         self.base=base; self.title=''; self.meta={}; self.head=[]; self.par=[]; self.links=[]
+        self.void={'area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr'}
         self.posts=[]; self.a=None; self.buf=[]; self.active=None; self.abuf=[]; self.post_depth=0; self.post_buf=[]
     def handle_starttag(self,t,attrs):
         t=t.lower(); a=dict(attrs)
@@ -61,7 +62,7 @@ class P(HTMLParser):
             self.post_depth+=1
             if self.post_depth==1:self.post_buf=[]
             return
-        if self.post_depth:self.post_depth+=1
+        if self.post_depth and t not in self.void:self.post_depth+=1
         if t=='title' or t in {'h1','h2','h3','h4'} or t=='p':self.active=t;self.buf=[]
         elif t=='a':self.a=a.get('href');self.abuf=[]
         elif t=='meta':
@@ -74,6 +75,7 @@ class P(HTMLParser):
     def handle_endtag(self,t):
         t=t.lower()
         if self.post_depth:
+            if t in self.void:return
             self.post_depth-=1
             if self.post_depth==0:
                 x=clean(' '.join(self.post_buf))
@@ -129,10 +131,14 @@ def parse(url,html,kind):
         extra=[x for x in p.par if x and x not in p.posts]
         if extra:body=clean(body+'\\n'+'\\n'.join(extra))
     body=re.sub(r'[\\w.+-]+@[\\w.-]+\\.[A-Za-z]{2,}','[email removed]',body)
+    if kind=='forum_thread':
+        h1s=[x['text'] for x in p.head if x.get('level')==1 and x.get('text')]
+        if h1s:p.title=h1s[0]
+        if not p.posts and re.search(r'您需要.?登錄|需要登錄|請先登錄|您需要登录|需要登录|請先登录',body):body=''
     return {'url':url,'source_type':kind,'title':p.title,'description':p.meta.get('description',''),
             'headings':p.head[:120],'text':body[:50000],'summary':summary(body),
             'keywords':keywords(body),'links':p.links[:400],'post_count':len(p.posts),
-            'posts':p.posts[:200],'content_sha256':sha(body)}
+            'posts':p.posts[:1000],'content_sha256':sha(body)}
 def crawl_official():
     q=[urljoin('https://web.wuwuji.tw',x) for x in KNOWN]+[OFFICIAL]; seen=set(); docs=[]
     while q and len(docs)<MAX_OFFICIAL:
@@ -152,91 +158,54 @@ def crawl_official():
     return docs
 
 def crawl_forum():
-    q=[FORUM]
-    seen=set()
-    idx=[]
-    cand={}
-
+    q=[FORUM]; seen=set(); idx=[]; cand={}
     while q and len(idx)<MAX_FORUM_INDEX:
         u=urldefrag(q.pop(0))[0]
-        if u in seen or urlparse(u).netloc!=FORUM_HOST or blocked(u):
-            continue
+        if u in seen or urlparse(u).netloc!=FORUM_HOST or blocked(u): continue
         seen.add(u)
-        if not robots_ok(u):
-            continue
+        if not robots_ok(u): continue
         try:
-            d=parse(u,fetch(u),'forum_index')
-            idx.append(d)
+            d=parse(u,fetch(u),'forum_index'); idx.append(d)
             for l in d['links']:
-                v=l['url']
-                low=v.lower()
-                if urlparse(v).netloc!=FORUM_HOST or blocked(v):
-                    continue
-
-                # 所有公開 forumdisplay 分頁都加入 queue，而不是只抓第一頁。
-                if 'mod=forumdisplay' in low:
-                    if v not in seen and v not in q:
-                        q.append(v)
-
-                # 公開主題與 Discuz redirect 主題都保留。
-                if ('mod=viewthread' in low and 'tid=' in low) or ('mod=redirect' in low and 'tid=' in low):
-                    cand[v]=l['text']
-
-                # 群組/遊客區入口。
-                if 'gid=' in low:
-                    if v not in seen and v not in q:
-                        q.append(v)
+                v=l['url']; low=v.lower()
+                if urlparse(v).netloc!=FORUM_HOST or blocked(v): continue
+                if 'mod=forumdisplay' in low and v not in seen and v not in q:q.append(v)
+                m=re.search(r'[?&]tid=(\d+)',low)
+                if m and ('mod=viewthread' in low or 'mod=redirect' in low):
+                    cand[m.group(1)]=(f'{FORUM}forum.php?mod=viewthread&tid={m.group(1)}',l['text'])
+                if 'gid=' in low and v not in seen and v not in q:q.append(v)
         except Exception as e:
-            STATS['parse_errors']+=1
-            print(f"[FORUM_INDEX_ERROR] {u} :: {type(e).__name__}: {e}", flush=True)
+            STATS['parse_errors']+=1; print(f"[FORUM_INDEX_ERROR] {u} :: {type(e).__name__}: {e}",flush=True)
         time.sleep(DELAY)
-
-    threads=[]
-    for u,anchor in list(cand.items())[:MAX_THREADS]:
-        if not robots_ok(u):
-            continue
+    threads=[]; pages_fetched=0; post_total=0; inaccessible=0
+    for tid,(u,anchor) in list(cand.items())[:MAX_THREADS]:
         try:
-            first=parse(u,fetch(u),'forum_thread')
-            all_posts=list(first.get('posts') or [])
-
-            # 同一主題的公開 page=N 分頁。
-            page_urls=[]
+            first=parse(u,fetch(u),'forum_thread'); pages_fetched+=1
+            posts=list(first.get('posts') or [])
+            max_page=1
             for l in first.get('links') or []:
-                v=l['url']
-                low=v.lower()
-                if 'mod=viewthread' in low and 'tid=' in low and 'page=' in low:
-                    page_urls.append(v)
-
-            page_urls=list(dict.fromkeys(page_urls))[:MAX_THREAD_PAGES-1]
-
-            for pv in page_urls:
-                if not robots_ok(pv):
-                    continue
+                m=re.search(r'[?&]page=(\d+)',l['url'])
+                if m and re.search(r'[?&]tid='+re.escape(tid)+r'\b',l['url'],re.I):max_page=max(max_page,int(m.group(1)))
+            for n in range(2,min(max_page,MAX_THREAD_PAGES)+1):
                 try:
-                    pd=parse(pv,fetch(pv),'forum_thread')
-                    for post in pd.get('posts') or []:
-                        if post not in all_posts:
-                            all_posts.append(post)
-                except Exception:
-                    pass
+                    pd=parse(f'{FORUM}forum.php?mod=viewthread&tid={tid}&page={n}',fetch(f'{FORUM}forum.php?mod=viewthread&tid={tid}&page={n}'),'forum_thread')
+                    pages_fetched+=1
+                    for x in pd.get('posts') or []:
+                        if x not in posts:posts.append(x)
+                except Exception as e:
+                    STATS['parse_errors']+=1; print(f"[FORUM_PAGE_ERROR] tid={tid} page={n} :: {type(e).__name__}: {e}",flush=True)
                 time.sleep(DELAY)
-
-            if all_posts:
-                first['posts']=all_posts[:200]
-                first['post_count']=len(all_posts)
-                first['text']=clean('\\n'.join(all_posts))[:50000]
-                first['summary']=summary(first['text'],1200)
-                first['keywords']=keywords(first['text'],15)
-                first['content_sha256']=sha(first['text'])
-
-            first['anchor_text']=anchor
-            threads.append(first)
+            if not posts or not first.get('accessible',True): inaccessible+=1; continue
+            first['thread_id']=tid; first['anchor_text']=anchor; first['pages_fetched']=max_page
+            first['posts']=posts[:1000]; first['post_count']=len(posts)
+            first['text']=clean('\\n'.join(posts))[:50000]; first['summary']=summary(first['text'],1200); first['keywords']=keywords(first['text'],15); first['content_sha256']=sha(first['text']); first['accessible']=True
+            threads.append(first); post_total+=len(posts)
         except Exception as e:
-            STATS['parse_errors']+=1
-            print(f"[FORUM_THREAD_ERROR] {u} :: {type(e).__name__}: {e}", flush=True)
+            STATS['parse_errors']+=1; print(f"[FORUM_THREAD_ERROR] tid={tid} {u} :: {type(e).__name__}: {e}",flush=True)
         time.sleep(DELAY)
-
+    STATS.update(forum_candidates=len(cand),forum_pages_fetched=pages_fetched,forum_posts=post_total,forum_inaccessible=inaccessible)
     return idx,threads
+
 def load(p,default):
     try:return json.loads(p.read_text(encoding='utf-8'))
     except Exception:return default
@@ -255,7 +224,7 @@ def main():
         raise RuntimeError(f"抓取結果全部為 0；fetch_ok={STATS['fetch_ok']} fetch_errors={STATS['fetch_errors']} robots_denied={STATS['robots_denied']} parse_errors={STATS['parse_errors']}；停止寫入，保留上一版知識庫")
     docs=merge(old,official+fi+ft)
     claims=[{'subject':'中天法門','statement':d['summary'],'source_url':d['url'],'source_type':d['source_type'],'interpretation':'source_attributed'} for d in docs if d.get('summary')]
-    generated=now();data={'schema_version':'2.0','dataset':'中天法門 AI / GEO 公開知識庫','entity':'中天法門','generated_at':generated,'description':'公開網站與公開論壇內容的機器可讀索引。保留來源 URL，並區分官方與論壇來源。','source_policy':{'official':'web.wuwuji.tw 公開頁面','forum':'www.wuwuji.tw/forum/ 公開頁面；論壇內容不自動等同官方立場','privacy':'不抓登入頁、後台及不必要會員個資','summary':'extractive_v1；自動抽取摘要，不是事實查核'},'stats':{'official_pages':len(official),'forum_index_pages':len(fi),'forum_threads':len(ft),'documents':len(docs),'claims':len(claims)},'sources':[{'type':'official','url':'https://web.wuwuji.tw/'},{'type':'forum','url':'https://www.wuwuji.tw/forum/'},{'type':'seminar','url':'https://annynn1990.github.io/wuwujitest/seminar-data.json'}],'documents':docs,'claims':claims,'seminars':{'url':'https://annynn1990.github.io/wuwujitest/seminar-data.json','note':'由既有說明會同步流程維護；本程式不改寫該 JSON。'}}
+    generated=now();data={'schema_version':'2.0','dataset':'中天法門 AI / GEO 公開知識庫','entity':'中天法門','generated_at':generated,'description':'公開網站與公開論壇內容的機器可讀索引。保留來源 URL，並區分官方與論壇來源。','source_policy':{'official':'web.wuwuji.tw 公開頁面','forum':'www.wuwuji.tw/forum/ 公開頁面；論壇內容不自動等同官方立場','privacy':'不抓登入頁、後台及不必要會員個資','summary':'extractive_v1；自動抽取摘要，不是事實查核'},'stats':{'official_pages':len(official),'forum_index_pages':len(fi),'forum_candidates':STATS.get('forum_candidates',0),'forum_pages_fetched':STATS.get('forum_pages_fetched',0),'forum_threads':len(ft),'forum_posts':STATS.get('forum_posts',0),'forum_inaccessible':STATS.get('forum_inaccessible',0),'documents':len(docs),'claims':len(claims)},'sources':[{'type':'official','url':'https://web.wuwuji.tw/'},{'type':'forum','url':'https://www.wuwuji.tw/forum/'},{'type':'seminar','url':'https://annynn1990.github.io/wuwujitest/seminar-data.json'}],'documents':docs,'claims':claims,'seminars':{'url':'https://annynn1990.github.io/wuwujitest/seminar-data.json','note':'由既有說明會同步流程維護；本程式不改寫該 JSON。'}}
     KNOWLEDGE.write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8')
     OFFICIAL_INDEX.write_text(json.dumps({'type':'official_index','updated_at':generated,'documents':[d for d in docs if d['source_type']=='official']},ensure_ascii=False,indent=2),encoding='utf-8')
     FORUM_INDEX.write_text(json.dumps({'type':'forum_index','updated_at':generated,'documents':[d for d in docs if d['source_type'].startswith('forum')]},ensure_ascii=False,indent=2),encoding='utf-8')
