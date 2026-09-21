@@ -1,96 +1,78 @@
-async function loadSeminars() {
-    try {
-        const response = await fetch(
-            './seminar-data.json?t=' + Date.now(),
-            {
-                cache: 'no-store'
-            }
-        );
-
-        if (!response.ok) {
-            throw new Error(
-                `HTTP ${response.status}`
-            );
-        }
-
-        const data = await response.json();
-
-        console.log('seminar-data.json =', data);
-        console.log(
-            'events.length =',
-            Array.isArray(data.events)
-                ? data.events.length
-                : 0
-        );
-
-        const events = Array.isArray(data.events)
-            ? data.events
-            : [];
-
-        const container =
-            document.querySelector('#seminar-list');
-
-        if (!container) {
-            console.error(
-                '找不到 #seminar-list'
-            );
-            return;
-        }
-
-        if (events.length === 0) {
-            container.innerHTML =
-                '<p>目前沒有可顯示的場次。</p>';
-            return;
-        }
-
-        container.innerHTML = events.map(event => `
-            <article class="seminar-card">
-                <h3>${escapeHtml(event.name || '說明會')}</h3>
-
-                <p>
-                    <strong>日期：</strong>
-                    ${escapeHtml(event.date_display || event.date || '')}
-                </p>
-
-                <p>
-                    <strong>報到：</strong>
-                    ${escapeHtml(event.checkin || '')}
-                </p>
-
-                <p>
-                    <strong>時間：</strong>
-                    ${escapeHtml(event.start_time || '')}
-                    -
-                    ${escapeHtml(event.end_time || '')}
-                </p>
-
-                <p>
-                    <strong>地點：</strong>
-                    ${escapeHtml(event.address || '')}
-                </p>
-            </article>
-        `).join('');
-
-    } catch (error) {
-        console.error(
-            '讀取說明會資料失敗：',
-            error
-        );
+{
+  "source": "https://web.wuwuji.tw/seminar",
+  "updated_at": "2026-09-22T00:38:53.808691+08:00",
+  "events": [
+    {
+      "name": "中午 台北大同區長安西路場",
+      "date_display": "2026年10月04日(日)",
+      "date": "2026-10-04",
+      "checkin": "13:30",
+      "start_time": "13:30",
+      "end_time": "16:30",
+      "start_datetime": "2026-10-04T13:30:00+08:00",
+      "end_datetime": "2026-10-04T16:30:00+08:00",
+      "address": "台北市大同區長安西路287號8樓之5",
+      "source": "https://web.wuwuji.tw/seminar"
+    },
+    {
+      "name": "中午 台南東山許秀才",
+      "date_display": "2026年10月11日(日)",
+      "date": "2026-10-11",
+      "checkin": "13:30",
+      "start_time": "13:30",
+      "end_time": "16:30",
+      "start_datetime": "2026-10-11T13:30:00+08:00",
+      "end_datetime": "2026-10-11T16:30:00+08:00",
+      "address": "台南市東山區三榮里許秀才1之1號1樓 (許秀才創意花園對面)",
+      "source": "https://web.wuwuji.tw/seminar"
+    },
+    {
+      "name": "中午 台南永康場",
+      "date_display": "2026年10月04日(日)",
+      "date": "2026-10-04",
+      "checkin": "13:30",
+      "start_time": "13:30",
+      "end_time": "16:30",
+      "start_datetime": "2026-10-04T13:30:00+08:00",
+      "end_datetime": "2026-10-04T16:30:00+08:00",
+      "address": "台南市永康區復華三街51號 (北海道生鮮超市對面)",
+      "source": "https://web.wuwuji.tw/seminar"
+    },
+    {
+      "name": "中午 高雄市左營說明會",
+      "date_display": "2026年10月11日(日)",
+      "date": "2026-10-11",
+      "checkin": "13:00",
+      "start_time": "13:00",
+      "end_time": "16:30",
+      "start_datetime": "2026-10-11T13:00:00+08:00",
+      "end_datetime": "2026-10-11T16:30:00+08:00",
+      "address": "高雄市左營說明會 13:00 開始報到 14:00 開始說明會 16:30 結束時間 高雄市左營區菜公里重惠街201號",
+      "source": "https://web.wuwuji.tw/seminar"
+    },
+    {
+      "name": "中午 台北市中山區南京東路二段50號6樓",
+      "date_display": "2026年10月03日(六)",
+      "date": "2026-10-03",
+      "checkin": "13:00",
+      "start_time": "13:00",
+      "end_time": "16:30",
+      "start_datetime": "2026-10-03T13:00:00+08:00",
+      "end_datetime": "2026-10-03T16:30:00+08:00",
+      "address": "台北市中山區南京東路二段50號6樓 13:00 開始報到 14:00 開始說明會 16:30 結束時間 台北市中山區南京東路二段50號6樓(捷運松江南京站1號出口旁) 說明會報名 請留下聯絡資料，我們會依你選擇的場次安排後續聯繫。 已選擇場次",
+      "source": "https://web.wuwuji.tw/seminar"
+    },
+    {
+      "name": "中午 台北大同區長安西路場",
+      "date_display": "2026年10月04日(日)",
+      "date": "2026-10-04",
+      "checkin": "13:30",
+      "start_time": "13:30",
+      "end_time": "16:30",
+      "start_datetime": "2026-10-04T13:30:00+08:00",
+      "end_datetime": "2026-10-04T16:30:00+08:00",
+      "address": "台北市大同區長安西路287號8樓之5 姓名 聯絡電話 Email 報名人數 備註 送出報名 送出後，報名內容會記錄在後台「說明會管理 / 報名管理」。 中天法門 一世成就之法，天上果位人間證。 認識中天 宇宙觀 修行之道 天堂遊記 發展歷程 說明會報名 中天園地 © 2026 中天法門第一動畫官網 · A",
+      "source": "https://web.wuwuji.tw/seminar"
     }
+  ]
 }
-
-
-function escapeHtml(value) {
-    return String(value)
-        .replaceAll('&', '&amp;')
-        .replaceAll('<', '&lt;')
-        .replaceAll('>', '&gt;')
-        .replaceAll('"', '&quot;')
-        .replaceAll("'", '&#039;');
-}
-
-
-document.addEventListener(
-    'DOMContentLoaded',
-    loadSeminars
-);
