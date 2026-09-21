@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /scripts/
+Disallow: /scripts/__pycache__/
 
 Sitemap: https://annynn1990.github.io/wuwujitest/sitemap.xml
