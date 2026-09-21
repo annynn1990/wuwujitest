@@ -15,7 +15,9 @@ OFFICIAL_INDEX=DATA/'official'/'index.json'; FORUM_INDEX=DATA/'forum'/'index.jso
 OFFICIAL='https://web.wuwuji.tw/index'; OFFICIAL_HOST='web.wuwuji.tw'
 FORUM='https://www.wuwuji.tw/forum/'; FORUM_HOST='www.wuwuji.tw'
 UA='Wuwuji-AI-KnowledgeBot/1.0 (+https://annynn1990.github.io/wuwujitest/)'
-TIMEOUT=30; DELAY=.65; MAX_OFFICIAL=120; MAX_FORUM_INDEX=1000; MAX_THREADS=1000; MAX_THREAD_PAGES=20; MAX_THREAD_PAGES=20
+TIMEOUT=30; DELAY=.65; MAX_OFFICIAL=120; MAX_FORUM_INDEX=1000; MAX_THREADS=1000; MAX_THREAD_PAGES=20
+BROWSER_UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36"
+STATS={"fetch_ok":0,"fetch_errors":0,"robots_denied":0,"parse_errors":0}
 KNOWN=['/index','/about','/cosmos','/practice','/book_adventure','/history','/seminar']
 BLOCK=('home.php','member.php','mod=space','login','logout','admin','plugin.php')
 
@@ -89,15 +91,35 @@ class P(HTMLParser):
             h=self.a.strip();txt=clean(' '.join(self.abuf))
             if h and not h.startswith(('javascript:','mailto:','#')):self.links.append({'url':urldefrag(urljoin(self.base,h))[0],'text':txt[:300]})
             self.a=None;self.abuf=[]
+_ROBOTS={}
 def fetch(url):
-    req=Request(url,headers={'User-Agent':UA,'Accept':'text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8'})
-    with urlopen(req,timeout=TIMEOUT) as r:
-        b=r.read(); enc=r.headers.get_content_charset() or 'utf-8'; return b.decode(enc,errors='replace')
+    last=None
+    for attempt in range(3):
+        for ua in (UA, BROWSER_UA):
+            try:
+                req=Request(url,headers={'User-Agent':ua,'Accept':'text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8'})
+                with urlopen(req,timeout=TIMEOUT) as r:
+                    b=r.read(); enc=r.headers.get_content_charset() or 'utf-8'
+                    STATS["fetch_ok"]+=1
+                    return b.decode(enc,errors='replace')
+            except Exception as e:
+                last=e
+                if attempt==0 and "403" not in str(e) and "429" not in str(e):
+                    break
+        time.sleep(1.5*(attempt+1))
+    STATS["fetch_errors"]+=1
+    raise last
 def robots_ok(url):
-    p=urlparse(url); rp=robotparser.RobotFileParser(); ru=f'{p.scheme}://{p.netloc}/robots.txt'
+    p=urlparse(url); key=f'{p.scheme}://{p.netloc}'
+    if key in _ROBOTS:return _ROBOTS[key]
+    rp=robotparser.RobotFileParser(); ru=f'{key}/robots.txt'
     try:
-        txt=fetch(ru); rp.parse(txt.splitlines()); return rp.can_fetch(UA,url)
-    except Exception:return True
+        txt=fetch(ru); rp.parse(txt.splitlines()); ok=rp.can_fetch(UA,url)
+    except Exception:
+        ok=True
+    _ROBOTS[key]=ok
+    if not ok: STATS["robots_denied"]+=1
+    return ok
 def blocked(u):
     x=u.lower(); return any(v in x for v in BLOCK)
 def parse(url,html,kind):
@@ -123,7 +145,8 @@ def crawl_official():
             for l in d['links']:
                 v=l['url']
                 if urlparse(v).netloc==OFFICIAL_HOST and v not in seen and not blocked(v) and not re.search(r'\.(jpg|jpeg|png|gif|webp|svg|pdf|zip|mp4|mp3|css|js|ico|woff2?)$',urlparse(v).path.lower()):q.append(v)
-        except Exception:pass
+        except Exception:
+            STATS['parse_errors']+=1
         time.sleep(DELAY)
     return docs
 
@@ -163,7 +186,7 @@ def crawl_forum():
                     if v not in seen and v not in q:
                         q.append(v)
         except Exception:
-            pass
+            STATS['parse_errors']+=1
         time.sleep(DELAY)
 
     threads=[]
@@ -207,7 +230,7 @@ def crawl_forum():
             first['anchor_text']=anchor
             threads.append(first)
         except Exception:
-            pass
+            STATS['parse_errors']+=1
         time.sleep(DELAY)
 
     return idx,threads
@@ -224,13 +247,14 @@ def merge(old,new):
 def main():
     DATA.mkdir(exist_ok=True);old=load(KNOWLEDGE,{})
     official=crawl_official();fi,ft=crawl_forum()
+    print(json.dumps({"crawl_stats":STATS},ensure_ascii=False))
     if not official and not fi and not ft:
-        raise RuntimeError("抓取結果全部為 0；停止寫入，保留上一版知識庫")
+        raise RuntimeError(f"抓取結果全部為 0；fetch_ok={STATS['fetch_ok']} fetch_errors={STATS['fetch_errors']} robots_denied={STATS['robots_denied']} parse_errors={STATS['parse_errors']}；停止寫入，保留上一版知識庫")
     docs=merge(old,official+fi+ft)
     claims=[{'subject':'中天法門','statement':d['summary'],'source_url':d['url'],'source_type':d['source_type'],'interpretation':'source_attributed'} for d in docs if d.get('summary')]
     generated=now();data={'schema_version':'2.0','dataset':'中天法門 AI / GEO 公開知識庫','entity':'中天法門','generated_at':generated,'description':'公開網站與公開論壇內容的機器可讀索引。保留來源 URL，並區分官方與論壇來源。','source_policy':{'official':'web.wuwuji.tw 公開頁面','forum':'www.wuwuji.tw/forum/ 公開頁面；論壇內容不自動等同官方立場','privacy':'不抓登入頁、後台及不必要會員個資','summary':'extractive_v1；自動抽取摘要，不是事實查核'},'stats':{'official_pages':len(official),'forum_index_pages':len(fi),'forum_threads':len(ft),'documents':len(docs),'claims':len(claims)},'sources':[{'type':'official','url':'https://web.wuwuji.tw/'},{'type':'forum','url':'https://www.wuwuji.tw/forum/'},{'type':'seminar','url':'https://annynn1990.github.io/wuwujitest/seminar-data.json'}],'documents':docs,'claims':claims,'seminars':{'url':'https://annynn1990.github.io/wuwujitest/seminar-data.json','note':'由既有說明會同步流程維護；本程式不改寫該 JSON。'}}
     KNOWLEDGE.write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8')
     OFFICIAL_INDEX.write_text(json.dumps({'type':'official_index','updated_at':generated,'documents':[d for d in docs if d['source_type']=='official']},ensure_ascii=False,indent=2),encoding='utf-8')
     FORUM_INDEX.write_text(json.dumps({'type':'forum_index','updated_at':generated,'documents':[d for d in docs if d['source_type'].startswith('forum')]},ensure_ascii=False,indent=2),encoding='utf-8')
-    m=load(MANIFEST,{'schema_version':'1.0','runs':[]});run={'completed_at':generated,'official_pages':len(official),'forum_index_pages':len(fi),'forum_threads':len(ft),'documents':len(docs)};m['last_run']=run;m['runs']=(m.get('runs',[])+[run])[-30:];MANIFEST.write_text(json.dumps(m,ensure_ascii=False,indent=2),encoding='utf-8');print(json.dumps(run,ensure_ascii=False))
+    m=load(MANIFEST,{'schema_version':'1.0','runs':[]});run={'completed_at':generated,'official_pages':len(official),'forum_index_pages':len(fi),'forum_threads':len(ft),'documents':len(docs)};m['last_run']=run;m['runs']=(m.get('runs',[])+[run])[-30:];MANIFEST.write_text(json.dumps(m,ensure_ascii=False,indent=2),encoding='utf-8');print(json.dumps({**run,'crawl_stats':STATS},ensure_ascii=False))
 if __name__=='__main__':main()
