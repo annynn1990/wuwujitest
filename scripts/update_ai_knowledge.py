@@ -15,7 +15,7 @@ OFFICIAL_INDEX=DATA/'official'/'index.json'; FORUM_INDEX=DATA/'forum'/'index.jso
 OFFICIAL='https://web.wuwuji.tw/index'; OFFICIAL_HOST='web.wuwuji.tw'
 FORUM='https://www.wuwuji.tw/forum/'; FORUM_HOST='www.wuwuji.tw'
 UA='Wuwuji-AI-KnowledgeBot/1.0 (+https://annynn1990.github.io/wuwujitest/)'
-TIMEOUT=30; DELAY=.65; MAX_OFFICIAL=120; MAX_FORUM_INDEX=120; MAX_THREADS=1000; MAX_THREAD_PAGES=20
+TIMEOUT=30; DELAY=.65; MAX_OFFICIAL=120; MAX_FORUM_INDEX=1000; MAX_THREADS=1000; MAX_THREAD_PAGES=20; MAX_THREAD_PAGES=20
 KNOWN=['/index','/about','/cosmos','/practice','/book_adventure','/history','/seminar']
 BLOCK=('home.php','member.php','mod=space','login','logout','admin','plugin.php')
 
@@ -49,54 +49,78 @@ class P(HTMLParser):
     POST_CLASSES={'t_f','pcb','t_fsz','postmessage','message'}
     def __init__(self,base):
         super().__init__()
-        self.base=base; self.title=''; self.meta={}; self.head=[]; self.par=[]; self.links=[]
-        self.posts=[]; self.a=None; self.buf=[]; self.active=None; self.abuf=[]
-        self.post_depth=0; self.post_buf=[]
+        self.base=base
+        self.title=''
+        self.meta={}
+        self.head=[]
+        self.par=[]
+        self.links=[]
+        self.posts=[]
+        self.a=None
+        self.buf=[]
+        self.active=None
+        self.abuf=[]
+        self.post_depth=0
+        self.post_buf=[]
     def handle_starttag(self,t,attrs):
         t=t.lower(); a=dict(attrs)
         if t in self.DROP:
-            self.active=t; return
+            self.active=t
+            return
         classes=set((a.get('class') or '').split())
         if classes.intersection(self.POST_CLASSES):
             self.post_depth += 1
-            if self.post_depth==1:self.post_buf=[]
+            if self.post_depth==1:
+                self.post_buf=[]
             return
         if self.post_depth:
             self.post_depth += 1
         if t=='title' or t in {'h1','h2','h3','h4'} or t=='p':
-            self.active=t; self.buf=[]
+            self.active=t
+            self.buf=[]
         elif t=='a':
-            self.a=a.get('href'); self.abuf=[]
+            self.a=a.get('href')
+            self.abuf=[]
         elif t=='meta':
-            k=(a.get('name') or a.get('property') or '').lower(); v=clean(a.get('content') or '')
-            if k and v:self.meta[k]=v
+            k=(a.get('name') or a.get('property') or '').lower()
+            v=clean(a.get('content') or '')
+            if k and v:
+                self.meta[k]=v
     def handle_data(self,d):
         if self.post_depth:
             self.post_buf.append(d)
         elif self.active in {'title','h1','h2','h3','h4','p'}:
             self.buf.append(d)
-        if self.a is not None:self.abuf.append(d)
+        if self.a is not None:
+            self.abuf.append(d)
     def handle_endtag(self,t):
         t=t.lower()
         if self.post_depth:
             self.post_depth -= 1
             if self.post_depth==0:
                 x=clean(' '.join(self.post_buf))
-                if x and x not in self.posts:self.posts.append(x)
+                if x and x not in self.posts:
+                    self.posts.append(x)
                 self.post_buf=[]
             return
         if self.active==t and t in {'title','h1','h2','h3','h4','p'}:
             x=clean(' '.join(self.buf))
             if x:
-                if t=='title':self.title=x
-                elif t.startswith('h'):self.head.append({'level':int(t[1]),'text':x})
-                else:self.par.append(x)
-            self.active=None;self.buf=[]
+                if t=='title':
+                    self.title=x
+                elif t.startswith('h'):
+                    self.head.append({'level':int(t[1]),'text':x})
+                else:
+                    self.par.append(x)
+            self.active=None
+            self.buf=[]
         elif t=='a' and self.a is not None:
-            h=self.a.strip();txt=clean(' '.join(self.abuf))
+            h=self.a.strip()
+            txt=clean(' '.join(self.abuf))
             if h and not h.startswith(('javascript:','mailto:','#')):
                 self.links.append({'url':urldefrag(urljoin(self.base,h))[0],'text':txt[:300]})
-            self.a=None;self.abuf=[]
+            self.a=None
+            self.abuf=[]
 def fetch(url):
     req=Request(url,headers={'User-Agent':UA,'Accept':'text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8'})
     with urlopen(req,timeout=TIMEOUT) as r:
@@ -109,19 +133,29 @@ def robots_ok(url):
 def blocked(u):
     x=u.lower(); return any(v in x for v in BLOCK)
 def parse(url,html,kind):
-    p=P(url);p.feed(html)
+    p=P(url)
+    p.feed(html)
     if kind=='forum_thread' and p.posts:
         body=clean('\\n'.join(p.posts))
         extra=[x for x in p.par if x and x not in p.posts]
-        if extra:body=clean(body+'\\n'+'\\n'.join(extra))
+        if extra:
+            body=clean(body+'\\n'+'\\n'.join(extra))
     else:
         body=clean('\\n'.join(p.par))
-    body=re.sub(r'[\\w.+-]+@[\\w.-]+\\.[A-Za-z]{2,}','[email removed]',body)
+    body=re.sub(r'[\\w.+-]+@[\\w.-]+\\.[A-Za-z]{2,}','[email removed]')
     return {
-        'url':url,'source_type':kind,'title':p.title,'description':p.meta.get('description',''),
-        'headings':p.head[:120],'text':body[:50000],'summary':summary(body),
-        'keywords':keywords(body),'links':p.links[:400],
-        'post_count':len(p.posts),'posts':p.posts[:200],'content_sha256':sha(body)
+        'url':url,
+        'source_type':kind,
+        'title':p.title,
+        'description':p.meta.get('description',''),
+        'headings':p.head[:120],
+        'text':body[:50000],
+        'summary':summary(body),
+        'keywords':keywords(body),
+        'links':p.links[:400],
+        'post_count':len(p.posts),
+        'posts':p.posts[:200],
+        'content_sha256':sha(body)
     }
 def crawl_official():
     q=[urljoin('https://web.wuwuji.tw',x) for x in KNOWN]+[OFFICIAL]; seen=set(); docs=[]
@@ -140,44 +174,74 @@ def crawl_official():
     return docs
 
 def crawl_forum():
-    # 公開論壇目前規模適合一次完整掃描：放寬索引與主題上限，避免只抓到前 150 筆。
-    q=[FORUM];seen=set();idx=[];cand={}
+    q=[FORUM]
+    seen=set()
+    idx=[]
+    cand={}
+
     while q and len(idx)<MAX_FORUM_INDEX:
         u=urldefrag(q.pop(0))[0]
-        if u in seen or urlparse(u).netloc!=FORUM_HOST or blocked(u):continue
+        if u in seen or urlparse(u).netloc!=FORUM_HOST or blocked(u):
+            continue
         seen.add(u)
-        if not robots_ok(u):continue
+        if not robots_ok(u):
+            continue
         try:
-            d=parse(u,fetch(u),'forum_index');idx.append(d)
+            d=parse(u,fetch(u),'forum_index')
+            idx.append(d)
             for l in d['links']:
-                v=l['url'];low=v.lower()
-                if urlparse(v).netloc!=FORUM_HOST or blocked(v):continue
-                if 'mod=viewthread' in low or ('forum.php' in low and 'tid=' in low):cand[v]=l['text']
-                if 'mod=forumdisplay' in low or 'gid=' in low:
-                    if v not in seen and v not in q:q.append(v)
-        except Exception:pass
+                v=l['url']
+                low=v.lower()
+                if urlparse(v).netloc!=FORUM_HOST or blocked(v):
+                    continue
+
+                # 所有公開 forumdisplay 分頁都加入 queue，而不是只抓第一頁。
+                if 'mod=forumdisplay' in low:
+                    if v not in seen and v not in q:
+                        q.append(v)
+
+                # 公開主題與 Discuz redirect 主題都保留。
+                if ('mod=viewthread' in low and 'tid=' in low) or ('mod=redirect' in low and 'tid=' in low):
+                    cand[v]=l['text']
+
+                # 群組/遊客區入口。
+                if 'gid=' in low:
+                    if v not in seen and v not in q:
+                        q.append(v)
+        except Exception:
+            pass
         time.sleep(DELAY)
+
     threads=[]
     for u,anchor in list(cand.items())[:MAX_THREADS]:
-        if not robots_ok(u):continue
+        if not robots_ok(u):
+            continue
         try:
             first=parse(u,fetch(u),'forum_thread')
             all_posts=list(first.get('posts') or [])
+
+            # 同一主題的公開 page=N 分頁。
             page_urls=[]
             for l in first.get('links') or []:
                 v=l['url']
-                if 'mod=viewthread' in v.lower() and 'tid=' in v.lower() and 'page=' in v.lower():
+                low=v.lower()
+                if 'mod=viewthread' in low and 'tid=' in low and 'page=' in low:
                     page_urls.append(v)
+
             page_urls=list(dict.fromkeys(page_urls))[:MAX_THREAD_PAGES-1]
+
             for pv in page_urls:
-                if not robots_ok(pv):continue
+                if not robots_ok(pv):
+                    continue
                 try:
                     pd=parse(pv,fetch(pv),'forum_thread')
                     for post in pd.get('posts') or []:
-                        if post not in all_posts:all_posts.append(post)
+                        if post not in all_posts:
+                            all_posts.append(post)
                 except Exception:
                     pass
                 time.sleep(DELAY)
+
             if all_posts:
                 first['posts']=all_posts[:200]
                 first['post_count']=len(all_posts)
@@ -185,13 +249,14 @@ def crawl_forum():
                 first['summary']=summary(first['text'],1200)
                 first['keywords']=keywords(first['text'],15)
                 first['content_sha256']=sha(first['text'])
+
             first['anchor_text']=anchor
             threads.append(first)
         except Exception:
             pass
         time.sleep(DELAY)
-    return idx,threads
 
+    return idx,threads
 def load(p,default):
     try:return json.loads(p.read_text(encoding='utf-8'))
     except Exception:return default
