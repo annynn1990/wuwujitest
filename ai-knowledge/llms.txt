@@ -1,0 +1,20 @@
+# 中天法門 AI / GEO 公開知識庫
+
+本資料集是公開網站與公開論壇的機器可讀索引。
+
+## Machine-readable
+- knowledge.json：完整資料集
+- official/index.json：官方網站文件
+- forum/index.json：公開論壇文件
+- manifest.json：同步狀態
+- ../seminar-data.json：現有說明會資料
+
+## Sources
+- official：https://web.wuwuji.tw/
+- forum：https://www.wuwuji.tw/forum/
+
+## Policy
+- official = 官方網站公開頁面
+- forum = 公開論壇內容，不自動等同官方立場
+- summary = extractive_v1，自動抽取摘要，不是事實查核
+- 不抓登入、後台與不必要會員個資

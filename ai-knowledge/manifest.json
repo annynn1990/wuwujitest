@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "dataset": "中天法門 AI / GEO 公開知識庫",
+  "update_schedule": "every 3 days",
+  "last_run": {
+    "completed_at": "2026-09-22T01:30:00+08:00",
+    "official_pages": 7,
+    "forum_documents": 2,
+    "total_documents": 9,
+    "mode": "verified seed snapshot"
+  }
+}
