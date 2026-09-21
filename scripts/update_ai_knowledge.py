@@ -15,7 +15,7 @@ OFFICIAL_INDEX=DATA/'official'/'index.json'; FORUM_INDEX=DATA/'forum'/'index.jso
 OFFICIAL='https://web.wuwuji.tw/index'; OFFICIAL_HOST='web.wuwuji.tw'
 FORUM='https://www.wuwuji.tw/forum/'; FORUM_HOST='www.wuwuji.tw'
 UA='Wuwuji-AI-KnowledgeBot/1.0 (+https://annynn1990.github.io/wuwujitest/)'
-TIMEOUT=30; DELAY=.65; MAX_OFFICIAL=120; MAX_FORUM_INDEX=120; MAX_THREADS=1000
+TIMEOUT=30; DELAY=.65; MAX_OFFICIAL=120; MAX_FORUM_INDEX=120; MAX_THREADS=1000; MAX_THREAD_PAGES=20
 KNOWN=['/index','/about','/cosmos','/practice','/book_adventure','/history','/seminar']
 BLOCK=('home.php','member.php','mod=space','login','logout','admin','plugin.php')
 
@@ -46,21 +46,45 @@ def keywords(text,n=12):
 
 class P(HTMLParser):
     DROP={'script','style','noscript','svg','canvas','template'}
+    POST_CLASSES={'t_f','pcb','t_fsz','postmessage','message'}
     def __init__(self,base):
-        super().__init__(); self.base=base; self.title=''; self.meta={}; self.head=[]; self.par=[]; self.links=[]; self.a=None; self.buf=[]; self.active=None; self.abuf=[]
+        super().__init__()
+        self.base=base; self.title=''; self.meta={}; self.head=[]; self.par=[]; self.links=[]
+        self.posts=[]; self.a=None; self.buf=[]; self.active=None; self.abuf=[]
+        self.post_depth=0; self.post_buf=[]
     def handle_starttag(self,t,attrs):
         t=t.lower(); a=dict(attrs)
-        if t in self.DROP:self.active=t;return
-        if t=='title' or t in {'h1','h2','h3','h4'} or t=='p':self.active=t;self.buf=[]
-        elif t=='a':self.a=a.get('href');self.abuf=[]
+        if t in self.DROP:
+            self.active=t; return
+        classes=set((a.get('class') or '').split())
+        if classes.intersection(self.POST_CLASSES):
+            self.post_depth += 1
+            if self.post_depth==1:self.post_buf=[]
+            return
+        if self.post_depth:
+            self.post_depth += 1
+        if t=='title' or t in {'h1','h2','h3','h4'} or t=='p':
+            self.active=t; self.buf=[]
+        elif t=='a':
+            self.a=a.get('href'); self.abuf=[]
         elif t=='meta':
             k=(a.get('name') or a.get('property') or '').lower(); v=clean(a.get('content') or '')
             if k and v:self.meta[k]=v
     def handle_data(self,d):
-        if self.active in {'title','h1','h2','h3','h4','p'}:self.buf.append(d)
+        if self.post_depth:
+            self.post_buf.append(d)
+        elif self.active in {'title','h1','h2','h3','h4','p'}:
+            self.buf.append(d)
         if self.a is not None:self.abuf.append(d)
     def handle_endtag(self,t):
         t=t.lower()
+        if self.post_depth:
+            self.post_depth -= 1
+            if self.post_depth==0:
+                x=clean(' '.join(self.post_buf))
+                if x and x not in self.posts:self.posts.append(x)
+                self.post_buf=[]
+            return
         if self.active==t and t in {'title','h1','h2','h3','h4','p'}:
             x=clean(' '.join(self.buf))
             if x:
@@ -70,9 +94,9 @@ class P(HTMLParser):
             self.active=None;self.buf=[]
         elif t=='a' and self.a is not None:
             h=self.a.strip();txt=clean(' '.join(self.abuf))
-            if h and not h.startswith(('javascript:','mailto:','#')):self.links.append({'url':urldefrag(urljoin(self.base,h))[0],'text':txt[:300]})
+            if h and not h.startswith(('javascript:','mailto:','#')):
+                self.links.append({'url':urldefrag(urljoin(self.base,h))[0],'text':txt[:300]})
             self.a=None;self.abuf=[]
-
 def fetch(url):
     req=Request(url,headers={'User-Agent':UA,'Accept':'text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8'})
     with urlopen(req,timeout=TIMEOUT) as r:
@@ -85,10 +109,20 @@ def robots_ok(url):
 def blocked(u):
     x=u.lower(); return any(v in x for v in BLOCK)
 def parse(url,html,kind):
-    p=P(url);p.feed(html); body=clean('\n'.join(p.par));
-    body=re.sub(r'[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}','[email removed]',body)
-    return {'url':url,'source_type':kind,'title':p.title,'description':p.meta.get('description',''),'headings':p.head[:120],'text':body[:50000],'summary':summary(body),'keywords':keywords(body),'links':p.links[:400],'content_sha256':sha(body)}
-
+    p=P(url);p.feed(html)
+    if kind=='forum_thread' and p.posts:
+        body=clean('\\n'.join(p.posts))
+        extra=[x for x in p.par if x and x not in p.posts]
+        if extra:body=clean(body+'\\n'+'\\n'.join(extra))
+    else:
+        body=clean('\\n'.join(p.par))
+    body=re.sub(r'[\\w.+-]+@[\\w.-]+\\.[A-Za-z]{2,}','[email removed]',body)
+    return {
+        'url':url,'source_type':kind,'title':p.title,'description':p.meta.get('description',''),
+        'headings':p.head[:120],'text':body[:50000],'summary':summary(body),
+        'keywords':keywords(body),'links':p.links[:400],
+        'post_count':len(p.posts),'posts':p.posts[:200],'content_sha256':sha(body)
+    }
 def crawl_official():
     q=[urljoin('https://web.wuwuji.tw',x) for x in KNOWN]+[OFFICIAL]; seen=set(); docs=[]
     while q and len(docs)<MAX_OFFICIAL:
@@ -127,8 +161,34 @@ def crawl_forum():
     for u,anchor in list(cand.items())[:MAX_THREADS]:
         if not robots_ok(u):continue
         try:
-            d=parse(u,fetch(u),'forum_thread');d['anchor_text']=anchor;d['text']=d['text'][:15000];d['summary']=summary(d['text'],700);threads.append(d)
-        except Exception:pass
+            first=parse(u,fetch(u),'forum_thread')
+            all_posts=list(first.get('posts') or [])
+            page_urls=[]
+            for l in first.get('links') or []:
+                v=l['url']
+                if 'mod=viewthread' in v.lower() and 'tid=' in v.lower() and 'page=' in v.lower():
+                    page_urls.append(v)
+            page_urls=list(dict.fromkeys(page_urls))[:MAX_THREAD_PAGES-1]
+            for pv in page_urls:
+                if not robots_ok(pv):continue
+                try:
+                    pd=parse(pv,fetch(pv),'forum_thread')
+                    for post in pd.get('posts') or []:
+                        if post not in all_posts:all_posts.append(post)
+                except Exception:
+                    pass
+                time.sleep(DELAY)
+            if all_posts:
+                first['posts']=all_posts[:200]
+                first['post_count']=len(all_posts)
+                first['text']=clean('\\n'.join(all_posts))[:50000]
+                first['summary']=summary(first['text'],1200)
+                first['keywords']=keywords(first['text'],15)
+                first['content_sha256']=sha(first['text'])
+            first['anchor_text']=anchor
+            threads.append(first)
+        except Exception:
+            pass
         time.sleep(DELAY)
     return idx,threads
 
