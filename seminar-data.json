@@ -1,5 +1,78 @@
 {
   "source": "https://web.wuwuji.tw/seminar",
-  "updated_at": "",
-  "events": []
+  "updated_at": "2026-09-22T00:29:21.371921+08:00",
+  "events": [
+    {
+      "name": "台北市中山區南京東路二段50號6樓",
+      "date_display": "2026年10月03日",
+      "date": "2026-10-03",
+      "checkin": "13:00",
+      "start_time": "14:00",
+      "end_time": "16:30",
+      "start_datetime": "2026-10-03T14:00:00+08:00",
+      "end_datetime": "2026-10-03T16:30:00+08:00",
+      "address": "台北市中山區南京東路二段50號6樓 13:00 開始報到 14:00 開始說明會 16:30 結束時間 台北市中山區南京東路二段50號6樓(捷運松江南京站1號出口旁)",
+      "source": "https://web.wuwuji.tw/seminar"
+    },
+    {
+      "name": "台北大同區長安西路場",
+      "date_display": "2026年10月04日",
+      "date": "2026-10-04",
+      "checkin": "13:30",
+      "start_time": "14:00",
+      "end_time": "16:30",
+      "start_datetime": "2026-10-04T14:00:00+08:00",
+      "end_datetime": "2026-10-04T16:30:00+08:00",
+      "address": "台北市大同區長安西路287號8樓之5",
+      "source": "https://web.wuwuji.tw/seminar"
+    },
+    {
+      "name": "台南永康場",
+      "date_display": "2026年10月04日",
+      "date": "2026-10-04",
+      "checkin": "13:30",
+      "start_time": "14:00",
+      "end_time": "16:30",
+      "start_datetime": "2026-10-04T14:00:00+08:00",
+      "end_datetime": "2026-10-04T16:30:00+08:00",
+      "address": "台南市永康區復華三街51號 (北海道生鮮超市對面)",
+      "source": "https://web.wuwuji.tw/seminar"
+    },
+    {
+      "name": "台北大同區長安西路場",
+      "date_display": "2026年10月04日",
+      "date": "2026-10-04",
+      "checkin": "13:30",
+      "start_time": "14:00",
+      "end_time": "16:30",
+      "start_datetime": "2026-10-04T14:00:00+08:00",
+      "end_datetime": "2026-10-04T16:30:00+08:00",
+      "address": "台北市大同區長安西路287號8樓之5 姓名 聯絡電話 Email 報名人數 備註 送出報名 送出後，報名內容會記錄在後台「說明會管理 / 報名管理」。 中天法門 一世成就之法，天上果位人間證。 認識中天 宇宙觀 修行之道 天堂遊記 發展歷程",
+      "source": "https://web.wuwuji.tw/seminar"
+    },
+    {
+      "name": "台南東山許秀才",
+      "date_display": "2026年10月11日",
+      "date": "2026-10-11",
+      "checkin": "13:30",
+      "start_time": "14:00",
+      "end_time": "16:30",
+      "start_datetime": "2026-10-11T14:00:00+08:00",
+      "end_datetime": "2026-10-11T16:30:00+08:00",
+      "address": "台南市東山區三榮里許秀才1之1號1樓 (許秀才創意花園對面)",
+      "source": "https://web.wuwuji.tw/seminar"
+    },
+    {
+      "name": "高雄市左營說明會",
+      "date_display": "2026年10月11日",
+      "date": "2026-10-11",
+      "checkin": "13:00",
+      "start_time": "14:00",
+      "end_time": "16:30",
+      "start_datetime": "2026-10-11T14:00:00+08:00",
+      "end_datetime": "2026-10-11T16:30:00+08:00",
+      "address": "高雄市左營說明會 13:00 開始報到 14:00 開始說明會 16:30 結束時間 高雄市左營區菜公里重惠街201號",
+      "source": "https://web.wuwuji.tw/seminar"
+    }
+  ]
 }
