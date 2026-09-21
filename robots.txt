@@ -1,7 +1,4 @@
 User-agent: *
 Allow: /
 
-User-agent: OAI-SearchBot
-Allow: /
-
-Sitemap: https://YOUR-SITE.github.io/sitemap.xml
+Sitemap: https://annynn1990.github.io/wuwujitest/sitemap.xml
