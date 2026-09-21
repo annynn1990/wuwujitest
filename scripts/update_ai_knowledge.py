@@ -128,7 +128,7 @@ def parse(url,html,kind):
     if kind=='forum_thread' and p.posts:
         extra=[x for x in p.par if x and x not in p.posts]
         if extra:body=clean(body+'\\n'+'\\n'.join(extra))
-    body=re.sub(r'[\\w.+-]+@[\\w.-]+\\.[A-Za-z]{2,}','[email removed]')
+    body=re.sub(r'[\\w.+-]+@[\\w.-]+\\.[A-Za-z]{2,}','[email removed]',body)
     return {'url':url,'source_type':kind,'title':p.title,'description':p.meta.get('description',''),
             'headings':p.head[:120],'text':body[:50000],'summary':summary(body),
             'keywords':keywords(body),'links':p.links[:400],'post_count':len(p.posts),
