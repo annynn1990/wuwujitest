@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>中天法門 AI / GEO 公開知識庫</title>
+<meta name="description" content="中天法門公開網站與公開論壇的 AI/GEO 機器可讀知識庫，提供人類閱讀入口與機器資料入口。">
+<link rel="canonical" href="https://annynn1990.github.io/wuwujitest/ai-knowledge/">
+<link rel="alternate" type="application/json" href="./knowledge.json">
+<style>
+body{font-family:Arial,"Microsoft JhengHei","Noto Sans TC",sans-serif;line-height:1.75;max-width:1100px;margin:auto;padding:28px 20px;color:#17202a;background:#fff}
+header{border-bottom:1px solid #ddd;padding-bottom:18px;margin-bottom:22px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}.card{border:1px solid #ddd;border-radius:10px;padding:14px;background:#fff}.num{font-size:28px;font-weight:700}a{color:#0645ad;word-break:break-all}small{color:#666}section{margin:26px 0}table{width:100%;border-collapse:collapse}th,td{border-bottom:1px solid #eee;text-align:left;padding:8px;vertical-align:top}
+</style></head>
+<body>
+<header><h1>中天法門 AI / GEO 公開知識庫</h1><p>這是人類閱讀入口；機器資料請直接讀 <a href="./knowledge.json">knowledge.json</a>。</p><small id="updated">讀取資料中…</small></header>
+<section class="grid">
+<div class="card"><div class="num" id="official">-</div>官方頁面</div>
+<div class="card"><div class="num" id="forum">-</div>論壇文件</div>
+<div class="card"><div class="num" id="docs">-</div>總文件</div>
+<div class="card"><div class="num" id="claims">-</div>來源摘要</div>
+</section>
+<section><h2>資料來源</h2><table><tr><th>類型</th><th>來源</th><th>說明</th></tr>
+<tr><td>official</td><td><a href="https://web.wuwuji.tw/">web.wuwuji.tw</a></td><td>官方網站公開頁面</td></tr>
+<tr><td>forum</td><td><a href="https://www.wuwuji.tw/forum/">www.wuwuji.tw/forum/</a></td><td>公開論壇；內容不自動視為官方立場</td></tr>
+<tr><td>seminar</td><td><a href="../seminar-data.json">seminar-data.json</a></td><td>既有說明會同步資料</td></tr></table></section>
+<section><h2>近期自動摘要</h2><div id="summaries">讀取中…</div></section>
+<section><h2>資料規則</h2><p>只處理公開可取得內容；不抓登入頁、後台及不必要會員個資。摘要為 extractive_v1 抽取式摘要，不是事實查核。宗教性或世界觀內容保留來源網址並標示來源類型。</p></section>
+<section><h2>機器入口</h2><p><a href="./knowledge.json">knowledge.json</a> · <a href="./manifest.json">manifest.json</a> · <a href="./official/index.json">official/index.json</a> · <a href="./forum/index.json">forum/index.json</a> · <a href="./llms.txt">llms.txt</a></p></section>
+<script>
+(async()=>{try{const r=await fetch("./knowledge.json?t="+Date.now(),{cache:"no-store"}),d=await r.json();
+document.getElementById("updated").textContent="最後生成："+d.generated_at;
+document.getElementById("official").textContent=d.stats.official_pages;
+document.getElementById("forum").textContent=d.stats.forum_index_pages+d.stats.forum_threads;
+document.getElementById("docs").textContent=d.stats.documents;
+document.getElementById("claims").textContent=d.stats.claims;
+document.getElementById("summaries").innerHTML=(d.documents||[]).slice(0,12).map(x=>`<article class="card" style="margin:10px 0"><strong>${esc(x.title||x.url)}</strong><p>${esc(x.summary||"無摘要")}</p><small>${esc(x.source_type)} · <a href="${esc(x.url)}">來源</a></small></article>`).join("");
+}catch(e){document.getElementById("summaries").textContent="目前無法讀取 knowledge.json。";}})();
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));}
+</script></body></html>
