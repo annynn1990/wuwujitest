@@ -2,29 +2,157 @@
 <html lang="zh-Hant-TW">
 
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>中天法門說明會｜最新場次與報名</title>
+<title>中天法門說明會｜最新場次與同步診斷</title>
 
 <meta
 name="description"
-content="中天法門說明會最新場次、日期、報到時間、說明會時間與地點。資料由中天法門官方說明會頁面自動同步更新。">
+content="中天法門說明會最新場次，以及自動同步資料的診斷資訊。">
 
 <link rel="canonical"
-href="https://YOUR-SITE.github.io/seminar.html">
+href="https://annynn1990.github.io/wuwujitest/seminar.html">
 
-<link rel="stylesheet"
-href="style.css">
+<style>
 
-<script type="application/ld+json" id="eventSchema">
-{
-  "@context": "https://schema.org",
-  "@graph": []
+body {
+    margin: 0;
+    font-family:
+        Arial,
+        "Microsoft JhengHei",
+        "Noto Sans TC",
+        sans-serif;
+
+    background: #07111f;
+    color: #eef5ff;
+
+    line-height: 1.8;
 }
-</script>
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+h1 {
+    color: #f3c969;
+}
+
+h2 {
+    margin-top: 40px;
+}
+
+h3 {
+    color: #f3c969;
+}
+
+.lead {
+    color: #aebfd3;
+    font-size: 1.1rem;
+}
+
+.notice {
+    margin: 20px 0;
+    padding: 20px;
+
+    border-left: 5px solid #f3c969;
+
+    background: rgba(243, 201, 105, 0.08);
+
+    border-radius: 8px;
+}
+
+.success {
+    border-left-color: #57d68d;
+}
+
+.error {
+    border-left-color: #ff6868;
+}
+
+.warning {
+    border-left-color: #ffb84d;
+}
+
+.event {
+    margin: 15px 0;
+    padding: 22px;
+
+    background: #102238;
+
+    border: 1px solid #27405c;
+
+    border-radius: 15px;
+}
+
+.event h3 {
+    margin-top: 0;
+}
+
+button,
+.btn {
+    display: inline-block;
+
+    padding: 12px 20px;
+
+    border: 0;
+
+    border-radius: 30px;
+
+    background: #f3c969;
+
+    color: #111;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    margin: 5px;
+}
+
+.btn.secondary {
+    background: transparent;
+    color: white;
+    border: 1px solid #45617e;
+}
+
+pre {
+
+    background: #030914;
+
+    border: 1px solid #27405c;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    white-space: pre-wrap;
+
+    word-break: break-word;
+
+    overflow-x: auto;
+
+    color: #b9d7ef;
+
+}
+
+code {
+    color: #f3c969;
+}
+
+.small {
+    color: #8fa6bc;
+    font-size: .9rem;
+}
+
+</style>
 
 </head>
 
@@ -32,47 +160,18 @@ href="style.css">
 <body>
 
 
-<header>
-
-<div class="container nav">
-
-<a class="logo" href="index.html">
-中天法門｜禪修資訊
-</a>
-
-<nav>
-<a href="meditation.html">禪修</a>
-<a href="course.html">課程</a>
-<a href="seminar.html">說明會</a>
-<a href="faq.html">FAQ</a>
-<a href="about.html">關於</a>
-</nav>
-
-</div>
-
-</header>
-
-
-
-<main>
-
-
-<section class="hero">
-
 <div class="container">
 
-<div class="eyebrow">
-中天法門說明會
-</div>
 
 <h1>
-最新說明會場次
+中天法門說明會
 </h1>
 
+
 <p class="lead">
-以下場次由中天法門官方說明會頁面自動同步。
-網站會定期重新抓取資料，因此不需要手動修改本頁。
+自動同步場次與錯誤診斷
 </p>
+
 
 <a
 class="btn"
@@ -80,262 +179,932 @@ href="https://web.wuwuji.tw/seminar"
 target="_blank"
 rel="noopener">
 
-前往官方報名頁
+查看官方說明會
 
 </a>
 
-</div>
 
-</section>
+<button
+onclick="checkData()">
+
+重新檢查資料
+
+</button>
 
 
+<!-- ==================== -->
+<!-- 狀態 -->
+<!-- ==================== -->
 
-<section>
-
-<div class="container">
-
-<div id="status"
+<div
+id="status"
 class="notice">
 
-正在同步中天法門官方說明會資料……
+正在檢查資料……
 
 </div>
+
+
+<!-- ==================== -->
+<!-- 診斷 -->
+<!-- ==================== -->
+
+<h2>
+同步診斷
+</h2>
+
+
+<div
+id="diagnostic">
+
+正在診斷……
+
+</div>
+
+
+<!-- ==================== -->
+<!-- 場次 -->
+<!-- ==================== -->
 
 <h2>
 目前可報名場次
 </h2>
 
+
 <div
-id="events"
-class="events">
+id="events">
 
 </div>
 
-</div>
 
-</section>
-
-
-
-<section class="dark">
-
-<div class="container">
+<!-- ==================== -->
+<!-- 原始 JSON -->
+<!-- ==================== -->
 
 <h2>
-報名方式
+seminar-data.json 原始內容
 </h2>
 
-<p>
-本網站只負責整理公開資訊。
-實際報名仍在中天法門官方網站完成。
-</p>
 
-<a
-class="btn"
-href="https://web.wuwuji.tw/seminar"
-target="_blank"
-rel="noopener">
+<pre
+id="raw">
 
-進入官方報名系統
+尚未讀取
 
-</a>
-
-</div>
-
-</section>
+</pre>
 
 
-
-<section>
-
-<div class="container">
+<!-- ==================== -->
+<!-- 更新時間 -->
+<!-- ==================== -->
 
 <h2>
-資料同步說明
+資料狀態
 </h2>
 
-<p>
-本頁資料來源為：
-<a
-href="https://web.wuwuji.tw/seminar"
-target="_blank"
-rel="noopener">
-中天法門官方說明會頁面
-</a>
-</p>
 
-<p>
-系統會定期重新抓取官方頁面。
-如果官方修改日期、場次、時間或地址，
-下一次同步後本頁便會跟著更新。
-</p>
+<div
+id="updated"
+class="notice">
 
-<p id="updated"
-class="source-note">
 最後同步時間：讀取中……
-</p>
 
 </div>
 
-</section>
-
-
-</main>
-
-
-
-<footer>
-
-<div class="container">
-
-<h3>中天法門禪修資訊</h3>
-
-<p>
-中天法門官方網站：
-<a href="https://web.wuwuji.tw/">
-https://web.wuwuji.tw/
-</a>
-</p>
-
-<p>
-說明會官方報名：
-<a href="https://web.wuwuji.tw/seminar">
-https://web.wuwuji.tw/seminar
-</a>
-</p>
 
 <p class="small">
-本網站為公開資訊整理站，不宣稱為中天法門官方網站。
-場次資訊如有變動，以官方頁面最新內容為準。
+
+資料來源：
+
+<a
+href="https://web.wuwuji.tw/seminar"
+target="_blank">
+
+https://web.wuwuji.tw/seminar
+
+</a>
+
 </p>
 
+
 </div>
-
-</footer>
-
 
 
 <script>
 
-async function loadSeminarData() {
+
+/*
+==================================================
+主要診斷程式
+==================================================
+*/
+
+
+async function checkData() {
+
 
     const status =
         document.getElementById("status");
 
-    const events =
+
+    const diagnostic =
+        document.getElementById("diagnostic");
+
+
+    const eventsBox =
         document.getElementById("events");
+
+
+    const rawBox =
+        document.getElementById("raw");
+
 
     const updated =
         document.getElementById("updated");
 
+
+    /*
+    ----------------------------------------------
+    清空
+    ----------------------------------------------
+    */
+
+
+    status.className = "notice";
+
+    diagnostic.innerHTML = "";
+
+    eventsBox.innerHTML = "";
+
+    rawBox.textContent = "正在讀取……";
+
+
+    updated.textContent =
+        "最後同步時間：讀取中……";
+
+
+    /*
+    ----------------------------------------------
+    找出 JSON 真實網址
+    ----------------------------------------------
+    */
+
+
+    const dataURL =
+        new URL(
+            "seminar-data.json",
+            window.location.href
+        ).href;
+
+
+    /*
+    ----------------------------------------------
+    顯示基本環境
+    ----------------------------------------------
+    */
+
+
+    diagnostic.innerHTML += `
+
+        <div class="notice">
+
+            <strong>目前網頁：</strong><br>
+
+            ${escapeHTML(
+                window.location.href
+            )}
+
+            <br><br>
+
+            <strong>準備讀取 JSON：</strong><br>
+
+            ${escapeHTML(
+                dataURL
+            )}
+
+        </div>
+
+    `;
+
+
+    /*
+    ----------------------------------------------
+    開始 Fetch
+    ----------------------------------------------
+    */
+
+
+    let response;
+
+
     try {
 
-        const response =
-            await fetch("seminar-data.json?t=" + Date.now(), {
-                cache: "no-store"
-            });
 
-        if (!response.ok) {
-            throw new Error("無法讀取 seminar-data.json");
-        }
+        response =
+            await fetch(
 
-        const data =
-            await response.json();
+                dataURL,
+
+                {
+
+                    cache: "no-store"
+
+                }
+
+            );
 
 
-        /*
-         * 更新同步時間
-         */
+    }
 
-        if (data.updated_at) {
+    catch (error) {
 
-            const date =
-                new Date(data.updated_at);
 
-            updated.textContent =
-                "最後同步時間：" +
-                date.toLocaleString(
-                    "zh-TW",
-                    {
-                        timeZone: "Asia/Taipei",
-                        hour12: false
-                    }
+        status.className =
+            "notice error";
+
+
+        status.innerHTML = `
+
+            <strong>
+                ❌ Fetch 失敗
+            </strong>
+
+            <br><br>
+
+            <strong>錯誤：</strong>
+
+            ${escapeHTML(
+                error.message
+            )}
+
+            <br><br>
+
+            這通常代表：
+
+            <ol>
+
+                <li>
+                    seminar-data.json 不存在
+                </li>
+
+                <li>
+                    GitHub Pages 尚未部署最新版本
+                </li>
+
+                <li>
+                    網址錯誤
+                </li>
+
+                <li>
+                    瀏覽器無法取得該檔案
+                </li>
+
+            </ol>
+
+        `;
+
+
+        diagnostic.innerHTML += `
+
+            <div class="notice error">
+
+                <strong>
+                    FETCH ERROR
+                </strong>
+
+                <pre>${escapeHTML(
+                    error.toString()
+                )}</pre>
+
+            </div>
+
+        `;
+
+
+        rawBox.textContent =
+            "無法取得 JSON";
+
+
+        updated.textContent =
+            "最後同步時間：讀取失敗";
+
+
+        return;
+
+    }
+
+
+    /*
+    ----------------------------------------------
+    HTTP 狀態
+    ----------------------------------------------
+    */
+
+
+    diagnostic.innerHTML += `
+
+        <div class="notice">
+
+            <strong>
+                HTTP 狀態：
+            </strong>
+
+            ${response.status}
+
+            <br>
+
+            <strong>
+                HTTP Status：
+            </strong>
+
+            ${escapeHTML(
+                response.statusText
+            )}
+
+            <br>
+
+            <strong>
+                Content-Type：
+            </strong>
+
+            ${escapeHTML(
+                response.headers.get(
+                    "content-type"
+                ) || "未知"
+            )}
+
+        </div>
+
+    `;
+
+
+    /*
+    ----------------------------------------------
+    HTTP 不是成功
+    ----------------------------------------------
+    */
+
+
+    if (!response.ok) {
+
+
+        status.className =
+            "notice error";
+
+
+        status.innerHTML = `
+
+            <strong>
+                ❌ JSON HTTP 讀取失敗
+            </strong>
+
+            <br><br>
+
+            HTTP：
+
+            ${response.status}
+
+            ${escapeHTML(
+                response.statusText
+            )}
+
+            <br><br>
+
+            <strong>
+                最可能原因：
+            </strong>
+
+            <ul>
+
+                <li>
+                    seminar-data.json 尚未部署
+                </li>
+
+                <li>
+                    GitHub Pages 路徑錯誤
+                </li>
+
+                <li>
+                    repository 中沒有此檔案
+                </li>
+
+            </ul>
+
+        `;
+
+
+        rawBox.textContent =
+            "HTTP " +
+            response.status;
+
+
+        return;
+
+    }
+
+
+    /*
+    ----------------------------------------------
+    讀取原始文字
+    ----------------------------------------------
+    */
+
+
+    let raw;
+
+
+    try {
+
+        raw =
+            await response.text();
+
+    }
+
+    catch (error) {
+
+
+        status.className =
+            "notice error";
+
+
+        status.innerHTML = `
+
+            <strong>
+                ❌ 無法讀取 JSON 內容
+            </strong>
+
+            <br><br>
+
+            ${escapeHTML(
+                error.message
+            )}
+
+        `;
+
+
+        return;
+
+    }
+
+
+    /*
+    ----------------------------------------------
+    顯示原始 JSON
+    ----------------------------------------------
+    */
+
+
+    rawBox.textContent =
+        raw;
+
+
+    /*
+    ----------------------------------------------
+    檢查空檔案
+    ----------------------------------------------
+    */
+
+
+    if (!raw.trim()) {
+
+
+        status.className =
+            "notice error";
+
+
+        status.innerHTML = `
+
+            <strong>
+                ❌ seminar-data.json 是空檔案
+            </strong>
+
+            <br><br>
+
+            HTTP：
+
+            ${response.status}
+
+        `;
+
+
+        return;
+
+    }
+
+
+    /*
+    ----------------------------------------------
+    JSON parse
+    ----------------------------------------------
+    */
+
+
+    let data;
+
+
+    try {
+
+        data =
+            JSON.parse(raw);
+
+    }
+
+    catch (error) {
+
+
+        status.className =
+            "notice error";
+
+
+        status.innerHTML = `
+
+            <strong>
+                ❌ JSON 格式錯誤
+            </strong>
+
+            <br><br>
+
+            <strong>
+                JavaScript 錯誤：
+            </strong>
+
+            ${escapeHTML(
+                error.message
+            )}
+
+            <br><br>
+
+            請查看下面的
+            「seminar-data.json 原始內容」。
+
+        `;
+
+
+        return;
+
+    }
+
+
+    /*
+    ----------------------------------------------
+    JSON 基本診斷
+    ----------------------------------------------
+    */
+
+
+    diagnostic.innerHTML += `
+
+        <div class="notice success">
+
+            <strong>
+                ✅ JSON 成功讀取
+            </strong>
+
+            <br>
+
+            HTTP：
+            ${response.status}
+
+            <br>
+
+            JSON 大小：
+            ${raw.length}
+            bytes
+
+        </div>
+
+    `;
+
+
+    /*
+    ----------------------------------------------
+    source
+    ----------------------------------------------
+    */
+
+
+    diagnostic.innerHTML += `
+
+        <div class="notice">
+
+            <strong>
+                Source：
+            </strong>
+
+            ${escapeHTML(
+                data.source || "沒有 source"
+            )}
+
+        </div>
+
+    `;
+
+
+    /*
+    ----------------------------------------------
+    updated_at
+    ----------------------------------------------
+    */
+
+
+    if (data.updated_at) {
+
+        const date =
+            new Date(
+                data.updated_at
+            );
+
+
+        updated.innerHTML = `
+
+            <strong>
+                ✅ 最後同步時間
+            </strong>
+
+            <br><br>
+
+            ${date.toLocaleString(
+                "zh-TW",
+                {
+                    timeZone:
+                        "Asia/Taipei",
+
+                    hour12:
+                        false
+                }
+            )}
+
+            <br><br>
+
+            原始值：
+
+            <code>
+
+                ${escapeHTML(
+                    data.updated_at
+                )}
+
+            </code>
+
+        `;
+
+    }
+
+    else {
+
+        updated.innerHTML = `
+
+            <strong>
+                ⚠️ 沒有同步時間
+            </strong>
+
+            <br><br>
+
+            這通常表示：
+
+            <br>
+
+            Python 自動同步程式
+            尚未成功更新
+            seminar-data.json。
+
+        `;
+
+    }
+
+
+    /*
+    ----------------------------------------------
+    events 檢查
+    ----------------------------------------------
+    */
+
+
+    if (!Array.isArray(data.events)) {
+
+
+        status.className =
+            "notice error";
+
+
+        status.innerHTML = `
+
+            <strong>
+                ❌ JSON 沒有 events 陣列
+            </strong>
+
+        `;
+
+
+        return;
+
+    }
+
+
+    /*
+    ----------------------------------------------
+    0 場
+    ----------------------------------------------
+    */
+
+
+    if (data.events.length === 0) {
+
+
+        status.className =
+            "notice warning";
+
+
+        status.innerHTML = `
+
+            <strong>
+                ⚠️ JSON 讀取成功，但 events = 0
+            </strong>
+
+            <br><br>
+
+            這代表：
+
+            <br>
+
+            <strong>
+                網頁本身沒有讀取錯誤。
+            </strong>
+
+            <br><br>
+
+            真正的問題在：
+
+            <br><br>
+
+            <strong>
+                Python → 官方網站 → seminar-data.json
+            </strong>
+
+            <br><br>
+
+            請查看 GitHub Actions
+            「更新中天法門說明會」的執行結果。
+
+        `;
+
+
+        diagnostic.innerHTML += `
+
+            <div class="notice warning">
+
+                <strong>
+                    場次診斷
+                </strong>
+
+                <br><br>
+
+                events.length =
+
+                <strong>
+                    0
+                </strong>
+
+                <br><br>
+
+                因此沒有任何場次可以顯示。
+
+            </div>
+
+        `;
+
+
+        return;
+
+    }
+
+
+    /*
+    ----------------------------------------------
+    成功
+    ----------------------------------------------
+    */
+
+
+    status.className =
+        "notice success";
+
+
+    status.innerHTML = `
+
+        <strong>
+            ✅ 成功取得說明會資料
+        </strong>
+
+        <br><br>
+
+        場次：
+
+        <strong>
+            ${data.events.length}
+        </strong>
+
+        場
+
+    `;
+
+
+    /*
+    ----------------------------------------------
+    顯示場次
+    ----------------------------------------------
+    */
+
+
+    data.events.forEach(
+        (event, index) => {
+
+
+            const div =
+                document.createElement(
+                    "div"
                 );
 
-        }
 
-
-        /*
-         * 清除舊資料
-         */
-
-        events.innerHTML = "";
-
-
-        /*
-         * 沒有場次
-         */
-
-        if (!data.events || data.events.length === 0) {
-
-            status.innerHTML =
-                "<strong>目前沒有抓到可報名場次。</strong> " +
-                "請直接查看官方說明會頁面。";
-
-            return;
-
-        }
-
-
-        /*
-         * 顯示同步成功
-         */
-
-        status.innerHTML =
-            "資料已自動同步。場次內容以中天法門官方頁面為準。";
-
-
-        /*
-         * 生成事件卡片
-         */
-
-        data.events.forEach(event => {
-
-            const card =
-                document.createElement("article");
-
-            card.className =
+            div.className =
                 "event";
 
 
-            card.innerHTML = `
+            div.innerHTML = `
 
                 <h3>
-                    ${escapeHTML(event.name || "中天法門說明會")}
+
+                    ${index + 1}.
+
+                    ${escapeHTML(
+                        event.name ||
+                        "中天法門說明會"
+                    )}
+
                 </h3>
 
                 <p>
-                    <strong>日期：</strong>
-                    ${escapeHTML(event.date_display || "")}
+
+                    <strong>
+                        日期：
+                    </strong>
+
+                    ${escapeHTML(
+                        event.date_display ||
+                        event.date ||
+                        ""
+                    )}
+
                 </p>
 
                 <p>
-                    <strong>報到：</strong>
-                    ${escapeHTML(event.checkin || "依官方公告")}
+
+                    <strong>
+                        報到：
+                    </strong>
+
+                    ${escapeHTML(
+                        event.checkin ||
+                        ""
+                    )}
+
                     <br>
 
-                    <strong>說明會：</strong>
-                    ${escapeHTML(event.start_time || "依官方公告")}
+                    <strong>
+                        說明會：
+                    </strong>
+
+                    ${escapeHTML(
+                        event.start_time ||
+                        ""
+                    )}
+
                     <br>
 
-                    <strong>結束：</strong>
-                    ${escapeHTML(event.end_time || "依官方公告")}
+                    <strong>
+                        結束：
+                    </strong>
+
+                    ${escapeHTML(
+                        event.end_time ||
+                        ""
+                    )}
+
                 </p>
 
                 <p>
-                    <strong>地點：</strong>
-                    ${escapeHTML(event.address || "")}
+
+                    <strong>
+                        地點：
+                    </strong>
+
+                    ${escapeHTML(
+                        event.address ||
+                        ""
+                    )}
+
                 </p>
+
 
                 <a
                     class="btn"
@@ -350,123 +1119,63 @@ async function loadSeminarData() {
             `;
 
 
-            events.appendChild(card);
+            eventsBox.appendChild(
+                div
+            );
 
-        });
-
-
-        /*
-         * 動態生成 Event Schema
-         */
-
-        const graph =
-            document.getElementById("eventSchema");
-
-        const schemaEvents =
-            data.events.map(event => {
-
-                return {
-
-                    "@type": "Event",
-
-                    "name":
-                        event.name || "中天法門說明會",
-
-                    "startDate":
-                        event.start_datetime || "",
-
-                    "endDate":
-                        event.end_datetime || "",
-
-                    "eventAttendanceMode":
-                        "https://schema.org/OfflineEventAttendanceMode",
-
-                    "eventStatus":
-                        "https://schema.org/EventScheduled",
-
-                    "location": {
-
-                        "@type": "Place",
-
-                        "name":
-                            event.name || "中天法門說明會",
-
-                        "address":
-                            event.address || ""
-
-                    },
-
-                    "organizer": {
-
-                        "@type": "Organization",
-
-                        "name": "中天法門",
-
-                        "url":
-                            "https://web.wuwuji.tw/"
-
-                    },
-
-                    "url":
-                        "https://web.wuwuji.tw/seminar"
-
-                };
-
-            });
-
-
-        graph.textContent =
-            JSON.stringify({
-
-                "@context":
-                    "https://schema.org",
-
-                "@graph":
-                    schemaEvents
-
-            }, null, 2);
-
-
-    }
-
-    catch (error) {
-
-        console.error(error);
-
-        status.innerHTML = `
-            <strong>自動同步暫時失敗。</strong>
-            請直接查看
-            <a
-              href="https://web.wuwuji.tw/seminar"
-              target="_blank"
-              rel="noopener">
-              中天法門官方說明會頁面
-            </a>。
-        `;
-
-    }
+        }
+    );
 
 }
 
 
 /*
- * 防止官方頁面若含特殊字元
- */
+==================================================
+防止 HTML 注入
+==================================================
+*/
+
 
 function escapeHTML(text) {
 
     return String(text)
 
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
+
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
+
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
+
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
+
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
 
 }
 
 
-loadSeminarData();
+/*
+==================================================
+第一次自動檢查
+==================================================
+*/
+
+
+checkData();
 
 </script>
 
