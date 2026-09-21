@@ -1,0 +1,103 @@
+{
+  "type": "official_index",
+  "updated_at": "2026-09-22T01:30:00+08:00",
+  "documents": [
+    {
+      "url": "https://web.wuwuji.tw/index",
+      "source_type": "official",
+      "title": "中天法門第一動畫官網｜一世成就之法",
+      "summary": "官方首頁介紹中天法門，主打「一世成就」之法，並以「宇宙公務中心」「靈流能量」與「一世成就」作為核心理念，同時列出不需出家、不需讀經、不需盤腿、不須苦行、不需發誓、隨緣素食、心要開悟等七大特色。",
+      "keywords": [
+        "中天法門",
+        "一世成就",
+        "宇宙公務中心",
+        "靈流能量",
+        "七大特色"
+      ],
+      "content_sha256": "seed-index"
+    },
+    {
+      "url": "https://web.wuwuji.tw/about",
+      "source_type": "official",
+      "title": "認識中天法門",
+      "summary": "官方頁面說明其對「中天」的定位，提出五天方位與幽冥界的架構，並介紹中天法門的起源、設立目的及「一世成就」之法。",
+      "keywords": [
+        "中天",
+        "五天方位",
+        "幽冥界",
+        "起源",
+        "設立目的",
+        "一世成就"
+      ],
+      "content_sha256": "seed-about"
+    },
+    {
+      "url": "https://web.wuwuji.tw/cosmos",
+      "source_type": "official",
+      "title": "宇宙觀",
+      "summary": "官方頁面把法界區分為幽冥界、皇極界、太極界、無極界與無無極界五大層次，並介紹49個具有生命的智慧星系、靈流能量以及與人類較貼近的中天仙佛等內容。",
+      "keywords": [
+        "宇宙觀",
+        "法界五大層次",
+        "49智慧星系",
+        "靈流能量",
+        "無無極界"
+      ],
+      "content_sha256": "seed-cosmos"
+    },
+    {
+      "url": "https://web.wuwuji.tw/practice",
+      "source_type": "official",
+      "title": "修行之道",
+      "summary": "官方頁面將修練分成「內修」與「外德」，介紹禪修、靈流運用、結界、行住坐臥等特色，也重申七大特色。",
+      "keywords": [
+        "修行之道",
+        "內修",
+        "外德",
+        "禪修",
+        "結界"
+      ],
+      "content_sha256": "seed-practice"
+    },
+    {
+      "url": "https://web.wuwuji.tw/book_adventure",
+      "source_type": "official",
+      "title": "中天天堂遊記",
+      "summary": "官方頁面介紹《中天天堂遊記》，並說明其採遊戲化閱讀形式，分成多個章節與修練挑戰；頁面將本書定位為介紹中天法門宇宙觀的內容入口。",
+      "keywords": [
+        "中天天堂遊記",
+        "章節",
+        "修練挑戰",
+        "宇宙觀"
+      ],
+      "content_sha256": "seed-book"
+    },
+    {
+      "url": "https://web.wuwuji.tw/history",
+      "source_type": "official",
+      "title": "發展歷程",
+      "summary": "官方發展歷程頁面從2005年的成立相關紀錄一路列出各年度事件，包括2006年中天正式啟動、各地班別、總壇與儀式，以及2024、2025年的班別入門等發展節點。",
+      "keywords": [
+        "發展歷程",
+        "2005",
+        "2006",
+        "東山總壇",
+        "班別"
+      ],
+      "content_sha256": "seed-history"
+    },
+    {
+      "url": "https://web.wuwuji.tw/seminar",
+      "source_type": "official",
+      "title": "說明會報名",
+      "summary": "官方說明會頁面介紹說明會用途、課程精神與目前可報名場次，並說明說明會是先了解中天法門再決定是否參加的入口。",
+      "keywords": [
+        "說明會",
+        "報名",
+        "課程精神",
+        "場次"
+      ],
+      "content_sha256": "seed-seminar"
+    }
+  ]
+}
