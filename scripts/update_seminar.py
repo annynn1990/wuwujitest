@@ -1,149 +1,106 @@
 import json
 import re
 from datetime import datetime, timezone, timedelta
+from html.parser import HTMLParser
 from pathlib import Path
 from urllib.request import Request, urlopen
 
 SOURCE_URL = "https://web.wuwuji.tw/seminar"
-OUTPUT = Path("seminar-data.json")
+OUTPUT_FILE = Path("seminar-data.json")
 
 
-def fetch_page():
+class ListParser(HTMLParser):
+    """只抓網頁中的 <li> 文字"""
+
+    def __init__(self):
+        super().__init__()
+        self.in_li = False
+        self.current = []
+        self.items = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag.lower() == "li":
+            self.in_li = True
+            self.current = []
+
+    def handle_endtag(self, tag):
+        if tag.lower() == "li" and self.in_li:
+            text = " ".join(self.current)
+            text = re.sub(r"\s+", " ", text).strip()
+
+            if text:
+                self.items.append(text)
+
+            self.in_li = False
+            self.current = []
+
+    def handle_data(self, data):
+        if self.in_li:
+            text = data.strip()
+
+            if text:
+                self.current.append(text)
+
+
+def fetch_html():
     request = Request(
         SOURCE_URL,
         headers={
-            "User-Agent":
-                "Mozilla/5.0 (compatible; ZhongtianInfoBot/1.0)"
+            "User-Agent": (
+                "Mozilla/5.0 "
+                "(Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 "
+                "Chrome/140 Safari/537.36"
+            )
         }
     )
 
     with urlopen(request, timeout=30) as response:
-        return response.read().decode(
-            "utf-8",
-            errors="ignore"
-        )
+        return response.read().decode("utf-8", errors="ignore")
 
 
-def html_to_text(html):
+def parse_events(html):
+    parser = ListParser()
+    parser.feed(html)
 
-    html = re.sub(
-        r"<script.*?</script>",
-        " ",
-        html,
-        flags=re.I | re.S
-    )
-
-    html = re.sub(
-        r"<style.*?</style>",
-        " ",
-        html,
-        flags=re.I | re.S
-    )
-
-    html = re.sub(
-        r"<[^>]+>",
-        " ",
-        html
-    )
-
-    html = html.replace("&nbsp;", " ")
-
-    html = re.sub(r"\s+", " ", html)
-
-    return html.strip()
-
-
-def extract_events(text):
+    events = []
 
     pattern = re.compile(
-        r"""
-        (?P<date>
-            \d{4}年\d{1,2}月\d{1,2}日
-            (?:\([一二三四五六日]\))?
-        )
-        (?P<body>.*?)
-        (?=
-            \d{4}年\d{1,2}月\d{1,2}日
-            |說明會報名
-            |$)
-        """,
-        re.X
+        r"(?P<date>\d{4}年\d{1,2}月\d{1,2}日)"
+        r"(?:\([一二三四五六日]\))?"
+        r"\s*"
+        r"(?P<name>.*?)"
+        r"\s+(?P<checkin>\d{1,2}:\d{2})開始報到"
+        r"\s+(?P<start>\d{1,2}:\d{2})開始說明會"
+        r"\s+(?P<end>\d{1,2}:\d{2})結束時間"
+        r"\s+(?P<address>.+)$"
     )
 
-    results = []
+    for item in parser.items:
 
-    for match in pattern.finditer(text):
+        match = pattern.search(item)
 
-        date_display = match.group("date").strip()
-        body = match.group("body").strip()
-
-        if (
-            "報到" not in body
-            and "說明會" not in body
-            and "場" not in body
-        ):
+        if not match:
             continue
 
-        name_match = re.search(
-            r"(?:中午\s*)?(.{2,80}?)(?=\s*\d{1,2}:\d{2}\s*開始報到)",
-            body
-        )
+        date_text = match.group("date")
+        name = match.group("name").strip()
+        checkin = match.group("checkin")
+        start = match.group("start")
+        end = match.group("end")
+        address = match.group("address").strip()
 
-        name = (
-            name_match.group(1).strip()
-            if name_match
-            else "中天法門說明會"
-        )
+        # 清理名稱
+        name = re.sub(r"^中午\s*", "", name)
+        name = re.sub(r"\s+", " ", name)
 
-        checkin_match = re.search(
-            r"(\d{1,2}:\d{2})\s*開始報到",
-            body
-        )
+        # 清理地址
+        address = re.sub(r"\s+", " ", address)
 
-        checkin = (
-            checkin_match.group(1)
-            if checkin_match
-            else ""
-        )
-
-        start_match = re.search(
-            r"(\d{1,2}:\d{2})\s*開始說明會",
-            body
-        )
-
-        start_time = (
-            start_match.group(1)
-            if start_match
-            else ""
-        )
-
-        end_match = re.search(
-            r"(\d{1,2}:\d{2})\s*結束時間",
-            body
-        )
-
-        end_time = (
-            end_match.group(1)
-            if end_match
-            else ""
-        )
-
-        address_match = re.search(
-            r"((?:台北市|新北市|桃園市|新竹市|新竹縣|苗栗縣|"
-            r"台中市|彰化縣|南投縣|雲林縣|嘉義市|嘉義縣|"
-            r"台南市|高雄市|屏東縣|宜蘭縣|花蓮縣|台東縣|澎湖縣).*)",
-            body
-        )
-
-        address = (
-            address_match.group(1).strip()
-            if address_match
-            else ""
-        )
-
-        date_match = re.search(
+        # 解析日期
+        date_match = re.match(
             r"(\d{4})年(\d{1,2})月(\d{1,2})日",
-            date_display
+            date_text
         )
 
         if not date_match:
@@ -153,102 +110,88 @@ def extract_events(text):
         month = int(date_match.group(2))
         day = int(date_match.group(3))
 
-        start_datetime = ""
-        end_datetime = ""
+        start_h, start_m = map(int, start.split(":"))
+        end_h, end_m = map(int, end.split(":"))
 
-        if start_time:
-
-            h, m = map(
-                int,
-                start_time.split(":")
-            )
-
-            start_datetime = (
-                f"{year:04d}-{month:02d}-{day:02d}"
-                f"T{h:02d}:{m:02d}:00+08:00"
-            )
-
-        if end_time:
-
-            h, m = map(
-                int,
-                end_time.split(":")
-            )
-
-            end_datetime = (
-                f"{year:04d}-{month:02d}-{day:02d}"
-                f"T{h:02d}:{m:02d}:00+08:00"
-            )
-
-        results.append({
-
-            "name": name,
-
-            "date_display": date_display,
-
-            "date":
-                f"{year:04d}-{month:02d}-{day:02d}",
-
-            "checkin": checkin,
-
-            "start_time": start_time,
-
-            "end_time": end_time,
-
-            "start_datetime":
-                start_datetime,
-
-            "end_datetime":
-                end_datetime,
-
-            "address": address,
-
-            "source": SOURCE_URL
-
-        })
-
-    unique = {}
-
-    for event in results:
-
-        key = (
-            event["date"],
-            event["name"],
-            event["address"]
+        start_datetime = (
+            f"{year:04d}-{month:02d}-{day:02d}"
+            f"T{start_h:02d}:{start_m:02d}:00+08:00"
         )
 
-        unique[key] = event
+        end_datetime = (
+            f"{year:04d}-{month:02d}-{day:02d}"
+            f"T{end_h:02d}:{end_m:02d}:00+08:00"
+        )
 
-    return list(unique.values())
+        events.append({
+            "name": name,
+            "date_display": date_text,
+            "date": (
+                f"{year:04d}-{month:02d}-{day:02d}"
+            ),
+            "checkin": checkin,
+            "start_time": start,
+            "end_time": end,
+            "start_datetime": start_datetime,
+            "end_datetime": end_datetime,
+            "address": address,
+            "source": SOURCE_URL
+        })
+
+    return events
 
 
 def main():
 
-    html = fetch_page()
+    print("開始抓取：")
+    print(SOURCE_URL)
 
-    text = html_to_text(html)
+    html = fetch_html()
 
-    events = extract_events(text)
+    print(
+        f"成功取得網頁，HTML 長度：{len(html)}"
+    )
 
+    events = parse_events(html)
+
+    print(
+        f"成功解析場次：{len(events)}"
+    )
+
+    # 非常重要：
+    # 抓不到場次時直接失敗，
+    # 不更新 seminar-data.json。
+    if not events:
+        raise RuntimeError(
+            "沒有抓到任何說明會場次，"
+            "因此停止更新，避免把舊資料清空。"
+        )
+
+    # 排序
+    events.sort(
+        key=lambda x: (
+            x["date"],
+            x["start_time"],
+            x["name"]
+        )
+    )
+
+    # 台灣時間
     taiwan = timezone(
         timedelta(hours=8)
     )
 
-    now = datetime.now(
+    updated_at = datetime.now(
         taiwan
     ).isoformat()
 
     data = {
-
         "source": SOURCE_URL,
-
-        "updated_at": now,
-
+        "updated_at": updated_at,
         "events": events
-
     }
 
-    OUTPUT.write_text(
+    OUTPUT_FILE.write_text(
         json.dumps(
             data,
             ensure_ascii=False,
@@ -258,7 +201,7 @@ def main():
     )
 
     print(
-        f"同步完成，共抓到 {len(events)} 個場次。"
+        f"完成！已寫入 {len(events)} 個場次。"
     )
 
 
