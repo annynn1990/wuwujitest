@@ -1,6 +1,7 @@
 name: 更新中天法門說明會
 
 on:
+
   workflow_dispatch:
 
   schedule:
@@ -10,6 +11,7 @@ permissions:
   contents: write
 
 jobs:
+
   update:
 
     runs-on: ubuntu-latest
@@ -28,8 +30,9 @@ jobs:
         run: |
           python scripts/update_seminar.py
 
-      - name: 查看結果
+      - name: 顯示資料
         run: |
+          echo "===== seminar-data.json ====="
           cat seminar-data.json
 
       - name: 提交更新
@@ -41,6 +44,7 @@ jobs:
 
           git add seminar-data.json
 
-          git diff --cached --quiet || git commit -m "更新中天法門說明會"
+          git diff --cached --quiet || \
+            git commit -m "自動更新中天法門說明會"
 
           git push
