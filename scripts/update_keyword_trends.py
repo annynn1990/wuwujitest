@@ -15,7 +15,7 @@ TERMS={
  "地區":["台南","東山","台南禪修","東山禪修","中天法門台南","中天法門東山","台南市東山區","中天總壇"],
  "意圖":["中天法門是什麼","中天法門在哪裡","中天法門課程","中天法門說明會","怎麼禪修","禪修課程推薦","台南禪修課程","東山禪修課程"],
 }
-PAGES=[p for p in ROOT.glob("*.html") if p.name not in {"404.html"}]
+PAGES=[ROOT/p for p in ["index.html","about.html","course.html","faq.html","meditation.html","seminar.html"] if (ROOT/p).exists()]
 def strip_html(s):
     s=re.sub(r"<script[\s\S]*?</script>|<style[\s\S]*?</style>"," ",s,flags=re.I)
     return re.sub(r"<[^>]+>"," ",s).replace("&nbsp;"," ")
@@ -46,7 +46,7 @@ def main():
     week=datetime.now(timezone.utc).date().isoformat()
     hist=old.get("history",[])
     snap={"week":week,"keywords":[{"term":r["term"],"score":r["score"]} for r in rows]}
-    hist=(hist+[snap])[-12:]
+    hist=[h for h in hist if h.get("week") != week]\n    hist=(hist+[snap])[-12:]
     rec=[]
     for r in sorted(rows,key=lambda x:x["score"]):
         if r["score"]<35:
