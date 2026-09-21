@@ -1,4 +1,75 @@
-{
-  "ok": false,
-  "message": "尚未執行同步"
-}
+name: 自動更新中天法門說明會
+
+on:
+
+  workflow_dispatch:
+
+  schedule:
+    - cron: "0 */6 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+
+  update:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+
+        with:
+          python-version: "3.12"
+
+      - name: 執行同步
+        continue-on-error: true
+
+        run: |
+
+          python scripts/update_seminar.py
+
+
+      - name: 顯示診斷
+
+        if: always()
+
+        run: |
+
+          echo "===== DEBUG ====="
+
+          cat seminar-debug.json || true
+
+          echo ""
+
+          echo "===== DATA ====="
+
+          cat seminar-data.json || true
+
+
+      - name: 提交診斷結果
+
+        if: always()
+
+        run: |
+
+          git config user.name \
+            "github-actions[bot]"
+
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add \
+            seminar-data.json \
+            seminar-debug.json
+
+          git diff --cached --quiet || \
+            git commit \
+            -m "更新中天法門說明會診斷資料"
+
+          git push
