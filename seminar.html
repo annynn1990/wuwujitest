@@ -29,7 +29,6 @@ body {
 
     background: #07111f;
     color: #eef5ff;
-
     line-height: 1.8;
 }
 
@@ -37,6 +36,29 @@ body {
     max-width: 1100px;
     margin: auto;
     padding: 30px 20px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #27405c;
+}
+
+nav a {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: #dcecff;
+    text-decoration: none;
+    border: 1px solid #45617e;
+}
+
+nav a:hover {
+    background: #102238;
+    color: #f3c969;
 }
 
 h1 {
@@ -59,11 +81,8 @@ h3 {
 .notice {
     margin: 20px 0;
     padding: 20px;
-
     border-left: 5px solid #f3c969;
-
     background: rgba(243, 201, 105, 0.08);
-
     border-radius: 8px;
 }
 
@@ -82,11 +101,8 @@ h3 {
 .event {
     margin: 15px 0;
     padding: 22px;
-
     background: #102238;
-
     border: 1px solid #27405c;
-
     border-radius: 15px;
 }
 
@@ -97,23 +113,14 @@ h3 {
 button,
 .btn {
     display: inline-block;
-
     padding: 12px 20px;
-
     border: 0;
-
     border-radius: 30px;
-
     background: #f3c969;
-
     color: #111;
-
     font-weight: bold;
-
     cursor: pointer;
-
     text-decoration: none;
-
     margin: 5px;
 }
 
@@ -124,23 +131,14 @@ button,
 }
 
 pre {
-
     background: #030914;
-
     border: 1px solid #27405c;
-
     padding: 20px;
-
     border-radius: 10px;
-
     white-space: pre-wrap;
-
     word-break: break-word;
-
     overflow-x: auto;
-
     color: #b9d7ef;
-
 }
 
 code {
@@ -152,6 +150,17 @@ code {
     font-size: .9rem;
 }
 
+.footer-links {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #27405c;
+}
+
+.footer-links a {
+    color: #f3c969;
+    margin-right: 18px;
+}
+
 </style>
 
 </head>
@@ -159,8 +168,30 @@ code {
 
 <body>
 
-
 <div class="container">
+
+<!-- ==================== -->
+<!-- 網站導覽 -->
+<!-- ==================== -->
+
+<nav>
+
+    <a href="index.html">
+        ← 返回首頁
+    </a>
+
+    <a href="seminar.html">
+        說明會場次
+    </a>
+
+    <a
+        href="https://web.wuwuji.tw/seminar"
+        target="_blank"
+        rel="noopener">
+        官方說明會
+    </a>
+
+</nav>
 
 
 <h1>
@@ -278,7 +309,8 @@ class="notice">
 
 <a
 href="https://web.wuwuji.tw/seminar"
-target="_blank">
+target="_blank"
+rel="noopener">
 
 https://web.wuwuji.tw/seminar
 
@@ -287,47 +319,47 @@ https://web.wuwuji.tw/seminar
 </p>
 
 
+<div class="footer-links">
+
+    <a href="index.html">
+        返回首頁
+    </a>
+
+    <a href="seminar.html">
+        說明會
+    </a>
+
+    <a
+        href="https://web.wuwuji.tw/seminar"
+        target="_blank"
+        rel="noopener">
+        官方網站
+    </a>
+
+</div>
+
+
 </div>
 
 
 <script>
 
-
-/*
-==================================================
-主要診斷程式
-==================================================
-*/
-
-
 async function checkData() {
-
 
     const status =
         document.getElementById("status");
 
-
     const diagnostic =
         document.getElementById("diagnostic");
-
 
     const eventsBox =
         document.getElementById("events");
 
-
     const rawBox =
         document.getElementById("raw");
 
-
     const updated =
         document.getElementById("updated");
-
-
-    /*
-    ----------------------------------------------
-    清空
-    ----------------------------------------------
-    */
 
 
     status.className = "notice";
@@ -338,30 +370,21 @@ async function checkData() {
 
     rawBox.textContent = "正在讀取……";
 
-
     updated.textContent =
         "最後同步時間：讀取中……";
 
 
     /*
     ----------------------------------------------
-    找出 JSON 真實網址
+    JSON 路徑
     ----------------------------------------------
     */
-
 
     const dataURL =
         new URL(
             "seminar-data.json",
             window.location.href
         ).href;
-
-
-    /*
-    ----------------------------------------------
-    顯示基本環境
-    ----------------------------------------------
-    */
 
 
     diagnostic.innerHTML += `
@@ -389,39 +412,28 @@ async function checkData() {
 
     /*
     ----------------------------------------------
-    開始 Fetch
+    Fetch
     ----------------------------------------------
     */
 
-
     let response;
-
 
     try {
 
-
         response =
             await fetch(
-
-                dataURL,
-
+                dataURL + "?t=" + Date.now(),
                 {
-
                     cache: "no-store"
-
                 }
-
             );
-
 
     }
 
     catch (error) {
 
-
         status.className =
             "notice error";
-
 
         status.innerHTML = `
 
@@ -431,75 +443,27 @@ async function checkData() {
 
             <br><br>
 
-            <strong>錯誤：</strong>
-
             ${escapeHTML(
                 error.message
             )}
 
-            <br><br>
-
-            這通常代表：
-
-            <ol>
-
-                <li>
-                    seminar-data.json 不存在
-                </li>
-
-                <li>
-                    GitHub Pages 尚未部署最新版本
-                </li>
-
-                <li>
-                    網址錯誤
-                </li>
-
-                <li>
-                    瀏覽器無法取得該檔案
-                </li>
-
-            </ol>
-
         `;
-
-
-        diagnostic.innerHTML += `
-
-            <div class="notice error">
-
-                <strong>
-                    FETCH ERROR
-                </strong>
-
-                <pre>${escapeHTML(
-                    error.toString()
-                )}</pre>
-
-            </div>
-
-        `;
-
 
         rawBox.textContent =
             "無法取得 JSON";
 
-
         updated.textContent =
             "最後同步時間：讀取失敗";
 
-
         return;
-
     }
 
 
     /*
     ----------------------------------------------
-    HTTP 狀態
+    HTTP
     ----------------------------------------------
     */
-
 
     diagnostic.innerHTML += `
 
@@ -510,16 +474,6 @@ async function checkData() {
             </strong>
 
             ${response.status}
-
-            <br>
-
-            <strong>
-                HTTP Status：
-            </strong>
-
-            ${escapeHTML(
-                response.statusText
-            )}
 
             <br>
 
@@ -538,80 +492,38 @@ async function checkData() {
     `;
 
 
-    /*
-    ----------------------------------------------
-    HTTP 不是成功
-    ----------------------------------------------
-    */
-
-
     if (!response.ok) {
-
 
         status.className =
             "notice error";
 
-
         status.innerHTML = `
 
             <strong>
-                ❌ JSON HTTP 讀取失敗
+                ❌ JSON 讀取失敗
             </strong>
 
             <br><br>
 
             HTTP：
-
             ${response.status}
-
-            ${escapeHTML(
-                response.statusText
-            )}
-
-            <br><br>
-
-            <strong>
-                最可能原因：
-            </strong>
-
-            <ul>
-
-                <li>
-                    seminar-data.json 尚未部署
-                </li>
-
-                <li>
-                    GitHub Pages 路徑錯誤
-                </li>
-
-                <li>
-                    repository 中沒有此檔案
-                </li>
-
-            </ul>
 
         `;
 
-
         rawBox.textContent =
-            "HTTP " +
-            response.status;
-
+            "HTTP " + response.status;
 
         return;
-
     }
 
 
     /*
     ----------------------------------------------
-    讀取原始文字
+    讀取 JSON
     ----------------------------------------------
     */
 
-
     let raw;
-
 
     try {
 
@@ -622,15 +534,13 @@ async function checkData() {
 
     catch (error) {
 
-
         status.className =
             "notice error";
-
 
         status.innerHTML = `
 
             <strong>
-                ❌ 無法讀取 JSON 內容
+                ❌ 無法讀取 JSON
             </strong>
 
             <br><br>
@@ -641,66 +551,35 @@ async function checkData() {
 
         `;
 
-
         return;
-
     }
 
 
-    /*
-    ----------------------------------------------
-    顯示原始 JSON
-    ----------------------------------------------
-    */
-
-
-    rawBox.textContent =
-        raw;
-
-
-    /*
-    ----------------------------------------------
-    檢查空檔案
-    ----------------------------------------------
-    */
+    rawBox.textContent = raw;
 
 
     if (!raw.trim()) {
 
-
         status.className =
             "notice error";
 
-
         status.innerHTML = `
-
             <strong>
-                ❌ seminar-data.json 是空檔案
+                ❌ seminar-data.json 是空的
             </strong>
-
-            <br><br>
-
-            HTTP：
-
-            ${response.status}
-
         `;
 
-
         return;
-
     }
 
 
     /*
     ----------------------------------------------
-    JSON parse
+    JSON Parse
     ----------------------------------------------
     */
 
-
     let data;
-
 
     try {
 
@@ -711,10 +590,8 @@ async function checkData() {
 
     catch (error) {
 
-
         status.className =
             "notice error";
-
 
         status.innerHTML = `
 
@@ -724,33 +601,21 @@ async function checkData() {
 
             <br><br>
 
-            <strong>
-                JavaScript 錯誤：
-            </strong>
-
             ${escapeHTML(
                 error.message
             )}
 
-            <br><br>
-
-            請查看下面的
-            「seminar-data.json 原始內容」。
-
         `;
 
-
         return;
-
     }
 
 
     /*
     ----------------------------------------------
-    JSON 基本診斷
+    JSON 成功
     ----------------------------------------------
     */
-
 
     diagnostic.innerHTML += `
 
@@ -771,29 +636,19 @@ async function checkData() {
             ${raw.length}
             bytes
 
-        </div>
+            <br>
 
-    `;
-
-
-    /*
-    ----------------------------------------------
-    source
-    ----------------------------------------------
-    */
-
-
-    diagnostic.innerHTML += `
-
-        <div class="notice">
+            events：
 
             <strong>
-                Source：
+                ${
+                    Array.isArray(data.events)
+                        ? data.events.length
+                        : 0
+                }
             </strong>
 
-            ${escapeHTML(
-                data.source || "沒有 source"
-            )}
+            場
 
         </div>
 
@@ -802,10 +657,9 @@ async function checkData() {
 
     /*
     ----------------------------------------------
-    updated_at
+    更新時間
     ----------------------------------------------
     */
-
 
     if (data.updated_at) {
 
@@ -813,7 +667,6 @@ async function checkData() {
             new Date(
                 data.updated_at
             );
-
 
         updated.innerHTML = `
 
@@ -839,11 +692,9 @@ async function checkData() {
             原始值：
 
             <code>
-
                 ${escapeHTML(
                     data.updated_at
                 )}
-
             </code>
 
         `;
@@ -853,129 +704,48 @@ async function checkData() {
     else {
 
         updated.innerHTML = `
-
             <strong>
                 ⚠️ 沒有同步時間
             </strong>
-
-            <br><br>
-
-            這通常表示：
-
-            <br>
-
-            Python 自動同步程式
-            尚未成功更新
-            seminar-data.json。
-
         `;
-
     }
 
 
     /*
     ----------------------------------------------
-    events 檢查
+    events
     ----------------------------------------------
     */
 
-
     if (!Array.isArray(data.events)) {
-
 
         status.className =
             "notice error";
 
-
         status.innerHTML = `
-
             <strong>
                 ❌ JSON 沒有 events 陣列
             </strong>
-
         `;
 
-
         return;
-
     }
-
-
-    /*
-    ----------------------------------------------
-    0 場
-    ----------------------------------------------
-    */
 
 
     if (data.events.length === 0) {
 
-
         status.className =
             "notice warning";
-
 
         status.innerHTML = `
 
             <strong>
-                ⚠️ JSON 讀取成功，但 events = 0
+                ⚠️ 目前沒有場次
             </strong>
-
-            <br><br>
-
-            這代表：
-
-            <br>
-
-            <strong>
-                網頁本身沒有讀取錯誤。
-            </strong>
-
-            <br><br>
-
-            真正的問題在：
-
-            <br><br>
-
-            <strong>
-                Python → 官方網站 → seminar-data.json
-            </strong>
-
-            <br><br>
-
-            請查看 GitHub Actions
-            「更新中天法門說明會」的執行結果。
 
         `;
-
-
-        diagnostic.innerHTML += `
-
-            <div class="notice warning">
-
-                <strong>
-                    場次診斷
-                </strong>
-
-                <br><br>
-
-                events.length =
-
-                <strong>
-                    0
-                </strong>
-
-                <br><br>
-
-                因此沒有任何場次可以顯示。
-
-            </div>
-
-        `;
-
 
         return;
-
     }
 
 
@@ -985,10 +755,8 @@ async function checkData() {
     ----------------------------------------------
     */
 
-
     status.className =
         "notice success";
-
 
     status.innerHTML = `
 
@@ -1015,16 +783,13 @@ async function checkData() {
     ----------------------------------------------
     */
 
-
     data.events.forEach(
         (event, index) => {
-
 
             const div =
                 document.createElement(
                     "div"
                 );
-
 
             div.className =
                 "event";
@@ -1035,13 +800,13 @@ async function checkData() {
                 <h3>
 
                     ${index + 1}.
-
                     ${escapeHTML(
                         event.name ||
                         "中天法門說明會"
                     )}
 
                 </h3>
+
 
                 <p>
 
@@ -1056,6 +821,7 @@ async function checkData() {
                     )}
 
                 </p>
+
 
                 <p>
 
@@ -1091,6 +857,7 @@ async function checkData() {
                     )}
 
                 </p>
+
 
                 <p>
 
@@ -1131,49 +898,26 @@ async function checkData() {
 
 /*
 ==================================================
-防止 HTML 注入
+HTML Escape
 ==================================================
 */
-
 
 function escapeHTML(text) {
 
     return String(text)
-
-        .replaceAll(
-            "&",
-            "&amp;"
-        )
-
-        .replaceAll(
-            "<",
-            "&lt;"
-        )
-
-        .replaceAll(
-            ">",
-            "&gt;"
-        )
-
-        .replaceAll(
-            '"',
-            "&quot;"
-        )
-
-        .replaceAll(
-            "'",
-            "&#039;"
-        );
-
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
 }
 
 
 /*
 ==================================================
-第一次自動檢查
+啟動
 ==================================================
 */
-
 
 checkData();
 
