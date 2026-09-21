@@ -15,7 +15,7 @@ OFFICIAL_INDEX=DATA/'official'/'index.json'; FORUM_INDEX=DATA/'forum'/'index.jso
 OFFICIAL='https://web.wuwuji.tw/index'; OFFICIAL_HOST='web.wuwuji.tw'
 FORUM='https://www.wuwuji.tw/forum/'; FORUM_HOST='www.wuwuji.tw'
 UA='Wuwuji-AI-KnowledgeBot/1.0 (+https://annynn1990.github.io/wuwujitest/)'
-TIMEOUT=25; DELAY=.7; MAX_OFFICIAL=120; MAX_FORUM_INDEX=10; MAX_THREADS=150
+TIMEOUT=30; DELAY=.65; MAX_OFFICIAL=120; MAX_FORUM_INDEX=120; MAX_THREADS=1000
 KNOWN=['/index','/about','/cosmos','/practice','/book_adventure','/history','/seminar']
 BLOCK=('home.php','member.php','mod=space','login','logout','admin','plugin.php')
 
@@ -106,6 +106,7 @@ def crawl_official():
     return docs
 
 def crawl_forum():
+    # 公開論壇目前規模適合一次完整掃描：放寬索引與主題上限，避免只抓到前 150 筆。
     q=[FORUM];seen=set();idx=[];cand={}
     while q and len(idx)<MAX_FORUM_INDEX:
         u=urldefrag(q.pop(0))[0]
