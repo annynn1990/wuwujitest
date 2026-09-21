@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>中天法門說明會｜最新場次與報名</title>
+
+<meta
+name="description"
+content="中天法門說明會最新場次、日期、報到時間、說明會時間與地點。資料由中天法門官方說明會頁面自動同步更新。">
+
+<link rel="canonical"
+href="https://YOUR-SITE.github.io/seminar.html">
+
+<link rel="stylesheet"
+href="style.css">
+
+<script type="application/ld+json" id="eventSchema">
+{
+  "@context": "https://schema.org",
+  "@graph": []
+}
+</script>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="container nav">
+
+<a class="logo" href="index.html">
+中天法門｜禪修資訊
+</a>
+
+<nav>
+<a href="meditation.html">禪修</a>
+<a href="course.html">課程</a>
+<a href="seminar.html">說明會</a>
+<a href="faq.html">FAQ</a>
+<a href="about.html">關於</a>
+</nav>
+
+</div>
+
+</header>
+
+
+
+<main>
+
+
+<section class="hero">
+
+<div class="container">
+
+<div class="eyebrow">
+中天法門說明會
+</div>
+
+<h1>
+最新說明會場次
+</h1>
+
+<p class="lead">
+以下場次由中天法門官方說明會頁面自動同步。
+網站會定期重新抓取資料，因此不需要手動修改本頁。
+</p>
+
+<a
+class="btn"
+href="https://web.wuwuji.tw/seminar"
+target="_blank"
+rel="noopener">
+
+前往官方報名頁
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<section>
+
+<div class="container">
+
+<div id="status"
+class="notice">
+
+正在同步中天法門官方說明會資料……
+
+</div>
+
+<h2>
+目前可報名場次
+</h2>
+
+<div
+id="events"
+class="events">
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="dark">
+
+<div class="container">
+
+<h2>
+報名方式
+</h2>
+
+<p>
+本網站只負責整理公開資訊。
+實際報名仍在中天法門官方網站完成。
+</p>
+
+<a
+class="btn"
+href="https://web.wuwuji.tw/seminar"
+target="_blank"
+rel="noopener">
+
+進入官方報名系統
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<section>
+
+<div class="container">
+
+<h2>
+資料同步說明
+</h2>
+
+<p>
+本頁資料來源為：
+<a
+href="https://web.wuwuji.tw/seminar"
+target="_blank"
+rel="noopener">
+中天法門官方說明會頁面
+</a>
+</p>
+
+<p>
+系統會定期重新抓取官方頁面。
+如果官方修改日期、場次、時間或地址，
+下一次同步後本頁便會跟著更新。
+</p>
+
+<p id="updated"
+class="source-note">
+最後同步時間：讀取中……
+</p>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+
+<footer>
+
+<div class="container">
+
+<h3>中天法門禪修資訊</h3>
+
+<p>
+中天法門官方網站：
+<a href="https://web.wuwuji.tw/">
+https://web.wuwuji.tw/
+</a>
+</p>
+
+<p>
+說明會官方報名：
+<a href="https://web.wuwuji.tw/seminar">
+https://web.wuwuji.tw/seminar
+</a>
+</p>
+
+<p class="small">
+本網站為公開資訊整理站，不宣稱為中天法門官方網站。
+場次資訊如有變動，以官方頁面最新內容為準。
+</p>
+
+</div>
+
+</footer>
+
+
+
+<script>
+
+async function loadSeminarData() {
+
+    const status =
+        document.getElementById("status");
+
+    const events =
+        document.getElementById("events");
+
+    const updated =
+        document.getElementById("updated");
+
+    try {
+
+        const response =
+            await fetch("seminar-data.json?t=" + Date.now(), {
+                cache: "no-store"
+            });
+
+        if (!response.ok) {
+            throw new Error("無法讀取 seminar-data.json");
+        }
+
+        const data =
+            await response.json();
+
+
+        /*
+         * 更新同步時間
+         */
+
+        if (data.updated_at) {
+
+            const date =
+                new Date(data.updated_at);
+
+            updated.textContent =
+                "最後同步時間：" +
+                date.toLocaleString(
+                    "zh-TW",
+                    {
+                        timeZone: "Asia/Taipei",
+                        hour12: false
+                    }
+                );
+
+        }
+
+
+        /*
+         * 清除舊資料
+         */
+
+        events.innerHTML = "";
+
+
+        /*
+         * 沒有場次
+         */
+
+        if (!data.events || data.events.length === 0) {
+
+            status.innerHTML =
+                "<strong>目前沒有抓到可報名場次。</strong> " +
+                "請直接查看官方說明會頁面。";
+
+            return;
+
+        }
+
+
+        /*
+         * 顯示同步成功
+         */
+
+        status.innerHTML =
+            "資料已自動同步。場次內容以中天法門官方頁面為準。";
+
+
+        /*
+         * 生成事件卡片
+         */
+
+        data.events.forEach(event => {
+
+            const card =
+                document.createElement("article");
+
+            card.className =
+                "event";
+
+
+            card.innerHTML = `
+
+                <h3>
+                    ${escapeHTML(event.name || "中天法門說明會")}
+                </h3>
+
+                <p>
+                    <strong>日期：</strong>
+                    ${escapeHTML(event.date_display || "")}
+                </p>
+
+                <p>
+                    <strong>報到：</strong>
+                    ${escapeHTML(event.checkin || "依官方公告")}
+                    <br>
+
+                    <strong>說明會：</strong>
+                    ${escapeHTML(event.start_time || "依官方公告")}
+                    <br>
+
+                    <strong>結束：</strong>
+                    ${escapeHTML(event.end_time || "依官方公告")}
+                </p>
+
+                <p>
+                    <strong>地點：</strong>
+                    ${escapeHTML(event.address || "")}
+                </p>
+
+                <a
+                    class="btn"
+                    href="https://web.wuwuji.tw/seminar"
+                    target="_blank"
+                    rel="noopener">
+
+                    前往官方報名
+
+                </a>
+
+            `;
+
+
+            events.appendChild(card);
+
+        });
+
+
+        /*
+         * 動態生成 Event Schema
+         */
+
+        const graph =
+            document.getElementById("eventSchema");
+
+        const schemaEvents =
+            data.events.map(event => {
+
+                return {
+
+                    "@type": "Event",
+
+                    "name":
+                        event.name || "中天法門說明會",
+
+                    "startDate":
+                        event.start_datetime || "",
+
+                    "endDate":
+                        event.end_datetime || "",
+
+                    "eventAttendanceMode":
+                        "https://schema.org/OfflineEventAttendanceMode",
+
+                    "eventStatus":
+                        "https://schema.org/EventScheduled",
+
+                    "location": {
+
+                        "@type": "Place",
+
+                        "name":
+                            event.name || "中天法門說明會",
+
+                        "address":
+                            event.address || ""
+
+                    },
+
+                    "organizer": {
+
+                        "@type": "Organization",
+
+                        "name": "中天法門",
+
+                        "url":
+                            "https://web.wuwuji.tw/"
+
+                    },
+
+                    "url":
+                        "https://web.wuwuji.tw/seminar"
+
+                };
+
+            });
+
+
+        graph.textContent =
+            JSON.stringify({
+
+                "@context":
+                    "https://schema.org",
+
+                "@graph":
+                    schemaEvents
+
+            }, null, 2);
+
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        status.innerHTML = `
+            <strong>自動同步暫時失敗。</strong>
+            請直接查看
+            <a
+              href="https://web.wuwuji.tw/seminar"
+              target="_blank"
+              rel="noopener">
+              中天法門官方說明會頁面
+            </a>。
+        `;
+
+    }
+
+}
+
+
+/*
+ * 防止官方頁面若含特殊字元
+ */
+
+function escapeHTML(text) {
+
+    return String(text)
+
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+}
+
+
+loadSeminarData();
+
+</script>
+
+
+</body>
+
+</html>
