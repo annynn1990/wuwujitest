@@ -49,78 +49,46 @@ class P(HTMLParser):
     POST_CLASSES={'t_f','pcb','t_fsz','postmessage','message'}
     def __init__(self,base):
         super().__init__()
-        self.base=base
-        self.title=''
-        self.meta={}
-        self.head=[]
-        self.par=[]
-        self.links=[]
-        self.posts=[]
-        self.a=None
-        self.buf=[]
-        self.active=None
-        self.abuf=[]
-        self.post_depth=0
-        self.post_buf=[]
+        self.base=base; self.title=''; self.meta={}; self.head=[]; self.par=[]; self.links=[]
+        self.posts=[]; self.a=None; self.buf=[]; self.active=None; self.abuf=[]; self.post_depth=0; self.post_buf=[]
     def handle_starttag(self,t,attrs):
         t=t.lower(); a=dict(attrs)
-        if t in self.DROP:
-            self.active=t
-            return
+        if t in self.DROP:self.active=t;return
         classes=set((a.get('class') or '').split())
         if classes.intersection(self.POST_CLASSES):
-            self.post_depth += 1
-            if self.post_depth==1:
-                self.post_buf=[]
+            self.post_depth+=1
+            if self.post_depth==1:self.post_buf=[]
             return
-        if self.post_depth:
-            self.post_depth += 1
-        if t=='title' or t in {'h1','h2','h3','h4'} or t=='p':
-            self.active=t
-            self.buf=[]
-        elif t=='a':
-            self.a=a.get('href')
-            self.abuf=[]
+        if self.post_depth:self.post_depth+=1
+        if t=='title' or t in {'h1','h2','h3','h4'} or t=='p':self.active=t;self.buf=[]
+        elif t=='a':self.a=a.get('href');self.abuf=[]
         elif t=='meta':
-            k=(a.get('name') or a.get('property') or '').lower()
-            v=clean(a.get('content') or '')
-            if k and v:
-                self.meta[k]=v
+            k=(a.get('name') or a.get('property') or '').lower();v=clean(a.get('content') or '')
+            if k and v:self.meta[k]=v
     def handle_data(self,d):
-        if self.post_depth:
-            self.post_buf.append(d)
-        elif self.active in {'title','h1','h2','h3','h4','p'}:
-            self.buf.append(d)
-        if self.a is not None:
-            self.abuf.append(d)
+        if self.post_depth:self.post_buf.append(d)
+        elif self.active in {'title','h1','h2','h3','h4','p'}:self.buf.append(d)
+        if self.a is not None:self.abuf.append(d)
     def handle_endtag(self,t):
         t=t.lower()
         if self.post_depth:
-            self.post_depth -= 1
+            self.post_depth-=1
             if self.post_depth==0:
                 x=clean(' '.join(self.post_buf))
-                if x and x not in self.posts:
-                    self.posts.append(x)
+                if x and x not in self.posts:self.posts.append(x)
                 self.post_buf=[]
             return
         if self.active==t and t in {'title','h1','h2','h3','h4','p'}:
             x=clean(' '.join(self.buf))
             if x:
-                if t=='title':
-                    self.title=x
-                elif t.startswith('h'):
-                    self.head.append({'level':int(t[1]),'text':x})
-                else:
-                    self.par.append(x)
-            self.active=None
-            self.buf=[]
+                if t=='title':self.title=x
+                elif t.startswith('h'):self.head.append({'level':int(t[1]),'text':x})
+                else:self.par.append(x)
+            self.active=None;self.buf=[]
         elif t=='a' and self.a is not None:
-            h=self.a.strip()
-            txt=clean(' '.join(self.abuf))
-            if h and not h.startswith(('javascript:','mailto:','#')):
-                self.links.append({'url':urldefrag(urljoin(self.base,h))[0],'text':txt[:300]})
-            self.a=None
-            self.abuf=[]
+            h=self.a.strip();txt=clean(' '.join(self.abuf))
+            if h and not h.startswith(('javascript:','mailto:','#')):self.links.append({'url':urldefrag(urljoin(self.base,h))[0],'text':txt[:300]})
+            self.a=None;self.abuf=[]
 def fetch(url):
     req=Request(url,headers={'User-Agent':UA,'Accept':'text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8'})
     with urlopen(req,timeout=TIMEOUT) as r:
@@ -133,30 +101,16 @@ def robots_ok(url):
 def blocked(u):
     x=u.lower(); return any(v in x for v in BLOCK)
 def parse(url,html,kind):
-    p=P(url)
-    p.feed(html)
+    p=P(url);p.feed(html)
+    body=clean('\\n'.join(p.posts)) if kind=='forum_thread' and p.posts else clean('\\n'.join(p.par))
     if kind=='forum_thread' and p.posts:
-        body=clean('\\n'.join(p.posts))
         extra=[x for x in p.par if x and x not in p.posts]
-        if extra:
-            body=clean(body+'\\n'+'\\n'.join(extra))
-    else:
-        body=clean('\\n'.join(p.par))
+        if extra:body=clean(body+'\\n'+'\\n'.join(extra))
     body=re.sub(r'[\\w.+-]+@[\\w.-]+\\.[A-Za-z]{2,}','[email removed]')
-    return {
-        'url':url,
-        'source_type':kind,
-        'title':p.title,
-        'description':p.meta.get('description',''),
-        'headings':p.head[:120],
-        'text':body[:50000],
-        'summary':summary(body),
-        'keywords':keywords(body),
-        'links':p.links[:400],
-        'post_count':len(p.posts),
-        'posts':p.posts[:200],
-        'content_sha256':sha(body)
-    }
+    return {'url':url,'source_type':kind,'title':p.title,'description':p.meta.get('description',''),
+            'headings':p.head[:120],'text':body[:50000],'summary':summary(body),
+            'keywords':keywords(body),'links':p.links[:400],'post_count':len(p.posts),
+            'posts':p.posts[:200],'content_sha256':sha(body)}
 def crawl_official():
     q=[urljoin('https://web.wuwuji.tw',x) for x in KNOWN]+[OFFICIAL]; seen=set(); docs=[]
     while q and len(docs)<MAX_OFFICIAL:
@@ -269,7 +223,10 @@ def merge(old,new):
 
 def main():
     DATA.mkdir(exist_ok=True);old=load(KNOWLEDGE,{})
-    official=crawl_official();fi,ft=crawl_forum();docs=merge(old,official+fi+ft)
+    official=crawl_official();fi,ft=crawl_forum()
+    if not official and not fi and not ft:
+        raise RuntimeError("抓取結果全部為 0；停止寫入，保留上一版知識庫")
+    docs=merge(old,official+fi+ft)
     claims=[{'subject':'中天法門','statement':d['summary'],'source_url':d['url'],'source_type':d['source_type'],'interpretation':'source_attributed'} for d in docs if d.get('summary')]
     generated=now();data={'schema_version':'2.0','dataset':'中天法門 AI / GEO 公開知識庫','entity':'中天法門','generated_at':generated,'description':'公開網站與公開論壇內容的機器可讀索引。保留來源 URL，並區分官方與論壇來源。','source_policy':{'official':'web.wuwuji.tw 公開頁面','forum':'www.wuwuji.tw/forum/ 公開頁面；論壇內容不自動等同官方立場','privacy':'不抓登入頁、後台及不必要會員個資','summary':'extractive_v1；自動抽取摘要，不是事實查核'},'stats':{'official_pages':len(official),'forum_index_pages':len(fi),'forum_threads':len(ft),'documents':len(docs),'claims':len(claims)},'sources':[{'type':'official','url':'https://web.wuwuji.tw/'},{'type':'forum','url':'https://www.wuwuji.tw/forum/'},{'type':'seminar','url':'https://annynn1990.github.io/wuwujitest/seminar-data.json'}],'documents':docs,'claims':claims,'seminars':{'url':'https://annynn1990.github.io/wuwujitest/seminar-data.json','note':'由既有說明會同步流程維護；本程式不改寫該 JSON。'}}
     KNOWLEDGE.write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8')
