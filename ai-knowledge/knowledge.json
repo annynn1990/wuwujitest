@@ -2,7 +2,7 @@
   "schema_version": "2.0",
   "dataset": "中天法門 AI / GEO 公開知識庫",
   "entity": "中天法門",
-  "generated_at": "2026-09-21T18:41:41.341802+00:00",
+  "generated_at": "2026-09-21T18:44:30.004503+00:00",
   "description": "公開網站與公開論壇內容的機器可讀索引。保留來源 URL，並區分官方與論壇來源。",
   "source_policy": {
     "official": "web.wuwuji.tw 公開頁面",
