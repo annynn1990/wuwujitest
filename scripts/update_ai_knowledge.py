@@ -145,8 +145,9 @@ def crawl_official():
             for l in d['links']:
                 v=l['url']
                 if urlparse(v).netloc==OFFICIAL_HOST and v not in seen and not blocked(v) and not re.search(r'\.(jpg|jpeg|png|gif|webp|svg|pdf|zip|mp4|mp3|css|js|ico|woff2?)$',urlparse(v).path.lower()):q.append(v)
-        except Exception:
+        except Exception as e:
             STATS['parse_errors']+=1
+            print(f"[OFFICIAL_ERROR] {u} :: {type(e).__name__}: {e}", flush=True)
         time.sleep(DELAY)
     return docs
 
@@ -185,8 +186,9 @@ def crawl_forum():
                 if 'gid=' in low:
                     if v not in seen and v not in q:
                         q.append(v)
-        except Exception:
+        except Exception as e:
             STATS['parse_errors']+=1
+            print(f"[FORUM_INDEX_ERROR] {u} :: {type(e).__name__}: {e}", flush=True)
         time.sleep(DELAY)
 
     threads=[]
@@ -229,8 +231,9 @@ def crawl_forum():
 
             first['anchor_text']=anchor
             threads.append(first)
-        except Exception:
+        except Exception as e:
             STATS['parse_errors']+=1
+            print(f"[FORUM_THREAD_ERROR] {u} :: {type(e).__name__}: {e}", flush=True)
         time.sleep(DELAY)
 
     return idx,threads
