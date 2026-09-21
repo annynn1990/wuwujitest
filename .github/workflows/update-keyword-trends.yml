@@ -27,6 +27,8 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: 安裝 Google Trends 套件
+        run: pip install pytrends
       - name: 更新關鍵字趨勢
         run: python scripts/update_keyword_trends.py
       - name: Commit
