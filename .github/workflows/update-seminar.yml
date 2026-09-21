@@ -1,6 +1,10 @@
 name: 自動更新中天法門說明會
 
 on:
+  push:
+    branches:
+      - main
+
   workflow_dispatch:
 
 permissions:
@@ -19,17 +23,18 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: 執行 Python
+      - name: 執行同步
         run: |
           python scripts/update_seminar.py
 
-      - name: 顯示結果
+      - name: 顯示診斷
         if: always()
         run: |
-          echo "===== seminar-debug.json ====="
+          echo "===== DEBUG ====="
           cat seminar-debug.json || true
 
-          echo "===== seminar-data.json ====="
+          echo ""
+          echo "===== DATA ====="
           cat seminar-data.json || true
 
       - name: 提交結果
