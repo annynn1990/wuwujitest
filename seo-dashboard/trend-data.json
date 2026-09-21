@@ -1,13 +1,11 @@
 {
-  "schema_version": "1.0",
-  "type": "site_keyword_trend",
-  "generated_at": "2026-09-21T19:30:06.880280+00:00",
-  "note": "本資料是網站自身 SEO/GEO 語意訊號趨勢，不是 Google Search Console 搜尋量或排名資料。",
+  "schema_version": "2.0",
+  "type": "seo_geo_trend",
+  "generated_at": "2026-09-21T19:53:48.929828+00:00",
   "corpus": {
-    "pages": 7,
-    "excluded": [
-      "ai-knowledge/"
-    ]
+    "sources": 11,
+    "public_pages": 6,
+    "ai_knowledge_files": 5
   },
   "groups": {
     "核心": [
@@ -72,409 +70,454 @@
     {
       "group": "核心",
       "term": "中天法門",
-      "occurrences": 104,
-      "pages": 6,
-      "title_pages": 6,
-      "heading_pages": 6,
+      "occurrences": 159,
+      "sources": 11,
+      "title_sources": 7,
+      "heading_sources": 7,
       "score": 100
     },
     {
       "group": "核心",
       "term": "中天禪修",
       "occurrences": 1,
-      "pages": 1,
-      "title_pages": 0,
-      "heading_pages": 0,
-      "score": 10
+      "sources": 1,
+      "title_sources": 0,
+      "heading_sources": 0,
+      "score": 8
     },
     {
       "group": "核心",
       "term": "中天總壇",
-      "occurrences": 14,
-      "pages": 6,
-      "title_pages": 0,
-      "heading_pages": 4,
+      "occurrences": 16,
+      "sources": 8,
+      "title_sources": 0,
+      "heading_sources": 4,
       "score": 100
     },
     {
       "group": "核心",
       "term": "一世成就",
-      "occurrences": 4,
-      "pages": 2,
-      "title_pages": 0,
-      "heading_pages": 1,
-      "score": 32
+      "occurrences": 48,
+      "sources": 5,
+      "title_sources": 0,
+      "heading_sources": 1,
+      "score": 100
     },
     {
       "group": "禪修",
       "term": "禪修",
-      "occurrences": 72,
-      "pages": 6,
-      "title_pages": 5,
-      "heading_pages": 3,
+      "occurrences": 123,
+      "sources": 9,
+      "title_sources": 5,
+      "heading_sources": 3,
       "score": 100
     },
     {
       "group": "禪修",
       "term": "禪修課程",
       "occurrences": 16,
-      "pages": 6,
-      "title_pages": 2,
-      "heading_pages": 2,
+      "sources": 6,
+      "title_sources": 2,
+      "heading_sources": 2,
       "score": 100
     },
     {
       "group": "禪修",
       "term": "禪修班",
-      "occurrences": 12,
-      "pages": 3,
-      "title_pages": 1,
-      "heading_pages": 1,
-      "score": 71
+      "occurrences": 39,
+      "sources": 6,
+      "title_sources": 1,
+      "heading_sources": 1,
+      "score": 100
     },
     {
       "group": "禪修",
       "term": "高級禪修班",
-      "occurrences": 12,
-      "pages": 3,
-      "title_pages": 1,
-      "heading_pages": 1,
-      "score": 71
+      "occurrences": 24,
+      "sources": 6,
+      "title_sources": 1,
+      "heading_sources": 1,
+      "score": 96
     },
     {
       "group": "禪修",
       "term": "禪修方式",
       "occurrences": 3,
-      "pages": 2,
-      "title_pages": 1,
-      "heading_pages": 1,
-      "score": 45
+      "sources": 2,
+      "title_sources": 1,
+      "heading_sources": 1,
+      "score": 39
     },
     {
       "group": "禪修",
       "term": "靜心",
       "occurrences": 3,
-      "pages": 1,
-      "title_pages": 0,
-      "heading_pages": 1,
-      "score": 22
+      "sources": 1,
+      "title_sources": 0,
+      "heading_sources": 1,
+      "score": 19
     },
     {
       "group": "禪修",
       "term": "冥想",
       "occurrences": 0,
-      "pages": 0,
-      "title_pages": 0,
-      "heading_pages": 0,
+      "sources": 0,
+      "title_sources": 0,
+      "heading_sources": 0,
       "score": 0
     },
     {
       "group": "禪修",
       "term": "打坐",
-      "occurrences": 1,
-      "pages": 1,
-      "title_pages": 0,
-      "heading_pages": 0,
-      "score": 10
+      "occurrences": 3,
+      "sources": 3,
+      "title_sources": 0,
+      "heading_sources": 0,
+      "score": 23
     },
     {
       "group": "禪修",
       "term": "吉祥坐",
-      "occurrences": 4,
-      "pages": 2,
-      "title_pages": 1,
-      "heading_pages": 1,
-      "score": 47
+      "occurrences": 12,
+      "sources": 4,
+      "title_sources": 1,
+      "heading_sources": 1,
+      "score": 65
     },
     {
       "group": "修行",
       "term": "修行",
-      "occurrences": 10,
-      "pages": 3,
-      "title_pages": 1,
-      "heading_pages": 1,
-      "score": 67
+      "occurrences": 59,
+      "sources": 6,
+      "title_sources": 1,
+      "heading_sources": 1,
+      "score": 100
     },
     {
       "group": "修行",
       "term": "修道",
-      "occurrences": 3,
-      "pages": 3,
-      "title_pages": 0,
-      "heading_pages": 0,
-      "score": 30
+      "occurrences": 53,
+      "sources": 6,
+      "title_sources": 0,
+      "heading_sources": 0,
+      "score": 100
     },
     {
       "group": "修行",
       "term": "修練",
-      "occurrences": 2,
-      "pages": 2,
-      "title_pages": 0,
-      "heading_pages": 0,
-      "score": 20
+      "occurrences": 42,
+      "sources": 4,
+      "title_sources": 0,
+      "heading_sources": 0,
+      "score": 91
     },
     {
       "group": "修行",
       "term": "修煉",
       "occurrences": 0,
-      "pages": 0,
-      "title_pages": 0,
-      "heading_pages": 0,
+      "sources": 0,
+      "title_sources": 0,
+      "heading_sources": 0,
       "score": 0
     },
     {
       "group": "修行",
       "term": "開悟",
-      "occurrences": 2,
-      "pages": 2,
-      "title_pages": 0,
-      "heading_pages": 0,
-      "score": 20
+      "occurrences": 20,
+      "sources": 5,
+      "title_sources": 0,
+      "heading_sources": 0,
+      "score": 62
     },
     {
       "group": "修行",
       "term": "心性",
       "occurrences": 1,
-      "pages": 1,
-      "title_pages": 0,
-      "heading_pages": 0,
-      "score": 10
+      "sources": 1,
+      "title_sources": 0,
+      "heading_sources": 0,
+      "score": 8
     },
     {
       "group": "修行",
       "term": "內修",
-      "occurrences": 4,
-      "pages": 2,
-      "title_pages": 0,
-      "heading_pages": 1,
-      "score": 32
+      "occurrences": 19,
+      "sources": 4,
+      "title_sources": 0,
+      "heading_sources": 1,
+      "score": 62
     },
     {
       "group": "修行",
       "term": "外德",
-      "occurrences": 2,
-      "pages": 1,
-      "title_pages": 0,
-      "heading_pages": 1,
-      "score": 20
+      "occurrences": 17,
+      "sources": 3,
+      "title_sources": 0,
+      "heading_sources": 1,
+      "score": 53
     },
     {
       "group": "修行",
       "term": "生命課題",
-      "occurrences": 4,
-      "pages": 1,
-      "title_pages": 0,
-      "heading_pages": 1,
-      "score": 24
+      "occurrences": 13,
+      "sources": 3,
+      "title_sources": 0,
+      "heading_sources": 1,
+      "score": 47
     },
     {
       "group": "修行",
       "term": "靈性",
-      "occurrences": 3,
-      "pages": 1,
-      "title_pages": 0,
-      "heading_pages": 1,
-      "score": 22
+      "occurrences": 51,
+      "sources": 4,
+      "title_sources": 0,
+      "heading_sources": 1,
+      "score": 100
     },
     {
       "group": "宗教",
       "term": "宗教",
-      "occurrences": 0,
-      "pages": 0,
-      "title_pages": 0,
-      "heading_pages": 0,
-      "score": 0
+      "occurrences": 11,
+      "sources": 4,
+      "title_sources": 0,
+      "heading_sources": 0,
+      "score": 42
     },
     {
       "group": "宗教",
       "term": "佛教",
       "occurrences": 0,
-      "pages": 0,
-      "title_pages": 0,
-      "heading_pages": 0,
+      "sources": 0,
+      "title_sources": 0,
+      "heading_sources": 0,
       "score": 0
     },
     {
       "group": "宗教",
       "term": "道教",
       "occurrences": 0,
-      "pages": 0,
-      "title_pages": 0,
-      "heading_pages": 0,
+      "sources": 0,
+      "title_sources": 0,
+      "heading_sources": 0,
       "score": 0
     },
     {
       "group": "宗教",
       "term": "心靈",
-      "occurrences": 0,
-      "pages": 0,
-      "title_pages": 0,
-      "heading_pages": 0,
-      "score": 0
+      "occurrences": 40,
+      "sources": 2,
+      "title_sources": 0,
+      "heading_sources": 0,
+      "score": 76
     },
     {
       "group": "宗教",
       "term": "精神",
-      "occurrences": 3,
-      "pages": 2,
-      "title_pages": 0,
-      "heading_pages": 0,
-      "score": 22
+      "occurrences": 27,
+      "sources": 5,
+      "title_sources": 0,
+      "heading_sources": 0,
+      "score": 73
     },
     {
       "group": "宗教",
       "term": "靈性能量",
-      "occurrences": 3,
-      "pages": 1,
-      "title_pages": 0,
-      "heading_pages": 1,
-      "score": 22
+      "occurrences": 7,
+      "sources": 3,
+      "title_sources": 0,
+      "heading_sources": 1,
+      "score": 37
     },
     {
       "group": "地區",
       "term": "台南",
-      "occurrences": 27,
-      "pages": 6,
-      "title_pages": 6,
-      "heading_pages": 6,
+      "occurrences": 29,
+      "sources": 8,
+      "title_sources": 6,
+      "heading_sources": 6,
       "score": 100
     },
     {
       "group": "地區",
       "term": "東山",
-      "occurrences": 26,
-      "pages": 6,
-      "title_pages": 6,
-      "heading_pages": 6,
+      "occurrences": 60,
+      "sources": 9,
+      "title_sources": 6,
+      "heading_sources": 6,
       "score": 100
     },
     {
       "group": "地區",
       "term": "台南禪修",
       "occurrences": 1,
-      "pages": 1,
-      "title_pages": 0,
-      "heading_pages": 0,
-      "score": 10
+      "sources": 1,
+      "title_sources": 0,
+      "heading_sources": 0,
+      "score": 8
     },
     {
       "group": "地區",
       "term": "東山禪修",
       "occurrences": 1,
-      "pages": 1,
-      "title_pages": 0,
-      "heading_pages": 0,
-      "score": 10
+      "sources": 1,
+      "title_sources": 0,
+      "heading_sources": 0,
+      "score": 8
     },
     {
       "group": "地區",
       "term": "中天法門台南",
       "occurrences": 3,
-      "pages": 3,
-      "title_pages": 0,
-      "heading_pages": 0,
-      "score": 30
+      "sources": 3,
+      "title_sources": 0,
+      "heading_sources": 0,
+      "score": 23
     },
     {
       "group": "地區",
       "term": "中天法門東山",
-      "occurrences": 2,
-      "pages": 2,
-      "title_pages": 0,
-      "heading_pages": 0,
-      "score": 20
+      "occurrences": 4,
+      "sources": 4,
+      "title_sources": 0,
+      "heading_sources": 0,
+      "score": 30
     },
     {
       "group": "地區",
       "term": "台南市東山區",
       "occurrences": 7,
-      "pages": 6,
-      "title_pages": 0,
-      "heading_pages": 0,
-      "score": 62
+      "sources": 6,
+      "title_sources": 0,
+      "heading_sources": 0,
+      "score": 47
     },
     {
       "group": "地區",
       "term": "中天總壇",
-      "occurrences": 14,
-      "pages": 6,
-      "title_pages": 0,
-      "heading_pages": 4,
+      "occurrences": 16,
+      "sources": 8,
+      "title_sources": 0,
+      "heading_sources": 4,
       "score": 100
     },
     {
       "group": "意圖",
       "term": "中天法門是什麼",
       "occurrences": 1,
-      "pages": 1,
-      "title_pages": 0,
-      "heading_pages": 0,
-      "score": 10
+      "sources": 1,
+      "title_sources": 0,
+      "heading_sources": 0,
+      "score": 8
     },
     {
       "group": "意圖",
       "term": "中天法門在哪裡",
       "occurrences": 0,
-      "pages": 0,
-      "title_pages": 0,
-      "heading_pages": 0,
+      "sources": 0,
+      "title_sources": 0,
+      "heading_sources": 0,
       "score": 0
     },
     {
       "group": "意圖",
       "term": "中天法門課程",
       "occurrences": 0,
-      "pages": 0,
-      "title_pages": 0,
-      "heading_pages": 0,
+      "sources": 0,
+      "title_sources": 0,
+      "heading_sources": 0,
       "score": 0
     },
     {
       "group": "意圖",
       "term": "中天法門說明會",
-      "occurrences": 10,
-      "pages": 6,
-      "title_pages": 1,
-      "heading_pages": 2,
-      "score": 99
+      "occurrences": 17,
+      "sources": 8,
+      "title_sources": 1,
+      "heading_sources": 2,
+      "score": 100
     },
     {
       "group": "意圖",
       "term": "怎麼禪修",
       "occurrences": 0,
-      "pages": 0,
-      "title_pages": 0,
-      "heading_pages": 0,
+      "sources": 0,
+      "title_sources": 0,
+      "heading_sources": 0,
       "score": 0
     },
     {
       "group": "意圖",
       "term": "禪修課程推薦",
       "occurrences": 0,
-      "pages": 0,
-      "title_pages": 0,
-      "heading_pages": 0,
+      "sources": 0,
+      "title_sources": 0,
+      "heading_sources": 0,
       "score": 0
     },
     {
       "group": "意圖",
       "term": "台南禪修課程",
       "occurrences": 0,
-      "pages": 0,
-      "title_pages": 0,
-      "heading_pages": 0,
+      "sources": 0,
+      "title_sources": 0,
+      "heading_sources": 0,
       "score": 0
     },
     {
       "group": "意圖",
       "term": "東山禪修課程",
       "occurrences": 0,
-      "pages": 0,
-      "title_pages": 0,
-      "heading_pages": 0,
+      "sources": 0,
+      "title_sources": 0,
+      "heading_sources": 0,
       "score": 0
     }
   ],
+  "google_trends": {
+    "available": false,
+    "fetched_at": "2026-09-21T19:53:48.929624+00:00",
+    "keywords": {},
+    "batches": [
+      {
+        "group": "修行與禪修",
+        "status": "error",
+        "terms": [
+          "禪修",
+          "修行",
+          "修道",
+          "冥想",
+          "靈性"
+        ],
+        "error": "Retry.__init__() got an unexpected keyword argument 'method_whitelist'"
+      },
+      {
+        "group": "宗教與靜坐",
+        "status": "error",
+        "terms": [
+          "打坐",
+          "靜坐",
+          "佛教",
+          "道教",
+          "宗教"
+        ],
+        "error": "Retry.__init__() got an unexpected keyword argument 'method_whitelist'"
+      },
+      {
+        "group": "中天與地區",
+        "status": "error",
+        "terms": [
+          "中天法門",
+          "中天法門台南",
+          "中天法門東山",
+          "台南禪修",
+          "東山禪修"
+        ],
+        "error": "Retry.__init__() got an unexpected keyword argument 'method_whitelist'"
+      }
+    ],
+    "error": "修行與禪修: TypeError: Retry.__init__() got an unexpected keyword argument 'method_whitelist'；宗教與靜坐: TypeError: Retry.__init__() got an unexpected keyword argument 'method_whitelist'；中天與地區: TypeError: Retry.__init__() got an unexpected keyword argument 'method_whitelist'"
+  },
+  "google_opportunities": [],
   "history": [
     {
       "week": "2026-09-21",
@@ -485,7 +528,7 @@
         },
         {
           "term": "中天禪修",
-          "score": 10
+          "score": 8
         },
         {
           "term": "中天總壇",
@@ -493,7 +536,7 @@
         },
         {
           "term": "一世成就",
-          "score": 32
+          "score": 100
         },
         {
           "term": "禪修",
@@ -505,19 +548,19 @@
         },
         {
           "term": "禪修班",
-          "score": 71
+          "score": 100
         },
         {
           "term": "高級禪修班",
-          "score": 71
+          "score": 96
         },
         {
           "term": "禪修方式",
-          "score": 45
+          "score": 39
         },
         {
           "term": "靜心",
-          "score": 22
+          "score": 19
         },
         {
           "term": "冥想",
@@ -525,23 +568,23 @@
         },
         {
           "term": "打坐",
-          "score": 10
+          "score": 23
         },
         {
           "term": "吉祥坐",
-          "score": 47
+          "score": 65
         },
         {
           "term": "修行",
-          "score": 67
+          "score": 100
         },
         {
           "term": "修道",
-          "score": 30
+          "score": 100
         },
         {
           "term": "修練",
-          "score": 20
+          "score": 91
         },
         {
           "term": "修煉",
@@ -549,31 +592,31 @@
         },
         {
           "term": "開悟",
-          "score": 20
+          "score": 62
         },
         {
           "term": "心性",
-          "score": 10
+          "score": 8
         },
         {
           "term": "內修",
-          "score": 32
+          "score": 62
         },
         {
           "term": "外德",
-          "score": 20
+          "score": 53
         },
         {
           "term": "生命課題",
-          "score": 24
+          "score": 47
         },
         {
           "term": "靈性",
-          "score": 22
+          "score": 100
         },
         {
           "term": "宗教",
-          "score": 0
+          "score": 42
         },
         {
           "term": "佛教",
@@ -585,15 +628,15 @@
         },
         {
           "term": "心靈",
-          "score": 0
+          "score": 76
         },
         {
           "term": "精神",
-          "score": 22
+          "score": 73
         },
         {
           "term": "靈性能量",
-          "score": 22
+          "score": 37
         },
         {
           "term": "台南",
@@ -605,216 +648,31 @@
         },
         {
           "term": "台南禪修",
-          "score": 10
+          "score": 8
         },
         {
           "term": "東山禪修",
-          "score": 10
+          "score": 8
         },
         {
           "term": "中天法門台南",
-          "score": 30
+          "score": 23
         },
         {
           "term": "中天法門東山",
-          "score": 20
+          "score": 30
         },
         {
           "term": "台南市東山區",
-          "score": 62
-        },
-        {
-          "term": "中天總壇",
-          "score": 100
-        },
-        {
-          "term": "中天法門是什麼",
-          "score": 10
-        },
-        {
-          "term": "中天法門在哪裡",
-          "score": 0
-        },
-        {
-          "term": "中天法門課程",
-          "score": 0
-        },
-        {
-          "term": "中天法門說明會",
-          "score": 99
-        },
-        {
-          "term": "怎麼禪修",
-          "score": 0
-        },
-        {
-          "term": "禪修課程推薦",
-          "score": 0
-        },
-        {
-          "term": "台南禪修課程",
-          "score": 0
-        },
-        {
-          "term": "東山禪修課程",
-          "score": 0
-        }
-      ]
-    },
-    {
-      "week": "2026-09-21",
-      "keywords": [
-        {
-          "term": "中天法門",
-          "score": 100
-        },
-        {
-          "term": "中天禪修",
-          "score": 10
-        },
-        {
-          "term": "中天總壇",
-          "score": 100
-        },
-        {
-          "term": "一世成就",
-          "score": 32
-        },
-        {
-          "term": "禪修",
-          "score": 100
-        },
-        {
-          "term": "禪修課程",
-          "score": 100
-        },
-        {
-          "term": "禪修班",
-          "score": 71
-        },
-        {
-          "term": "高級禪修班",
-          "score": 71
-        },
-        {
-          "term": "禪修方式",
-          "score": 45
-        },
-        {
-          "term": "靜心",
-          "score": 22
-        },
-        {
-          "term": "冥想",
-          "score": 0
-        },
-        {
-          "term": "打坐",
-          "score": 10
-        },
-        {
-          "term": "吉祥坐",
           "score": 47
         },
         {
-          "term": "修行",
-          "score": 67
-        },
-        {
-          "term": "修道",
-          "score": 30
-        },
-        {
-          "term": "修練",
-          "score": 20
-        },
-        {
-          "term": "修煉",
-          "score": 0
-        },
-        {
-          "term": "開悟",
-          "score": 20
-        },
-        {
-          "term": "心性",
-          "score": 10
-        },
-        {
-          "term": "內修",
-          "score": 32
-        },
-        {
-          "term": "外德",
-          "score": 20
-        },
-        {
-          "term": "生命課題",
-          "score": 24
-        },
-        {
-          "term": "靈性",
-          "score": 22
-        },
-        {
-          "term": "宗教",
-          "score": 0
-        },
-        {
-          "term": "佛教",
-          "score": 0
-        },
-        {
-          "term": "道教",
-          "score": 0
-        },
-        {
-          "term": "心靈",
-          "score": 0
-        },
-        {
-          "term": "精神",
-          "score": 22
-        },
-        {
-          "term": "靈性能量",
-          "score": 22
-        },
-        {
-          "term": "台南",
-          "score": 100
-        },
-        {
-          "term": "東山",
-          "score": 100
-        },
-        {
-          "term": "台南禪修",
-          "score": 10
-        },
-        {
-          "term": "東山禪修",
-          "score": 10
-        },
-        {
-          "term": "中天法門台南",
-          "score": 30
-        },
-        {
-          "term": "中天法門東山",
-          "score": 20
-        },
-        {
-          "term": "台南市東山區",
-          "score": 62
-        },
-        {
           "term": "中天總壇",
           "score": 100
         },
         {
           "term": "中天法門是什麼",
-          "score": 10
+          "score": 8
         },
         {
           "term": "中天法門在哪裡",
@@ -826,7 +684,7 @@
         },
         {
           "term": "中天法門說明會",
-          "score": 99
+          "score": 100
         },
         {
           "term": "怎麼禪修",
@@ -850,51 +708,56 @@
   "recommendations": [
     {
       "term": "冥想",
-      "action": "補充可直接回答使用者問題的正文／FAQ／H2，並增加相關頁面的內部連結。"
+      "action": "補充直接回答搜尋問題的正文、FAQ、H2與內部連結。"
     },
     {
       "term": "修煉",
-      "action": "補充可直接回答使用者問題的正文／FAQ／H2，並增加相關頁面的內部連結。"
-    },
-    {
-      "term": "宗教",
-      "action": "補充可直接回答使用者問題的正文／FAQ／H2，並增加相關頁面的內部連結。"
+      "action": "補充直接回答搜尋問題的正文、FAQ、H2與內部連結。"
     },
     {
       "term": "佛教",
-      "action": "補充可直接回答使用者問題的正文／FAQ／H2，並增加相關頁面的內部連結。"
+      "action": "補充直接回答搜尋問題的正文、FAQ、H2與內部連結。"
     },
     {
       "term": "道教",
-      "action": "補充可直接回答使用者問題的正文／FAQ／H2，並增加相關頁面的內部連結。"
-    },
-    {
-      "term": "心靈",
-      "action": "補充可直接回答使用者問題的正文／FAQ／H2，並增加相關頁面的內部連結。"
+      "action": "補充直接回答搜尋問題的正文、FAQ、H2與內部連結。"
     },
     {
       "term": "中天法門在哪裡",
-      "action": "補充可直接回答使用者問題的正文／FAQ／H2，並增加相關頁面的內部連結。"
+      "action": "補充直接回答搜尋問題的正文、FAQ、H2與內部連結。"
     },
     {
       "term": "中天法門課程",
-      "action": "補充可直接回答使用者問題的正文／FAQ／H2，並增加相關頁面的內部連結。"
+      "action": "補充直接回答搜尋問題的正文、FAQ、H2與內部連結。"
     },
     {
       "term": "怎麼禪修",
-      "action": "補充可直接回答使用者問題的正文／FAQ／H2，並增加相關頁面的內部連結。"
+      "action": "補充直接回答搜尋問題的正文、FAQ、H2與內部連結。"
     },
     {
       "term": "禪修課程推薦",
-      "action": "補充可直接回答使用者問題的正文／FAQ／H2，並增加相關頁面的內部連結。"
+      "action": "補充直接回答搜尋問題的正文、FAQ、H2與內部連結。"
     },
     {
       "term": "台南禪修課程",
-      "action": "補充可直接回答使用者問題的正文／FAQ／H2，並增加相關頁面的內部連結。"
+      "action": "補充直接回答搜尋問題的正文、FAQ、H2與內部連結。"
     },
     {
       "term": "東山禪修課程",
-      "action": "補充可直接回答使用者問題的正文／FAQ／H2，並增加相關頁面的內部連結。"
+      "action": "補充直接回答搜尋問題的正文、FAQ、H2與內部連結。"
+    },
+    {
+      "term": "中天禪修",
+      "action": "補充直接回答搜尋問題的正文、FAQ、H2與內部連結。"
+    },
+    {
+      "term": "心性",
+      "action": "補充直接回答搜尋問題的正文、FAQ、H2與內部連結。"
     }
-  ]
+  ],
+  "method": {
+    "site": "公開頁面＋AI/GEO可讀檔；每一來源單詞最多計20次",
+    "google": "Google Trends Taiwan Web Search，12個月，分三批比較",
+    "opportunity": "Trends 55% + 內容缺口45%；不代表排名預測"
+  }
 }
