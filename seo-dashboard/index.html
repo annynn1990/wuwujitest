@@ -38,107 +38,263 @@
 <footer>資料來源：本站公開頁面＋AI/GEO 知識庫＋Google Trends＋本頁技術檢查。<br>更新：<span id="footerDate">—</span></footer>
 </div>
 <script>
-const esc=v=>String(v==null?"":v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
-const pages=[["首頁","../index.html"],["禪修","../meditation.html"],["課程","../course.html"],["說明會","../seminar.html"],["FAQ","../faq.html"],["關於本站","../about.html"],["AI/GEO","../ai-knowledge/index.html"],["SEO Dashboard","./index.html"]];
-function setScore(id,v){v=Math.max(0,Math.min(100,Math.round(v)));const metric=document.getElementById(id),bar=document.getElementById(id.replace("Score","Bar")),boxMap={seoScore:"scoreSEO",aiScore:"scoreAI",indexScore:"scoreIndex",contentScore:"scoreContent"},box=document.getElementById(boxMap[id]);if(!metric||!bar||!box)return v;metric.textContent=v+"/100";bar.style.width=v+"%";box.classList.remove("good","warn","bad");box.classList.add(v>=80?"good":v>=60?"warn":"bad");return v}
-function statusRow(name,status,detail){return '<div class="row"><div><strong>'+esc(name)+'</strong></div><div class="status '+(status==="ok"?"ok":status==="warn"?"warn":"bad")+'">'+(status==="ok"?"🟢 正常":status==="warn"?"🟡 注意":"🔴 問題")+'</div><div></div><div class="wide small">'+esc(detail)+'</div></div>'}
-async function getText(url){const r=await fetch(url+"?v="+Date.now(),{cache:"no-store"});if(!r.ok)throw Error("HTTP "+r.status);return await r.text()}
-function parseRobots(txt){const lines=txt.split(/\r?\n/),rules={};let current="*";for(const raw of lines){const line=raw.split("#")[0].trim();if(!line)continue;const m=line.match(/^User-agent\s*:\s*(.+)$/i);if(m){current=m[1].trim().toLowerCase();rules[current]=rules[current]||[];continue}const d=line.match(/^Disallow\s*:\s*(.*)$/i);if(d)(rules[current]=rules[current]||[]).push(d[1].trim())}return{rules}}
-async function pageAudit(){let out=[],scores=[],schemaRows=[];for(const[name,url]of pages){try{const html=await getText(url),doc=new DOMParser().parseFromString(html,"text/html"),title=doc.title.trim(),desc=doc.querySelector('meta[name="description"]')?.content?.trim()||"",canonical=doc.querySelector('link[rel="canonical"]')?.href||"",h1=doc.querySelectorAll("h1").length,h2=doc.querySelectorAll("h2").length,ld=doc.querySelectorAll('script[type="application/ld+json"]').length,noindex=(doc.querySelector('meta[name="robots"]')?.content||"").toLowerCase().includes("noindex");let s=0;s+=title?1:0;s+=desc?1:0;s+=canonical?1:0;s+=h1===1?1:h1>1?.5:0;s+=h2?1:0;s+=ld?1:0;s+=!noindex?1:0;scores.push(s/7*100);const problems=[];if(!title)problems.push("缺 title");if(!desc)problems.push("缺 description");if(!canonical)problems.push("缺 canonical");if(h1!==1)problems.push(h1===0?"缺 H1":"H1 不只一個");if(!ld)problems.push("無 JSON-LD");if(noindex)problems.push("noindex");out.push('<div class="row"><div><strong>'+esc(name)+'</strong></div><div class="'+(s>=6?"ok":s>=4?"warn":"bad")+'">'+Math.round(s/7*100)+'</div><div>'+h1+" H1 / "+ld+' LD</div><div class="wide small">'+(problems.length?esc(problems.join("、")):"🟢 基本檢查正常")+"</div></div>");schemaRows.push([name,ld])}catch(e){out.push(statusRow(name,"bad","頁面無法檢查："+e.message));scores.push(0)}}document.getElementById("pages").innerHTML=out.join("");const avg=scores.reduce((a,b)=>a+b,0)/scores.length;document.getElementById("schema").innerHTML=schemaRows.map(x=>statusRow(x[0],x[1]?"ok":"warn",x[1]?"找到 "+x[1]+" 個 JSON-LD":"尚未找到 JSON-LD；若頁面適用，可考慮加入 Organization、WebPage、BreadcrumbList、Article、Event 等適合的類型")).join("");return avg}
-function renderData(d){const site=d.keywords||[],gt=d.google_trends||{},ops=d.google_opportunities||[];document.getElementById("mSources").textContent=d.corpus?.sources??"—";document.getElementById("mTerms").textContent=site.length;document.getElementById("mGT").textContent=Object.keys(gt.keywords||{}).length+" / "+site.length;const date=(d.generated_at||"").slice(0,10)||"—";document.getElementById("mDate").textContent=date;document.getElementById("footerDate").textContent=date;const avgContent=site.length?site.reduce((a,x)=>a+(Number(x.score)||0),0)/site.length:0;setScore("contentScore",avgContent);document.getElementById("site").innerHTML=site.slice().sort((a,b)=>(b.score||0)-(a.score||0)).map(x=>{const t=gt.keywords?.[x.term];return '<div class="row"><div><strong>'+esc(x.term)+'</strong> <span class="tag">'+esc(x.group)+'</span><div class="bar"><div class="fill" style="width:'+Math.max(0,Math.min(100,x.score||0))+'%"></div></div></div><div>內容 '+Number(x.score||0)+'</div><div class="small">'+(t?"台灣熱度 "+Number(t.average||0).toFixed(1)+"｜基準比 "+Number(t.relative_to_anchor||0).toFixed(1)+"%":"台灣熱度 —")+"</div><div class=\"wide small\">出現 "+(x.occurrences??0)+"｜來源 "+(x.sources??0)+"｜Title "+(x.title_sources??0)+"｜H1-H3 "+(x.heading_sources??0)+"</div></div>'}).join("")||'<div class="small">沒有資料。</div>'||'<div class="small">沒有資料。</div>';if(!gt.available){
-document.getElementById("gtStatus").textContent="本週尚未取得 Google Trends 資料。";
-document.getElementById("gt").innerHTML='<a class="btn" href="https://trends.google.com/trends/explore?geo=TW&hl=zh-TW" target="_blank" rel="noopener">查看 Google Trends 台灣</a>';
-}else{
-document.getElementById("gtStatus").textContent="來源：Google Trends｜台灣 Web Search｜更新："+((gt.fetched_at||"").slice(0,19).replace("T"," "))+" UTC";
-document.getElementById("gt").innerHTML=Object.values(gt.keywords||{}).sort((a,b)=>(b.opportunity||0)-(a.opportunity||0)).map(x=>{
-const ch=Number(x.change_pct)||0;
-const changeClass=ch>0?"ok":ch<0?"bad":"";
-const changeText=(ch>0?"+":"")+ch.toFixed(1)+"%";
-return '<div class="row"><div><strong>'+esc(x.term)+'</strong> <span class="tag">'+esc(x.group)+'</span><div class="bar"><div class="fill" style="width:'+Math.min(100,Number(x.average)||0)+'%"></div></div></div><div>'+Number(x.average||0).toFixed(1)+'</div><div class="'+changeClass+'">'+changeText+'</div><div class="wide small">近期 '+Number(x.recent||0).toFixed(1)+'｜前期 '+Number(x.previous||0).toFixed(1)+'｜本站＋AI '+Number(x.site_score||0)+'｜機會 '+Number(x.opportunity||0)+'</div></div>';
-}).join("")||'<div class="small">沒有資料。</div>';
+const esc = v => String(v == null ? "" : v).replace(/[&<>"']/g, c => ({
+  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+}[c]));
+const pages = [
+  ["首頁","../index.html"],
+  ["禪修","../meditation.html"],
+  ["課程","../course.html"],
+  ["說明會","../seminar.html"],
+  ["FAQ","../faq.html"],
+  ["關於本站","../about.html"],
+  ["AI/GEO","../ai-knowledge/index.html"],
+  ["SEO Dashboard","./index.html"]
+];
+
+function setScore(id, value){
+  const v = Math.max(0, Math.min(100, Math.round(Number(value) || 0)));
+  const metric = document.getElementById(id);
+  const bar = document.getElementById(id.replace("Score","Bar"));
+  const map = {seoScore:"scoreSEO",aiScore:"scoreAI",indexScore:"scoreIndex",contentScore:"scoreContent"};
+  const box = document.getElementById(map[id]);
+  if(metric) metric.textContent = v + "/100";
+  if(bar) bar.style.width = v + "%";
+  if(box){
+    box.classList.remove("good","warn","bad");
+    box.classList.add(v >= 80 ? "good" : v >= 60 ? "warn" : "bad");
+  }
+  return v;
 }
-document.getElementById("opp").innerHTML=ops.length?ops.slice(0,18).map(x=>'<div class="listitem"><strong>'+esc(x.term)+"</strong> <span class="pill">"+esc(x.group)+"</span><br><span class="small">Google "+Number(x.google_average||0).toFixed(1)+"｜本站＋AI "+Number(x.site_score||0)+"｜趨勢 "+(Number(x.change_pct)||0).toFixed(1)+"%｜內容機會 "+Number(x.opportunity||0)+"</span></div>").join(""):'<div class="small">目前沒有足夠資料形成機會詞。</div>';const geo=Object.values(gt.keywords||{}).filter(x=>/台南|東山|中天法門台南|中天法門東山/.test(x.term)).sort((a,b)=>(b.opportunity||0)-(a.opportunity||0));document.getElementById("geo").innerHTML=geo.length?geo.map(x=>'<div class="row"><div><strong>'+esc(x.term)+'</strong></div><div>'+Number(x.average||0).toFixed(1)+"</div><div>"+Number(x.change_pct||0).toFixed(1)+"%</div><div class="wide small">本站＋AI "+Number(x.site_score||0)+"｜內容機會 "+Number(x.opportunity||0)+"</div></div>").join(""):'<div class="small">本週尚無地區 Trends 資料。</div>';const top=ops.slice(0,3).map(x=>'<div class="listitem">🟡 <strong>'+esc(x.term)+"</strong>：Google 熱度 "+Number(x.google_average||0).toFixed(1)+"，本站＋AI "+Number(x.site_score||0)+"。<span class="small">可列入內容補強清單。</span></div>").join("");document.getElementById("today").innerHTML=top||'<div class="small">目前沒有足夠資料判斷內容缺口。</div>';return{avgContent,site,gt}}
+
+function statusRow(name,status,detail){
+  const label = status === "ok" ? "🟢 正常" : status === "warn" ? "🟡 注意" : "🔴 問題";
+  const cls = status === "ok" ? "ok" : status === "warn" ? "warn" : "bad";
+  return '<div class="row"><div><strong>'+esc(name)+'</strong></div><div class="status '+cls+'">'+label+'</div><div></div><div class="wide small">'+esc(detail)+'</div></div>';
+}
+
+async function fetchWithTimeout(url, timeoutMs = 8000){
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try{
+    const r = await fetch(url + (url.includes("?") ? "&" : "?") + "v=" + Date.now(), {
+      cache:"no-store",
+      signal:controller.signal
+    });
+    if(!r.ok) throw new Error("HTTP " + r.status);
+    return r;
+  }catch(e){
+    if(e && e.name === "AbortError") throw new Error("逾時（"+timeoutMs/1000+" 秒）");
+    throw e;
+  }finally{
+    clearTimeout(timer);
+  }
+}
+
+async function fetchText(url, timeoutMs=8000){
+  return (await fetchWithTimeout(url, timeoutMs)).text();
+}
+
+async function fetchJson(url, timeoutMs=8000){
+  return (await fetchWithTimeout(url, timeoutMs)).json();
+}
+
+function parseRobots(text){
+  const rules = {};
+  let current = "*";
+  for(const raw of String(text).split(/\r?\n/)){
+    const line = raw.split("#")[0].trim();
+    if(!line) continue;
+    const ua = line.match(/^User-agent\s*:\s*(.+)$/i);
+    if(ua){
+      current = ua[1].trim().toLowerCase();
+      if(!rules[current]) rules[current] = [];
+      continue;
+    }
+    const dis = line.match(/^Disallow\s*:\s*(.*)$/i);
+    if(dis) (rules[current] ||= []).push(dis[1].trim());
+  }
+  return rules;
+}
+
+async function loadTrendData(){
+  const el = document.getElementById("site");
+  try{
+    const d = await fetchJson("trend-data.json",12000);
+    const site = Array.isArray(d.keywords) ? d.keywords : [];
+    const gt = d.google_trends || {};
+    const ops = Array.isArray(d.google_opportunities) ? d.google_opportunities : [];
+    document.getElementById("mSources").textContent = d.corpus?.sources ?? "—";
+    document.getElementById("mTerms").textContent = site.length;
+    document.getElementById("mGT").textContent = Object.keys(gt.keywords || {}).length + " / " + site.length;
+    const date = (d.generated_at || "").slice(0,10) || "—";
+    document.getElementById("mDate").textContent = date;
+    document.getElementById("footerDate").textContent = date;
+
+    const avg = site.length ? site.reduce((sum,x)=>sum+(Number(x.score)||0),0)/site.length : 0;
+    setScore("contentScore",avg);
+
+    el.innerHTML = site.length ? site.slice().sort((a,b)=>(Number(b.score)||0)-(Number(a.score)||0)).map(x => {
+      const t = gt.keywords?.[x.term];
+      return '<div class="row"><div><strong>'+esc(x.term)+'</strong> <span class="tag">'+esc(x.group||"")+'</span><div class="bar"><div class="fill" style="width:'+Math.max(0,Math.min(100,Number(x.score)||0))+'%"></div></div></div><div>內容 '+(Number(x.score)||0)+'</div><div class="small">'+(t ? "台灣熱度 "+Number(t.average||0).toFixed(1) : "台灣熱度 —")+'</div><div class="wide small">出現 '+(x.occurrences??0)+'｜來源 '+(x.sources??0)+'｜Title '+(x.title_sources??0)+'｜H1-H3 '+(x.heading_sources??0)+'</div></div>';
+    }).join("") : '<div class="small">目前沒有內容資料。</div>';
+
+    if(gt.available){
+      document.getElementById("gtStatus").textContent = "來源：Google Trends｜台灣 Web Search｜更新："+((gt.fetched_at||"").slice(0,19).replace("T"," "))+" UTC";
+      const vals = Object.values(gt.keywords || {}).sort((a,b)=>(Number(b.opportunity)||0)-(Number(a.opportunity)||0));
+      document.getElementById("gt").innerHTML = vals.length ? vals.map(x => {
+        const ch = Number(x.change_pct)||0;
+        const cls = ch > 0 ? "ok" : ch < 0 ? "bad" : "";
+        return '<div class="row"><div><strong>'+esc(x.term)+'</strong> <span class="tag">'+esc(x.group||"")+'</span><div class="bar"><div class="fill" style="width:'+Math.min(100,Number(x.average)||0)+'%"></div></div></div><div>'+Number(x.average||0).toFixed(1)+'</div><div class="'+cls+'">'+(ch>0?"+":"")+ch.toFixed(1)+'%</div><div class="wide small">近期 '+Number(x.recent||0).toFixed(1)+'｜前期 '+Number(x.previous||0).toFixed(1)+'｜本站＋AI '+Number(x.site_score||0)+'｜機會 '+Number(x.opportunity||0)+'</div></div>';
+      }).join("") : '<div class="small">沒有 Trends 資料。</div>';
+    }else{
+      document.getElementById("gtStatus").textContent = "本週尚未取得 Google Trends 資料。";
+      document.getElementById("gt").innerHTML = '<a class="btn" href="https://trends.google.com/trends/explore?geo=TW&hl=zh-TW" target="_blank" rel="noopener">查看 Google Trends 台灣</a>';
+    }
+
+    document.getElementById("opp").innerHTML = ops.length ? ops.slice(0,18).map(x =>
+      '<div class="listitem"><strong>'+esc(x.term)+'</strong> <span class="pill">'+esc(x.group||"")+'</span><br><span class="small">Google '+Number(x.google_average||0).toFixed(1)+'｜本站＋AI '+Number(x.site_score||0)+'｜趨勢 '+(Number(x.change_pct)||0).toFixed(1)+'%｜內容機會 '+Number(x.opportunity||0)+'</span></div>'
+    ).join("") : '<div class="small">目前沒有足夠資料形成機會詞。</div>';
+
+    const geo = Object.values(gt.keywords || {}).filter(x => /台南|東山/.test(x.term||""));
+    document.getElementById("geo").innerHTML = geo.length ? geo.map(x =>
+      '<div class="row"><div><strong>'+esc(x.term)+'</strong></div><div>'+Number(x.average||0).toFixed(1)+'</div><div>'+Number(x.change_pct||0).toFixed(1)+'%</div><div class="wide small">本站＋AI '+Number(x.site_score||0)+'｜內容機會 '+Number(x.opportunity||0)+'</div></div>'
+    ).join("") : '<div class="small">目前沒有地區 Trends 資料。</div>';
+
+    document.getElementById("today").innerHTML = ops.length ? ops.slice(0,3).map(x =>
+      '<div class="listitem">🟡 <strong>'+esc(x.term)+'</strong>：Google 熱度 '+Number(x.google_average||0).toFixed(1)+'，本站＋AI '+Number(x.site_score||0)+'。<span class="small">可列入內容補強清單。</span></div>'
+    ).join("") : '<div class="small">目前沒有足夠資料判斷內容缺口。</div>';
+    return d;
+  }catch(e){
+    el.innerHTML = '<div class="bad">資料載入失敗：'+esc(e.message)+'</div>';
+    document.getElementById("today").innerHTML = '<div class="bad">無法讀取 trend-data.json。</div>';
+    document.getElementById("gtStatus").textContent = "Google Trends 資料無法載入。";
+    return null;
+  }
+}
+
+async function pageAudit(){
+  const out=[], scores=[], schema=[];
+  await Promise.all(pages.map(async ([name,url])=>{
+    try{
+      const html = await fetchText(url,8000);
+      const doc = new DOMParser().parseFromString(html,"text/html");
+      const title = doc.title.trim();
+      const desc = doc.querySelector('meta[name="description"]')?.content?.trim() || "";
+      const canonical = doc.querySelector('link[rel="canonical"]')?.href || "";
+      const h1 = doc.querySelectorAll("h1").length;
+      const h2 = doc.querySelectorAll("h2").length;
+      const ld = doc.querySelectorAll('script[type="application/ld+json"]').length;
+      const noindex = (doc.querySelector('meta[name="robots"]')?.content || "").toLowerCase().includes("noindex");
+      let score=0;
+      score += title?1:0; score += desc?1:0; score += canonical?1:0; score += h1===1?1:h1>1?.5:0; score += h2?1:0; score += ld?1:0; score += !noindex?1:0;
+      scores.push(score/7*100);
+      const problems=[];
+      if(!title) problems.push("缺 title");
+      if(!desc) problems.push("缺 description");
+      if(!canonical) problems.push("缺 canonical");
+      if(h1!==1) problems.push(h1===0?"缺 H1":"H1 不只一個");
+      if(!ld) problems.push("無 JSON-LD");
+      if(noindex) problems.push("noindex");
+      out.push('<div class="row"><div><strong>'+esc(name)+'</strong></div><div class="'+(score>=6?"ok":score>=4?"warn":"bad")+'">'+Math.round(score/7*100)+'</div><div>'+h1+' H1 / '+ld+' LD</div><div class="wide small">'+(problems.length?esc(problems.join("、")):"🟢 基本檢查正常")+'</div></div>');
+      schema.push(statusRow(name,ld?"ok":"warn",ld?"找到 "+ld+" 個 JSON-LD":"尚未找到 JSON-LD"));
+    }catch(e){
+      scores.push(0);
+      out.push(statusRow(name,"bad","頁面無法檢查："+e.message));
+      schema.push(statusRow(name,"bad","頁面無法檢查："+e.message));
+    }
+  }));
+  document.getElementById("pages").innerHTML=out.join("");
+  document.getElementById("schema").innerHTML=schema.join("");
+  return scores.length ? scores.reduce((a,b)=>a+b,0)/scores.length : 0;
+}
 
 async function technical(){
-  const checks = [];
-  const add = (name,status,detail)=>checks.push(statusRow(name,status,detail));
+  const rows=[];
+  const add=(name,status,detail)=>rows.push(statusRow(name,status,detail));
 
-  async function fetchText(path){
-    const r = await fetch(path + (path.includes("?") ? "&" : "?") + "v=" + Date.now(), {cache:"no-store"});
-    if(!r.ok) throw Error("HTTP " + r.status);
-    return await r.text();
+  try{
+    const rules=parseRobots(await fetchText("../robots.txt",7000));
+    const block=list=>(list||[]).some(v=>v==="/"||v==="/wuwujitest"||v==="/wuwujitest/");
+    const blockedStar=block(rules["*"]);
+    add("OAI-SearchBot 可抓取性",block(rules["oai-searchbot"])||blockedStar?"bad":"ok",blockedStar?"通用 User-agent 未允許整站封鎖。":"未發現整站封鎖規則。");
+    add("Googlebot 可抓取性",block(rules["googlebot"])||blockedStar?"bad":"ok",blockedStar?"通用 User-agent 存在整站封鎖。":"未發現整站封鎖規則。");
+  }catch(e){
+    add("robots.txt","bad","無法取得："+e.message);
   }
 
   try{
-    const robots = await fetchText("../robots.txt");
-    const rules = parseRobots(robots).rules;
-    const star = rules["*"] || [];
-    const oai = rules["oai-searchbot"] || [];
-    const google = rules["googlebot"] || [];
-    const blocked = list => list.some(v => v === "/" || v === "/wuwujitest" || v === "/wuwujitest/");
-    add("OAI-SearchBot 可抓取性",blocked(oai)||blocked(star)?"bad":"ok",
-      blocked(oai)||blocked(star)?"robots.txt 存在整站封鎖規則。":"robots.txt 可讀取，未發現整站封鎖規則。");
-    add("Googlebot 可抓取性",blocked(google)||blocked(star)?"bad":"ok",
-      blocked(google)||blocked(star)?"robots.txt 存在整站封鎖規則。":"未發現整站封鎖規則。");
-  }catch(e){
-    add("robots.txt","bad","無法取得 robots.txt："+e.message);
-  }
+    const xml=await fetchText("../sitemap.xml",7000);
+    const doc=new DOMParser().parseFromString(xml,"application/xml");
+    const locs=doc.querySelectorAll("loc").length;
+    add("sitemap.xml",locs?"ok":"warn",locs?"可讀取，包含 "+locs+" 個 URL。":"可讀取但未找到 URL。");
+  }catch(e){ add("sitemap.xml","bad","無法取得："+e.message); }
 
   try{
-    const xml = await fetchText("../sitemap.xml");
-    const doc = new DOMParser().parseFromString(xml,"application/xml");
-    const locs = Array.from(doc.querySelectorAll("loc")).map(x=>x.textContent.trim()).filter(Boolean);
-    add("sitemap.xml",locs.length?"ok":"warn",locs.length?"可讀取，包含 "+locs.length+" 個 URL。":"檔案可讀取，但沒有找到 URL。");
-  }catch(e){
-    add("sitemap.xml","bad","無法取得 sitemap.xml："+e.message);
-  }
+    const llms=await fetchText("../llms.txt",7000);
+    add("llms.txt",llms.includes("ai-knowledge")?"ok":"warn",llms.includes("ai-knowledge")?"可讀取並包含 AI/GEO 入口。":"可讀取但入口資訊不完整。");
+  }catch(e){ add("llms.txt","warn","無法取得；不代表網站不能被搜尋引擎收錄。"); }
 
   try{
-    const txt = await fetchText("../llms.txt");
-    const missing = ["ai-knowledge","knowledge.json"].filter(x=>!txt.includes(x));
-    add("llms.txt",missing.length?"warn":"ok",missing.length?"可讀取，但缺少："+missing.join("、")+"。":"可讀取，且包含主要 AI/GEO 知識入口。");
-  }catch(e){
-    add("llms.txt","warn","未提供或目前無法讀取；不直接代表搜尋引擎無法收錄。");
-  }
+    const html=await fetchText("../ai-knowledge/index.html",7000);
+    const doc=new DOMParser().parseFromString(html,"text/html");
+    add("AI/GEO 知識庫入口",doc.querySelectorAll("h1").length===1?"ok":"warn","可取得；H1="+doc.querySelectorAll("h1").length+"，JSON-LD="+doc.querySelectorAll('script[type="application/ld+json"]').length+"。");
+  }catch(e){ add("AI/GEO 知識庫入口","bad","無法取得："+e.message); }
 
-  try{
-    const html = await fetchText("../ai-knowledge/index.html");
-    const doc = new DOMParser().parseFromString(html,"text/html");
-    const h1 = doc.querySelectorAll("h1").length;
-    const ld = doc.querySelectorAll('script[type="application/ld+json"]').length;
-    add("AI/GEO 知識庫入口",h1===1?"ok":"warn","可抓取；H1="+h1+"，JSON-LD="+ld+"。");
-  }catch(e){
-    add("AI/GEO 知識庫入口","bad","無法取得："+e.message);
-  }
-
-  let okPages=0,badPages=0;
-  for(const [,url] of pages){
-    try{
-      const r = await fetch(url + (url.includes("?") ? "&" : "?") + "v=" + Date.now(), {cache:"no-store"});
-      if(r.ok) okPages++; else badPages++;
-    }catch(e){ badPages++; }
-  }
-  add("主要公開頁面可取得性",badPages?"warn":"ok",
-      badPages?okPages+" / "+pages.length+" 個主要頁面可取得，"+badPages+" 個需要檢查。":pages.length+" / "+pages.length+" 個主要頁面可取得。");
+  const results=await Promise.all(pages.map(async ([,url])=>{
+    try{ await fetchText(url,7000); return true; }catch(e){ return false; }
+  }));
+  const ok=results.filter(Boolean).length;
+  add("主要公開頁面可取得性",ok===pages.length?"ok":"warn",ok+" / "+pages.length+" 個主要頁面可取得。");
 
   for(const [label,url] of [["SEO 趨勢資料","trend-data.json"],["AI 知識資料","../ai-knowledge/knowledge.json"]]){
-    try{
-      const raw = await fetchText(url);
-      JSON.parse(raw);
-      add(label,"ok","JSON 可取得且格式有效。");
-    }catch(e){
-      add(label,"bad","無法取得或 JSON 格式錯誤："+e.message);
-    }
+    try{ JSON.parse(await fetchText(url,8000)); add(label,"ok","可取得且 JSON 格式有效。"); }
+    catch(e){ add(label,"bad","無法取得或 JSON 格式錯誤："+e.message); }
   }
 
-  const points = checks.reduce((n,x)=>n+(x.includes("🔴")?0:x.includes("🟡")?.5:1),0);
-  const total = checks.length || 1;
-  document.getElementById("crawler").innerHTML = checks.slice(0,2).join("");
-  document.getElementById("tech").innerHTML = checks.slice(2).join("");
-  return {points,total};
+  const score=rows.reduce((n,row)=>n + (row.includes("🔴")?0:row.includes("🟡")?.5:1),0);
+  document.getElementById("crawler").innerHTML=rows.slice(0,2).join("");
+  document.getElementById("tech").innerHTML=rows.slice(2).join("");
+  return {points:score,total:rows.length||1};
 }
 
-async function run(){let d=null,pageScore=0,tech=null;try{d=await fetch("trend-data.json?v="+Date.now(),{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()});renderData(d)}catch(e){document.getElementById("today").innerHTML='<div class="bad">資料檔尚未更新：'+esc(e.message)+"</div>";document.getElementById("site").innerHTML="—"}try{tech=await technical()}catch(e){document.getElementById("crawler").innerHTML=statusRow("技術檢查","bad",e.message);tech={points:0,total:8}}try{pageScore=await pageAudit()}catch(e){document.getElementById("pages").innerHTML=statusRow("頁面掃描","bad",e.message);pageScore=0}const content=d?.keywords?.length?d.keywords.reduce((a,x)=>a+(Number(x.score)||0),0)/d.keywords.length:0;const techScore=tech.total?tech.points/tech.total*100:0;const seo=Math.round(pageScore*.45+content*.35+techScore*.2);const ai=Math.round(content*.4+pageScore*.25+techScore*.2+(d?.google_trends?.available?15:8));setScore("seoScore",seo);setScore("aiScore",ai);setScore("indexScore",Math.round(techScore));setScore("contentScore",content);document.getElementById("auto").textContent="正在讀取最近一次自動優化紀錄……";fetch("last-auto-optimization.json?v="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():null).then(x=>document.getElementById("auto").innerHTML=x?'<div class="listitem">最後執行：<strong>'+esc(x.updated_at||"")+'</strong></div><div class="listitem">修改公開頁面：<strong>'+((x.changes||[]).length)+"</strong> 個</div><div class="small">建議把「自動修改」與「診斷建議」分開，避免系統為了分數而大量改寫內容。</div>":'<div class="small">尚無自動優化紀錄。</div>').catch(()=>document.getElementById("auto").textContent="尚無自動優化紀錄。")}
+function loadAuto(){
+  fetchJson("last-auto-optimization.json",5000)
+    .then(x=>{
+      document.getElementById("auto").innerHTML =
+        '<div class="listitem">紀錄狀態：<strong>'+esc(x.status||"unknown")+'</strong></div>'+
+        '<div class="listitem">最後更新：<strong>'+esc(x.updated_at||"")+'</strong></div>'+
+        '<div class="listitem">資料變更項目：<strong>'+((x.changes||[]).length)+'</strong></div>';
+    })
+    .catch(()=>document.getElementById("auto").innerHTML='<div class="small">目前沒有正式的自動更新紀錄；初始化檔案不視為一次成功的自動優化。</div>');
+}
+
+async function run(){
+  setScore("seoScore",0); setScore("aiScore",0); setScore("indexScore",0); setScore("contentScore",0);
+  const data = await loadTrendData();
+
+  technical().catch(e=>{
+    document.getElementById("crawler").innerHTML=statusRow("技術檢查","bad","執行失敗："+e.message);
+  });
+
+  pageAudit().catch(e=>{
+    document.getElementById("pages").innerHTML=statusRow("頁面掃描","bad","執行失敗："+e.message);
+  });
+
+  loadAuto();
+
+  const content = data?.keywords?.length ? data.keywords.reduce((a,x)=>a+(Number(x.score)||0),0)/data.keywords.length : 0;
+  setScore("contentScore",content);
+
+  const techPromise = technical();
+  const pagePromise = pageAudit();
+  const [techResult,pageScore] = await Promise.allSettled([techPromise,pagePromise]);
+  const tech = techResult.status==="fulfilled" ? techResult.value : {points:0,total:1};
+  const techScore=tech.points/tech.total*100;
+  const seo=Math.round(pageScore.status==="fulfilled" ? pageScore.value*.45+content*.35+techScore*.2 : content*.35+techScore*.2);
+  const ai=Math.round(content*.4+(pageScore.status==="fulfilled"?pageScore.value*.25:0)+techScore*.2+(data?.google_trends?.available?15:8));
+  setScore("seoScore",seo); setScore("aiScore",ai); setScore("indexScore",techScore);
+}
 run();
 </script>
 </body>
