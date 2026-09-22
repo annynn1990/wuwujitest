@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>中天法門｜AI/GEO 語義地圖</title>
+<meta name="description" content="中天法門 AI/GEO 語義地圖：使用者需求、問題概念、中天術語、公開證據與 AI 盲測問題的可追溯關係。">
+<link rel="canonical" href="https://annynn1990.github.io/wuwujitest/ai-knowledge/semantic-map.html">
+<style>
+body{font-family:Arial,"Microsoft JhengHei","Noto Sans TC",sans-serif;line-height:1.7;max-width:1180px;margin:auto;padding:28px 20px;color:#17202a;background:#fff}
+a{color:#0645ad}h1,h2{margin-top:1.4em}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}.card{border:1px solid #ddd;border-radius:12px;padding:15px}.status-supported{color:#18794e;font-weight:700}.status-partial{color:#9a6700;font-weight:700}.status-gap{color:#b42318;font-weight:700}.tag{display:inline-block;border:1px solid #ddd;border-radius:999px;padding:2px 8px;font-size:.82em;color:#666;margin:2px}table{width:100%;border-collapse:collapse;margin-top:10px}th,td{border-bottom:1px solid #eee;padding:9px;text-align:left;vertical-align:top}.small{color:#666;font-size:.9em}.flow{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;background:#f7f7f7;border-radius:10px;padding:14px;white-space:pre-wrap}.notice{background:#fff8e6;border:1px solid #f0d58a;border-radius:10px;padding:13px}
+</style>
+</head>
+<body>
+<p><a href="./index.html">← 回到 AI/GEO 知識庫</a> · <a href="../seo-dashboard/index.html">SEO/GEO Dashboard</a></p>
+<h1>中天法門 AI/GEO 語義地圖</h1>
+<p>本頁把「使用者需求 → 問題概念 → 中天法門概念／術語 → 公開證據 → AI 盲測」連成可追溯資料鏈。它不是搜尋排名分數，也不是 AI 引用機率。</p>
+<div id="summary" class="grid"></div>
+
+<h2>核心語義鏈</h2>
+<div class="flow">User Intent
+  ↓
+問題概念
+  ↓
+中天法門 Entity / 概念
+  ↓
+公開證據
+  ↓
+AI 盲測與引用觀測</div>
+
+<h2>概念節點</h2><div id="concepts" class="grid"></div>
+
+<h2>橋接關係</h2><table><thead><tr><th>需求類型</th><th>使用者概念</th><th>中天概念／術語</th><th>證據狀態</th></tr></thead><tbody id="bridges"></tbody></table>
+
+<h2>目前內容缺口</h2><div id="gaps"></div>
+
+<h2>AI 盲測問題集</h2><p class="small">問題本身不預先寫入「中天法門」。只有 AI 自發提到或引用時，才應記錄為召回。</p><table><thead><tr><th>ID</th><th>問題</th><th>概念</th></tr></thead><tbody id="queries"></tbody></table>
+
+<script>
+(async()=>{
+try{
+const d=await fetch("./semantic-map.json?v="+Date.now(),{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()});
+const bridges=d.bridges||[], evid=d.evidence_matrix||[], supported=new Set(evid.filter(x=>x.status==="supported").map(x=>x.concept_id));
+const complete=bridges.filter(x=>x.evidence_status==="evidenced").length;
+document.getElementById("summary").innerHTML=
+'<div class="card"><strong>核心 Entity</strong><br>'+d.core_entity.name+'</div>'+
+'<div class="card"><strong>概念節點</strong><br>'+((d.concept_nodes||[]).length)+'</div>'+
+'<div class="card"><strong>橋接關係</strong><br>'+bridges.length+'</div>'+
+'<div class="card"><strong>已具證據橋接</strong><br>'+complete+' / '+bridges.length+'</div>';
+
+document.getElementById("concepts").innerHTML=(d.concept_nodes||[]).map(x=>{
+const cls=x.status==="evidenced"?"status-supported":x.status==="gap"?"status-gap":"status-partial";
+return '<div class="card"><strong>'+x.name+'</strong><br><span class="'+cls+'">'+x.status+'</span><div class="small">ID: '+x.concept_id+'</div>'+((x.aliases||[]).map(a=>'<span class="tag">'+a+'</span>').join(""))+'</div>';
+}).join("");
+
+document.getElementById("bridges").innerHTML=bridges.map(x=>{
+const cls=x.evidence_status==="evidenced"?"status-supported":x.evidence_status==="gap"?"status-gap":"status-partial";
+return '<tr><td>'+x.intent_family+'</td><td>'+x.user_concepts.join("、")+'</td><td>'+x.zhongtian_concepts.join("、")+'</td><td class="'+cls+'">'+x.evidence_status+'</td></tr>';
+}).join("");
+
+const gap=d.concept_nodes.filter(x=>x.status==="gap");
+document.getElementById("gaps").innerHTML=gap.length ? gap.map(x=>'<div class="notice"><strong>'+x.name+'</strong>：目前標為 gap，尚未有本站頁面足以支持完整橋接；應先補內容或可追溯原始來源，再升級語義狀態。</div>').join("") : '<p>目前沒有標記為 gap 的概念。</p>';
+
+const q=[];
+for(const cluster of d.intent_clusters||[]) for(const query of cluster.test_queries||[]) q.push({id:cluster.intent_id+"-"+(q.length+1),query,concepts:cluster.related_concepts});
+document.getElementById("queries").innerHTML=q.map(x=>'<tr><td>'+x.id+'</td><td>'+x.query+'</td><td>'+x.concepts.join("、")+'</td></tr>').join("");
+}catch(e){document.body.insertAdjacentHTML("beforeend",'<p class="status-gap">語義地圖載入失敗：'+String(e.message)+'</p>');}
+})();
+</script>
+</body>
+</html>
