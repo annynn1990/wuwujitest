@@ -122,21 +122,8 @@ jobs:
             exit 0
           fi
 
-          python3 - <<'PY'
-          import json
-          from pathlib import Path
-          urls=[x.strip() for x in Path("/tmp/indexnow-urls-unique.txt").read_text().splitlines() if x.strip()]
-          key=Path("/tmp/indexnow-key.txt").read_text().strip()
-          Path("/tmp/indexnow-payload.json").write_text(json.dumps({
-              "host":"annynn1990.github.io",
-              "key":key,
-              "keyLocation":__import__("os").environ["KEY_LOCATION"],
-              "urlList":urls
-          },ensure_ascii=False),encoding="utf-8")
-          PY
-
           printf '%s' "$key" > /tmp/indexnow-key.txt
-          # Rebuild payload now that the key has been loaded.
+          # Build the IndexNow payload after the key has been written.
           KEY_LOCATION="$key_location" python3 - <<'PY'
           import json, os
           from pathlib import Path
