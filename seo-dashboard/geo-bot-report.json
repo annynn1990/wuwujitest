@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "report_type": "geo_robot_site_audit",
-  "generated_at": "2026-09-22T11:59:08.597544+00:00",
+  "generated_at": "2026-09-22T12:00:06.136824+00:00",
   "site": "https://annynn1990.github.io/wuwujitest/",
   "overall_progress": 86,
   "progress_definition": "加權診斷進度，不代表 Google 排名，也不代表 AI 引用機率；各模組依可觀測條件計算。",
@@ -193,13 +193,13 @@
     "questions": 50,
     "platforms": 5,
     "planned_slots": 250,
-    "tested_slots": 2,
-    "pending_slots": 248
+    "tested_slots": 3,
+    "pending_slots": 247
   },
   "blind_test": {
-    "tested_slots": 2,
+    "tested_slots": 3,
     "planned_slots": 250,
-    "pending_slots": 248,
+    "pending_slots": 247,
     "coverage_percent": 1,
     "effect_score": 20,
     "mention_rate": 0,
@@ -229,7 +229,7 @@
         "accuracy": 0
       },
       "Gemini": {
-        "tested": 2,
+        "tested": 3,
         "mention_rate": 0,
         "citation_rate": 0,
         "primary_source_citation_rate": 0,
@@ -256,7 +256,7 @@
     "questions": 50,
     "platforms": 5,
     "effect_is_separate": true,
-    "history_points": 4
+    "history_points": 5
   },
   "blind_test_platforms": [
     "ChatGPT",
@@ -346,7 +346,17 @@
           "status": "pending"
         },
         "Gemini": {
-          "status": "pending"
+          "status": "tested",
+          "tested_at": "2026-09-22T16:00:00+08:00",
+          "mentioned_entity": false,
+          "citation": false,
+          "primary_source_citation": false,
+          "concept_recall": true,
+          "factual_accuracy": false,
+          "cited_urls": [
+            "https://encrypted-tbn2.gstatic.com/"
+          ],
+          "notes": "Gemini 回答有直接處理『沒有宗教背景如何開始禪修』，提出數息、MBSR/身體掃描、坐姿與初學資源，因此 Concept Recall 記為 true。未提及「中天法門」，也未引用本站或 web.wuwuji.tw。Accuracy 記為 false，主要因明確錯誤把 Jon Kabat-Zinn 與 MBSR 的創立背景連結到麻省理工學院；可靠來源顯示他在 MIT 求學，但 1979 年是在 University of Massachusetts Medical School 創立 Stress Reduction Clinic，MBSR 亦由此發展。另有『完全不帶宗教色彩』等過度概括表述，因此不給 Accuracy 通過。"
         },
         "Copilot": {
           "status": "pending"
@@ -1501,6 +1511,21 @@
       "mention_consistency": 0,
       "citation_consistency": 0,
       "complete_consistency": 0
+    },
+    {
+      "recorded_at": "2026-09-22T12:00:06.337379+00:00",
+      "dataset_sha256": "87d7adab3d1e5b63fd9d1854bde8cba344524e498692cee214ce4f03519d50c0",
+      "effect_score": 20,
+      "tested_slots": 3,
+      "planned_slots": 250,
+      "mention_rate": 0,
+      "citation_rate": 0,
+      "primary_source_citation_rate": 0,
+      "concept_recall": 100,
+      "accuracy": 0,
+      "mention_consistency": 0,
+      "citation_consistency": 0,
+      "complete_consistency": 0
     }
   ],
   "live_pages": [
@@ -1563,7 +1588,7 @@
   },
   "flags": [
     "核心 Concept Page 仍缺 3 個概念",
-    "目前有 248 個盲測槽位尚未測試；這不視為失敗。"
+    "目前有 247 個盲測槽位尚未測試；這不視為失敗。"
   ],
   "automation": {
     "workflow": "geo-bot-report.yml",
