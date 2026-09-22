@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>中天法門 AI / GEO 控制中心｜知識庫與機器人監控</title>
-<meta name="description" content="中天法門 AI/GEO 控制中心：集中進入全量語義地圖、GEO 機器人報告、SEO/GEO Dashboard、優化進度與機器可讀知識庫。">
+<meta name="description" content="中天法門 AI/GEO Canonical Entity Hub：以固定 Entity ID 串聯官方網站、公開論壇、語義地圖、User Query、Claim、Evidence 與機器可讀知識庫。">
 <link rel="canonical" href="https://annynn1990.github.io/wuwujitest/ai-knowledge/">
 <link rel="alternate" type="application/json" href="./knowledge.json">
 <link rel="alternate" type="application/json" href="./semantic-map.json">
@@ -19,10 +19,54 @@
 .bot-wrap{position:fixed;right:18px;bottom:18px;z-index:9999;font-family:Arial,"Microsoft JhengHei","Noto Sans TC",sans-serif}.bot-toggle{width:64px;height:64px;border-radius:50%;border:2px solid #f3cb71;background:#10253a;color:#fff;font-size:30px;cursor:pointer;box-shadow:0 8px 28px rgba(0,0,0,.35)}.bot-panel{width:min(320px,calc(100vw - 30px));margin-bottom:10px;background:#0d1d2d;border:1px solid #f3cb71;border-radius:16px;padding:15px;box-shadow:0 10px 35px rgba(0,0,0,.4);display:none}.bot-panel.open{display:block}.bot-title{color:#f3cb71;font-weight:800}.bot-msg{color:#9fb5c9;font-size:.92rem;margin:8px 0 12px}.bot-link{display:block;text-align:center;background:#f3cb71;color:#171717;border-radius:999px;padding:8px 12px;font-weight:800;text-decoration:none}.bot-close{float:right;background:none;border:0;color:#9fb5c9;font-size:18px;cursor:pointer}
 @media(max-width:650px){.ai-links{grid-template-columns:1fr}.bot-wrap{right:10px;bottom:10px}.bot-toggle{width:58px;height:58px;font-size:27px}.bot-panel{width:calc(100vw - 20px);margin-bottom:8px}}
 </style>
+<script type="application/ld+json" id="entity-hub-schema">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Organization",
+      "@id":"https://web.wuwuji.tw/#organization",
+      "name":"中天法門",
+      "url":"https://web.wuwuji.tw/",
+      "sameAs":["https://www.wuwuji.tw/"],
+      "alternateName":["中天","中天法門園地","中天園地"]
+    },
+    {
+      "@type":"WebPage",
+      "@id":"https://annynn1990.github.io/wuwujitest/ai-knowledge/#webpage",
+      "url":"https://annynn1990.github.io/wuwujitest/ai-knowledge/",
+      "name":"中天法門 AI/GEO Canonical Entity Hub",
+      "about":{"@id":"https://web.wuwuji.tw/#organization"},
+      "isPartOf":{"@id":"https://annynn1990.github.io/wuwujitest/#website"},
+      "inLanguage":"zh-Hant-TW"
+    },
+    {
+      "@type":"Dataset",
+      "@id":"https://annynn1990.github.io/wuwujitest/ai-knowledge/semantic-map.json#dataset",
+      "name":"中天法門 AI/GEO 全量語義地圖",
+      "url":"https://annynn1990.github.io/wuwujitest/ai-knowledge/semantic-map.json",
+      "about":{"@id":"https://web.wuwuji.tw/#organization"},
+      "isBasedOn":["https://web.wuwuji.tw/","https://www.wuwuji.tw/"]
+    }
+  ]
+}
+</script>
 </head>
 <body><!-- ai-geo-build: 2026-09-22T16:50+08:00 -->
 <div class="wrap">
 <div class="top"><div class="brand">中天法門｜AI / GEO 控制中心</div><nav><a href="../index.html">網站首頁</a><a href="../seo-dashboard/index.html">SEO Dashboard</a></nav></div>
+
+<section class="panel" id="entity-hub" style="border-color:#f3cb71">
+<h2>🧩 中天法門｜Canonical Entity Hub</h2>
+<p><strong>Entity ID：</strong> <span class="mono">zhongtian-famen</span></p>
+<p><strong>首選名稱：</strong> 中天法門　｜　<strong>別名：</strong> 中天、中天法門園地、中天園地</p>
+<div class="data-grid">
+<div class="data"><strong>官方網站</strong><p><a href="https://web.wuwuji.tw/">web.wuwuji.tw</a></p><span class="small">官方來源角色</span></div>
+<div class="data"><strong>公開論壇</strong><p><a href="https://www.wuwuji.tw/">www.wuwuji.tw</a></p><span class="small">公開論壇／園地來源</span></div>
+<div class="data"><strong>AI/GEO 知識 Hub</strong><p><a href="./index.html">本頁</a></p><span class="small">結構化知識、Query、Claim、Evidence 統一入口</span></div>
+</div>
+<p class="small">本 Hub 固定使用 <span class="mono">zhongtian-famen</span> 作為 Entity ID。官方網站、公開論壇與本站知識庫分別標明來源角色；本站不把自己的整理內容自動視為官方聲明。</p>
+</section>
 
 <section class="hero">
 <h1>AI / GEO 控制中心</h1>
@@ -102,7 +146,7 @@
 
 <section class="panel">
 <h2>🕸️ 核心資料鏈</h2>
-<div class="mono">Entity → Concept → User Intent → Evidence → Retrieval → AI Citation</div>
+<div class="mono">Entity → User Query → Intent → Concept → Claim → Evidence → Source + Time → GEO Retrieval / Citation</div>
 <p class="small">語義地圖負責知識結構；機器人報告負責網站狀態；SEO/GEO Dashboard 負責搜尋與趨勢觀測；優化進度負責管理可控工作。</p>
 </section>
 
