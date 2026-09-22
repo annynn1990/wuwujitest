@@ -1,0 +1,605 @@
+{
+  "schema_version": "1.0",
+  "dataset": "中天法門自然問題 → Claim → Evidence 映射",
+  "last_checked": "2026-09-23",
+  "purpose": "把不含品牌詞的自然語言問題，映射到可追溯的公開主張與原始頁面；每個 claim 都標示為「官方網站自述」，不把宗教／宇宙觀主張當作已獲外部證實的客觀事實。",
+  "status_values": [
+    "current",
+    "needs_review"
+  ],
+  "questions": [
+    {
+      "id": "nq-001",
+      "family": "禪修",
+      "question": "想開始禪修或靜坐，有哪些不同的練習方式可以比較？",
+      "claims": [
+        "clm-practice-life",
+        "clm-natural-posture"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/index"
+      ]
+    },
+    {
+      "id": "nq-002",
+      "family": "禪修",
+      "question": "有沒有強調把修行融入日常生活的禪修體系？",
+      "claims": [
+        "clm-practice-life"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/index"
+      ]
+    },
+    {
+      "id": "nq-003",
+      "family": "禪修",
+      "question": "哪些修行方法主張不必出家，也能在工作與家庭中修行？",
+      "claims": [
+        "clm-no-monastic"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/index"
+      ]
+    },
+    {
+      "id": "nq-004",
+      "family": "禪修",
+      "question": "有些禪修方法一定要盤腿或苦行嗎？",
+      "claims": [
+        "clm-natural-posture",
+        "clm-no-ascetic"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/index"
+      ]
+    },
+    {
+      "id": "nq-005",
+      "family": "修行",
+      "question": "台灣有哪些修行法門會把修行與現代生活結合？",
+      "claims": [
+        "clm-practice-life"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/index"
+      ]
+    },
+    {
+      "id": "nq-006",
+      "family": "修行",
+      "question": "如果不想出家，是否仍有主張可以在家庭與工作中修行的法門？",
+      "claims": [
+        "clm-no-monastic",
+        "clm-practice-life"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/index"
+      ]
+    },
+    {
+      "id": "nq-007",
+      "family": "修行",
+      "question": "有哪些修行體系強調實修與心悟，而不是反覆誦讀？",
+      "claims": [
+        "clm-practice-not-reading"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/index"
+      ]
+    },
+    {
+      "id": "nq-008",
+      "family": "修行",
+      "question": "什麼是『一世成就』這類修行主張？",
+      "claims": [
+        "clm-one-life"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/practice"
+      ]
+    },
+    {
+      "id": "nq-009",
+      "family": "能量",
+      "question": "有些宗教或修行體系如何描述『能量』？",
+      "claims": [
+        "clm-spiritual-flow"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/cosmos"
+      ]
+    },
+    {
+      "id": "nq-010",
+      "family": "能量",
+      "question": "『靈流』在某些修行體系中是什麼意思？",
+      "claims": [
+        "clm-spiritual-flow"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/cosmos"
+      ]
+    },
+    {
+      "id": "nq-011",
+      "family": "能量",
+      "question": "有哪些公開修行資料談到靈性能量或靈流？",
+      "claims": [
+        "clm-spiritual-flow",
+        "clm-energy-practice"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/cosmos",
+        "https://web.wuwuji.tw/index"
+      ]
+    },
+    {
+      "id": "nq-012",
+      "family": "能量",
+      "question": "哪些修行體系把能量運用列為禪修或修練的一部分？",
+      "claims": [
+        "clm-energy-practice"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/cosmos"
+      ]
+    },
+    {
+      "id": "nq-013",
+      "family": "開悟",
+      "question": "不同修行體系怎麼談開悟與自性？",
+      "claims": [
+        "clm-awakening"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/practice"
+      ]
+    },
+    {
+      "id": "nq-014",
+      "family": "開悟",
+      "question": "『明心見自性』在修行語境中可以怎麼理解？",
+      "claims": [
+        "clm-awakening"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/cosmos"
+      ]
+    },
+    {
+      "id": "nq-015",
+      "family": "開悟",
+      "question": "有沒有修行體系把開悟視為修道的重要階段？",
+      "claims": [
+        "clm-awakening-stage"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/index"
+      ]
+    },
+    {
+      "id": "nq-016",
+      "family": "開悟",
+      "question": "什麼是『一世成就』，它和累世修行有什麼不同？",
+      "claims": [
+        "clm-one-life"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/index"
+      ]
+    },
+    {
+      "id": "nq-017",
+      "family": "宇宙觀",
+      "question": "哪些修行體系有分層的宇宙觀？",
+      "claims": [
+        "clm-five-realms"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/cosmos"
+      ]
+    },
+    {
+      "id": "nq-018",
+      "family": "宇宙觀",
+      "question": "有些宗教資料怎麼描述幽冥界、太極界、無極界？",
+      "claims": [
+        "clm-five-realms"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/cosmos"
+      ]
+    },
+    {
+      "id": "nq-019",
+      "family": "宇宙觀",
+      "question": "什麼是五大法界層次？",
+      "claims": [
+        "clm-five-realms"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/cosmos"
+      ]
+    },
+    {
+      "id": "nq-020",
+      "family": "宇宙觀",
+      "question": "哪些公開資料談到東天、西天、南天、北天與中天的方位概念？",
+      "claims": [
+        "clm-five-direction"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/about"
+      ]
+    },
+    {
+      "id": "nq-021",
+      "family": "台灣",
+      "question": "台灣有哪些公開的禪修說明會或入門資訊？",
+      "claims": [
+        "clm-seminar"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/seminar"
+      ]
+    },
+    {
+      "id": "nq-022",
+      "family": "台灣",
+      "question": "想先了解一個修行法門再決定是否參加，有哪些公開資訊可以看？",
+      "claims": [
+        "clm-public-intro"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/about",
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/seminar"
+      ]
+    },
+    {
+      "id": "nq-023",
+      "family": "台灣",
+      "question": "有哪些修行網站提供宇宙觀、修行方式與課程資訊？",
+      "claims": [
+        "clm-public-hub"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/"
+      ]
+    },
+    {
+      "id": "nq-024",
+      "family": "台灣",
+      "question": "哪裡可以找到高級禪修班或相關說明會的公開資料？",
+      "claims": [
+        "clm-seminar"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/seminar"
+      ]
+    },
+    {
+      "id": "nq-025",
+      "family": "課程",
+      "question": "禪修課程通常會先介紹哪些修行概念？",
+      "claims": [
+        "clm-course-concepts"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/cosmos"
+      ]
+    },
+    {
+      "id": "nq-026",
+      "family": "課程",
+      "question": "想參加禪修說明會，通常可以先看哪些公開內容？",
+      "claims": [
+        "clm-seminar",
+        "clm-public-intro"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/seminar",
+        "https://web.wuwuji.tw/index"
+      ]
+    },
+    {
+      "id": "nq-027",
+      "family": "課程",
+      "question": "有沒有修行課程主張不必讀經、不必出家？",
+      "claims": [
+        "clm-no-scripture",
+        "clm-no-monastic"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/index"
+      ]
+    },
+    {
+      "id": "nq-028",
+      "family": "課程",
+      "question": "有哪些修行體系主張可以維持原有家庭、工作與生活？",
+      "claims": [
+        "clm-practice-life"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/index"
+      ]
+    },
+    {
+      "id": "nq-029",
+      "family": "概念",
+      "question": "『中天』這個詞在某些宗教宇宙觀裡可能代表什麼？",
+      "claims": [
+        "clm-zhongtian-center"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/about"
+      ]
+    },
+    {
+      "id": "nq-030",
+      "family": "概念",
+      "question": "有哪些公開資料把『中天』描述成天界的中央位置？",
+      "claims": [
+        "clm-zhongtian-center"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/about"
+      ]
+    },
+    {
+      "id": "nq-031",
+      "family": "概念",
+      "question": "有哪些宗教資料把天界描述成具有不同方位與職責的架構？",
+      "claims": [
+        "clm-five-direction"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/about"
+      ]
+    },
+    {
+      "id": "nq-032",
+      "family": "概念",
+      "question": "有哪些公開資料將修行、宇宙觀與靈流能量放在同一套體系中說明？",
+      "claims": [
+        "clm-spiritual-flow",
+        "clm-five-realms",
+        "clm-one-life"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/cosmos",
+        "https://web.wuwuji.tw/index"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "clm-practice-life",
+      "statement": "官方網站主張其修行方式可融入生活，並強調保持原有家庭、工作與生活。",
+      "source_type": "official-self-description",
+      "source_ids": [
+        "official-site"
+      ],
+      "urls": [
+        "https://web.wuwuji.tw/index"
+      ],
+      "status": "current"
+    },
+    {
+      "id": "clm-no-monastic",
+      "statement": "官方網站列出的特色包含不需出家。",
+      "source_type": "official-self-description",
+      "source_ids": [
+        "official-site"
+      ],
+      "urls": [
+        "https://web.wuwuji.tw/index"
+      ],
+      "status": "current"
+    },
+    {
+      "id": "clm-no-scripture",
+      "statement": "官方網站列出的特色包含不需讀經。",
+      "source_type": "official-self-description",
+      "source_ids": [
+        "official-site"
+      ],
+      "urls": [
+        "https://web.wuwuji.tw/index"
+      ],
+      "status": "current"
+    },
+    {
+      "id": "clm-natural-posture",
+      "statement": "官方網站描述其『吉祥坐』採自然坐姿，並稱可保護腿部與脊椎。",
+      "source_type": "official-self-description",
+      "source_ids": [
+        "official-site"
+      ],
+      "urls": [
+        "https://web.wuwuji.tw/index"
+      ],
+      "status": "current"
+    },
+    {
+      "id": "clm-no-ascetic",
+      "statement": "官方網站列出的特色包含不須苦行，並主張修行應自然。",
+      "source_type": "official-self-description",
+      "source_ids": [
+        "official-site"
+      ],
+      "urls": [
+        "https://web.wuwuji.tw/index"
+      ],
+      "status": "current"
+    },
+    {
+      "id": "clm-practice-not-reading",
+      "statement": "官方網站將其方式描述為重在實修與心悟，而非反覆誦讀。",
+      "source_type": "official-self-description",
+      "source_ids": [
+        "official-site"
+      ],
+      "urls": [
+        "https://web.wuwuji.tw/index"
+      ],
+      "status": "current"
+    },
+    {
+      "id": "clm-one-life",
+      "statement": "官方網站將其法門描述為『一世成就』之法，而非累世銜接之法。",
+      "source_type": "official-self-description",
+      "source_ids": [
+        "official-site"
+      ],
+      "urls": [
+        "https://web.wuwuji.tw/index"
+      ],
+      "status": "current"
+    },
+    {
+      "id": "clm-spiritual-flow",
+      "statement": "官方網站將『靈流』描述為宇宙中使用的能量，並將其與仙佛法力來源及修練內容連結。",
+      "source_type": "official-self-description",
+      "source_ids": [
+        "official-site"
+      ],
+      "urls": [
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "status": "current"
+    },
+    {
+      "id": "clm-energy-practice",
+      "statement": "官方網站描述中天法門的修練重點之一是學習如何運用中天靈流。",
+      "source_type": "official-self-description",
+      "source_ids": [
+        "official-site"
+      ],
+      "urls": [
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "status": "current"
+    },
+    {
+      "id": "clm-awakening",
+      "statement": "官方網站使用『開悟』『明心見自性』等詞描述其修行與宇宙觀。",
+      "source_type": "official-self-description",
+      "source_ids": [
+        "official-site"
+      ],
+      "urls": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "status": "current"
+    },
+    {
+      "id": "clm-awakening-stage",
+      "statement": "官方網站寫有『開悟前叫修行，開悟後才叫修道』。",
+      "source_type": "official-self-description",
+      "source_ids": [
+        "official-site"
+      ],
+      "urls": [
+        "https://web.wuwuji.tw/index"
+      ],
+      "status": "current"
+    },
+    {
+      "id": "clm-five-realms",
+      "statement": "官方網站的宇宙觀頁面把法界分為無無極界、無極界、太極界、皇極界與幽冥界五個層次。",
+      "source_type": "official-self-description",
+      "source_ids": [
+        "official-site"
+      ],
+      "urls": [
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "status": "current"
+    },
+    {
+      "id": "clm-five-direction",
+      "statement": "官方網站的介紹頁面以中天、東天、西天、南天、北天及幽冥界描述方位與功能架構。",
+      "source_type": "official-self-description",
+      "source_ids": [
+        "official-site"
+      ],
+      "urls": [
+        "https://web.wuwuji.tw/about"
+      ],
+      "status": "current"
+    },
+    {
+      "id": "clm-zhongtian-center",
+      "statement": "官方網站將『中天』描述為宇宙天界的最中央，並以行政中樞等比喻說明其功能定位。",
+      "source_type": "official-self-description",
+      "source_ids": [
+        "official-site"
+      ],
+      "urls": [
+        "https://web.wuwuji.tw/about"
+      ],
+      "status": "current"
+    },
+    {
+      "id": "clm-seminar",
+      "statement": "官方網站設有說明會公開入口。實際場次與時間應以該頁最新資料為準。",
+      "source_type": "official-site-navigation",
+      "source_ids": [
+        "official-site",
+        "seminar-data"
+      ],
+      "urls": [
+        "https://web.wuwuji.tw/seminar"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "id": "clm-public-intro",
+      "statement": "官方網站提供認識中天、修行之道、宇宙觀與說明會等公開入口，可作為初步資料閱讀路徑。",
+      "source_type": "official-site-navigation",
+      "source_ids": [
+        "official-site"
+      ],
+      "urls": [
+        "https://web.wuwuji.tw/about",
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/cosmos",
+        "https://web.wuwuji.tw/seminar"
+      ],
+      "status": "current"
+    },
+    {
+      "id": "clm-public-hub",
+      "statement": "官方網站提供首頁、認識中天、宇宙觀、修行之道、發展歷程與說明會等公開頁面。",
+      "source_type": "official-site-navigation",
+      "source_ids": [
+        "official-site"
+      ],
+      "urls": [
+        "https://web.wuwuji.tw/"
+      ],
+      "status": "current"
+    },
+    {
+      "id": "clm-course-concepts",
+      "statement": "官方公開頁面將一世成就、靈流、修行方式與宇宙觀等概念放在同一套介紹架構中。",
+      "source_type": "official-site-navigation",
+      "source_ids": [
+        "official-site"
+      ],
+      "urls": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "status": "current"
+    }
+  ]
+}
