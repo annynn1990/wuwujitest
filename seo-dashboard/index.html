@@ -9,170 +9,48 @@
 <link rel="canonical" href="https://annynn1990.github.io/wuwujitest/seo-dashboard/">
 <style>
 :root{--bg:#07111e;--panel:#0d1d2d;--panel2:#10253a;--line:#29465f;--text:#eef6ff;--muted:#9fb5c9;--gold:#f3cb71;--green:#62d79a;--yellow:#f2c96d;--red:#ff7f7f;--blue:#74b8e8}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 10%,#12304a 0,transparent 32%),linear-gradient(180deg,#07111e,#06101a);color:var(--text);font-family:Arial,"Microsoft JhengHei","Noto Sans TC",sans-serif;line-height:1.65}.wrap{width:min(1180px,calc(100% - 28px));margin:auto;padding:24px 0 70px}.top{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}.brand{font-weight:800;color:var(--gold)}nav a{color:var(--text);text-decoration:none;margin-right:11px;white-space:nowrap}h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.2;color:var(--gold);margin:42px 0 8px}h2{font-size:1.35rem;color:var(--gold);margin:0 0 9px}.lead{color:var(--muted);font-size:1.05rem;max-width:1000px}.notice,.card,.panel{background:rgba(13,29,45,.96);border:1px solid var(--line);border-radius:18px}.notice{padding:14px 17px;margin:18px 0}.notice strong{color:var(--gold)}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.card{padding:17px}.metric{font-size:2rem;font-weight:800;color:var(--gold)}.small{font-size:.88rem;color:var(--muted)}.panel{padding:19px;margin-top:18px}.scoregrid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.score{position:relative;overflow:hidden}.score .metric{font-size:2.4rem}.score.good .metric{color:var(--green)}.score.warn .metric{color:var(--yellow)}.score.bad .metric{color:var(--red)}.info{display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;border:1px solid var(--muted);border-radius:50%;font-size:12px;color:var(--muted);cursor:help;margin-left:4px}.bar{height:9px;background:#07111e;border-radius:99px;overflow:hidden;margin-top:8px}.fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--gold));border-radius:99px}.row{display:grid;grid-template-columns:minmax(180px,1.2fr) 90px 90px minmax(190px,1fr);gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid rgba(41,70,95,.6)}.row:last-child{border-bottom:0}.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 8px;color:var(--muted);font-size:.78rem}.status{font-weight:700}.ok{color:var(--green)}.warn{color:var(--yellow)}.bad{color:var(--red)}.blue{color:var(--blue)}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px}.listitem{padding:11px 0;border-bottom:1px dashed var(--line)}.listitem:last-child{border:0}.pill{display:inline-block;padding:3px 9px;border-radius:999px;background:#152b40;color:var(--muted);font-size:.78rem}.explain{background:#0a1725;border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:10px;color:var(--muted)}.legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:.88rem;margin-top:8px}.btn{display:inline-block;padding:8px 13px;border:1px solid var(--gold);border-radius:999px;color:var(--gold);text-decoration:none;margin:7px 7px 0 0}.hidden{display:none}footer{margin-top:42px;border-top:1px solid var(--line);padding-top:18px;color:var(--muted)}@media(max-width:850px){.grid,.scoregrid{grid-template-columns:repeat(2,1fr)}.twocol{grid-template-columns:1fr}.row{grid-template-columns:1fr 75px}.row .wide{grid-column:1/-1}}@media(max-width:520px){.grid,.scoregrid{grid-template-columns:1fr}.wrap{width:min(100% - 18px,1180px)}}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 10%,#12304a 0,transparent 32%),linear-gradient(180deg,#07111e,#06101a);color:var(--text);font-family:Arial,"Microsoft JhengHei","Noto Sans TC",sans-serif;line-height:1.65}.wrap{width:min(1180px,calc(100% - 28px));margin:auto;padding:24px 0 70px}.top{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}.brand{font-weight:800;color:var(--gold)}nav{display:flex;gap:11px;flex-wrap:wrap;align-items:center}nav a{color:var(--text);text-decoration:none;white-space:nowrap}nav a:hover{text-decoration:underline;color:var(--gold)}h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.2;color:var(--gold);margin:42px 0 8px}h2{font-size:1.35rem;color:var(--gold);margin:0 0 9px}.lead{color:var(--muted);font-size:1.05rem;max-width:1000px}.notice,.card,.panel{background:rgba(13,29,45,.96);border:1px solid var(--line);border-radius:18px}.notice{padding:14px 17px;margin:18px 0}.notice strong{color:var(--gold)}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.card{padding:17px}.metric{font-size:2rem;font-weight:800;color:var(--gold)}.small{font-size:.88rem;color:var(--muted)}.panel{padding:19px;margin-top:18px}.scoregrid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.score{position:relative;overflow:hidden}.score .metric{font-size:2.4rem}.score.good .metric{color:var(--green)}.score.warn .metric{color:var(--yellow)}.score.bad .metric{color:var(--red)}.info{display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;border:1px solid var(--muted);border-radius:50%;font-size:12px;color:var(--muted);cursor:help;margin-left:4px}.bar{height:9px;background:#07111e;border-radius:99px;overflow:hidden;margin-top:8px}.fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--gold));border-radius:99px}.row{display:grid;grid-template-columns:minmax(180px,1.2fr) 90px 90px minmax(190px,1fr);gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid rgba(41,70,95,.6)}.row:last-child{border-bottom:0}.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 8px;color:var(--muted);font-size:.78rem}.status{font-weight:700}.ok{color:var(--green)}.warn{color:var(--yellow)}.bad{color:var(--red)}.blue{color:var(--blue)}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px}.listitem{padding:11px 0;border-bottom:1px dashed var(--line)}.listitem:last-child{border:0}.pill{display:inline-block;padding:3px 9px;border-radius:999px;background:#152b40;color:var(--muted);font-size:.78rem}.explain{background:#0a1725;border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:10px;color:var(--muted)}.legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:.88rem;margin-top:8px}.btn{display:inline-block;padding:8px 13px;border:1px solid var(--gold);border-radius:999px;color:var(--gold);text-decoration:none;margin:7px 7px 0 0}.btn.primary{background:var(--gold);color:#171717;font-weight:800}.hidden{display:none}footer{margin-top:42px;border-top:1px solid var(--line);padding-top:18px;color:var(--muted)}@media(max-width:850px){.grid,.scoregrid{grid-template-columns:repeat(2,1fr)}.twocol{grid-template-columns:1fr}.row{grid-template-columns:1fr 75px}.row .wide{grid-column:1/-1}}@media(max-width:600px){.wrap{width:min(100% - 18px,1180px)}.top{align-items:flex-start}.brand{width:100%}nav{width:100%;gap:8px 10px}nav a{font-size:.9rem}.btn{display:block;text-align:center;margin-right:0}.grid,.scoregrid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<div class="top"><div class="brand">中天法門｜SEO / AI 搜尋曝光監控中心</div><nav><a href="../index.html">首頁</a><a href="../meditation.html">禪修</a><a href="../course.html">課程</a><a href="../seminar.html">說明會</a><a href="../faq.html">FAQ</a><a href="../about.html">關於本站</a><a href="../ai-knowledge/index.html">AI/GEO</a></nav></div>
-
+<div class="top"><div class="brand">中天法門｜SEO / AI 搜尋曝光監控中心</div><nav><a href="../index.html">首頁</a><a href="../meditation.html">禪修</a><a href="../course.html">課程</a><a href="../seminar.html">說明會</a><a href="../faq.html">FAQ</a><a href="../about.html">關於本站</a><a href="../ai-knowledge/index.html">AI/GEO</a><a href="./optimization-progress.html">優化進度</a></nav></div>
 <h1>SEO／AI 搜尋曝光監控中心</h1>
 <p class="lead">把「Google 搜尋條件、內容覆蓋、AI 搜尋準備度、技術 SEO、爬蟲通行、結構化資料、搜尋需求、地區主題與自動優化」集中在一個人類容易讀懂的儀表板。</p>
-
-<div class="notice"><strong>先看這句：</strong>本頁的「分數」是診斷指標，不是 Google 排名，也不是「被 ChatGPT／Gemini 引用的真正機率」。<b>AI 準備度 80 分</b>的意思是目前可觀察到的網站條件較完整；真正是否被 AI 引用，仍受查詢、資料庫、搜尋結果與模型選擇等因素影響。</div>
-
+<div class="notice"><strong>先看這句：</strong>本頁的「分數」是診斷指標，不是 Google 排名，也不是「被 ChatGPT／Gemini 引用的真正機率」。<b>AI 準備度 80 分</b>的意思是目前可觀察到的網站條件較完整；真正是否被 AI 引用，仍受查詢、資料庫、搜尋結果與模型選擇等因素影響。<br><a class="btn primary" href="./optimization-progress.html">查看 AI／GEO 優化進度 →</a></div>
 <section class="scoregrid">
 <div class="card score" id="scoreSEO"><div class="metric" id="seoScore">—</div><b>SEO 技術／內容完整度</b><span class="info" title="依目前可取得的網站檢查項目計算；不是 Google 排名分數。">i</span><div class="small">可索引、metadata、連結、內容覆蓋等</div><div class="bar"><div class="fill" id="seoBar"></div></div></div>
 <div class="card score" id="scoreAI"><div class="metric" id="aiScore">—</div><b>AI 搜尋準備度</b><span class="info" title="代表內容是否具備容易被 AI 搜尋系統理解與擷取的條件，不等於實際引用機率。">i</span><div class="small">可抓取、清楚回答、實體、結構、引用訊號</div><div class="bar"><div class="fill" id="aiBar"></div></div></div>
 <div class="card score" id="scoreIndex"><div class="metric" id="indexScore">—</div><b>索引／爬蟲健康度</b><span class="info" title="根據 robots.txt、sitemap、HTTP 可取得性及主要頁面檢查結果。">i</span><div class="small">搜尋引擎能不能順利找到網站</div><div class="bar"><div class="fill" id="indexBar"></div></div></div>
 <div class="card score" id="scoreContent"><div class="metric" id="contentScore">—</div><b>內容覆蓋完整度</b><span class="info" title="根據 trend-data.json 的本站＋AI/GEO 詞彙覆蓋訊號。">i</span><div class="small">網站是否有回答使用者正在找的主題</div><div class="bar"><div class="fill" id="contentBar"></div></div></div>
 </section>
-
-<section class="grid" style="margin-top:13px">
-<div class="card"><div class="metric" id="mSources">—</div>內容來源</div>
-<div class="card"><div class="metric" id="mTerms">—</div>監測關鍵字</div>
-<div class="card"><div class="metric" id="mGT">—</div>Trends 詞數</div>
-<div class="card"><div class="metric" id="mDate">—</div>資料更新日</div>
-</section>
-
+<section class="grid" style="margin-top:13px"><div class="card"><div class="metric" id="mSources">—</div>內容來源</div><div class="card"><div class="metric" id="mTerms">—</div>監測關鍵字</div><div class="card"><div class="metric" id="mGT">—</div>Trends 詞數</div><div class="card"><div class="metric" id="mDate">—</div>資料更新日</div></section>
 <section class="panel"><h2>🎯 今天最值得注意什麼？</h2><div id="today">分析中……</div></section>
-
-<section class="panel"><h2>🤖 AI 搜尋到底在看什麼？</h2><p class="small">這一區特別把「AI 引用機率」與「AI 準備條件」分開，避免把推估數字誤當成實際機率。</p>
-<div class="twocol">
-<div><div id="aiChecks"></div></div>
-<div class="explain"><b style="color:var(--gold)">「AI 準備度」怎麼讀？</b><br><br>
-<strong>不是：</strong>「74% 機率被 ChatGPT 引用」。<br><br>
-<strong>而是：</strong>「依目前可檢查的網站條件，74/100 的 AI 搜尋準備度」。<br><br>
-實際引用紀錄如果未來有獨立監測，應另顯示為「觀測值」，例如「最近 30 次查詢出現 4 次」。</div>
-</div></section>
-
+<section class="panel"><h2>🤖 AI 搜尋到底在看什麼？</h2><p class="small">這一區特別把「AI 引用機率」與「AI 準備條件」分開，避免把推估數字誤當成實際機率。</p><div class="twocol"><div><div id="aiChecks"></div></div><div class="explain"><b style="color:var(--gold)">「AI 準備度」怎麼讀？</b><br><br><strong>不是：</strong>「74% 機率被 ChatGPT 引用」。<br><br><strong>而是：</strong>「依目前可檢查的網站條件，74/100 的 AI 搜尋準備度」。<br><br>實際引用紀錄如果未來有獨立監測，應另顯示為「觀測值」，例如「最近 30 次查詢出現 4 次」。</div></div></section>
 <section class="panel"><h2>🕷️ 搜尋／AI 爬蟲通行雷達</h2><div id="crawler">檢查中……</div><div class="legend"><span>🟢 正常</span><span>🟡 需要注意</span><span>🔴 發現問題</span></div></section>
-
 <section class="panel"><h2>🧰 技術 SEO 健康檢查</h2><div id="tech">檢查中……</div></section>
-
 <section class="panel"><h2>📚 結構化資料與頁面語意</h2><div id="schema">檢查中……</div></section>
-
 <section class="panel"><h2>① 本站＋AI/GEO 內容覆蓋</h2><p class="small">分數是「內容訊號」，不是排名。高分代表相關詞在公開頁面／知識庫中有較充分的出現與承接。</p><div id="site">載入中……</div></section>
-
 <section class="panel"><h2>② Google Trends｜台灣</h2><div id="gtStatus" class="notice">載入中……</div><div id="gt">載入中……</div></section>
-
 <section class="panel"><h2>③ 搜尋需求 × 內容缺口</h2><p class="small">優先找「有人在找、但本站內容訊號較低」的主題。這是內容規劃優先級，不是排名保證。</p><div id="opp">載入中……</div></section>
-
 <section class="panel"><h2>④ 地區 SEO / GEO</h2><div id="geo">載入中……</div></section>
-
 <section class="panel"><h2>⑤ 頁面級問題雷達</h2><div id="pages">檢查中……</div></section>
-
 <section class="panel"><h2>⑥ 每週自動優化</h2><div id="auto">載入中……</div><p class="small">安全型優化只處理公開內容頁 metadata；AI/GEO 知識庫納入分析，但不直接改寫。</p></section>
-
-<a class="btn" href="../index.html">← 返回網站首頁</a>
+<a class="btn" href="./optimization-progress.html">查看完整 AI／GEO 優化進度 →</a> <a class="btn" href="../index.html">← 返回網站首頁</a>
 <footer>資料來源：本站公開頁面＋AI/GEO 知識庫＋Google Trends＋本頁技術檢查。<br>更新：<span id="footerDate">—</span></footer>
 </div>
-
 <script>
 const esc=v=>String(v==null?"":v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
-const pages=[
- ["首頁","../index.html"],["禪修","../meditation.html"],["課程","../course.html"],["說明會","../seminar.html"],
- ["FAQ","../faq.html"],["關於本站","../about.html"],["AI/GEO","../ai-knowledge/index.html"],["SEO Dashboard","./index.html"]
-];
-const checks=[
- ["robots.txt","robots.txt"],["sitemap.xml","sitemap.xml"],["FAQ","../faq.html"],["AI/GEO","../ai-knowledge/index.html"]
-];
-function setScore(id,v){
- v=Math.max(0,Math.min(100,Math.round(v)));document.getElementById(id).textContent=v+"/100";
- document.getElementById(id.replace("Score","Bar")).style.width=v+"%";
- const box=document.getElementById("score"+id.replace("Score","")); box.classList.remove("good","warn","bad");
- box.classList.add(v>=80?"good":v>=60?"warn":"bad"); return v;
-}
-function statusRow(name,status,detail){return '<div class="row"><div><strong>'+esc(name)+'</strong></div><div class="status '+(status==="ok"?"ok":status==="warn"?"warn":"bad")+'">'+(status==="ok"?"🟢 正常":status==="warn"?"🟡 注意":"🔴 問題")+'</div><div></div><div class="wide small">'+esc(detail)+'</div></div>';}
-async function getText(url){
- const r=await fetch(url+"?v="+Date.now(),{cache:"no-store"}); if(!r.ok)throw Error("HTTP "+r.status); return await r.text();
-}
-function parseRobots(txt){
- const lines=txt.split(/\r?\n/), ua=[], rules={};
- let current="*";
- for(const raw of lines){const line=raw.split("#")[0].trim();if(!line)continue;
-  const m=line.match(/^User-agent\s*:\s*(.+)$/i);if(m){current=m[1].trim().toLowerCase();rules[current]=rules[current]||[];continue}
-  const d=line.match(/^Disallow\s*:\s*(.*)$/i);if(d)(rules[current]=rules[current]||[]).push(d[1].trim());
- }
- return {rules};
-}
-async function technical(){
- let rows=[], points=0,total=0,robots="",sitemap="";
- try{robots=await getText("../robots.txt");points+=2;rows.push(statusRow("robots.txt","ok","檔案可取得"));}catch(e){rows.push(statusRow("robots.txt","bad","無法取得："+e.message));}
- try{sitemap=await getText("../sitemap.xml");points+=2;rows.push(statusRow("sitemap.xml","ok","檔案可取得"));}catch(e){rows.push(statusRow("sitemap.xml","bad","無法取得："+e.message));}
- let rp=parseRobots(robots);
- const oai=(rp.rules["oai-searchbot"]||rp.rules["*"]||[]).some(x=>x==="/");
- rows.push(statusRow("OAI-SearchBot","warn",oai?"robots.txt 可能禁止根目錄":"未發現對 OAI-SearchBot 的根目錄 Disallow；實際抓取仍以 OpenAI 規則為準"));
- const g=(rp.rules["googlebot"]||rp.rules["*"]||[]).some(x=>x==="/");
- rows.push(statusRow("Googlebot","warn",g?"robots.txt 可能禁止根目錄":"未發現對 Googlebot 的根目錄 Disallow"));
- let sitemapUrls=(sitemap.match(/<loc>[^<]+<\/loc>/gi)||[]).length;
- rows.push(statusRow("Sitemap URL 數量",sitemapUrls?"ok":"warn",sitemapUrls?("目前讀到約 "+sitemapUrls+" 個 URL"): "沒有讀到 <loc>"));
- total=6; points+=sitemapUrls?2:0;
- document.getElementById("crawler").innerHTML=rows.join("");
- return {points,total:8,robots,sitemap,sitemapUrls};
-}
-async function pageAudit(){
- let out=[],scores=[],schemaRows=[];
- for(const [name,url] of pages){
-  try{
-   const html=await getText(url),doc=new DOMParser().parseFromString(html,"text/html");
-   const title=doc.title.trim(),desc=doc.querySelector('meta[name="description"]')?.content?.trim()||"";
-   const canonical=doc.querySelector('link[rel="canonical"]')?.href||"";
-   const h1=doc.querySelectorAll("h1").length,h2=doc.querySelectorAll("h2").length;
-   const ld=doc.querySelectorAll('script[type="application/ld+json"]').length;
-   const noindex=(doc.querySelector('meta[name="robots"]')?.content||"").toLowerCase().includes("noindex");
-   let s=0;s+=title?1:0;s+=desc?1:0;s+=canonical?1:0;s+=h1===1?1:h1>1?0.5:0;s+=h2?1:0;s+=ld?1:0;s+=!noindex?1:0;
-   scores.push(s/7*100);
-   const problems=[];if(!title)problems.push("缺 title");if(!desc)problems.push("缺 description");if(!canonical)problems.push("缺 canonical");if(h1!==1)problems.push(h1===0?"缺 H1":"H1 不只一個");if(!ld)problems.push("無 JSON-LD");if(noindex)problems.push("noindex");
-   out.push('<div class="row"><div><strong>'+esc(name)+'</strong></div><div class="'+(s>=6?"ok":s>=4?"warn":"bad")+'">'+Math.round(s/7*100)+'</div><div>'+h1+' H1 / '+ld+' LD</div><div class="wide small">'+(problems.length?esc(problems.join("、")):"🟢 基本檢查正常")+'</div></div>');
-   schemaRows.push([name,ld]);
-  }catch(e){out.push(statusRow(name,"bad","頁面無法檢查："+e.message));scores.push(0)}
- }
- document.getElementById("pages").innerHTML=out.join("");
- const avg=scores.reduce((a,b)=>a+b,0)/scores.length;
- document.getElementById("schema").innerHTML=schemaRows.map(x=>statusRow(x[0],x[1]?"ok":"warn",x[1]?"找到 "+x[1]+" 個 JSON-LD":"尚未找到 JSON-LD；若頁面適用，可考慮加入 Organization、WebPage、BreadcrumbList、Article、Event 等適合的類型")).join("");
- return avg;
-}
-function renderData(d){
- const site=d.keywords||[],gt=d.google_trends||{},ops=d.google_opportunities||[];
- document.getElementById("mSources").textContent=d.corpus?.sources??"—";
- document.getElementById("mTerms").textContent=site.length;
- document.getElementById("mGT").textContent=Object.keys(gt.keywords||{}).length;
- const date=(d.generated_at||"").slice(0,10)||"—";document.getElementById("mDate").textContent=date;document.getElementById("footerDate").textContent=date;
- const avgContent=site.length?site.reduce((a,x)=>a+(Number(x.score)||0),0)/site.length:0;
- setScore("contentScore",avgContent);
- document.getElementById("site").innerHTML=site.slice().sort((a,b)=>(b.score||0)-(a.score||0)).slice(0,35).map(x=>
- '<div class="row"><div><strong>'+esc(x.term)+'</strong> <span class="tag">'+esc(x.group)+'</span><div class="bar"><div class="fill" style="width:'+Math.max(0,Math.min(100,x.score||0))+'%"></div></div></div><div>'+Number(x.score||0)+'</div><div></div><div class="wide small">出現 '+(x.occurrences??0)+'｜來源 '+(x.sources??0)+'｜Title '+(x.title_sources??0)+'｜標題 '+(x.heading_sources??0)+'</div></div>').join("")||'<div class="small">沒有資料。</div>';
- if(!gt.available){document.getElementById("gtStatus").textContent="本週尚未取得 Google Trends 資料。";document.getElementById("gt").innerHTML='<a class="btn" href="https://trends.google.com/trends/explore?geo=TW&hl=zh-TW" target="_blank" rel="noopener">查看 Google Trends 台灣</a>';}
- else{
-  document.getElementById("gtStatus").textContent="來源：Google Trends｜台灣 Web Search｜更新："+((gt.fetched_at||"").slice(0,19).replace("T"," "))+" UTC";
-  document.getElementById("gt").innerHTML=Object.values(gt.keywords||{}).sort((a,b)=>(b.opportunity||0)-(a.opportunity||0)).map(x=>{const ch=Number(x.change_pct)||0;return '<div class="row"><div><strong>'+esc(x.term)+'</strong> <span class="tag">'+esc(x.group)+'</span><div class="bar"><div class="fill" style="width:'+Math.min(100,Number(x.average)||0)+'%"></div></div></div><div>'+Number(x.average||0).toFixed(1)+'</div><div class="'+(ch>0?"ok":ch<0?"bad":"")+'">'+(ch>0?"+":"")+ch.toFixed(1)+'%</div><div class="wide small">近期 '+Number(x.recent||0).toFixed(1)+'｜前期 '+Number(x.previous||0).toFixed(1)+'｜本站＋AI '+Number(x.site_score||0)+'｜機會 '+Number(x.opportunity||0)+'</div></div>'}).join("")||'<div class="small">沒有資料。</div>';
- }
- document.getElementById("opp").innerHTML=ops.length?ops.slice(0,18).map(x=>'<div class="listitem"><strong>'+esc(x.term)+'</strong> <span class="pill">'+esc(x.group)+'</span><br><span class="small">Google '+Number(x.google_average||0).toFixed(1)+'｜本站＋AI '+Number(x.site_score||0)+'｜趨勢 '+(Number(x.change_pct)||0).toFixed(1)+'%｜內容機會 '+Number(x.opportunity||0)+'</span></div>').join(""):'<div class="small">目前沒有足夠資料形成機會詞。</div>';
- const geo=Object.values(gt.keywords||{}).filter(x=>/台南|東山|中天法門台南|中天法門東山/.test(x.term)).sort((a,b)=>(b.opportunity||0)-(a.opportunity||0));
- document.getElementById("geo").innerHTML=geo.length?geo.map(x=>'<div class="row"><div><strong>'+esc(x.term)+'</strong></div><div>'+Number(x.average||0).toFixed(1)+'</div><div>'+Number(x.change_pct||0).toFixed(1)+'%</div><div class="wide small">本站＋AI '+Number(x.site_score||0)+'｜內容機會 '+Number(x.opportunity||0)+'</div></div>').join(""):'<div class="small">本週尚無地區 Trends 資料。</div>';
- const top=ops.slice(0,3).map(x=>'<div class="listitem">🟡 <strong>'+esc(x.term)+'</strong>：Google 熱度 '+Number(x.google_average||0).toFixed(1)+'，本站＋AI '+Number(x.site_score||0)+'。<span class="small">可列入內容補強清單。</span></div>').join("");
- document.getElementById("today").innerHTML=top||'<div class="small">目前沒有足夠資料判斷內容缺口。</div>';
- return {avgContent,site,gt};
-}
-async function run(){
- let d=null,pageScore=0,tech=null;
- try{d=await fetch("trend-data.json?v="+Date.now(),{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()});renderData(d);}catch(e){document.getElementById("today").innerHTML='<div class="bad">資料檔尚未更新：'+esc(e.message)+'</div>';document.getElementById("site").innerHTML="—";}
- try{tech=await technical();}catch(e){document.getElementById("crawler").innerHTML=statusRow("技術檢查","bad",e.message);tech={points:0,total:8};}
- try{pageScore=await pageAudit();}catch(e){document.getElementById("pages").innerHTML=statusRow("頁面掃描","bad",e.message);pageScore=0;}
- const content=d?.keywords?.length?d.keywords.reduce((a,x)=>a+(Number(x.score)||0),0)/d.keywords.length:0;
- const seo=Math.round((pageScore*.45+content*.35+(tech.points/8*100)*.20));
- const ai=Math.round(content*.40+pageScore*.25+(tech.points/8*100)*.20+(d?.google_trends?.available?15:8));
- setScore("seoScore",seo);setScore("aiScore",ai);setScore("indexScore",Math.round(tech.points/8*100));setScore("contentScore",content);
- document.getElementById("aiChecks").innerHTML=[
-  statusRow("內容是否有明確主題",content>=60?"ok":"warn","目前內容覆蓋 "+Math.round(content)+"/100"),
-  statusRow("主要頁面可抓取",pageScore>=80?"ok":pageScore>=60?"warn":"bad","頁面級技術檢查平均 "+Math.round(pageScore)+"/100"),
-  statusRow("JSON-LD／語意標記",pageScore>=70?"ok":"warn","頁面掃描會檢查 JSON-LD，不代表所有頁面都必須有"),
-  statusRow("AI 爬蟲 robots 訊號",tech.points>=4?"ok":"warn","依 robots.txt 可觀察訊號；不是實際 AI 引用紀錄")
- ].join("");
- document.getElementById("auto").textContent="正在讀取最近一次自動優化紀錄……";
- fetch("last-auto-optimization.json?v="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():null).then(x=>document.getElementById("auto").innerHTML=x?'<div class="listitem">最後執行：<strong>'+esc(x.updated_at||"")+'</strong></div><div class="listitem">修改公開頁面：<strong>'+((x.changes||[]).length)+'</strong> 個</div><div class="small">建議把「自動修改」與「診斷建議」分開，避免系統為了分數而大量改寫內容。</div>':'<div class="small">尚無自動優化紀錄。</div>').catch(()=>document.getElementById("auto").textContent="尚無自動優化紀錄。");
-}
+const pages=[["首頁","../index.html"],["禪修","../meditation.html"],["課程","../course.html"],["說明會","../seminar.html"],["FAQ","../faq.html"],["關於本站","../about.html"],["AI/GEO","../ai-knowledge/index.html"],["SEO Dashboard","./index.html"]];
+function setScore(id,v){v=Math.max(0,Math.min(100,Math.round(v)));document.getElementById(id).textContent=v+"/100";document.getElementById(id.replace("Score","Bar")).style.width=v+"%";const box=document.getElementById("score"+id.replace("Score",""));box.classList.remove("good","warn","bad");box.classList.add(v>=80?"good":v>=60?"warn":"bad");return v}
+function statusRow(name,status,detail){return '<div class="row"><div><strong>'+esc(name)+'</strong></div><div class="status '+(status==="ok"?"ok":status==="warn"?"warn":"bad")+'">'+(status==="ok"?"🟢 正常":status==="warn"?"🟡 注意":"🔴 問題")+'</div><div></div><div class="wide small">'+esc(detail)+'</div></div>'}
+async function getText(url){const r=await fetch(url+"?v="+Date.now(),{cache:"no-store"});if(!r.ok)throw Error("HTTP "+r.status);return await r.text()}
+function parseRobots(txt){const lines=txt.split(/?
+/),rules={};let current="*";for(const raw of lines){const line=raw.split("#")[0].trim();if(!line)continue;const m=line.match(/^User-agents*:s*(.+)$/i);if(m){current=m[1].trim().toLowerCase();rules[current]=rules[current]||[];continue}const d=line.match(/^Disallows*:s*(.*)$/i);if(d)(rules[current]=rules[current]||[]).push(d[1].trim())}return{rules}}
+async function technical(){let rows=[],points=0;let robots="",sitemap="";try{robots=await getText("../robots.txt");points+=2;rows.push(statusRow("robots.txt","ok","檔案可取得"))}catch(e){rows.push(statusRow("robots.txt","bad","無法取得："+e.message))}try{sitemap=await getText("../sitemap.xml");points+=2;rows.push(statusRow("sitemap.xml","ok","檔案可取得"))}catch(e){rows.push(statusRow("sitemap.xml","bad","無法取得："+e.message))}let rp=parseRobots(robots);rows.push(statusRow("OAI-SearchBot","warn",(rp.rules["oai-searchbot"]||rp.rules["*"]||[]).some(x=>x==="/")?"robots.txt 可能禁止根目錄":"未發現對 OAI-SearchBot 的根目錄 Disallow；實際抓取仍以 OpenAI 規則為準"));rows.push(statusRow("Googlebot","warn",(rp.rules["googlebot"]||rp.rules["*"]||[]).some(x=>x==="/")?"robots.txt 可能禁止根目錄":"未發現對 Googlebot 的根目錄 Disallow"));let sitemapUrls=(sitemap.match(/<loc>[^<]+</loc>/gi)||[]).length;rows.push(statusRow("Sitemap URL 數量",sitemapUrls?"ok":"warn",sitemapUrls?"目前讀到約 "+sitemapUrls+" 個 URL":"沒有讀到 <loc>"));points+=sitemapUrls?2:0;document.getElementById("crawler").innerHTML=rows.join("");return{points,total:8,robots,sitemap,sitemapUrls}}
+async function pageAudit(){let out=[],scores=[],schemaRows=[];for(const[name,url]of pages){try{const html=await getText(url),doc=new DOMParser().parseFromString(html,"text/html"),title=doc.title.trim(),desc=doc.querySelector('meta[name="description"]')?.content?.trim()||"",canonical=doc.querySelector('link[rel="canonical"]')?.href||"",h1=doc.querySelectorAll("h1").length,h2=doc.querySelectorAll("h2").length,ld=doc.querySelectorAll('script[type="application/ld+json"]').length,noindex=(doc.querySelector('meta[name="robots"]')?.content||"").toLowerCase().includes("noindex");let s=0;s+=title?1:0;s+=desc?1:0;s+=canonical?1:0;s+=h1===1?1:h1>1?.5:0;s+=h2?1:0;s+=ld?1:0;s+=!noindex?1:0;scores.push(s/7*100);const problems=[];if(!title)problems.push("缺 title");if(!desc)problems.push("缺 description");if(!canonical)problems.push("缺 canonical");if(h1!==1)problems.push(h1===0?"缺 H1":"H1 不只一個");if(!ld)problems.push("無 JSON-LD");if(noindex)problems.push("noindex");out.push('<div class="row"><div><strong>'+esc(name)+'</strong></div><div class="'+(s>=6?"ok":s>=4?"warn":"bad")+'">'+Math.round(s/7*100)+'</div><div>'+h1+" H1 / "+ld+' LD</div><div class="wide small">'+(problems.length?esc(problems.join("、")):"🟢 基本檢查正常")+"</div></div>");schemaRows.push([name,ld])}catch(e){out.push(statusRow(name,"bad","頁面無法檢查："+e.message));scores.push(0)}}document.getElementById("pages").innerHTML=out.join("");const avg=scores.reduce((a,b)=>a+b,0)/scores.length;document.getElementById("schema").innerHTML=schemaRows.map(x=>statusRow(x[0],x[1]?"ok":"warn",x[1]?"找到 "+x[1]+" 個 JSON-LD":"尚未找到 JSON-LD；若頁面適用，可考慮加入 Organization、WebPage、BreadcrumbList、Article、Event 等適合的類型")).join("");return avg}
+function renderData(d){const site=d.keywords||[],gt=d.google_trends||{},ops=d.google_opportunities||[];document.getElementById("mSources").textContent=d.corpus?.sources??"—";document.getElementById("mTerms").textContent=site.length;document.getElementById("mGT").textContent=Object.keys(gt.keywords||{}).length;const date=(d.generated_at||"").slice(0,10)||"—";document.getElementById("mDate").textContent=date;document.getElementById("footerDate").textContent=date;const avgContent=site.length?site.reduce((a,x)=>a+(Number(x.score)||0),0)/site.length:0;setScore("contentScore",avgContent);document.getElementById("site").innerHTML=site.slice().sort((a,b)=>(b.score||0)-(a.score||0)).slice(0,35).map(x=>'<div class="row"><div><strong>'+esc(x.term)+'</strong> <span class="tag">'+esc(x.group)+'</span><div class="bar"><div class="fill" style="width:'+Math.max(0,Math.min(100,x.score||0))+'%"></div></div></div><div>'+Number(x.score||0)+"</div><div></div><div class="wide small">出現 "+(x.occurrences??0)+"｜來源 "+(x.sources??0)+"｜Title "+(x.title_sources??0)+"｜標題 "+(x.heading_sources??0)+"</div></div>").join("")||'<div class="small">沒有資料。</div>';if(!gt.available){document.getElementById("gtStatus").textContent="本週尚未取得 Google Trends 資料。";document.getElementById("gt").innerHTML='<a class="btn" href="https://trends.google.com/trends/explore?geo=TW&hl=zh-TW" target="_blank" rel="noopener">查看 Google Trends 台灣</a>'}else{document.getElementById("gtStatus").textContent="來源：Google Trends｜台灣 Web Search｜更新："+((gt.fetched_at||"").slice(0,19).replace("T"," "))+" UTC";document.getElementById("gt").innerHTML=Object.values(gt.keywords||{}).sort((a,b)=>(b.opportunity||0)-(a.opportunity||0)).map(x=>{const ch=Number(x.change_pct)||0;return '<div class="row"><div><strong>'+esc(x.term)+'</strong> <span class="tag">'+esc(x.group)+'</span><div class="bar"><div class="fill" style="width:'+Math.min(100,Number(x.average)||0)+'%"></div></div></div><div>'+Number(x.average||0).toFixed(1)+"</div><div class=""+(ch>0?"ok":ch<0?"bad":"")+"">"+(ch>0?"+":"")+ch.toFixed(1)+"%</div><div class="wide small">近期 "+Number(x.recent||0).toFixed(1)+"｜前期 "+Number(x.previous||0).toFixed(1)+"｜本站＋AI "+Number(x.site_score||0)+"｜機會 "+Number(x.opportunity||0)+"</div></div>"}).join("")||'<div class="small">沒有資料。</div>'}document.getElementById("opp").innerHTML=ops.length?ops.slice(0,18).map(x=>'<div class="listitem"><strong>'+esc(x.term)+"</strong> <span class="pill">"+esc(x.group)+"</span><br><span class="small">Google "+Number(x.google_average||0).toFixed(1)+"｜本站＋AI "+Number(x.site_score||0)+"｜趨勢 "+(Number(x.change_pct)||0).toFixed(1)+"%｜內容機會 "+Number(x.opportunity||0)+"</span></div>").join(""):'<div class="small">目前沒有足夠資料形成機會詞。</div>';const geo=Object.values(gt.keywords||{}).filter(x=>/台南|東山|中天法門台南|中天法門東山/.test(x.term)).sort((a,b)=>(b.opportunity||0)-(a.opportunity||0));document.getElementById("geo").innerHTML=geo.length?geo.map(x=>'<div class="row"><div><strong>'+esc(x.term)+'</strong></div><div>'+Number(x.average||0).toFixed(1)+"</div><div>"+Number(x.change_pct||0).toFixed(1)+"%</div><div class="wide small">本站＋AI "+Number(x.site_score||0)+"｜內容機會 "+Number(x.opportunity||0)+"</div></div>").join(""):'<div class="small">本週尚無地區 Trends 資料。</div>';const top=ops.slice(0,3).map(x=>'<div class="listitem">🟡 <strong>'+esc(x.term)+"</strong>：Google 熱度 "+Number(x.google_average||0).toFixed(1)+"，本站＋AI "+Number(x.site_score||0)+"。<span class="small">可列入內容補強清單。</span></div>").join("");document.getElementById("today").innerHTML=top||'<div class="small">目前沒有足夠資料判斷內容缺口。</div>';return{avgContent,site,gt}}
+async function run(){let d=null,pageScore=0,tech=null;try{d=await fetch("trend-data.json?v="+Date.now(),{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()});renderData(d)}catch(e){document.getElementById("today").innerHTML='<div class="bad">資料檔尚未更新：'+esc(e.message)+"</div>";document.getElementById("site").innerHTML="—"}try{tech=await technical()}catch(e){document.getElementById("crawler").innerHTML=statusRow("技術檢查","bad",e.message);tech={points:0,total:8}}try{pageScore=await pageAudit()}catch(e){document.getElementById("pages").innerHTML=statusRow("頁面掃描","bad",e.message);pageScore=0}const content=d?.keywords?.length?d.keywords.reduce((a,x)=>a+(Number(x.score)||0),0)/d.keywords.length:0;const seo=Math.round(pageScore*.45+content*.35+(tech.points/8*100)*.2);const ai=Math.round(content*.4+pageScore*.25+(tech.points/8*100)*.2+(d?.google_trends?.available?15:8));setScore("seoScore",seo);setScore("aiScore",ai);setScore("indexScore",Math.round(tech.points/8*100));setScore("contentScore",content);document.getElementById("aiChecks").innerHTML=[statusRow("內容是否有明確主題",content>=60?"ok":"warn","目前內容覆蓋 "+Math.round(content)+"/100"),statusRow("主要頁面可抓取",pageScore>=80?"ok":pageScore>=60?"warn":"bad","頁面級技術檢查平均 "+Math.round(pageScore)+"/100"),statusRow("JSON-LD／語意標記",pageScore>=70?"ok":"warn","頁面掃描會檢查 JSON-LD，不代表所有頁面都必須有"),statusRow("AI 爬蟲 robots 訊號",tech.points>=4?"ok":"warn","依 robots.txt 可觀察訊號；不是實際 AI 引用紀錄")].join("");document.getElementById("auto").textContent="正在讀取最近一次自動優化紀錄……";fetch("last-auto-optimization.json?v="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():null).then(x=>document.getElementById("auto").innerHTML=x?'<div class="listitem">最後執行：<strong>'+esc(x.updated_at||"")+'</strong></div><div class="listitem">修改公開頁面：<strong>'+((x.changes||[]).length)+"</strong> 個</div><div class="small">建議把「自動修改」與「診斷建議」分開，避免系統為了分數而大量改寫內容。</div>":'<div class="small">尚無自動優化紀錄。</div>').catch(()=>document.getElementById("auto").textContent="尚無自動優化紀錄。")}
 run();
 </script>
 </body>
