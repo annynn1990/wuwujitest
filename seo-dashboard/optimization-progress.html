@@ -23,7 +23,7 @@
 <div class="panel"><h2>下一階段項目</h2><div id="todo"></div></div>
 </section>
 <section class="panel"><h2>評分規則</h2><p class="small">每一項只在有明確公開證據或可檢查的實作時計入。未驗證的 AI 引用、模型偏好、排名提升及跨平台優先採用，不會被虛構成完成度。</p><div id="rules"></div></section>
-<section class="panel"><h2>真正的 AI 引用觀測</h2><p><a href="./citation-monitor.html">查看 AI 引用實測監控 →</a></p><p>目前尚未有足夠的跨平台、固定問題、固定日期的實測資料，因此不顯示「AI 優先採用率」。未來應以固定問題集，記錄各平台是否找到本站、是否引用網址，以及引用內容是否正確。</p><p class="small">建議觀測維度：ChatGPT、Google AI、Gemini、Copilot、Perplexity；問題類型：中天法門、禪修、靈性修行、說明會、公開來源。</p></section>
+<section class="panel"><h2>真正的 AI 引用觀測</h2><p>目前尚未有足夠的跨平台、固定問題、固定日期的實測資料，因此不顯示「AI 優先採用率」。未來應以固定問題集，記錄各平台是否找到本站、是否引用網址，以及引用內容是否正確。</p><p class="small">建議觀測維度：ChatGPT、Google AI、Gemini、Copilot、Perplexity；問題類型：中天法門、禪修、靈性修行、說明會、公開來源。</p></section>
 <footer class="small">最後人工設定日期：2026-09-22。此頁為管理用進度基準，實際項目完成狀態需隨網站變更更新。</footer>
 </main>
 <script>
@@ -34,7 +34,7 @@ const completed=[
 ['知識圖譜索引','已建立 knowledge-graph.json，串連資料層與關係。'],
 ['多媒體索引骨架','已建立 media.json，並保留逐片核對的欄位契約。'],
 ['AI/GEO 機器入口','AI/GEO 入口頁與 llms.txt 已連結主要資料層。'],
-['基礎技術 SEO','網站已具備 canonical、robots、sitemap 與基本結構化資料等檢查對象。'],\n['AI 引用監測架構','已建立固定問題集、重複測試、引用網址紀錄、歷史 JSON 與 GitHub Actions 週期性監測；尚未把未配置 API 假設成有資料。']
+['基礎技術 SEO','網站已具備 canonical、robots、sitemap 與基本結構化資料等檢查對象。']
 ];
 const pending=[
 ['FAQ 結構化資料','為重要問題建立 faq_id、直接回答、來源、日期、狀態與主題關聯。'],
@@ -46,6 +46,6 @@ const pending=[
 ['定期回歸檢查','將 broken links、JSON 格式、metadata、sitemap 與內容缺口納入週期性檢查。']
 ];
 const rules=[['已完成基礎資料與入口',35],['可追溯來源與主張結構',20],['可獨立引用的主題／FAQ 頁',20],['多媒體與原始內容整合',10],['索引與爬蟲實測',10],['跨平台 AI 引用實測',5]];
-const total=completed.length+pending.length;const score=Math.round(completed.length/total*100);document.getElementById('percent').textContent=score+'/100';document.getElementById('bar').style.width=score+'%';document.getElementById('summary').textContent='目前以項目數估算：已完成 '+completed.length+' 項，待完成 '+pending.length+' 項。此為管理進度，不是 AI 引用機率。真正的 AI 引用率另見「AI 引用實測」頁。';
+const total=completed.length+pending.length;const score=Math.round(completed.length/total*100);document.getElementById('percent').textContent=score+'/100';document.getElementById('bar').style.width=score+'%';document.getElementById('summary').textContent='目前以項目數估算：已完成 '+completed.length+' 項，待完成 '+pending.length+' 項。此為管理進度，不是 AI 引用機率。';
 document.getElementById('done').innerHTML=completed.map(x=>'<div class="item"><b class="done">✓ '+x[0]+'</b><br><span class="small">'+x[1]+'</span></div>').join('');document.getElementById('todo').innerHTML=pending.map(x=>'<div class="item"><b class="todo">○ '+x[0]+'</b><br><span class="small">'+x[1]+'</span></div>').join('');document.getElementById('rules').innerHTML=rules.map(x=>'<div class="item"><b>'+x[0]+'</b><span class="tag">權重 '+x[1]+'%</span></div>').join('');
 </script></body></html>
