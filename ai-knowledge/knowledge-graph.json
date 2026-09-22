@@ -6,10 +6,27 @@
   "core_entity":{
     "entity_id":"zhongtian-famen",
     "name":"中天法門",
+    "preferred_name":"中天法門",
     "entity_type":"organization",
     "official_url":"https://web.wuwuji.tw/",
     "forum_url":"https://www.wuwuji.tw/forum/",
-    "same_as":["https://web.wuwuji.tw/","https://www.wuwuji.tw/"]
+    "knowledge_hub_url":"https://annynn1990.github.io/wuwujitest/ai-knowledge/",
+    "known_names":["中天法門","中天","中天法門園地","中天園地"],
+    "entity_disambiguation":{
+      "canonical_entity_url":"https://web.wuwuji.tw/",
+      "official_site":"中天法門公開官方網站",
+      "public_forum":"中天法門園地公開論壇",
+      "knowledge_hub":"本站 AI/GEO 公開知識整合入口",
+      "identity_rule":"關聯網站分別標明角色；不因同一主題而把論壇或本站內容自動當成官方聲明。"
+    },
+    "same_as_verified":["https://web.wuwuji.tw/","https://www.wuwuji.tw/"]
+  },
+  "entity_resolution":{
+    "preferred_label":"中天法門",
+    "aliases":["中天","中天法門園地","中天園地"],
+    "official_domain":"web.wuwuji.tw",
+    "public_forum_domain":"www.wuwuji.tw",
+    "entity_id":"zhongtian-famen"
   },
   "data_layers":{
     "documents":{"path":"./knowledge.json","role":"自動同步的公開文件全集"},
