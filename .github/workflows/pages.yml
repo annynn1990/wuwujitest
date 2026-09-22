@@ -1,6 +1,8 @@
 name: Deploy static content to Pages
 
 on:
+  push:
+    branches: [main]
   workflow_run:
     workflows: ["中天法門資料自動化流水線"]
     types: [completed]
