@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
   "report_type": "geo_robot_site_audit",
-  "generated_at": "2026-09-22T21:24:01.039477+00:00",
+  "generated_at": "2026-09-22T23:23:59.230605+00:00",
   "site": "https://annynn1990.github.io/wuwujitest/",
   "overall_progress": 96,
   "progress_definition": "加權診斷進度，不代表 Google 排名，也不代表 AI 引用機率；各模組依可觀測條件計算。",
   "scan_scope": {
-    "repo_public_data_files": 34,
+    "repo_public_data_files": 36,
     "sitemap_urls": 9,
     "core_pages": 6,
     "knowledge_documents": 1076,
@@ -2006,7 +2006,7 @@
       "ok": true,
       "title": "中天法門 AI / GEO 控制中心｜知識庫與機器人監控",
       "h1_count": 1,
-      "bytes": 16255
+      "bytes": 16514
     },
     {
       "url": "https://annynn1990.github.io/wuwujitest/ai-knowledge/semantic-map.html",
@@ -2020,8 +2020,8 @@
   "site_inventory_summary": {
     "invalid_json": 0,
     "errors": 0,
-    "html_files": 13,
-    "json_files": 16,
+    "html_files": 14,
+    "json_files": 17,
     "txt_files": 4,
     "xml_files": 1
   },
