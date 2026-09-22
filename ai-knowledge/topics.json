@@ -1,0 +1,15 @@
+{
+  "schema_version":"1.0",
+  "dataset":"中天法門主題索引",
+  "last_checked":"2026-09-22",
+  "topics":[
+    {"topic_id":"zen-meditation","name":"禪修","aliases":["靜坐","打坐","冥想","禪定","觀照"],"related_source_ids":["official-site","official-forum"]},
+    {"topic_id":"spiritual-practice","name":"修行","aliases":["修練","修煉","修持","修道","法門","道場"],"related_source_ids":["official-site","official-forum"]},
+    {"topic_id":"energy-practice","name":"能量與靈流","aliases":["智慧能量","靈性能量","生命能量","靈流"],"related_source_ids":["official-site","official-forum"]},
+    {"topic_id":"awakening","name":"開悟與自性","aliases":["開悟","頓悟","本來面目","明心見自性","一世成就"],"related_source_ids":["official-site","official-forum"]},
+    {"topic_id":"zhongtian-core","name":"中天法門核心語彙","aliases":["中天三寶","四程序","中天指法","中天國度","中天法界"],"related_source_ids":["official-site","official-forum"]},
+    {"topic_id":"cosmology","name":"宇宙觀","aliases":["中天","西天","東天","南天","北天","天界","法界","49智慧星系","火陽星"],"related_source_ids":["official-forum"]},
+    {"topic_id":"courses-events","name":"課程與說明會","aliases":["高級禪修班","禪修課程","說明會","座談會","入門"],"related_source_ids":["official-site","seminar-data"]},
+    {"topic_id":"publications-media","name":"影片與出版品","aliases":["YouTube","《中天天堂遊記》","書籍"],"related_source_ids":["youtube-playlist","books-com-tw","kingstone","sanmin","momo"]}
+  ]
+}
