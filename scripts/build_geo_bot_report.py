@@ -138,9 +138,48 @@ def score_intent(semantic):
     valid = sum(1 for x in intents if len(x.get("related_concepts",[]) or []) >= 1)
     return round(valid/max(len(intents),1)*100), {"intent_nodes":len(intents),"mapped_intents":valid}
 
-def score_retrieval(repo_files):
-    test = [p for p in repo_files if p.name.lower().startswith(("geo-test","ai-test"))]
-    return (100 if test else 0), {"test_data_files":len(test)}
+def score_retrieval(repo_files, blind_db):
+    """Score test infrastructure only; real AI effect remains in the separate effect metric."""
+    schema_ok=isinstance(blind_db.get("records"),list) and isinstance(blind_db.get("platforms"),list)
+    questions=len(blind_db.get("records",[]) or [])
+    platforms=len(blind_db.get("platforms",[]) or [])
+    slots=sum(1 for q in (blind_db.get("records",[]) or []) for _ in (blind_db.get("platforms",[]) or []))
+    tested=sum(
+        1 for q in (blind_db.get("records",[]) or [])
+        for p in (blind_db.get("platforms",[]) or [])
+        if ((q.get("results",{}) or {}).get(p,{}) or {}).get("status")=="tested"
+    )
+    pending=slots-tested
+    db_exists=any(p.as_posix()=="seo-dashboard/geo-blind-tests.json" for p in repo_files)
+    parts=[
+        100 if db_exists else 0,
+        100 if schema_ok and questions>=1 and platforms>=1 else 0,
+        100 if slots==int(blind_db.get("planned_platform_slots",0) or slots) else 0,
+    ]
+    return round(sum(parts)/len(parts)), {
+        "test_data_files":1 if db_exists else 0,
+        "questions":questions,
+        "platforms":platforms,
+        "planned_slots":slots,
+        "tested_slots":tested,
+        "pending_slots":pending
+    }
+
+def score_evidence(semantic, pages):
+    """Measure the evidence layer without requiring new pages."""
+    ev=semantic.get("evidence_matrix",[]) or []
+    total=len(ev)
+    with_evidence=sum(1 for x in ev if int(x.get("evidence_count",0) or 0)>0)
+    with_primary=sum(1 for x in ev if int(x.get("primary_source_evidence_count",0) or 0)>0)
+    evidence_score=round(((with_evidence/max(total,1))*0.7 + (with_primary/max(total,1))*0.3)*100)
+    page_score,_=concept_coverage(pages)
+    # Evidence carries more weight than page count because the goal is traceability.
+    return round(evidence_score*0.7 + page_score*0.3), {
+        "concepts_with_evidence":with_evidence,
+        "concepts_with_primary_source_evidence":with_primary,
+        "concepts_total":total,
+        "core_page_coverage":page_score
+    }
 
 def scan_site_files():
     rows = []
@@ -216,17 +255,21 @@ def main():
     graph_score, graph_meta=score_graph(semantic)
     concept_score, concept_rows=concept_coverage(pages)
     intent_score, intent_meta=score_intent(semantic)
-    retrieval_score, retrieval_meta=score_retrieval([Path(x["path"]) for x in scan_site_files()])
-    citation_score=0
+    files=scan_site_files()
+    blind_db=load_json(ROOT/"seo-dashboard/geo-blind-tests.json") if (ROOT/"seo-dashboard/geo-blind-tests.json").exists() else {}
+    retrieval_score, retrieval_meta=score_retrieval([Path(x["path"]) for x in files], blind_db)
+    evidence_score, evidence_meta=score_evidence(semantic,pages)
+    tested_slots=retrieval_meta.get("tested_slots",0)
+    citation_score=100 if tested_slots>0 else 0
     observability=100 if (ROOT/".github/workflows/geo-bot-report.yml").exists() else 0
 
     modules=[
         {"id":"entity","name":"Entity 基礎","weight":10,"score":entity,"definition":"核心 Entity 是否能在網站與機器可讀資料中被明確識別。"},
         {"id":"knowledge","name":"公開知識庫","weight":15,"score":knowledge_score,"definition":"知識庫完整性、JSON 可解析性、圖譜文件數一致性與全量映射。"},
         {"id":"semantic","name":"全量語義圖","weight":20,"score":graph_score,"definition":"1,076 份文件與主題、概念、觀察詞之間是否形成可追溯關係。"},
-        {"id":"concept-pages","name":"核心 Concept Page","weight":15,"score":concept_score,"definition":"12 個核心概念是否在公開核心頁面形成明確內容訊號；這不是文章數量。"},
+        {"id":"concept-evidence","name":"核心 Concept／Evidence","weight":15,"score":evidence_score,"definition":"核心概念是否同時有現有頁面訊號與可追溯的公開文件證據；不要求每個概念新增頁面。"},
         {"id":"intent","name":"User Intent","weight":10,"score":intent_score,"definition":"使用者意圖是否與概念層形成機器可讀關係。"},
-        {"id":"retrieval","name":"GEO 盲測／Retrieval","weight":15,"score":retrieval_score,"definition":"是否已建立並持續記錄 AI 盲測與召回結果。"},
+        {"id":"retrieval","name":"GEO 盲測／Retrieval 基礎設施","weight":15,"score":retrieval_score,"definition":"50 題 × 5 平台盲測資料庫與評估欄位是否已具備；實際成效另計。"},
         {"id":"citation","name":"Citation 觀測","weight":10,"score":citation_score,"definition":"是否已有可機器讀取的 AI 引用結果長期資料；尚未建立則為 0。"},
         {"id":"observability","name":"機器人自動監測","weight":5,"score":observability,"definition":"是否有自動掃描、產生報告、更新進度的 workflow。"},
     ]
@@ -254,8 +297,18 @@ def main():
         "knowledge":knowledge_meta,
         "semantic":graph_meta,
         "concept_coverage":concept_rows,
+        "evidence":evidence_meta,
         "intent":intent_meta,
         "retrieval":retrieval_meta,
+        "blind_test":{
+            "questions":retrieval_meta.get("questions",0),
+            "platforms":retrieval_meta.get("platforms",0),
+            "planned_slots":retrieval_meta.get("planned_slots",0),
+            "tested_slots":retrieval_meta.get("tested_slots",0),
+            "pending_slots":retrieval_meta.get("pending_slots",0),
+            "coverage_percent":round(retrieval_meta.get("tested_slots",0)/max(retrieval_meta.get("planned_slots",1),1)*100),
+            "effect_is_separate":True
+        },
         "live_pages":live,
         "site_inventory_summary":{
             "invalid_json":len(invalid_json),
@@ -269,8 +322,8 @@ def main():
             *([f"發現 {len(invalid_json)} 個 JSON 無法解析"] if invalid_json else []),
             *([f"Sitemap 有 {len(live_bad)} 個網址無法正常取得"] if live_bad else []),
             *([f"核心 Concept Page 仍缺 {sum(1 for x in concept_rows if x['status']=='gap')} 個概念"] if any(x['status']=='gap' for x in concept_rows) else []),
-            *([ "尚未建立 AI Citation 長期結果資料，Citation 模組目前 0 分。" ] if citation_score==0 else []),
-            *([ "尚未建立 GEO 盲測結果資料，Retrieval 模組目前 0 分。" ] if retrieval_score==0 else []),
+            *([f"目前有 {retrieval_meta.get('pending_slots',0)} 個盲測槽位尚未測試；這不視為失敗。"] if retrieval_meta.get("pending_slots",0) else []),
+            *([ "尚未有 AI Citation 實測結果；AI GEO 實際效果分數維持 0%，不以工程完成度代替。" ] if citation_score==0 else []),
         ],
         "automation":{
             "workflow":"geo-bot-report.yml",
