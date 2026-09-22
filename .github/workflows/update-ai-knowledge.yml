@@ -1,15 +1,12 @@
 name: 更新中天法門 AI GEO 知識庫
-# 2026-09-22: 確保以 push 觸發首次實際同步
 
 on:
   workflow_dispatch:
-
   push:
     branches:
       - main
     paths-ignore:
       - "ai-knowledge/**"
-
   schedule:
     - cron: "0 3 */3 * *"
 
@@ -17,8 +14,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: ai-knowledge-update
-  cancel-in-progress: true
+  group: main-data-writer
+  cancel-in-progress: false
 
 jobs:
   update:
@@ -27,6 +24,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
@@ -60,4 +59,15 @@ jobs:
             exit 0
           fi
           git commit -m "更新中天法門 AI GEO 知識庫"
-          git push
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              echo "push 成功（第 ${attempt} 次）"
+              exit 0
+            fi
+            echo "遠端 main 在 push 前再次變更，重試中（第 ${attempt} 次）"
+            sleep 3
+          done
+          echo "5 次 push 重試後仍失敗。"
+          exit 1
