@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "type": "seo_geo_trend",
-  "generated_at": "2026-09-21T19:58:58.896526+00:00",
+  "generated_at": "2026-09-22T02:45:02.332056+00:00",
   "corpus": {
     "sources": 11,
     "public_pages": 6,
@@ -475,7 +475,7 @@
   ],
   "google_trends": {
     "available": false,
-    "fetched_at": "2026-09-21T19:58:58.896313+00:00",
+    "fetched_at": "2026-09-22T02:45:02.331872+00:00",
     "keywords": {},
     "batches": [
       {
@@ -521,6 +521,191 @@
   "history": [
     {
       "week": "2026-09-21",
+      "keywords": [
+        {
+          "term": "中天法門",
+          "score": 100
+        },
+        {
+          "term": "中天禪修",
+          "score": 8
+        },
+        {
+          "term": "中天總壇",
+          "score": 100
+        },
+        {
+          "term": "一世成就",
+          "score": 100
+        },
+        {
+          "term": "禪修",
+          "score": 100
+        },
+        {
+          "term": "禪修課程",
+          "score": 100
+        },
+        {
+          "term": "禪修班",
+          "score": 100
+        },
+        {
+          "term": "高級禪修班",
+          "score": 96
+        },
+        {
+          "term": "禪修方式",
+          "score": 39
+        },
+        {
+          "term": "靜心",
+          "score": 19
+        },
+        {
+          "term": "冥想",
+          "score": 0
+        },
+        {
+          "term": "打坐",
+          "score": 23
+        },
+        {
+          "term": "吉祥坐",
+          "score": 65
+        },
+        {
+          "term": "修行",
+          "score": 100
+        },
+        {
+          "term": "修道",
+          "score": 100
+        },
+        {
+          "term": "修練",
+          "score": 91
+        },
+        {
+          "term": "修煉",
+          "score": 0
+        },
+        {
+          "term": "開悟",
+          "score": 62
+        },
+        {
+          "term": "心性",
+          "score": 8
+        },
+        {
+          "term": "內修",
+          "score": 62
+        },
+        {
+          "term": "外德",
+          "score": 53
+        },
+        {
+          "term": "生命課題",
+          "score": 47
+        },
+        {
+          "term": "靈性",
+          "score": 100
+        },
+        {
+          "term": "宗教",
+          "score": 42
+        },
+        {
+          "term": "佛教",
+          "score": 0
+        },
+        {
+          "term": "道教",
+          "score": 0
+        },
+        {
+          "term": "心靈",
+          "score": 76
+        },
+        {
+          "term": "精神",
+          "score": 73
+        },
+        {
+          "term": "靈性能量",
+          "score": 37
+        },
+        {
+          "term": "台南",
+          "score": 100
+        },
+        {
+          "term": "東山",
+          "score": 100
+        },
+        {
+          "term": "台南禪修",
+          "score": 8
+        },
+        {
+          "term": "東山禪修",
+          "score": 8
+        },
+        {
+          "term": "中天法門台南",
+          "score": 23
+        },
+        {
+          "term": "中天法門東山",
+          "score": 30
+        },
+        {
+          "term": "台南市東山區",
+          "score": 47
+        },
+        {
+          "term": "中天總壇",
+          "score": 100
+        },
+        {
+          "term": "中天法門是什麼",
+          "score": 8
+        },
+        {
+          "term": "中天法門在哪裡",
+          "score": 0
+        },
+        {
+          "term": "中天法門課程",
+          "score": 0
+        },
+        {
+          "term": "中天法門說明會",
+          "score": 100
+        },
+        {
+          "term": "怎麼禪修",
+          "score": 0
+        },
+        {
+          "term": "禪修課程推薦",
+          "score": 0
+        },
+        {
+          "term": "台南禪修課程",
+          "score": 0
+        },
+        {
+          "term": "東山禪修課程",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "week": "2026-09-22",
       "keywords": [
         {
           "term": "中天法門",
