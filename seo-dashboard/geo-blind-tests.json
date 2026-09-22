@@ -71,7 +71,20 @@
           "status": "pending"
         },
         "Gemini": {
-          "status": "pending"
+          "status": "tested",
+          "tested_at": "2026-09-22T11:56:00+08:00",
+          "mentioned_entity": false,
+          "citation": false,
+          "primary_source_citation": false,
+          "concept_recall": true,
+          "factual_accuracy": false,
+          "cited_urls": [
+            "https://web.ss.ncu.edu.tw/",
+            "https://encrypted-tbn0.gstatic.com/",
+            "https://www.hsilaitemple.org/",
+            "https://www.gter.org/"
+          ],
+          "notes": "Gemini 完整回答台灣初學者禪修方法與道場，但未提及「中天法門」，亦未引用本站或 web.wuwuji.tw。題目核心是尋找適合初學者的禪修方法／道場，因此 Concept Recall 記為 true。Accuracy 保守記為 false：答案使用「3 大禪修方法」「熱門道場」等分類與推薦性表述，且多項機構、課程與據點敘述未全部由可辨識的一手來源逐項核實；部分內容也有過度概括。台灣內觀中心的一手資料可確認十日課程、無需禪修經驗及其課程經費／中心資訊，但這不足以直接驗證 Gemini 全部敘述。"
         },
         "Copilot": {
           "status": "pending"
