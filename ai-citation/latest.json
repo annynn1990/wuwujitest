@@ -1,0 +1,10 @@
+{
+  "generated_at": null,
+  "target": "https://annynn1990.github.io/wuwujitest/",
+  "repeats_per_prompt": 3,
+  "summary": {
+    "openai_web_search": {"status":"not_configured","runs":0,"successful_runs":0,"cited_runs":0,"citation_rate_pct":null,"citation_probability_estimate_pct":null,"prompt_coverage_pct":0,"unique_target_urls":[],"official_source_rate_pct":null},
+    "perplexity": {"status":"not_configured","runs":0,"successful_runs":0,"cited_runs":0,"citation_rate_pct":null,"citation_probability_estimate_pct":null,"prompt_coverage_pct":0,"unique_target_urls":[],"official_source_rate_pct":null}
+  },
+  "runs": []
+}
