@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
   "report_type": "geo_robot_site_audit",
-  "generated_at": "2026-09-22T11:36:41.161236+00:00",
+  "generated_at": "2026-09-22T11:39:18.834747+00:00",
   "site": "https://annynn1990.github.io/wuwujitest/",
-  "overall_progress": 76,
+  "overall_progress": 86,
   "progress_definition": "加權診斷進度，不代表 Google 排名，也不代表 AI 引用機率；各模組依可觀測條件計算。",
   "scan_scope": {
     "repo_public_data_files": 33,
@@ -59,7 +59,7 @@
       "id": "citation",
       "name": "Citation 觀測",
       "weight": 10,
-      "score": 0,
+      "score": 100,
       "definition": "是否已有可機器讀取的 AI 引用結果長期資料；尚未建立則為 0。"
     },
     {
@@ -193,19 +193,19 @@
     "questions": 50,
     "platforms": 5,
     "planned_slots": 250,
-    "tested_slots": 0,
-    "pending_slots": 250
+    "tested_slots": 1,
+    "pending_slots": 249
   },
   "blind_test": {
-    "tested_slots": 0,
+    "tested_slots": 1,
     "planned_slots": 250,
-    "pending_slots": 250,
+    "pending_slots": 249,
     "coverage_percent": 0,
-    "effect_score": 0,
+    "effect_score": 20,
     "mention_rate": 0,
     "citation_rate": 0,
     "primary_source_citation_rate": 0,
-    "concept_recall": 0,
+    "concept_recall": 100,
     "accuracy": 0,
     "fully_tested_questions": 0,
     "mention_consistency": 0,
@@ -229,11 +229,11 @@
         "accuracy": 0
       },
       "Gemini": {
-        "tested": 0,
+        "tested": 1,
         "mention_rate": 0,
         "citation_rate": 0,
         "primary_source_citation_rate": 0,
-        "concept_recall": 0,
+        "concept_recall": 100,
         "accuracy": 0
       },
       "Copilot": {
@@ -256,7 +256,7 @@
     "questions": 50,
     "platforms": 5,
     "effect_is_separate": true,
-    "history_points": 1
+    "history_points": 2
   },
   "blind_test_platforms": [
     "ChatGPT",
@@ -279,7 +279,18 @@
           "status": "pending"
         },
         "Gemini": {
-          "status": "pending"
+          "status": "tested",
+          "tested_at": "2026-09-22T08:00:00Z",
+          "mentioned_entity": false,
+          "citation": false,
+          "primary_source_citation": false,
+          "concept_recall": true,
+          "factual_accuracy": false,
+          "cited_urls": [
+            "https://web.ss.ncu.edu.tw/",
+            "https://dlbs.liberal.ntu.edu.tw/"
+          ],
+          "notes": "Gemini 首次回答完整列出多種台灣禪修／修行體系，但未提及「中天法門」，也未引用本站或 web.wuwuji.tw。題意「有哪些可以了解的修行法門」有被回答到，因此 Concept Recall 記為 true。Accuracy 保守記為 false：回答中有「四大流派」等過度概括分類，以及「完全非營利且無宗教儀式色彩」等需要更嚴格來源核對的描述；本次不把這些未充分核實的廣泛陳述算作準確。"
         },
         "Copilot": {
           "status": "pending"
@@ -1432,6 +1443,21 @@
       "mention_consistency": 0,
       "citation_consistency": 0,
       "complete_consistency": 0
+    },
+    {
+      "recorded_at": "2026-09-22T11:39:19.168833+00:00",
+      "dataset_sha256": "4a62601c8399ceddb7ea3d59f16c675ba628a07313478ec8978588c169eb607a",
+      "effect_score": 20,
+      "tested_slots": 1,
+      "planned_slots": 250,
+      "mention_rate": 0,
+      "citation_rate": 0,
+      "primary_source_citation_rate": 0,
+      "concept_recall": 100,
+      "accuracy": 0,
+      "mention_consistency": 0,
+      "citation_consistency": 0,
+      "complete_consistency": 0
     }
   ],
   "live_pages": [
@@ -1494,8 +1520,7 @@
   },
   "flags": [
     "核心 Concept Page 仍缺 3 個概念",
-    "目前有 250 個盲測槽位尚未測試；這不視為失敗。",
-    "尚未有 AI Citation 實測結果；AI GEO 實際效果分數維持 0%，不以工程完成度代替。"
+    "目前有 249 個盲測槽位尚未測試；這不視為失敗。"
   ],
   "automation": {
     "workflow": "geo-bot-report.yml",
