@@ -1,0 +1,35 @@
+name: GEO natural-question Gemini blind test
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Number of natural questions to test"
+        required: false
+        default: "72"
+  schedule:
+    - cron: "0 2 * * 1"
+
+permissions:
+  contents: write
+
+jobs:
+  gemini:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run Gemini blind test
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEO_TEST_LIMIT: ${{ inputs.limit || '72' }}
+        run: python scripts/run_geo_gemini.py
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add seo-dashboard/geo-test-runs
+          git diff --cached --quiet || git commit -m "Record Gemini natural question GEO test"
+          git push
