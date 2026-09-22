@@ -1,6 +1,9 @@
 name: 每週更新 SEO GEO 關鍵字趨勢
 
 on:
+  workflow_run:
+    workflows: ["更新中天法門 AI GEO 知識庫"]
+    types: [completed]
   workflow_dispatch:
   schedule:
     - cron: "30 3 * * 0"
@@ -19,6 +22,7 @@ concurrency:
 
 jobs:
   update:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
