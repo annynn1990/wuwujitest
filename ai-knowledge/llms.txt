@@ -18,3 +18,19 @@
 - forum = 公開論壇內容，不自動等同官方立場
 - summary = extractive_v1，自動抽取摘要，不是事實查核
 - 不抓登入、後台與不必要會員個資
+
+
+## Knowledge graph
+- knowledge-graph.json：核心實體、主題、來源與關係索引
+- sources.json：來源登錄表；source_type 僅描述來源角色，不是可信度分數
+- topics.json：主題、別名與來源關係
+- media.json：影片、播放清單與出版品媒體索引
+
+## Media
+- YouTube playlist：https://www.youtube.com/playlist?list=PLuE6d8jAYH_dSPmLwslcDTREA5D84CDfz
+- 個別影片的標題、日期、縮圖與字幕只有在實際核對後才會加入資料層，不預填未驗證欄位。
+
+## Traceability
+- 優先保留原始來源 URL、source_id、last_checked 與 status。
+- 不同書店頁面可作為出版品交叉索引，不視為彼此獨立的事實證據。
+- 圖像與影片以索引、嵌入或原始連結為優先，不任意重新託管第三方受版權保護媒體。
