@@ -33,11 +33,12 @@
 <p class="muted">這條進度與上方「工程完成度」完全分開。只有 50 題盲測 × 5 平台的實際結果才會計入；未測不加分。</p>
 <div class="effect-score" id="effectScore">0%</div>
 <div class="effectbar"><div class="effectfill" id="effectBar" style="width:0%"></div></div>
-<p id="effectMeta" class="muted">盲測進度：0 / 250</p>
+<p id="effectMeta" class="muted">盲測進度：0 / 250</p><p id="effectStatus" class="muted">目前 0 / 250 個測試槽位已完成；成效分數維持 0%。</p>
 <div class="kpi-grid" id="effectKpis"></div>
-<a class="btn" href="./geo-blind-tests.json">查看盲測資料庫</a>
+<a class="btn" href="./geo-blind-tests.json">查看盲測資料庫</a> <a class="btn" href="#blindPanel">查看盲測進度</a>
 <a class="btn" href="../ai-knowledge/semantic-map.html">查看語義地圖</a>
 </section>
+<section class="card" id="blindPanel" style="margin-top:14px;padding:17px"><h2>🧪 50 題盲測進度</h2><div id="blindStatus">載入中……</div></section>
 <section class="card" style="margin-top:14px;padding:17px"><h2>🚩 系統目前需要注意</h2><div id="flags">載入中……</div></section>
 <section class="card" style="margin-top:14px;padding:17px"><h2>🧠 核心 Concept Coverage</h2><p class="muted">這裡檢查核心概念是否已經在目前公開核心頁面形成內容訊號；不是要求每個概念各自寫一篇文章。</p><div id="concepts">載入中……</div></section>
 <section class="card" style="margin-top:14px;padding:17px"><h2>🌐 Sitemap 即時檢查</h2><div id="live">載入中……</div></section>
@@ -102,6 +103,10 @@ async function loadEffect(){
   document.getElementById("effectScore").textContent=effect+"%";
   document.getElementById("effectBar").style.width=effect+"%";
   document.getElementById("effectMeta").textContent="盲測進度："+tested+" / "+slots+"（"+(slots?Math.round(tested/slots*100):0)+"% 已測）";
+  const pending=slots-tested;
+  const coverage=slots?Math.round(tested/slots*100):0;
+  document.getElementById("effectStatus").textContent=tested ? ("已完成 "+tested+" / "+slots+" 個測試槽位；AI GEO 成效分數為 "+effect+"%。") : "目前 0 / "+slots+" 個測試槽位已完成；AI GEO 成效分數維持 0%，不以工程完成度代替。";
+  document.getElementById("blindStatus").innerHTML="<div class=\"statgrid\"><div class=\"stat\"><div class=\"muted\">已測</div><div class=\"num\">"+tested+"</div></div><div class=\"stat\"><div class=\"muted\">待測</div><div class=\"num\">"+pending+"</div></div><div class=\"stat\"><div class=\"muted\">總槽位</div><div class=\"num\">"+slots+"</div></div><div class=\"stat\"><div class=\"muted\">測試覆蓋率</div><div class=\"num\">"+coverage+"%</div></div></div><p class=\"muted\">平台： "+platforms.map(esc).join("、")+"</p>";
   const items=[["Mention",pct(mention)],["Citation",pct(cite)],["原始來源",pct(primary)],["Concept Recall",pct(concept)],["Accuracy",pct(accuracy)]];
   document.getElementById("effectKpis").innerHTML=items.map(x=>'<div class="kpi"><span class="muted">'+x[0]+'</span><br><b>'+x[1]+'%</b></div>').join("");
  }catch(e){document.getElementById("effectMeta").textContent="盲測資料尚未可讀取："+e.message;}
