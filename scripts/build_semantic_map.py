@@ -25,6 +25,7 @@ AI = ROOT / "ai-knowledge"
 KNOWLEDGE = AI / "knowledge.json"
 TOPICS = AI / "topics.json"
 SOURCES = AI / "sources.json"
+BLIND_TESTS = ROOT / "seo-dashboard" / "geo-blind-tests.json"
 OUTPUT = AI / "semantic-map.json"
 
 CONCEPT_CATALOG = [
@@ -104,6 +105,40 @@ INTENTS = [
     ("i10", "課程與活動", ["課程", "說明會", "禪修班"], ["課程", "說明會"]),
 ]
 
+# 核心 Claim：只保留可回溯到公開資料的少量核心主張。
+# claim_text 是「資料描述」，不是本站獨立認證，也不把 AI 回答當證據。
+CLAIM_CATALOG = [
+    ("claim-001", "中天法門公開資料將禪修列為重要修行內容", "practice",
+     ["禪修"], ["zen-meditation"], ["official-site", "official-forum"]),
+    ("claim-002", "中天法門公開介紹列出「不需出家」為法門特色之一", "feature",
+     ["不需出家", "不需要出家"], ["home-practice"], ["official-site", "official-forum"]),
+    ("claim-003", "中天法門公開介紹列出「不需盤腿」為法門特色之一", "feature",
+     ["不需盤腿", "不用盤腿"], ["no-leg-lotus"], ["official-site", "official-forum"]),
+    ("claim-004", "中天法門公開資料介紹「吉祥坐」作為坐姿修行相關用語", "terminology",
+     ["吉祥坐"], ["auspicious-sitting"], ["official-site", "official-forum"]),
+    ("claim-005", "中天法門公開資料列出中天三寶包含皈依中天靈流、中天指法與中天國度", "framework",
+     ["中天三寶", "皈依中天靈流", "皈依中天指法", "皈依中天國度"],
+     ["three-treasures", "spiritual-flow", "zhongtian-fingermethod", "zhongtian-kingdom"],
+     ["official-site", "official-forum"]),
+    ("claim-006", "中天法門公開資料提到禪修依「四程序」而行", "framework",
+     ["四程序", "依四程序而行"], ["four-procedures"], ["official-site", "official-forum"]),
+    ("claim-007", "「一世成就」是中天法門公開介紹中的重要修行表述", "goal",
+     ["一世成就"], ["one-life-achievement"], ["official-site", "official-forum"]),
+    ("claim-008", "「靈流」是中天法門公開資料中的專有修行術語", "terminology",
+     ["靈流"], ["spiritual-flow"], ["official-site", "official-forum"]),
+    ("claim-009", "公開資料記載中天總壇位於台南市東山區許秀才1-1號", "location",
+     ["中天總壇", "東山", "許秀才1-1號"], ["zhongtian-total-altar", "taiwan", "tainan", "dongshan"],
+     ["official-site", "official-forum"]),
+    ("claim-010", "中天法門公開資訊包含禪修課程與說明會等活動入口", "service",
+     ["禪修課程", "高級禪修班", "說明會"], ["course", "seminar"], ["official-site", "official-forum"]),
+    ("claim-011", "中天法門公開資料同時使用禪修與修道等詞彙描述修行內容", "positioning",
+     ["禪修", "修道"], ["zen-meditation", "dao-cultivation"], ["official-site", "official-forum"]),
+    ("claim-012", "中天法門公開資料以自己的術語與宇宙觀描述相關修行架構", "positioning",
+     ["中天法界", "宇宙觀", "中天三寶"], ["zhongtian-dharma-realm", "cosmology", "three-treasures"],
+     ["official-site", "official-forum"]),
+]
+
+
 def norm(text: str) -> str:
     return re.sub(r"\s+", " ", text or "").strip()
 
@@ -151,11 +186,118 @@ def topic_match(topic: dict, blob: str) -> list[str]:
     terms=[topic.get("name","")] + list(topic.get("aliases",[]) or [])
     return [t for t in terms if t and t in blob]
 
+def build_question_layer(blind_data: dict, intents: list[dict], concepts: list[dict],
+                         claims: list[dict]) -> tuple[list[dict], list[dict], list[dict], dict]:
+    """Map blind-test queries into the graph as a query layer.
+    A query link is labelled as direct or intent-derived; it is never treated as evidence.
+    """
+    records = blind_data.get("records", []) or []
+    intent_by_id = {x["intent_id"]: x for x in intents}
+    alias_to_concept = {}
+    for c in concepts:
+        for a in c.get("aliases", []) + [c.get("name", "")]:
+            if a:
+                alias_to_concept[a] = c["concept_id"]
+
+    question_nodes = []
+    question_intent_edges = []
+    question_concept_edges = []
+    question_claim_edges = []
+
+    for rec in records:
+        qid = rec.get("question_id")
+        query = norm(rec.get("query", ""))
+        iid = rec.get("intent_id")
+        intent = intent_by_id.get(iid, {})
+        direct_concepts = []
+        for alias, cid in alias_to_concept.items():
+            if alias and alias in query and cid not in direct_concepts:
+                direct_concepts.append(cid)
+
+        intent_concepts = []
+        for term in intent.get("related_concepts", []) or []:
+            cid = alias_to_concept.get(term)
+            if cid and cid not in intent_concepts:
+                intent_concepts.append(cid)
+
+        merged_concepts = direct_concepts + [x for x in intent_concepts if x not in direct_concepts]
+        for cid in direct_concepts:
+            question_concept_edges.append({
+                "from": qid, "relation": "directly_matches_concept", "to": cid,
+                "evidence": {"basis": "literal_query", "query": query}
+            })
+        for cid in intent_concepts:
+            if cid not in direct_concepts:
+                question_concept_edges.append({
+                    "from": qid, "relation": "intent_maps_to_concept", "to": cid,
+                    "evidence": {"basis": "intent_schema", "intent_id": iid}
+                })
+
+        question_intent_edges.append({
+            "from": qid, "relation": "uses_intent", "to": iid,
+            "evidence": {"basis": "blind_test_dataset"}
+        })
+
+        candidate_claims = []
+        for cl in claims:
+            claim_concepts = set(cl.get("concept_ids", []))
+            claim_terms = cl.get("trigger_terms", []) or []
+            direct = any(t and t in query for t in claim_terms)
+            via_intent = bool(claim_concepts.intersection(merged_concepts))
+            if direct or via_intent:
+                candidate_claims.append(cl["claim_id"])
+                question_claim_edges.append({
+                    "from": qid, "relation": "candidate_claim", "to": cl["claim_id"],
+                    "evidence": {
+                        "basis": "literal_query" if direct else "intent_concept_path",
+                        "intent_id": iid
+                    }
+                })
+
+        results = rec.get("results", {}) or {}
+        tested_platforms = [
+            p for p, result in results.items()
+            if (result or {}).get("status") == "tested"
+        ]
+        observed_times = [
+            (result or {}).get("tested_at")
+            for result in results.values()
+            if (result or {}).get("status") == "tested" and (result or {}).get("tested_at")
+        ]
+
+        question_nodes.append({
+            "question_id": qid,
+            "layer": "query",
+            "query": query,
+            "intent_id": iid,
+            "intent_name": rec.get("intent_name") or intent.get("name", ""),
+            "direct_concept_ids": direct_concepts,
+            "intent_concept_ids": intent_concepts,
+            "candidate_claim_ids": candidate_claims,
+            "test_dataset": "seo-dashboard/geo-blind-tests.json",
+            "tested_platforms": tested_platforms,
+            "latest_tested_at": max(observed_times) if observed_times else None,
+            "is_evidence": False,
+            "note": "盲測問題是 Query Layer；平台回答不會被自動提升為本站證據。",
+        })
+
+    stats = {
+        "questions_total": len(question_nodes),
+        "questions_with_intent": sum(1 for x in question_nodes if x.get("intent_id")),
+        "questions_with_direct_concepts": sum(1 for x in question_nodes if x.get("direct_concept_ids")),
+        "questions_with_candidate_claims": sum(1 for x in question_nodes if x.get("candidate_claim_ids")),
+        "question_intent_edges": len(question_intent_edges),
+        "question_concept_edges": len(question_concept_edges),
+        "question_claim_edges": len(question_claim_edges),
+    }
+    return question_nodes, question_intent_edges, question_concept_edges + question_claim_edges, stats
+
+
 def main():
     data=json.loads(KNOWLEDGE.read_text(encoding="utf-8"))
     docs=data.get("documents",[]) or []
     topics_data=json.loads(TOPICS.read_text(encoding="utf-8")) if TOPICS.exists() else {"topics":[]}
-    source_data=json.loads(SOURCES.read_text(encoding="utf-8")) if SOURCES.exists() else {"sources":[]}
+    source_data=json.loads(SOURCES.read_text(encoding="utf-8")) if SOURCES.exists() else {"sources":[]}\n    blind_data=json.loads(BLIND_TESTS.read_text(encoding="utf-8")) if BLIND_TESTS.exists() else {"records":[]}
 
     topic_nodes=[]
     for t in topics_data.get("topics",[]) or []:
@@ -181,8 +323,7 @@ def main():
     matched_topic_count=Counter()
     matched_concept_count=Counter()
     observed_terms=Counter()
-    concept_evidence=defaultdict(list)
-
+    concept_evidence=defaultdict(list)\n    document_blobs={}\n
     # Map broad topic definitions first.
     for t in topic_nodes:
         t_blob="|".join([t.get("name","")]+t.get("aliases",[]))
@@ -194,8 +335,7 @@ def main():
         # Stable ID: source + ordinal + short hash.
         digest=(doc.get("content_sha256") or str(idx))[:12]
         doc_id=f"doc-{idx:04d}-{digest}"
-        blob=doc_blob(doc)
-
+        blob=doc_blob(doc)\n        document_blobs[doc_id]=blob\n
         topic_ids=[]
         for t in topic_nodes:
             hits=topic_match(t,blob)
@@ -346,17 +486,17 @@ def main():
 
     generated=datetime.now(timezone.utc).isoformat()
     out={
-        "schema_version":"2.0",
+        "schema_version":"3.0",
         "dataset":"中天法門 AI/GEO 全量語義地圖",
         "generated_at":generated,
-        "purpose":"將 knowledge.json 的全部公開文件轉為可追溯的文件節點，並以主題、概念、來源與使用者意圖建立語義關係。",
+        "purpose":"將全部公開文件、核心概念、User Intent、盲測 Query、可回溯 Claim 與原始 Evidence 整合成可追溯的 AI/GEO Knowledge Graph。",
         "policy":{
             "all_documents_included":True,
             "semantic_matching":"literal_match_v1",
             "observed_terms_note":"observed_term 僅表示原始資料中觀察到的詞，不代表策展者認定為正式術語。",
             "no_ranking_claim":True,
             "no_ai_citation_claim":True,
-            "source_rule":"source_type 是來源角色，不是可信度分數；論壇內容不自動等同官方立場。"
+            "source_rule":"source_type 是來源角色，不是可信度分數；論壇內容不自動等同官方立場。",\n            "query_rule":"盲測問題屬於 Query Layer；平台回答只作觀測，不自動轉為 Evidence。",\n            "claim_rule":"Claim 必須保留原始來源與精確摘錄；無證據時標為 gap。",\n            "temporal_rule":"涉及課程、活動、地點等易變資訊時保留來源時間欄位，避免把歷史資料當作目前狀態。"
         },
         "core_entity":{
             "entity_id":"zhongtian-famen",
@@ -375,7 +515,7 @@ def main():
             "document_concept_edges":len(doc_concept_edges),
             "document_source_edges":len(doc_source_edges),
             "document_intent_edges":len(intent_edges),
-            "concept_edges":len(concept_edges),
+            "concept_edges":len(concept_edges),\n            "claim_nodes":len(claim_nodes),\n            "question_nodes":len(question_nodes),\n            "claim_edges":len(claim_edges),\n            "question_intent_edges":len(question_intent_edges),\n            "question_concept_edges":len(question_concept_edges),\n            "question_claim_edges":len(question_claim_edges),
             "mapped_documents":sum(1 for d in doc_nodes if d["topic_ids"] or d["concept_ids"]),
             "unmapped_documents":sum(1 for d in doc_nodes if not d["topic_ids"] and not d["concept_ids"]),
         },
