@@ -150,8 +150,7 @@ def doc_blob(doc: dict) -> str:
     for h in doc.get("headings",[]) or []:
         bits.append(h.get("text",""))
     bits.extend(doc.get("keywords",[]) or [])
-    return norm("
-".join(str(x) for x in bits))
+    return norm("\n".join(str(x) for x in bits))
 
 def source_id_for(doc: dict) -> str:
     st = doc.get("source_type","")
@@ -168,8 +167,7 @@ def extract_evidence_excerpt(text: str, terms: list[str], limit: int = 360) -> s
     text = norm(text)
     if not text:
         return ""
-    sentences = re.split(r"(?<=[。！？!?；;])\s*|
-+", text)
+    sentences = re.split(r"(?<=[。！？!?；;])\s*|\n+", text)
     for term in terms:
         if not term:
             continue
