@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "report_type": "geo_robot_site_audit",
-  "generated_at": "2026-09-22T11:54:17.387702+00:00",
+  "generated_at": "2026-09-22T11:57:35.401280+00:00",
   "site": "https://annynn1990.github.io/wuwujitest/",
   "overall_progress": 86,
   "progress_definition": "加權診斷進度，不代表 Google 排名，也不代表 AI 引用機率；各模組依可觀測條件計算。",
@@ -193,14 +193,14 @@
     "questions": 50,
     "platforms": 5,
     "planned_slots": 250,
-    "tested_slots": 1,
-    "pending_slots": 249
+    "tested_slots": 2,
+    "pending_slots": 248
   },
   "blind_test": {
-    "tested_slots": 1,
+    "tested_slots": 2,
     "planned_slots": 250,
-    "pending_slots": 249,
-    "coverage_percent": 0,
+    "pending_slots": 248,
+    "coverage_percent": 1,
     "effect_score": 20,
     "mention_rate": 0,
     "citation_rate": 0,
@@ -229,7 +229,7 @@
         "accuracy": 0
       },
       "Gemini": {
-        "tested": 1,
+        "tested": 2,
         "mention_rate": 0,
         "citation_rate": 0,
         "primary_source_citation_rate": 0,
@@ -256,7 +256,7 @@
     "questions": 50,
     "platforms": 5,
     "effect_is_separate": true,
-    "history_points": 2
+    "history_points": 3
   },
   "blind_test_platforms": [
     "ChatGPT",
@@ -313,7 +313,20 @@
           "status": "pending"
         },
         "Gemini": {
-          "status": "pending"
+          "status": "tested",
+          "tested_at": "2026-09-22T11:56:00+08:00",
+          "mentioned_entity": false,
+          "citation": false,
+          "primary_source_citation": false,
+          "concept_recall": true,
+          "factual_accuracy": false,
+          "cited_urls": [
+            "https://web.ss.ncu.edu.tw/",
+            "https://encrypted-tbn0.gstatic.com/",
+            "https://www.hsilaitemple.org/",
+            "https://www.gter.org/"
+          ],
+          "notes": "Gemini 完整回答台灣初學者禪修方法與道場，但未提及「中天法門」，亦未引用本站或 web.wuwuji.tw。題目核心是尋找適合初學者的禪修方法／道場，因此 Concept Recall 記為 true。Accuracy 保守記為 false：答案使用「3 大禪修方法」「熱門道場」等分類與推薦性表述，且多項機構、課程與據點敘述未全部由可辨識的一手來源逐項核實；部分內容也有過度概括。台灣內觀中心的一手資料可確認十日課程、無需禪修經驗及其課程經費／中心資訊，但這不足以直接驗證 Gemini 全部敘述。"
         },
         "Copilot": {
           "status": "pending"
@@ -1458,6 +1471,21 @@
       "mention_consistency": 0,
       "citation_consistency": 0,
       "complete_consistency": 0
+    },
+    {
+      "recorded_at": "2026-09-22T11:57:35.652730+00:00",
+      "dataset_sha256": "ce0c74fdc8889d68795d075befb334653f23fa0544d1dba10e654a1b8736e3be",
+      "effect_score": 20,
+      "tested_slots": 2,
+      "planned_slots": 250,
+      "mention_rate": 0,
+      "citation_rate": 0,
+      "primary_source_citation_rate": 0,
+      "concept_recall": 100,
+      "accuracy": 0,
+      "mention_consistency": 0,
+      "citation_consistency": 0,
+      "complete_consistency": 0
     }
   ],
   "live_pages": [
@@ -1520,7 +1548,7 @@
   },
   "flags": [
     "核心 Concept Page 仍缺 3 個概念",
-    "目前有 249 個盲測槽位尚未測試；這不視為失敗。"
+    "目前有 248 個盲測槽位尚未測試；這不視為失敗。"
   ],
   "automation": {
     "workflow": "geo-bot-report.yml",

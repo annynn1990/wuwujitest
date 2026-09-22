@@ -32,6 +32,21 @@
       "mention_consistency": 0,
       "citation_consistency": 0,
       "complete_consistency": 0
+    },
+    {
+      "recorded_at": "2026-09-22T11:57:35.652730+00:00",
+      "dataset_sha256": "ce0c74fdc8889d68795d075befb334653f23fa0544d1dba10e654a1b8736e3be",
+      "effect_score": 20,
+      "tested_slots": 2,
+      "planned_slots": 250,
+      "mention_rate": 0,
+      "citation_rate": 0,
+      "primary_source_citation_rate": 0,
+      "concept_recall": 100,
+      "accuracy": 0,
+      "mention_consistency": 0,
+      "citation_consistency": 0,
+      "complete_consistency": 0
     }
   ]
 }
