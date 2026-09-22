@@ -100,7 +100,18 @@ jobs:
               esac
             done < /tmp/changed.txt
           else
-            printf '%s\n'               "$SITE_BASE"               "$SITE_BASE/about.html"               "$SITE_BASE/meditation.html"               "$SITE_BASE/course.html"               "$SITE_BASE/seminar.html"               "$SITE_BASE/faq.html"               "$SITE_BASE/media.html"               "$SITE_BASE/ai-knowledge/index.html"               "$SITE_BASE/ai-knowledge/semantic-map.html"               "$SITE_BASE/sitemap.xml"               > /tmp/indexnow-urls.txt
+            printf '%s\n' \
+            "$SITE_BASE" \
+            "$SITE_BASE/about.html" \
+            "$SITE_BASE/meditation.html" \
+            "$SITE_BASE/course.html" \
+            "$SITE_BASE/seminar.html" \
+            "$SITE_BASE/faq.html" \
+            "$SITE_BASE/media.html" \
+            "$SITE_BASE/ai-knowledge/index.html" \
+            "$SITE_BASE/ai-knowledge/semantic-map.html" \
+            "$SITE_BASE/sitemap.xml" \
+            > /tmp/indexnow-urls.txt
           fi
 
           sort -u /tmp/indexnow-urls.txt -o /tmp/indexnow-urls.txt
@@ -127,7 +138,10 @@ jobs:
           Path("/tmp/indexnow-payload.json").write_text(json.dumps(payload,ensure_ascii=False),encoding="utf-8")
           PY
 
-          code="$(curl -sS -o /tmp/indexnow-response.txt -w '%{http_code}'             -X POST 'https://api.indexnow.org/indexnow'             -H 'Content-Type: application/json; charset=utf-8'             --data-binary @/tmp/indexnow-payload.json)"
+          code="$(curl -sS -o /tmp/indexnow-response.txt -w '%{http_code}' \
+            -X POST 'https://api.indexnow.org/indexnow' \
+            -H 'Content-Type: application/json; charset=utf-8' \
+            --data-binary @/tmp/indexnow-payload.json)"
 
           echo "IndexNow HTTP status: $code"
           cat /tmp/indexnow-response.txt || true
