@@ -2,13 +2,6 @@ name: 中天法門資料自動化流水線
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - "scripts/update_seminar.py"
-      - "scripts/update_ai_knowledge.py"
-      - "scripts/update_keyword_trends.py"
-      - ".github/workflows/refresh-site-data.yml"
   schedule:
     - cron: "0 3 */3 * *"
 
@@ -91,18 +84,31 @@ jobs:
             exit 0
           fi
 
-          git commit -m "自動更新說明會 AI GEO 與 SEO 資料"
-
+          # AI/GEO 與 SEO JSON 是本次完整生成的資料，不使用 rebase 合併，
+          # 而是以最新 origin/main 為基準重新建立提交，避免大型 JSON 衝突。
           for attempt in 1 2 3 4 5; do
             git fetch origin main
-            git rebase origin/main
+            git reset --mixed origin/main
+
+            git add \
+              seminar-data.json \
+              seminar-debug.json \
+              ai-knowledge \
+              seo-dashboard/trend-data.json
+
+            if git diff --cached --quiet; then
+              echo "最新 main 已包含相同資料，沒有需要提交的變更。"
+              exit 0
+            fi
+
+            git commit -m "自動更新說明會 AI GEO 與 SEO 資料"
 
             if git push origin HEAD:main; then
               echo "全部資料已成功推送（第 ${attempt} 次）"
               exit 0
             fi
 
-            echo "遠端 main 有新變更，重新同步（第 ${attempt} 次）"
+            echo "遠端 main 在提交後又變更，重新以最新 main 建立提交（第 ${attempt} 次失敗）"
             sleep 5
           done
 
