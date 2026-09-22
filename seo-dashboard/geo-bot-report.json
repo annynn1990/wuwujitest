@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "report_type": "geo_robot_site_audit",
-  "generated_at": "2026-09-22T12:00:06.136824+00:00",
+  "generated_at": "2026-09-22T12:04:03.138386+00:00",
   "site": "https://annynn1990.github.io/wuwujitest/",
   "overall_progress": 86,
   "progress_definition": "加權診斷進度，不代表 Google 排名，也不代表 AI 引用機率；各模組依可觀測條件計算。",
@@ -256,7 +256,7 @@
     "questions": 50,
     "platforms": 5,
     "effect_is_separate": true,
-    "history_points": 5
+    "history_points": 6
   },
   "blind_test_platforms": [
     "ChatGPT",
@@ -298,6 +298,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -334,6 +342,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -367,6 +383,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -390,6 +414,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -413,6 +445,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -436,6 +476,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -459,6 +507,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -482,6 +538,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -505,6 +569,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -528,6 +600,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -551,6 +631,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -574,6 +662,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -597,6 +693,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -620,6 +724,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -643,6 +755,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -666,6 +786,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -689,6 +817,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -712,6 +848,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -735,6 +879,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -758,6 +910,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -781,6 +941,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -804,6 +972,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -827,6 +1003,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -850,6 +1034,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -873,6 +1065,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -896,6 +1096,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -919,6 +1127,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -942,6 +1158,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -965,6 +1189,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -988,6 +1220,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -1011,6 +1251,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -1034,6 +1282,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -1057,6 +1313,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -1080,6 +1344,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -1103,6 +1375,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -1126,6 +1406,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -1149,6 +1437,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -1172,6 +1468,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -1195,6 +1499,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -1218,6 +1530,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -1241,6 +1561,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -1264,6 +1592,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -1287,6 +1623,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -1310,6 +1654,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -1333,6 +1685,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -1356,6 +1716,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -1379,6 +1747,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -1402,6 +1778,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -1425,6 +1809,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     },
     {
@@ -1448,6 +1840,14 @@
         "Google 搜尋 AI": {
           "status": "pending"
         }
+      },
+      "public_web_search_baseline": {
+        "status": "tested",
+        "tested_at": "2026-09-22T16:20:00+08:00",
+        "engine": "web-fast-public",
+        "entity_found_in_returned_results": false,
+        "site_found_in_returned_results": false,
+        "notes": "以原始盲測問題直接進行公開網路搜尋；不加入「中天法門」等引導詞。此欄僅代表本次公開搜尋工具回傳結果是否直接出現目標 Entity/本站，不等同 Google Search UI、Google AI Overviews、AI Mode 或任何 AI 對話平台成效。"
       }
     }
   ],
@@ -1515,6 +1915,21 @@
     {
       "recorded_at": "2026-09-22T12:00:06.337379+00:00",
       "dataset_sha256": "87d7adab3d1e5b63fd9d1854bde8cba344524e498692cee214ce4f03519d50c0",
+      "effect_score": 20,
+      "tested_slots": 3,
+      "planned_slots": 250,
+      "mention_rate": 0,
+      "citation_rate": 0,
+      "primary_source_citation_rate": 0,
+      "concept_recall": 100,
+      "accuracy": 0,
+      "mention_consistency": 0,
+      "citation_consistency": 0,
+      "complete_consistency": 0
+    },
+    {
+      "recorded_at": "2026-09-22T12:04:03.481925+00:00",
+      "dataset_sha256": "a591b416d56189d3fed367bba1a951ef3b21f3f1d7722ce1e0ad80d1fdc6165f",
       "effect_score": 20,
       "tested_slots": 3,
       "planned_slots": 250,

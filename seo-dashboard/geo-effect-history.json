@@ -77,6 +77,21 @@
       "mention_consistency": 0,
       "citation_consistency": 0,
       "complete_consistency": 0
+    },
+    {
+      "recorded_at": "2026-09-22T12:04:03.481925+00:00",
+      "dataset_sha256": "a591b416d56189d3fed367bba1a951ef3b21f3f1d7722ce1e0ad80d1fdc6165f",
+      "effect_score": 20,
+      "tested_slots": 3,
+      "planned_slots": 250,
+      "mention_rate": 0,
+      "citation_rate": 0,
+      "primary_source_citation_rate": 0,
+      "concept_recall": 100,
+      "accuracy": 0,
+      "mention_consistency": 0,
+      "citation_consistency": 0,
+      "complete_consistency": 0
     }
   ]
 }
