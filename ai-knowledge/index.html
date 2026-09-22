@@ -14,6 +14,10 @@
 <style>
 :root{--bg:#07111e;--panel:#0d1d2d;--line:#29465f;--text:#eef6ff;--muted:#9fb5c9;--gold:#f3cb71;--green:#62d79a;--blue:#74b8e8}
 *{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#07111e,#06101a);color:var(--text);font-family:Arial,"Microsoft JhengHei","Noto Sans TC",sans-serif;line-height:1.7}.wrap{width:min(1180px,calc(100% - 28px));margin:auto;padding:22px 0 70px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.brand{font-weight:800;color:var(--gold)}nav{display:flex;gap:11px;flex-wrap:wrap}nav a{color:var(--text);text-decoration:none}h1{font-size:clamp(2.2rem,6vw,4rem);line-height:1.15;color:var(--gold);margin:42px 0 10px}h2{color:var(--gold);margin-top:1.5em}.lead,.small{color:var(--muted)}.hero{background:radial-gradient(circle at 15% 0,#173b58 0,transparent 50%),rgba(13,29,45,.98);border:1px solid var(--line);border-radius:20px;padding:24px;margin-top:24px}.hero strong{color:var(--gold)}.tools{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}.tool{display:block;background:rgba(13,29,45,.96);border:1px solid var(--line);border-radius:16px;padding:18px;color:var(--text);text-decoration:none;transition:.15s transform,.15s border-color}.tool:hover{transform:translateY(-2px);border-color:var(--gold)}.tool .title{font-size:1.25rem;font-weight:800;color:var(--gold)}.tool .arrow{float:right;color:var(--gold);font-size:1.4rem}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}.card{border:1px solid var(--line);border-radius:12px;padding:13px;background:#0a1725}.num{font-size:2rem;font-weight:800;color:var(--gold)}.data-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.data{background:#0a1725;border:1px solid var(--line);border-radius:12px;padding:14px}a{color:var(--gold);word-break:break-word}.btn{display:inline-block;border:1px solid var(--gold);border-radius:999px;padding:7px 12px;text-decoration:none;margin:5px 5px 0 0}.btn.primary{background:var(--gold);color:#171717;font-weight:800}.panel{background:rgba(13,29,45,.96);border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:16px}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 8px;margin:2px;color:var(--muted);font-size:.8rem}@media(max-width:800px){.tools{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.data-grid{grid-template-columns:1fr}}@media(max-width:520px){.grid{grid-template-columns:1fr}}
+
+.ai-links{margin-top:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.ai-link{display:block;border:1px solid #29465f;border-radius:12px;padding:12px;background:#0a1725;color:#eef6ff;text-decoration:none}.ai-link:hover{border-color:#f3cb71}.ai-link strong{color:#f3cb71}
+.bot-wrap{position:fixed;right:18px;bottom:18px;z-index:9999;font-family:Arial,"Microsoft JhengHei","Noto Sans TC",sans-serif}.bot-toggle{width:64px;height:64px;border-radius:50%;border:2px solid #f3cb71;background:#10253a;color:#fff;font-size:30px;cursor:pointer;box-shadow:0 8px 28px rgba(0,0,0,.35)}.bot-panel{width:min(320px,calc(100vw - 30px));margin-bottom:10px;background:#0d1d2d;border:1px solid #f3cb71;border-radius:16px;padding:15px;box-shadow:0 10px 35px rgba(0,0,0,.4);display:none}.bot-panel.open{display:block}.bot-title{color:#f3cb71;font-weight:800}.bot-msg{color:#9fb5c9;font-size:.92rem;margin:8px 0 12px}.bot-link{display:block;text-align:center;background:#f3cb71;color:#171717;border-radius:999px;padding:8px 12px;font-weight:800;text-decoration:none}.bot-close{float:right;background:none;border:0;color:#9fb5c9;font-size:18px;cursor:pointer}
+@media(max-width:650px){.ai-links{grid-template-columns:1fr}.bot-wrap{right:10px;bottom:10px}.bot-toggle{width:58px;height:58px;font-size:27px}.bot-panel{width:calc(100vw - 20px);margin-bottom:8px}}
 </style>
 </head>
 <body>
@@ -62,6 +66,25 @@
 </div>
 </section>
 
+
+<section class="panel">
+<h2>🔗 所有頁面連結</h2>
+<p class="small">這裡是統一入口。常用網站頁面、AI/GEO 工具與機器可讀入口集中在一起，避免到處找網址。</p>
+<div class="ai-links">
+<a class="ai-link" href="../index.html"><strong>首頁</strong><br><span class="small">中天法門禪修資訊</span></a>
+<a class="ai-link" href="../about.html"><strong>關於本站</strong><br><span class="small">網站說明與資料定位</span></a>
+<a class="ai-link" href="../meditation.html"><strong>禪修</strong><br><span class="small">禪修方式</span></a>
+<a class="ai-link" href="../course.html"><strong>禪修課程</strong><br><span class="small">課程與高級禪修班</span></a>
+<a class="ai-link" href="../seminar.html"><strong>說明會</strong><br><span class="small">場次與報名資訊</span></a>
+<a class="ai-link" href="../faq.html"><strong>常見問題 FAQ</strong><br><span class="small">公開問題與回答</span></a>
+<a class="ai-link" href="../media.html"><strong>影片與書籍</strong><br><span class="small">多媒體與出版品</span></a>
+<a class="ai-link" href="./semantic-map.html"><strong>🧠 全量語義地圖</strong><br><span class="small">1,076 文件、概念與語義關係</span></a>
+<a class="ai-link" href="../seo-dashboard/geo-bot-report.html"><strong>🤖 GEO 監控中心</strong><br><span class="small">全站掃描、總進度與自動報告</span></a>
+<a class="ai-link" href="../seo-dashboard/optimization-progress.html"><strong>🛠️ 優化進度</strong><br><span class="small">GEO 建設項目</span></a>
+<a class="ai-link" href="../sitemap.xml"><strong>Sitemap</strong><br><span class="small">網站索引</span></a>
+<a class="ai-link" href="../llms.txt"><strong>llms.txt</strong><br><span class="small">AI / 機器入口</span></a>
+</div>
+</section>
 <section class="panel">
 <h2>🌐 公開來源</h2>
 <p><a href="https://web.wuwuji.tw/">官方網站 web.wuwuji.tw</a> · <a href="https://www.wuwuji.tw/forum/">中天園地公開論壇</a> · <a href="../seminar-data.json">說明會同步資料</a></p>
@@ -91,5 +114,22 @@ document.getElementById("claims").textContent=d.stats?.claims??"-";
 document.getElementById("summaries").innerHTML=(d.documents||[]).slice(0,8).map(x=>'<article class="card" style="margin:9px 0"><strong>'+esc(x.title||x.url)+'</strong><p>'+esc(x.summary||"無摘要")+'</p><span class="small">'+esc(x.source_type)+' · <a href="'+esc(x.url)+'" target="_blank" rel="noopener">來源</a></span></article>').join("");
 }catch(e){document.getElementById("summaries").textContent="目前無法讀取 knowledge.json。";}})();
 function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));}
+</script>
+
+<div class="bot-wrap">
+  <div class="bot-panel" id="botPanel">
+    <button class="bot-close" type="button" onclick="toggleBot()" aria-label="關閉">×</button>
+    <div class="bot-title">🤖 AI/GEO 小助手</div>
+    <div class="bot-msg">我是網站上的導覽機器人。按下面的按鈕，就能直接進入 GEO 監控中心。</div>
+    <a class="bot-link" href="../seo-dashboard/geo-bot-report.html">進入 GEO 監控中心 →</a>
+  </div>
+  <button class="bot-toggle" type="button" onclick="toggleBot()" aria-label="開啟 AI/GEO 小助手" aria-expanded="false">🤖</button>
+</div>
+<script>
+function toggleBot(){
+  const p=document.getElementById("botPanel"), b=document.querySelector(".bot-toggle");
+  const open=p.classList.toggle("open");
+  b.setAttribute("aria-expanded",open?"true":"false");
+}
 </script>
 </body></html>
