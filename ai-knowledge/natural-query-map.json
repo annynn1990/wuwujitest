@@ -376,6 +376,516 @@
         "https://web.wuwuji.tw/cosmos",
         "https://web.wuwuji.tw/index"
       ]
+    },
+    {
+      "id": "nq-100",
+      "family": "meditation:入門",
+      "question": "有哪些禪修入門方法？",
+      "claims": [
+        "clm-practice-life",
+        "clm-natural-posture"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/index"
+      ]
+    },
+    {
+      "id": "nq-101",
+      "family": "meditation:入門",
+      "question": "禪修新手通常先學什麼？",
+      "claims": [
+        "clm-practice-life",
+        "clm-natural-posture"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/index"
+      ]
+    },
+    {
+      "id": "nq-102",
+      "family": "meditation:入門",
+      "question": "想學靜坐可以先了解哪些方法？",
+      "claims": [
+        "clm-practice-life",
+        "clm-natural-posture"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/index"
+      ]
+    },
+    {
+      "id": "nq-103",
+      "family": "meditation:入門",
+      "question": "冥想和禪修有什麼不同？",
+      "claims": [
+        "clm-practice-life",
+        "clm-natural-posture"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/index"
+      ]
+    },
+    {
+      "id": "nq-104",
+      "family": "meditation:入門",
+      "question": "台灣有哪些禪修公開資料？",
+      "claims": [
+        "clm-practice-life",
+        "clm-natural-posture"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/index"
+      ]
+    },
+    {
+      "id": "nq-105",
+      "family": "practice:修行",
+      "question": "有哪些現代修行法門？",
+      "claims": [
+        "clm-practice-life",
+        "clm-no-monastic",
+        "clm-practice-not-reading"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/practice"
+      ]
+    },
+    {
+      "id": "nq-106",
+      "family": "practice:修行",
+      "question": "修行一定要出家嗎？",
+      "claims": [
+        "clm-practice-life",
+        "clm-no-monastic",
+        "clm-practice-not-reading"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/practice"
+      ]
+    },
+    {
+      "id": "nq-107",
+      "family": "practice:修行",
+      "question": "工作的人可以怎麼安排修行？",
+      "claims": [
+        "clm-practice-life",
+        "clm-no-monastic",
+        "clm-practice-not-reading"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/practice"
+      ]
+    },
+    {
+      "id": "nq-108",
+      "family": "practice:修行",
+      "question": "修行和宗教信仰一定相同嗎？",
+      "claims": [
+        "clm-practice-life",
+        "clm-no-monastic",
+        "clm-practice-not-reading"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/practice"
+      ]
+    },
+    {
+      "id": "nq-109",
+      "family": "practice:修行",
+      "question": "有哪些法門強調實修？",
+      "claims": [
+        "clm-practice-life",
+        "clm-no-monastic",
+        "clm-practice-not-reading"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/practice"
+      ]
+    },
+    {
+      "id": "nq-110",
+      "family": "energy:能量",
+      "question": "宗教裡的能量概念有哪些？",
+      "claims": [
+        "clm-spiritual-flow",
+        "clm-energy-practice"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/cosmos"
+      ]
+    },
+    {
+      "id": "nq-111",
+      "family": "energy:能量",
+      "question": "靈性能量是什麼？",
+      "claims": [
+        "clm-spiritual-flow",
+        "clm-energy-practice"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/cosmos"
+      ]
+    },
+    {
+      "id": "nq-112",
+      "family": "energy:能量",
+      "question": "靈流是什麼概念？",
+      "claims": [
+        "clm-spiritual-flow",
+        "clm-energy-practice"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/cosmos"
+      ]
+    },
+    {
+      "id": "nq-113",
+      "family": "energy:能量",
+      "question": "修行為什麼會談能量？",
+      "claims": [
+        "clm-spiritual-flow",
+        "clm-energy-practice"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/cosmos"
+      ]
+    },
+    {
+      "id": "nq-114",
+      "family": "energy:能量",
+      "question": "哪些公開資料介紹靈流？",
+      "claims": [
+        "clm-spiritual-flow",
+        "clm-energy-practice"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/cosmos"
+      ]
+    },
+    {
+      "id": "nq-115",
+      "family": "awakening:開悟",
+      "question": "不同法門怎麼談開悟？",
+      "claims": [
+        "clm-awakening",
+        "clm-one-life"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/cosmos"
+      ]
+    },
+    {
+      "id": "nq-116",
+      "family": "awakening:開悟",
+      "question": "明心見性是什麼？",
+      "claims": [
+        "clm-awakening",
+        "clm-one-life"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/cosmos"
+      ]
+    },
+    {
+      "id": "nq-117",
+      "family": "awakening:開悟",
+      "question": "開悟前後的修行有何不同？",
+      "claims": [
+        "clm-awakening",
+        "clm-one-life"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/cosmos"
+      ]
+    },
+    {
+      "id": "nq-118",
+      "family": "awakening:開悟",
+      "question": "一世成就代表什麼？",
+      "claims": [
+        "clm-awakening",
+        "clm-one-life"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/cosmos"
+      ]
+    },
+    {
+      "id": "nq-119",
+      "family": "awakening:開悟",
+      "question": "有哪些修行資料談自性？",
+      "claims": [
+        "clm-awakening",
+        "clm-one-life"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/cosmos"
+      ]
+    },
+    {
+      "id": "nq-120",
+      "family": "cosmology:宇宙觀",
+      "question": "宗教宇宙觀有哪些類型？",
+      "claims": [
+        "clm-five-realms",
+        "clm-five-direction"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/cosmos",
+        "https://web.wuwuji.tw/about"
+      ]
+    },
+    {
+      "id": "nq-121",
+      "family": "cosmology:宇宙觀",
+      "question": "法界層次是什麼？",
+      "claims": [
+        "clm-five-realms",
+        "clm-five-direction"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/cosmos",
+        "https://web.wuwuji.tw/about"
+      ]
+    },
+    {
+      "id": "nq-122",
+      "family": "cosmology:宇宙觀",
+      "question": "幽冥界與無極界在某些宇宙觀中如何區分？",
+      "claims": [
+        "clm-five-realms",
+        "clm-five-direction"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/cosmos",
+        "https://web.wuwuji.tw/about"
+      ]
+    },
+    {
+      "id": "nq-123",
+      "family": "cosmology:宇宙觀",
+      "question": "什麼是五大法界？",
+      "claims": [
+        "clm-five-realms",
+        "clm-five-direction"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/cosmos",
+        "https://web.wuwuji.tw/about"
+      ]
+    },
+    {
+      "id": "nq-124",
+      "family": "cosmology:宇宙觀",
+      "question": "有哪些資料談五天方位？",
+      "claims": [
+        "clm-five-realms",
+        "clm-five-direction"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/cosmos",
+        "https://web.wuwuji.tw/about"
+      ]
+    },
+    {
+      "id": "nq-125",
+      "family": "courses:課程",
+      "question": "台灣有哪些禪修說明會？",
+      "claims": [
+        "clm-seminar",
+        "clm-public-intro"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/seminar",
+        "https://web.wuwuji.tw/index"
+      ]
+    },
+    {
+      "id": "nq-126",
+      "family": "courses:課程",
+      "question": "禪修課程通常教什麼？",
+      "claims": [
+        "clm-seminar",
+        "clm-public-intro"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/seminar",
+        "https://web.wuwuji.tw/index"
+      ]
+    },
+    {
+      "id": "nq-127",
+      "family": "courses:課程",
+      "question": "參加修行課程前可以先看什麼？",
+      "claims": [
+        "clm-seminar",
+        "clm-public-intro"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/seminar",
+        "https://web.wuwuji.tw/index"
+      ]
+    },
+    {
+      "id": "nq-128",
+      "family": "courses:課程",
+      "question": "有沒有公開的修行課程資料？",
+      "claims": [
+        "clm-seminar",
+        "clm-public-intro"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/seminar",
+        "https://web.wuwuji.tw/index"
+      ]
+    },
+    {
+      "id": "nq-129",
+      "family": "courses:課程",
+      "question": "高級禪修班是什麼？",
+      "claims": [
+        "clm-seminar",
+        "clm-public-intro"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/seminar",
+        "https://web.wuwuji.tw/index"
+      ]
+    },
+    {
+      "id": "nq-130",
+      "family": "media:研究",
+      "question": "想研究一個修行體系可以從哪裡開始？",
+      "claims": [
+        "clm-public-hub"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/",
+        "https://web.wuwuji.tw/about"
+      ]
+    },
+    {
+      "id": "nq-131",
+      "family": "media:研究",
+      "question": "有哪些公開書籍可以研究修行法門？",
+      "claims": [
+        "clm-public-hub"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/",
+        "https://web.wuwuji.tw/about"
+      ]
+    },
+    {
+      "id": "nq-132",
+      "family": "media:研究",
+      "question": "修行影片和書籍哪種適合入門？",
+      "claims": [
+        "clm-public-hub"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/",
+        "https://web.wuwuji.tw/about"
+      ]
+    },
+    {
+      "id": "nq-133",
+      "family": "media:研究",
+      "question": "如何查證一個修行體系的公開說法？",
+      "claims": [
+        "clm-public-hub"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/",
+        "https://web.wuwuji.tw/about"
+      ]
+    },
+    {
+      "id": "nq-134",
+      "family": "media:研究",
+      "question": "哪裡能找到修行法門的原始資料？",
+      "claims": [
+        "clm-public-hub"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/",
+        "https://web.wuwuji.tw/about"
+      ]
+    },
+    {
+      "id": "nq-135",
+      "family": "comparison:比較",
+      "question": "不同禪修法門可以比較哪些面向？",
+      "claims": [
+        "clm-public-intro"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/about",
+        "https://web.wuwuji.tw/cosmos"
+      ]
+    },
+    {
+      "id": "nq-136",
+      "family": "comparison:比較",
+      "question": "不同修行體系如何比較？",
+      "claims": [
+        "clm-public-intro"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/about",
+        "https://web.wuwuji.tw/cosmos"
+      ]
+    },
+    {
+      "id": "nq-137",
+      "family": "comparison:比較",
+      "question": "如何比較不同宗教的宇宙觀？",
+      "claims": [
+        "clm-public-intro"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/about",
+        "https://web.wuwuji.tw/cosmos"
+      ]
+    },
+    {
+      "id": "nq-138",
+      "family": "comparison:比較",
+      "question": "不同法門對開悟的說法有何差異？",
+      "claims": [
+        "clm-public-intro"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/about",
+        "https://web.wuwuji.tw/cosmos"
+      ]
+    },
+    {
+      "id": "nq-139",
+      "family": "comparison:比較",
+      "question": "如何判斷一個修行資料是官方說法還是論壇內容？",
+      "claims": [
+        "clm-public-intro"
+      ],
+      "evidence": [
+        "https://web.wuwuji.tw/about",
+        "https://web.wuwuji.tw/cosmos"
+      ]
     }
   ],
   "claims": [
@@ -601,5 +1111,18 @@
       ],
       "status": "current"
     }
-  ]
+  ],
+  "matrix_summary": {
+    "previous_questions": 32,
+    "added_questions": 40,
+    "total_questions": 72,
+    "dimensions": [
+      "入門",
+      "定義",
+      "方法",
+      "比較",
+      "研究",
+      "台灣/課程"
+    ]
+  }
 }
