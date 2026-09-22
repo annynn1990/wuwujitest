@@ -1,6 +1,6 @@
 {
   "type": "official_index",
-  "updated_at": "2026-09-22T08:31:20.436319+00:00",
+  "updated_at": "2026-09-22T08:59:48.666669+00:00",
   "documents": [
     {
       "url": "https://web.wuwuji.tw/index",
@@ -168,7 +168,7 @@
       "content_sha256": "61fb65a8528f32c7a5c01a8f209e3b2420b56b39b32b6b32025d5a8cd28e24e5",
       "first_seen_at": "2026-09-21T18:09:44.673829+00:00",
       "last_changed_at": "2026-09-22T03:12:38.671471+00:00",
-      "retrieved_at": "2026-09-22T08:31:20.431497+00:00"
+      "retrieved_at": "2026-09-22T08:59:48.662692+00:00"
     },
     {
       "url": "https://web.wuwuji.tw/about",
@@ -324,7 +324,7 @@
       "content_sha256": "9abadbe2523959006b4e391958fd82d92fdeb2529e3e146fb66699c3f92ed8e4",
       "first_seen_at": "2026-09-21T18:09:44.673879+00:00",
       "last_changed_at": "2026-09-22T03:12:38.671483+00:00",
-      "retrieved_at": "2026-09-22T08:31:20.431505+00:00"
+      "retrieved_at": "2026-09-22T08:59:48.662700+00:00"
     },
     {
       "url": "https://web.wuwuji.tw/cosmos",
@@ -480,7 +480,7 @@
       "content_sha256": "7f0ae02774270f73b4cec5ee152976096dc290e146d782c7d3aafd6d770c7af1",
       "first_seen_at": "2026-09-21T18:09:44.673888+00:00",
       "last_changed_at": "2026-09-22T03:12:38.671491+00:00",
-      "retrieved_at": "2026-09-22T08:31:20.431510+00:00"
+      "retrieved_at": "2026-09-22T08:59:48.662704+00:00"
     },
     {
       "url": "https://web.wuwuji.tw/practice",
@@ -668,7 +668,7 @@
       "content_sha256": "cef33ef2690fd2aa264e9213621a439b22a04ca76917e5cbd7e20a5293cbd03d",
       "first_seen_at": "2026-09-21T18:09:44.673895+00:00",
       "last_changed_at": "2026-09-22T03:12:38.671498+00:00",
-      "retrieved_at": "2026-09-22T08:31:20.431515+00:00"
+      "retrieved_at": "2026-09-22T08:59:48.662708+00:00"
     },
     {
       "url": "https://web.wuwuji.tw/book_adventure",
@@ -788,7 +788,7 @@
       "content_sha256": "2eee974a8ffab5ccf2e8bdcaafc004efd3dafc470703fea46c2343a231930abb",
       "first_seen_at": "2026-09-21T18:09:44.673902+00:00",
       "last_changed_at": "2026-09-22T03:12:38.671505+00:00",
-      "retrieved_at": "2026-09-22T08:31:20.431519+00:00"
+      "retrieved_at": "2026-09-22T08:59:48.662712+00:00"
     },
     {
       "url": "https://web.wuwuji.tw/history",
@@ -1028,7 +1028,7 @@
       "content_sha256": "a81d233d19723f15114b3a1b076deaa6067c5889f3840a5f06f8e94b8a77f815",
       "first_seen_at": "2026-09-21T18:09:44.673908+00:00",
       "last_changed_at": "2026-09-22T03:12:38.671512+00:00",
-      "retrieved_at": "2026-09-22T08:31:20.431523+00:00"
+      "retrieved_at": "2026-09-22T08:59:48.662715+00:00"
     },
     {
       "url": "https://web.wuwuji.tw/seminar",
@@ -1168,7 +1168,7 @@
       "content_sha256": "396a1fe53f10f3f6e9fff53a7f1a6264b8e4566f2c84b8d543cdce58486d02f8",
       "first_seen_at": "2026-09-21T18:09:44.673915+00:00",
       "last_changed_at": "2026-09-22T03:12:38.671519+00:00",
-      "retrieved_at": "2026-09-22T08:31:20.431527+00:00"
+      "retrieved_at": "2026-09-22T08:59:48.662719+00:00"
     }
   ]
 }
