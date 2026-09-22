@@ -5,7 +5,7 @@
   "purpose": "固定 50 題、5 平台的長期盲測。未測結果維持 pending，不計為成功或失敗。",
   "platforms": [
     "ChatGPT",
-    "Google AI",
+    "Google 搜尋 AI",
     "Gemini",
     "Copilot",
     "Perplexity"
@@ -33,9 +33,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "tested",
           "tested_at": "2026-09-22T08:00:00Z",
@@ -55,6 +52,9 @@
         },
         "Perplexity": {
           "status": "pending"
+        },
+        "Google 搜尋 AI": {
+          "status": "pending"
         }
       }
     },
@@ -65,9 +65,6 @@
       "query": "台灣有哪些適合初學者的禪修方法或道場？",
       "results": {
         "ChatGPT": {
-          "status": "pending"
-        },
-        "Google AI": {
           "status": "pending"
         },
         "Gemini": {
@@ -91,6 +88,9 @@
         },
         "Perplexity": {
           "status": "pending"
+        },
+        "Google 搜尋 AI": {
+          "status": "pending"
         }
       }
     },
@@ -103,9 +103,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -113,6 +110,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -126,9 +126,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -136,6 +133,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -149,9 +149,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -159,6 +156,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -172,9 +172,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -182,6 +179,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -195,9 +195,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -205,6 +202,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -218,9 +218,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -228,6 +225,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -241,9 +241,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -251,6 +248,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -264,9 +264,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -274,6 +271,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -287,9 +287,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -297,6 +294,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -310,9 +310,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -320,6 +317,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -333,9 +333,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -343,6 +340,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -356,9 +356,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -366,6 +363,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -379,9 +379,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -389,6 +386,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -402,9 +402,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -412,6 +409,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -425,9 +425,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -435,6 +432,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -448,9 +448,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -458,6 +455,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -471,9 +471,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -481,6 +478,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -494,9 +494,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -504,6 +501,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -517,9 +517,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -527,6 +524,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -540,9 +540,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -550,6 +547,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -563,9 +563,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -573,6 +570,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -586,9 +586,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -596,6 +593,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -609,9 +609,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -619,6 +616,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -632,9 +632,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -642,6 +639,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -655,9 +655,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -665,6 +662,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -678,9 +678,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -688,6 +685,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -701,9 +701,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -711,6 +708,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -724,9 +724,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -734,6 +731,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -747,9 +747,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -757,6 +754,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -770,9 +770,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -780,6 +777,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -793,9 +793,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -803,6 +800,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -816,9 +816,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -826,6 +823,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -839,9 +839,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -849,6 +846,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -862,9 +862,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -872,6 +869,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -885,9 +885,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -895,6 +892,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -908,9 +908,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -918,6 +915,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -931,9 +931,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -941,6 +938,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -954,9 +954,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -964,6 +961,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -977,9 +977,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -987,6 +984,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -1000,9 +1000,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -1010,6 +1007,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -1023,9 +1023,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -1033,6 +1030,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -1046,9 +1046,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -1056,6 +1053,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -1069,9 +1069,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -1079,6 +1076,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -1092,9 +1092,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -1102,6 +1099,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -1115,9 +1115,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -1125,6 +1122,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -1138,9 +1138,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -1148,6 +1145,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -1161,9 +1161,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -1171,6 +1168,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
@@ -1184,9 +1184,6 @@
         "ChatGPT": {
           "status": "pending"
         },
-        "Google AI": {
-          "status": "pending"
-        },
         "Gemini": {
           "status": "pending"
         },
@@ -1194,6 +1191,9 @@
           "status": "pending"
         },
         "Perplexity": {
+          "status": "pending"
+        },
+        "Google 搜尋 AI": {
           "status": "pending"
         }
       }
