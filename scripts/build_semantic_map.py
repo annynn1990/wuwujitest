@@ -125,6 +125,28 @@ def source_id_for(doc: dict) -> str:
         return "official-forum"
     return st or "unknown-source"
 
+def extract_evidence_excerpt(text: str, terms: list[str], limit: int = 360) -> str:
+    """Return a short exact-text excerpt containing the first matched term.
+    This is an extraction for traceability, not a paraphrase or truth claim.
+    """
+    text = norm(text)
+    if not text:
+        return ""
+    sentences = re.split(r"(?<=[。！？!?；;])\s*|\n+", text)
+    for term in terms:
+        if not term:
+            continue
+        for sentence in sentences:
+            sentence = norm(sentence)
+            if term in sentence:
+                if len(sentence) <= limit:
+                    return sentence
+                pos = sentence.find(term)
+                start = max(0, pos - 120)
+                end = min(len(sentence), pos + len(term) + 220)
+                return sentence[start:end]
+    return norm(text[:limit])
+
 def topic_match(topic: dict, blob: str) -> list[str]:
     terms=[topic.get("name","")] + list(topic.get("aliases",[]) or [])
     return [t for t in terms if t and t in blob]
@@ -159,6 +181,7 @@ def main():
     matched_topic_count=Counter()
     matched_concept_count=Counter()
     observed_terms=Counter()
+    concept_evidence=defaultdict(list)
 
     # Map broad topic definitions first.
     for t in topic_nodes:
@@ -203,6 +226,17 @@ def main():
                 doc_concept_edges.append({
                     "from":doc_id,"relation":"mentions","to":c["concept_id"],
                     "evidence":{"match_type":"literal","matched_terms":hits[:8]}
+                })
+                concept_evidence[c["concept_id"]].append({
+                    "document_id":doc_id,
+                    "url":url,
+                    "title":doc.get("title",""),
+                    "source_id":source_id_for(doc),
+                    "source_type":doc.get("source_type",""),
+                    "matched_terms":hits[:8],
+                    "excerpt":extract_evidence_excerpt(blob, hits[:8]),
+                    "content_sha256":doc.get("content_sha256"),
+                    "retrieved_at":doc.get("retrieved_at"),
                 })
 
         source_id=source_id_for(doc)
@@ -277,16 +311,38 @@ def main():
     intents=[{"intent_id":iid,"name":name,"trigger_terms":triggers,"related_concepts":concepts_}
              for iid,name,triggers,concepts_ in INTENTS]
 
-    # Evidence matrix is computed from actual document relations.
+    # Evidence matrix + evidence registry are computed from actual document relations.
+    # Each evidence item points back to a public document URL and an exact extracted excerpt.
     evidence=[]
+    evidence_registry=[]
+    primary_source_ids={"official-site","official-forum"}
     for c in concepts:
         ids=[d["document_id"] for d in doc_nodes if c["concept_id"] in d["concept_ids"]][:50]
+        items=concept_evidence.get(c["concept_id"],[])
+        # Prefer first-party public documents, then keep deterministic ordering.
+        items=sorted(items,key=lambda x:(0 if x["source_id"] in primary_source_ids else 1, x["document_id"]))[:8]
+        primary_count=sum(1 for x in items if x["source_id"] in primary_source_ids)
         evidence.append({
             "concept_id":c["concept_id"],
             "document_count":matched_concept_count.get(c["concept_id"],0),
             "sample_document_ids":ids,
-            "status":"supported" if ids else "gap"
+            "evidence_count":len(items),
+            "primary_source_evidence_count":primary_count,
+            "status":"supported" if items else "gap"
         })
+        evidence_registry.append({
+            "concept_id":c["concept_id"],
+            "concept_name":c["name"],
+            "evidence_items":items,
+        })
+
+    evidence_stats={
+        "concepts_with_evidence":sum(1 for x in evidence if x["evidence_count"]>0),
+        "concepts_total":len(concepts),
+        "total_evidence_items":sum(x["evidence_count"] for x in evidence),
+        "concepts_with_primary_source_evidence":sum(1 for x in evidence if x["primary_source_evidence_count"]>0),
+        "primary_source_evidence_items":sum(x["primary_source_evidence_count"] for x in evidence),
+    }
 
     generated=datetime.now(timezone.utc).isoformat()
     out={
@@ -335,7 +391,9 @@ def main():
             "documents_to_intents":intent_edges,
             "concept_relations":concept_edges,
         },
+        "evidence_stats":evidence_stats,
         "evidence_matrix":evidence,
+        "evidence_registry":evidence_registry,
         "source_nodes":source_data.get("sources",[]),
     }
     OUTPUT.write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding="utf-8")
