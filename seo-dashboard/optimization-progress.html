@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>中天法門｜AI／GEO 優化進度</title>
+<meta name="description" content="中天法門公開網站的 SEO、GEO、AI 可發現性與可引用性優化進度面板。">
+<link rel="canonical" href="https://annynn1990.github.io/wuwujitest/seo-dashboard/optimization-progress.html">
+<style>
+:root{--bg:#07111e;--panel:#0d1d2d;--line:#29465f;--text:#eef6ff;--muted:#9fb5c9;--gold:#f3cb71;--green:#62d79a;--blue:#74b8e8;--yellow:#f2c96d}*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#07111e,#06101a);color:var(--text);font-family:Arial,"Microsoft JhengHei","Noto Sans TC",sans-serif;line-height:1.7}.wrap{width:min(980px,calc(100% - 28px));margin:auto;padding:28px 0 60px}a{color:var(--gold)}h1,h2{color:var(--gold)}.panel{background:rgba(13,29,45,.97);border:1px solid var(--line);border-radius:18px;padding:22px;margin:18px 0}.lead,.small{color:var(--muted)}.big{font-size:clamp(3rem,10vw,6rem);font-weight:800;color:var(--gold);line-height:1}.track{height:24px;background:#07111e;border:1px solid var(--line);border-radius:999px;overflow:hidden}.fill{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--gold));transition:width .5s}.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:10px 0}.item{padding:12px 0;border-bottom:1px solid rgba(41,70,95,.7)}.item:last-child{border:0}.done{color:var(--green)}.todo{color:var(--yellow)}.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 9px;font-size:.8rem;color:var(--muted);margin-right:5px}.notice{border-left:4px solid var(--gold);padding:12px 15px;background:#0a1725}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}@media(max-width:650px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body><main class="wrap">
+<p><a href="./index.html">← 回到 SEO／AI 搜尋曝光監控中心</a></p>
+<h1>AI／GEO 優化進度</h1>
+<p class="lead">這個進度條衡量本站已完成的、可由網站管理者控制的公開資料與技術準備工作；它不是 Google 排名，也不是任何 AI 優先採用中天法門的機率。</p>
+<section class="panel">
+<div class="meta"><strong>可控優化完成度</strong><strong id="percent">—</strong></div><div class="track" aria-label="可控優化完成度"><div class="fill" id="bar"></div></div>
+<p id="summary" class="small">計算中……</p>
+</section>
+<section class="grid">
+<div class="panel"><h2>已完成項目</h2><div id="done"></div></div>
+<div class="panel"><h2>下一階段項目</h2><div id="todo"></div></div>
+</section>
+<section class="panel"><h2>評分規則</h2><p class="small">每一項只在有明確公開證據或可檢查的實作時計入。未驗證的 AI 引用、模型偏好、排名提升及跨平台優先採用，不會被虛構成完成度。</p><div id="rules"></div></section>
+<section class="panel"><h2>真正的 AI 引用觀測</h2><p>目前尚未有足夠的跨平台、固定問題、固定日期的實測資料，因此不顯示「AI 優先採用率」。未來應以固定問題集，記錄各平台是否找到本站、是否引用網址，以及引用內容是否正確。</p><p class="small">建議觀測維度：ChatGPT、Google AI、Gemini、Copilot、Perplexity；問題類型：中天法門、禪修、靈性修行、說明會、公開來源。</p></section>
+<footer class="small">最後人工設定日期：2026-09-22。此頁為管理用進度基準，實際項目完成狀態需隨網站變更更新。</footer>
+</main>
+<script>
+const completed=[
+['核心實體與官方入口','已建立中天法門核心實體、官方網站與論壇入口。'],
+['公開來源登錄','已建立 sources.json，區分官方、網站資料、影片與書目索引。'],
+['主題與同義詞索引','已建立 topics.json，整理禪修、修行、能量、自性、課程等主題。'],
+['知識圖譜索引','已建立 knowledge-graph.json，串連資料層與關係。'],
+['多媒體索引骨架','已建立 media.json，並保留逐片核對的欄位契約。'],
+['AI/GEO 機器入口','AI/GEO 入口頁與 llms.txt 已連結主要資料層。'],
+['基礎技術 SEO','網站已具備 canonical、robots、sitemap 與基本結構化資料等檢查對象。']
+];
+const pending=[
+['FAQ 結構化資料','為重要問題建立 faq_id、直接回答、來源、日期、狀態與主題關聯。'],
+['一問一答主題頁','把高需求問題做成可獨立索引、可引用的正文頁。'],
+['逐片影片資料','逐片核對影片 ID、標題、日期、字幕或逐字稿與相關主題。'],
+['來源與主張核對','為重要主張補上原文位置、上下文、更新日與爭議狀態。'],
+['索引驗證','透過搜尋引擎工具確認爬取、索引與主要頁面收錄狀態。'],
+['跨平台引用基準測試','用固定問題集持續記錄各 AI 是否找到與引用本站。'],
+['定期回歸檢查','將 broken links、JSON 格式、metadata、sitemap 與內容缺口納入週期性檢查。']
+];
+const rules=[['已完成基礎資料與入口',35],['可追溯來源與主張結構',20],['可獨立引用的主題／FAQ 頁',20],['多媒體與原始內容整合',10],['索引與爬蟲實測',10],['跨平台 AI 引用實測',5]];
+const total=completed.length+pending.length;const score=Math.round(completed.length/total*100);document.getElementById('percent').textContent=score+'/100';document.getElementById('bar').style.width=score+'%';document.getElementById('summary').textContent='目前以項目數估算：已完成 '+completed.length+' 項，待完成 '+pending.length+' 項。此為管理進度，不是 AI 引用機率。';
+document.getElementById('done').innerHTML=completed.map(x=>'<div class="item"><b class="done">✓ '+x[0]+'</b><br><span class="small">'+x[1]+'</span></div>').join('');document.getElementById('todo').innerHTML=pending.map(x=>'<div class="item"><b class="todo">○ '+x[0]+'</b><br><span class="small">'+x[1]+'</span></div>').join('');document.getElementById('rules').innerHTML=rules.map(x=>'<div class="item"><b>'+x[0]+'</b><span class="tag">權重 '+x[1]+'%</span></div>').join('');
+</script></body></html>
