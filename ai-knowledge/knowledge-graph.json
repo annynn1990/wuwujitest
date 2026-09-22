@@ -1,0 +1,45 @@
+{
+  "schema_version":"1.0",
+  "dataset":"中天法門 AI / GEO 公開知識圖譜索引",
+  "purpose":"以穩定 ID 串起實體、主題、問答、原始文件、活動、多媒體與出版品；大型原始文件仍由 knowledge.json 維持。",
+  "last_checked":"2026-09-22",
+  "core_entity":{
+    "entity_id":"zhongtian-famen",
+    "name":"中天法門",
+    "entity_type":"organization",
+    "official_url":"https://web.wuwuji.tw/",
+    "forum_url":"https://www.wuwuji.tw/forum/",
+    "same_as":["https://web.wuwuji.tw/","https://www.wuwuji.tw/"]
+  },
+  "data_layers":{
+    "documents":{"path":"./knowledge.json","role":"自動同步的公開文件全集"},
+    "sources":{"path":"./sources.json","role":"來源登錄表"},
+    "topics":{"path":"./topics.json","role":"主題與同義詞索引"},
+    "media":{"path":"./media.json","role":"影片、播放清單與出版品媒體索引"},
+    "faq_page":{"path":"../faq.html","role":"人類可讀常見問題入口"},
+    "events":{"path":"../seminar-data.json","role":"說明會機器可讀資料"}
+  },
+  "relationships":[
+    {"from":"zhongtian-famen","relation":"has_topic","to":"zen-meditation"},
+    {"from":"zhongtian-famen","relation":"has_topic","to":"spiritual-practice"},
+    {"from":"zhongtian-famen","relation":"has_topic","to":"energy-practice"},
+    {"from":"zhongtian-famen","relation":"has_topic","to":"awakening"},
+    {"from":"zhongtian-famen","relation":"has_topic","to":"zhongtian-core"},
+    {"from":"zhongtian-famen","relation":"has_topic","to":"cosmology"},
+    {"from":"zhongtian-famen","relation":"has_topic","to":"courses-events"},
+    {"from":"zhongtian-famen","relation":"has_topic","to":"publications-media"},
+    {"from":"publications-media","relation":"uses_source","to":"youtube-playlist"},
+    {"from":"publications-media","relation":"uses_source","to":"books-com-tw"},
+    {"from":"publications-media","relation":"uses_source","to":"kingstone"},
+    {"from":"publications-media","relation":"uses_source","to":"sanmin"},
+    {"from":"publications-media","relation":"uses_source","to":"momo"}
+  ],
+  "future_record_contract":{
+    "faq":{"required":["faq_id","question","direct_answer","source_ids","last_checked","status"],"optional":["related_topic_ids","related_faq_ids","source_context"]},
+    "claim":{"required":["claim_id","statement","source_ids","status","last_checked"],"optional":["topic_ids","effective_from","effective_to"]},
+    "video":{"required":["media_id","url","source_id","status"],"optional":["title","published_at","thumbnail","transcript_url","topic_ids","source_context"]},
+    "publication":{"required":["publication_id","source_ids"],"optional":["title","author","isbn","publisher","published_at"]}
+  },
+  "status_values":["current","archived","unknown","indexed","needs_review"],
+  "source_rule":"來源類型是描述欄位，不是可信度分數；任何爭議或未核對內容不應因被收錄而自動升格為事實。"
+}
