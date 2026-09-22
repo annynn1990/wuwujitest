@@ -1,0 +1,16 @@
+{
+  "schema_version":"1.0",
+  "dataset":"中天法門公開來源登錄表",
+  "description":"把不同來源的角色、用途與可追溯性分開記錄；source_type 不代表真實性評分。",
+  "last_checked":"2026-09-22",
+  "sources":[
+    {"source_id":"official-site","source_type":"official","title":"中天法門公開網站","url":"https://web.wuwuji.tw/","publisher":"中天法門","status":"active","authority_role":"第一方公開來源"},
+    {"source_id":"official-forum","source_type":"first_party_public","title":"中天法門園地公開論壇","url":"https://www.wuwuji.tw/forum/","publisher":"中天法門園地","status":"active","authority_role":"公開論壇來源；單篇文章仍應依作者與文章性質判讀"},
+    {"source_id":"seminar-data","source_type":"site_dataset","title":"本站說明會同步資料","url":"../seminar-data.json","publisher":"本站","status":"active","authority_role":"由公開場次資料整理的機器可讀資料"},
+    {"source_id":"youtube-playlist","source_type":"video","title":"中天天堂遊記 YouTube 播放清單","url":"https://www.youtube.com/playlist?list=PLuE6d8jAYH_dSPmLwslcDTREA5D84CDfz","publisher":"YouTube","status":"active","authority_role":"多媒體索引來源；個別影片內容需逐片核對"},
+    {"source_id":"books-com-tw","source_type":"bibliographic","title":"博客來公開書籍頁","url":"https://www.books.com.tw/products/0010502549","publisher":"博客來","status":"active","authority_role":"書目與出版品交叉索引"},
+    {"source_id":"kingstone","source_type":"bibliographic","title":"金石堂公開書籍頁","url":"https://www.kingstone.com.tw/basic/2012960028015/","publisher":"金石堂","status":"active","authority_role":"書目與出版品交叉索引"},
+    {"source_id":"sanmin","source_type":"bibliographic","title":"三民網路書店公開書籍頁","url":"https://www.sanmin.com.tw/product/index/001678397","publisher":"三民網路書店","status":"active","authority_role":"書目與出版品交叉索引"},
+    {"source_id":"momo","source_type":"bibliographic","title":"momo購物網公開書籍頁","url":"https://www.momoshop.com.tw/product/8612479","publisher":"momo購物網","status":"active","authority_role":"書目與出版品交叉索引"}
+  ]
+}
