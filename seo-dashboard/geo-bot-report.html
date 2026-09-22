@@ -70,6 +70,43 @@ async function main(){
   const r=await fetch("geo-bot-report.json?v="+Date.now(),{cache:"no-store"});
   if(!r.ok)throw new Error("HTTP "+r.status);
   const d=await r.json();
+  // Read the raw blind-test DB as the live source of truth, so the dashboard
+  // is not blocked by a delayed/generated report snapshot.
+  try{
+    const br=await fetch("geo-blind-tests.json?v="+Date.now(),{cache:"no-store"});
+    if(br.ok){
+      const live=await br.json();
+      d.blind_test_records=live.records||[];
+      d.blind_test_platforms=live.platforms||[];
+      const slots=(live.records||[]).length*(live.platforms||[]).length;
+      let tested=0,mention=0,cite=0,primary=0,recall=0,accuracy=0;
+      (live.records||[]).forEach(q=>(live.platforms||[]).forEach(p=>{
+        const x=(q.results||{})[p]||{};
+        if(x.status==="tested"){
+          tested++;
+          mention+=x.mentioned_entity?1:0;
+          cite+=x.citation?1:0;
+          primary+=x.primary_source_citation?1:0;
+          recall+=x.concept_recall?1:0;
+          accuracy+=x.factual_accuracy?1:0;
+        }
+      }));
+      const rate=n=>tested?Math.round(n/tested*100):0;
+      d.blind_test={
+        ...(d.blind_test||{}),
+        tested_slots:tested,
+        planned_slots:slots,
+        pending_slots:Math.max(slots-tested,0),
+        coverage_percent:slots?Math.round(tested/slots*100):0,
+        effect_score:tested?Math.round(rate(mention)*.25+rate(cite)*.20+rate(primary)*.20+rate(recall)*.20+rate(accuracy)*.15):0,
+        mention_rate:rate(mention),
+        citation_rate:rate(cite),
+        primary_source_citation_rate:rate(primary),
+        concept_recall:rate(recall),
+        accuracy:rate(accuracy)
+      };
+    }
+  }catch(_e){}
   document.getElementById("overall").textContent=(d.overall_progress??0)+"/100";
   document.getElementById("overall").className="overall "+cls(d.overall_progress??0);
   document.getElementById("overallBar").style.width=(d.overall_progress??0)+"%";
@@ -132,8 +169,11 @@ function renderBlind(d){
  ].map(x=>'<div class="kpi"><span class="muted">'+esc(x[0])+'</span><br><b>'+pct(x[1])+'%</b><small>完整 5 平台題目才計入</small></div>').join("");
  const mark=x=>{
   if(!x||x.status!=="tested") return '<span class="no">— 未測</span>';
-  const arr=[x.mentioned_entity?'M':'',x.citation?'C':'',x.primary_source_citation?'P':'',x.concept_recall?'R':'',x.factual_accuracy?'A':''].filter(Boolean);
-  return '<span class="yes">'+esc(arr.join(' / ')||'已測')+'</span>';
+  return '<span class="yes">M'+(x.mentioned_entity?'✅':'❌')+
+    ' C'+(x.citation?'✅':'❌')+
+    ' P'+(x.primary_source_citation?'✅':'❌')+
+    ' R'+(x.concept_recall?'✅':'❌')+
+    ' A'+(x.factual_accuracy?'✅':'❌')+'</span>';
  };
  document.getElementById("blindMatrix").innerHTML=records.map(q=>{
   const cells=platforms.map(p=>'<td>'+mark((q.results||{})[p])+'</td>').join("");
