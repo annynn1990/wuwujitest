@@ -6,6 +6,7 @@
 <meta name="description" content="中天法門公開網站與公開論壇的 AI/GEO 機器可讀知識庫，提供人類閱讀入口與機器資料入口。">
 <link rel="canonical" href="https://annynn1990.github.io/wuwujitest/ai-knowledge/">
 <link rel="alternate" type="application/json" href="./knowledge.json">
+<link rel="alternate" type="application/json" href="./semantic-map.json">
 <link rel="alternate" type="application/json" href="./knowledge-graph.json">
 <link rel="alternate" type="application/json" href="./sources.json">
 <link rel="alternate" type="application/json" href="./topics.json">
@@ -32,6 +33,7 @@ header{border-bottom:1px solid #ddd;padding-bottom:18px;margin-bottom:22px}.grid
 <section><h2>資料規則</h2><p>只處理公開可取得內容；不抓登入頁、後台及不必要會員個資。摘要為 extractive_v1 抽取式摘要，不是事實查核。宗教性或世界觀內容保留來源網址並標示來源類型。</p></section>
 <section><h2>機器入口</h2><p><a href="./knowledge.json">knowledge.json</a> · <a href="./manifest.json">manifest.json</a> · <a href="./official/index.json">official/index.json</a> · <a href="./forum/index.json">forum/index.json</a> · <a href="./llms.txt">llms.txt</a> · <a href="./knowledge-graph.json">knowledge-graph.json</a> · <a href="./sources.json">sources.json</a></p></section>
 <section><h2>資料模型</h2><p>本站將「原始文件」與「知識關係」分層：knowledge.json 保留自動同步文件；knowledge-graph.json 串接核心實體、主題與來源；sources.json 管理來源；topics.json 管理主題與別名；media.json 管理影片與出版品。這樣後續新增 FAQ、影片逐字稿、圖片或出版品時，可引用穩定 ID，而不必重複複製來源資訊。</p></section>
+<section><h2>AI／GEO 語義地圖</h2><div class="card"><p><strong><a href="./semantic-map.html">查看語義地圖 →</a></strong></p><p>追蹤使用者需求 → 概念 → 中天術語 → 公開證據 → AI 盲測的完整鏈。</p></div></section>
 <section><h2>SEO／GEO 工具</h2><div class="card"><p><strong><a href="../seo-dashboard/index.html">開啟 SEO／GEO 趨勢雷達 →</a></strong></p><p>查看 Google Trends、本站內容覆蓋、AI/GEO 知識庫與搜尋需求缺口。</p></div></section>
 <script>
 (async()=>{try{const r=await fetch("./knowledge.json?t="+Date.now(),{cache:"no-store"}),d=await r.json();
