@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "type": "seo_geo_trend",
-  "generated_at": "2026-09-22T04:18:06.068241+00:00",
+  "generated_at": "2026-09-22T05:23:26.880271+00:00",
   "corpus": {
     "sources": 11,
     "public_pages": 6,
@@ -97,7 +97,7 @@
     {
       "group": "核心",
       "term": "一世成就",
-      "occurrences": 64,
+      "occurrences": 65,
       "sources": 5,
       "title_sources": 0,
       "heading_sources": 1,
@@ -106,7 +106,7 @@
     {
       "group": "禪修",
       "term": "禪修",
-      "occurrences": 123,
+      "occurrences": 124,
       "sources": 9,
       "title_sources": 5,
       "heading_sources": 3,
@@ -187,10 +187,10 @@
     {
       "group": "修行",
       "term": "修行",
-      "occurrences": 70,
-      "sources": 6,
+      "occurrences": 78,
+      "sources": 7,
       "title_sources": 1,
-      "heading_sources": 1,
+      "heading_sources": 2,
       "score": 100
     },
     {
@@ -223,8 +223,8 @@
     {
       "group": "修行",
       "term": "開悟",
-      "occurrences": 50,
-      "sources": 5,
+      "occurrences": 55,
+      "sources": 6,
       "title_sources": 0,
       "heading_sources": 0,
       "score": 100
@@ -268,8 +268,8 @@
     {
       "group": "修行",
       "term": "靈性",
-      "occurrences": 52,
-      "sources": 4,
+      "occurrences": 53,
+      "sources": 5,
       "title_sources": 0,
       "heading_sources": 1,
       "score": 100
@@ -277,20 +277,20 @@
     {
       "group": "宗教",
       "term": "宗教",
-      "occurrences": 42,
-      "sources": 4,
+      "occurrences": 55,
+      "sources": 5,
       "title_sources": 0,
       "heading_sources": 0,
-      "score": 91
+      "score": 100
     },
     {
       "group": "宗教",
       "term": "佛教",
-      "occurrences": 40,
-      "sources": 2,
+      "occurrences": 42,
+      "sources": 3,
       "title_sources": 0,
       "heading_sources": 0,
-      "score": 76
+      "score": 85
     },
     {
       "group": "宗教",
@@ -475,169 +475,169 @@
   ],
   "google_trends": {
     "available": true,
-    "fetched_at": "2026-09-22T04:18:06.068139+00:00",
+    "fetched_at": "2026-09-22T05:23:26.880183+00:00",
     "keywords": {
       "禪修": {
         "term": "禪修",
         "group": "修行與禪修",
-        "average": 28.60377358490566,
-        "recent": 18.25,
-        "previous": 25.25,
-        "change_pct": -27.722772277227726,
+        "average": 29.735849056603772,
+        "recent": 23.25,
+        "previous": 25.75,
+        "change_pct": -9.70873786407767,
         "points": 53,
         "explore_url": "https://trends.google.com/trends/explore?geo=TW&q=%E7%A6%AA%E4%BF%AE",
         "site_score": 100,
-        "opportunity": 15.7
+        "opportunity": 16.4
       },
       "修行": {
         "term": "修行",
         "group": "修行與禪修",
-        "average": 82.79245283018868,
-        "recent": 78.5,
-        "previous": 85.25,
-        "change_pct": -7.9178885630498534,
+        "average": 85.30188679245283,
+        "recent": 81.25,
+        "previous": 88.25,
+        "change_pct": -7.932011331444759,
         "points": 53,
         "explore_url": "https://trends.google.com/trends/explore?geo=TW&q=%E4%BF%AE%E8%A1%8C",
         "site_score": 100,
-        "opportunity": 45.5
+        "opportunity": 46.9
       },
       "修道": {
         "term": "修道",
         "group": "修行與禪修",
-        "average": 20.0,
-        "recent": 24.75,
-        "previous": 23.0,
-        "change_pct": 7.608695652173914,
+        "average": 20.528301886792452,
+        "recent": 26.75,
+        "previous": 24.5,
+        "change_pct": 9.183673469387756,
         "points": 53,
         "explore_url": "https://trends.google.com/trends/explore?geo=TW&q=%E4%BF%AE%E9%81%93",
         "site_score": 100,
-        "opportunity": 11.0
+        "opportunity": 11.3
       },
       "冥想": {
         "term": "冥想",
         "group": "修行與禪修",
-        "average": 47.132075471698116,
-        "recent": 39.25,
-        "previous": 42.0,
-        "change_pct": -6.547619047619048,
+        "average": 48.113207547169814,
+        "recent": 39.0,
+        "previous": 43.0,
+        "change_pct": -9.30232558139535,
         "points": 53,
         "explore_url": "https://trends.google.com/trends/explore?geo=TW&q=%E5%86%A5%E6%83%B3",
         "site_score": 76,
-        "opportunity": 36.7
+        "opportunity": 37.3
       },
       "靈性": {
         "term": "靈性",
         "group": "修行與禪修",
-        "average": 32.43396226415094,
-        "recent": 28.75,
-        "previous": 25.5,
-        "change_pct": 12.745098039215685,
+        "average": 33.339622641509436,
+        "recent": 32.5,
+        "previous": 26.5,
+        "change_pct": 22.641509433962266,
         "points": 53,
         "explore_url": "https://trends.google.com/trends/explore?geo=TW&q=%E9%9D%88%E6%80%A7",
         "site_score": 100,
-        "opportunity": 17.8
+        "opportunity": 18.3
       },
       "打坐": {
         "term": "打坐",
         "group": "宗教與靜坐",
-        "average": 4.660377358490566,
-        "recent": 3.25,
-        "previous": 4.75,
-        "change_pct": -31.57894736842105,
+        "average": 4.886792452830188,
+        "recent": 3.75,
+        "previous": 5.25,
+        "change_pct": -28.57142857142857,
         "points": 53,
         "explore_url": "https://trends.google.com/trends/explore?geo=TW&q=%E6%89%93%E5%9D%90",
         "site_score": 91,
-        "opportunity": 6.6
+        "opportunity": 6.7
       },
       "靜坐": {
         "term": "靜坐",
         "group": "宗教與靜坐",
-        "average": 5.754716981132075,
-        "recent": 5.0,
+        "average": 6.0754716981132075,
+        "recent": 6.0,
         "previous": 5.75,
-        "change_pct": -13.043478260869565,
+        "change_pct": 4.3478260869565215,
         "points": 53,
         "explore_url": "https://trends.google.com/trends/explore?geo=TW&q=%E9%9D%9C%E5%9D%90",
         "site_score": 0,
-        "opportunity": 48.2
+        "opportunity": 48.3
       },
       "佛教": {
         "term": "佛教",
         "group": "宗教與靜坐",
-        "average": 86.0754716981132,
-        "recent": 83.5,
-        "previous": 89.0,
-        "change_pct": -6.179775280898876,
+        "average": 86.71698113207547,
+        "recent": 85.5,
+        "previous": 90.25,
+        "change_pct": -5.263157894736842,
         "points": 53,
         "explore_url": "https://trends.google.com/trends/explore?geo=TW&q=%E4%BD%9B%E6%95%99",
-        "site_score": 76,
-        "opportunity": 58.1
+        "site_score": 85,
+        "opportunity": 54.4
       },
       "道教": {
         "term": "道教",
         "group": "宗教與靜坐",
-        "average": 25.49056603773585,
-        "recent": 24.5,
-        "previous": 26.75,
-        "change_pct": -8.411214953271028,
+        "average": 25.67924528301887,
+        "recent": 23.75,
+        "previous": 27.25,
+        "change_pct": -12.844036697247708,
         "points": 53,
         "explore_url": "https://trends.google.com/trends/explore?geo=TW&q=%E9%81%93%E6%95%99",
         "site_score": 76,
-        "opportunity": 24.8
+        "opportunity": 24.9
       },
       "宗教": {
         "term": "宗教",
         "group": "宗教與靜坐",
-        "average": 58.094339622641506,
-        "recent": 56.0,
+        "average": 58.471698113207545,
+        "recent": 56.5,
         "previous": 61.25,
-        "change_pct": -8.571428571428571,
+        "change_pct": -7.755102040816326,
         "points": 53,
         "explore_url": "https://trends.google.com/trends/explore?geo=TW&q=%E5%AE%97%E6%95%99",
-        "site_score": 91,
-        "opportunity": 36.0
+        "site_score": 100,
+        "opportunity": 32.2
       },
       "中天法門": {
         "term": "中天法門",
         "group": "中天與地區",
-        "average": 0.4716981132075472,
-        "recent": 6.25,
+        "average": 2.6792452830188678,
+        "recent": 10.75,
         "previous": 0.0,
         "change_pct": 0,
         "points": 53,
         "explore_url": "https://trends.google.com/trends/explore?geo=TW&q=%E4%B8%AD%E5%A4%A9%E6%B3%95%E9%96%80",
         "site_score": 100,
-        "opportunity": 0.3
+        "opportunity": 1.5
       },
       "中天法門台南": {
         "term": "中天法門台南",
         "group": "中天與地區",
-        "average": 0.0,
+        "average": 3.7547169811320753,
         "recent": 0.0,
         "previous": 0.0,
         "change_pct": 0,
         "points": 53,
         "explore_url": "https://trends.google.com/trends/explore?geo=TW&q=%E4%B8%AD%E5%A4%A9%E6%B3%95%E9%96%80%E5%8F%B0%E5%8D%97",
         "site_score": 23,
-        "opportunity": 34.6
+        "opportunity": 36.7
       },
       "中天法門東山": {
         "term": "中天法門東山",
         "group": "中天與地區",
-        "average": 1.8867924528301887,
+        "average": 0.0,
         "recent": 0.0,
         "previous": 0.0,
         "change_pct": 0,
         "points": 53,
         "explore_url": "https://trends.google.com/trends/explore?geo=TW&q=%E4%B8%AD%E5%A4%A9%E6%B3%95%E9%96%80%E6%9D%B1%E5%B1%B1",
         "site_score": 30,
-        "opportunity": 32.5
+        "opportunity": 31.5
       },
       "台南禪修": {
         "term": "台南禪修",
         "group": "中天與地區",
-        "average": 0.07547169811320754,
-        "recent": 1.0,
+        "average": 0.0,
+        "recent": 0.0,
         "previous": 0.0,
         "change_pct": 0,
         "points": 53,
@@ -662,6 +662,7 @@
       {
         "group": "修行與禪修",
         "status": "ok",
+        "method": "pytrends",
         "terms": [
           "禪修",
           "修行",
@@ -673,6 +674,7 @@
       {
         "group": "宗教與靜坐",
         "status": "ok",
+        "method": "pytrends",
         "terms": [
           "打坐",
           "靜坐",
@@ -684,6 +686,7 @@
       {
         "group": "中天與地區",
         "status": "ok",
+        "method": "pytrends",
         "terms": [
           "中天法門",
           "中天法門台南",
@@ -693,7 +696,8 @@
         ]
       }
     ],
-    "error": null
+    "error": null,
+    "source_note": "Google Trends 網站資料；pytrends 失敗時改用 Trends web widget endpoint"
   },
   "google_opportunities": [],
   "history": [
@@ -979,11 +983,11 @@
         },
         {
           "term": "宗教",
-          "score": 91
+          "score": 100
         },
         {
           "term": "佛教",
-          "score": 76
+          "score": 85
         },
         {
           "term": "道教",
