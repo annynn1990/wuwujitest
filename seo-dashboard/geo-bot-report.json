@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
   "report_type": "geo_robot_site_audit",
-  "generated_at": "2026-09-22T23:30:33.519706+00:00",
+  "generated_at": "2026-09-22T23:31:11.254549+00:00",
   "site": "https://annynn1990.github.io/wuwujitest/",
   "overall_progress": 96,
   "progress_definition": "加權診斷進度，不代表 Google 排名，也不代表 AI 引用機率；各模組依可觀測條件計算。",
   "scan_scope": {
-    "repo_public_data_files": 39,
+    "repo_public_data_files": 40,
     "sitemap_urls": 9,
     "core_pages": 6,
     "knowledge_documents": 1076,
@@ -2021,7 +2021,7 @@
     "invalid_json": 0,
     "errors": 0,
     "html_files": 14,
-    "json_files": 20,
+    "json_files": 21,
     "txt_files": 4,
     "xml_files": 1
   },
