@@ -1,0 +1,228 @@
+{
+  "schema_version": "1.0",
+  "dataset": "自然問題文件覆蓋診斷",
+  "last_checked": "2026-09-23",
+  "method": "以公開官方文件索引中的標題、描述與正文關鍵概念做初步詞彙匹配；不是語義模型評分，也不是獨立事實查核。",
+  "source_index": "ai-knowledge/official/index.json",
+  "documents_indexed": 7,
+  "questions_indexed": 72,
+  "topic_coverage": [
+    {
+      "topic": "meditation",
+      "coverage": "evidence_found",
+      "matched_documents": 4,
+      "top_documents": [
+        {
+          "url": "https://web.wuwuji.tw/practice",
+          "title": "修行之道｜中天法門第一動畫官網",
+          "score": 5
+        },
+        {
+          "url": "https://web.wuwuji.tw/index",
+          "title": "中天法門第一動畫官網｜一世成就之法",
+          "score": 4
+        },
+        {
+          "url": "https://web.wuwuji.tw/cosmos",
+          "title": "宇宙觀｜中天法門第一動畫官網",
+          "score": 2
+        },
+        {
+          "url": "https://web.wuwuji.tw/seminar",
+          "title": "說明會報名｜中天法門第一動畫官網",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "topic": "practice",
+      "coverage": "evidence_found",
+      "matched_documents": 7,
+      "top_documents": [
+        {
+          "url": "https://web.wuwuji.tw/index",
+          "title": "中天法門第一動畫官網｜一世成就之法",
+          "score": 5
+        },
+        {
+          "url": "https://web.wuwuji.tw/practice",
+          "title": "修行之道｜中天法門第一動畫官網",
+          "score": 5
+        },
+        {
+          "url": "https://web.wuwuji.tw/cosmos",
+          "title": "宇宙觀｜中天法門第一動畫官網",
+          "score": 3
+        },
+        {
+          "url": "https://web.wuwuji.tw/about",
+          "title": "認識中天法門｜中天法門第一動畫官網",
+          "score": 2
+        },
+        {
+          "url": "https://web.wuwuji.tw/book_adventure",
+          "title": "中天天堂遊記｜中天法門第一動畫官網",
+          "score": 2
+        },
+        {
+          "url": "https://web.wuwuji.tw/history",
+          "title": "發展歷程｜中天法門第一動畫官網",
+          "score": 1
+        },
+        {
+          "url": "https://web.wuwuji.tw/seminar",
+          "title": "說明會報名｜中天法門第一動畫官網",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "topic": "energy",
+      "coverage": "evidence_found",
+      "matched_documents": 4,
+      "top_documents": [
+        {
+          "url": "https://web.wuwuji.tw/index",
+          "title": "中天法門第一動畫官網｜一世成就之法",
+          "score": 3
+        },
+        {
+          "url": "https://web.wuwuji.tw/cosmos",
+          "title": "宇宙觀｜中天法門第一動畫官網",
+          "score": 2
+        },
+        {
+          "url": "https://web.wuwuji.tw/practice",
+          "title": "修行之道｜中天法門第一動畫官網",
+          "score": 2
+        },
+        {
+          "url": "https://web.wuwuji.tw/seminar",
+          "title": "說明會報名｜中天法門第一動畫官網",
+          "score": 2
+        }
+      ]
+    },
+    {
+      "topic": "awakening",
+      "coverage": "evidence_found",
+      "matched_documents": 7,
+      "top_documents": [
+        {
+          "url": "https://web.wuwuji.tw/cosmos",
+          "title": "宇宙觀｜中天法門第一動畫官網",
+          "score": 4
+        },
+        {
+          "url": "https://web.wuwuji.tw/index",
+          "title": "中天法門第一動畫官網｜一世成就之法",
+          "score": 3
+        },
+        {
+          "url": "https://web.wuwuji.tw/practice",
+          "title": "修行之道｜中天法門第一動畫官網",
+          "score": 2
+        },
+        {
+          "url": "https://web.wuwuji.tw/book_adventure",
+          "title": "中天天堂遊記｜中天法門第一動畫官網",
+          "score": 2
+        },
+        {
+          "url": "https://web.wuwuji.tw/about",
+          "title": "認識中天法門｜中天法門第一動畫官網",
+          "score": 1
+        },
+        {
+          "url": "https://web.wuwuji.tw/history",
+          "title": "發展歷程｜中天法門第一動畫官網",
+          "score": 1
+        },
+        {
+          "url": "https://web.wuwuji.tw/seminar",
+          "title": "說明會報名｜中天法門第一動畫官網",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "topic": "cosmology",
+      "coverage": "evidence_found",
+      "matched_documents": 7,
+      "top_documents": [
+        {
+          "url": "https://web.wuwuji.tw/cosmos",
+          "title": "宇宙觀｜中天法門第一動畫官網",
+          "score": 6
+        },
+        {
+          "url": "https://web.wuwuji.tw/about",
+          "title": "認識中天法門｜中天法門第一動畫官網",
+          "score": 3
+        },
+        {
+          "url": "https://web.wuwuji.tw/practice",
+          "title": "修行之道｜中天法門第一動畫官網",
+          "score": 2
+        },
+        {
+          "url": "https://web.wuwuji.tw/book_adventure",
+          "title": "中天天堂遊記｜中天法門第一動畫官網",
+          "score": 2
+        },
+        {
+          "url": "https://web.wuwuji.tw/index",
+          "title": "中天法門第一動畫官網｜一世成就之法",
+          "score": 1
+        },
+        {
+          "url": "https://web.wuwuji.tw/history",
+          "title": "發展歷程｜中天法門第一動畫官網",
+          "score": 1
+        },
+        {
+          "url": "https://web.wuwuji.tw/seminar",
+          "title": "說明會報名｜中天法門第一動畫官網",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "topic": "courses",
+      "coverage": "evidence_found",
+      "matched_documents": 5,
+      "top_documents": [
+        {
+          "url": "https://web.wuwuji.tw/seminar",
+          "title": "說明會報名｜中天法門第一動畫官網",
+          "score": 3
+        },
+        {
+          "url": "https://web.wuwuji.tw/cosmos",
+          "title": "宇宙觀｜中天法門第一動畫官網",
+          "score": 2
+        },
+        {
+          "url": "https://web.wuwuji.tw/history",
+          "title": "發展歷程｜中天法門第一動畫官網",
+          "score": 2
+        },
+        {
+          "url": "https://web.wuwuji.tw/index",
+          "title": "中天法門第一動畫官網｜一世成就之法",
+          "score": 1
+        },
+        {
+          "url": "https://web.wuwuji.tw/practice",
+          "title": "修行之道｜中天法門第一動畫官網",
+          "score": 1
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "目前官方 index.json 是最可靠的第一層匹配來源；論壇索引目前為空，不能把論壇覆蓋率算進來。",
+    "詞彙命中不等於內容足以回答問題；下一階段需要逐題抽取段落與來源定位。",
+    "此診斷不代表任何搜尋引擎或 AI 一定引用頁面。"
+  ]
+}
