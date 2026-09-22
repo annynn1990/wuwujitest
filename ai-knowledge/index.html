@@ -2,8 +2,8 @@
 <html lang="zh-Hant-TW">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>中天法門 AI / GEO 公開知識庫</title>
-<meta name="description" content="中天法門公開網站與公開論壇的 AI/GEO 機器可讀知識庫，提供人類閱讀入口與機器資料入口。">
+<title>中天法門 AI / GEO 控制中心｜知識庫與機器人監控</title>
+<meta name="description" content="中天法門 AI/GEO 控制中心：集中進入全量語義地圖、GEO 機器人報告、SEO/GEO Dashboard、優化進度與機器可讀知識庫。">
 <link rel="canonical" href="https://annynn1990.github.io/wuwujitest/ai-knowledge/">
 <link rel="alternate" type="application/json" href="./knowledge.json">
 <link rel="alternate" type="application/json" href="./semantic-map.json">
@@ -12,37 +12,84 @@
 <link rel="alternate" type="application/json" href="./topics.json">
 <link rel="alternate" type="application/json" href="./media.json">
 <style>
-body{font-family:Arial,"Microsoft JhengHei","Noto Sans TC",sans-serif;line-height:1.75;max-width:1100px;margin:auto;padding:28px 20px;color:#17202a;background:#fff}
-header{border-bottom:1px solid #ddd;padding-bottom:18px;margin-bottom:22px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}.card{border:1px solid #ddd;border-radius:10px;padding:14px;background:#fff}.num{font-size:28px;font-weight:700}a{color:#0645ad;word-break:break-all}small{color:#666}section{margin:26px 0}table{width:100%;border-collapse:collapse}th,td{border-bottom:1px solid #eee;text-align:left;padding:8px;vertical-align:top}
-</style></head>
+:root{--bg:#07111e;--panel:#0d1d2d;--line:#29465f;--text:#eef6ff;--muted:#9fb5c9;--gold:#f3cb71;--green:#62d79a;--blue:#74b8e8}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#07111e,#06101a);color:var(--text);font-family:Arial,"Microsoft JhengHei","Noto Sans TC",sans-serif;line-height:1.7}.wrap{width:min(1180px,calc(100% - 28px));margin:auto;padding:22px 0 70px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.brand{font-weight:800;color:var(--gold)}nav{display:flex;gap:11px;flex-wrap:wrap}nav a{color:var(--text);text-decoration:none}h1{font-size:clamp(2.2rem,6vw,4rem);line-height:1.15;color:var(--gold);margin:42px 0 10px}h2{color:var(--gold);margin-top:1.5em}.lead,.small{color:var(--muted)}.hero{background:radial-gradient(circle at 15% 0,#173b58 0,transparent 50%),rgba(13,29,45,.98);border:1px solid var(--line);border-radius:20px;padding:24px;margin-top:24px}.hero strong{color:var(--gold)}.tools{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}.tool{display:block;background:rgba(13,29,45,.96);border:1px solid var(--line);border-radius:16px;padding:18px;color:var(--text);text-decoration:none;transition:.15s transform,.15s border-color}.tool:hover{transform:translateY(-2px);border-color:var(--gold)}.tool .title{font-size:1.25rem;font-weight:800;color:var(--gold)}.tool .arrow{float:right;color:var(--gold);font-size:1.4rem}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}.card{border:1px solid var(--line);border-radius:12px;padding:13px;background:#0a1725}.num{font-size:2rem;font-weight:800;color:var(--gold)}.data-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.data{background:#0a1725;border:1px solid var(--line);border-radius:12px;padding:14px}a{color:var(--gold);word-break:break-word}.btn{display:inline-block;border:1px solid var(--gold);border-radius:999px;padding:7px 12px;text-decoration:none;margin:5px 5px 0 0}.btn.primary{background:var(--gold);color:#171717;font-weight:800}.panel{background:rgba(13,29,45,.96);border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:16px}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 8px;margin:2px;color:var(--muted);font-size:.8rem}@media(max-width:800px){.tools{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.data-grid{grid-template-columns:1fr}}@media(max-width:520px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
 <body>
-<p><a href="../index.html">← 回到首頁</a></p>
-<header><h1>中天法門 AI / GEO 公開知識庫</h1><p>這是人類閱讀入口；機器資料請直接讀 <a href="./knowledge.json">knowledge.json</a>。</p><small id="updated">讀取資料中…</small></header>
-<section class="grid">
+<div class="wrap">
+<div class="top"><div class="brand">中天法門｜AI / GEO 控制中心</div><nav><a href="../index.html">網站首頁</a><a href="../seo-dashboard/index.html">SEO Dashboard</a></nav></div>
+
+<section class="hero">
+<h1>AI / GEO 控制中心</h1>
+<p class="lead">這裡是整個 AI/GEO 系統的<strong>統一入口</strong>。之後不用再記三、四個分散網址；從這一頁可以直接進入語義地圖、機器人報告、優化進度與 SEO/GEO 監控。</p>
+<div class="tools">
+<a class="tool" href="./semantic-map.html"><span class="arrow">→</span><div class="title">🧠 全量語義地圖</div><div>查看全部文件、61 個概念、250 個觀察詞、User Intent 與 5,899 條文件→概念關係。</div></a>
+<a class="tool" href="../seo-dashboard/geo-bot-report.html"><span class="arrow">→</span><div class="title">🤖 GEO 機器人報告</div><div>查看全站掃描、GEO 總進度、Concept Coverage、Sitemap 與自動警告。</div></a>
+<a class="tool" href="../seo-dashboard/index.html"><span class="arrow">→</span><div class="title">📈 SEO / GEO Dashboard</div><div>查看 SEO、AI 搜尋準備度、索引／爬蟲、內容覆蓋、Google Trends 與搜尋需求。</div></a>
+<a class="tool" href="../seo-dashboard/optimization-progress.html"><span class="arrow">→</span><div class="title">🛠️ AI / GEO 優化進度</div><div>查看可控的 GEO 建設項目、已完成與下一階段工作。</div></a>
+</div>
+</section>
+
+<section>
+<h2>📊 AI/GEO 資料現況</h2>
+<div class="grid">
 <div class="card"><div class="num" id="official">-</div>官方頁面</div>
 <div class="card"><div class="num" id="forum">-</div>論壇文件</div>
 <div class="card"><div class="num" id="docs">-</div>總文件</div>
 <div class="card"><div class="num" id="claims">-</div>來源摘要</div>
+</div>
 </section>
-<section><h2>結構化資料層</h2><div class="grid"><div class="card"><strong>知識圖譜</strong><p><a href="./knowledge-graph.json">knowledge-graph.json</a><br><small>實體、主題、來源與關係索引</small></p></div><div class="card"><strong>來源登錄表</strong><p><a href="./sources.json">sources.json</a><br><small>來源類型、用途與查核日期</small></p></div><div class="card"><strong>主題索引</strong><p><a href="./topics.json">topics.json</a><br><small>主題、別名與來源關係</small></p></div><div class="card"><strong>多媒體索引</strong><p><a href="./media.json">media.json</a><br><small>影片、播放清單與出版品節點</small></p></div></div></section>
-<section><h2>資料來源</h2><table><tr><th>類型</th><th>來源</th><th>說明</th></tr>
-<tr><td>official</td><td><a href="https://web.wuwuji.tw/">web.wuwuji.tw</a></td><td>官方網站公開頁面</td></tr>
-<tr><td>forum</td><td><a href="https://www.wuwuji.tw/forum/">www.wuwuji.tw/forum/</a></td><td>公開論壇；內容不自動視為官方立場</td></tr>
-<tr><td>seminar</td><td><a href="../seminar-data.json">seminar-data.json</a></td><td>既有說明會同步資料</td></tr></table></section>
-<section><h2>近期自動摘要</h2><div id="summaries">讀取中…</div></section>
-<section><h2>資料規則</h2><p>只處理公開可取得內容；不抓登入頁、後台及不必要會員個資。摘要為 extractive_v1 抽取式摘要，不是事實查核。宗教性或世界觀內容保留來源網址並標示來源類型。</p></section>
-<section><h2>機器入口</h2><p><a href="./knowledge.json">knowledge.json</a> · <a href="./manifest.json">manifest.json</a> · <a href="./official/index.json">official/index.json</a> · <a href="./forum/index.json">forum/index.json</a> · <a href="./llms.txt">llms.txt</a> · <a href="./knowledge-graph.json">knowledge-graph.json</a> · <a href="./sources.json">sources.json</a></p></section>
-<section><h2>資料模型</h2><p>本站將「原始文件」與「知識關係」分層：knowledge.json 保留自動同步文件；knowledge-graph.json 串接核心實體、主題與來源；sources.json 管理來源；topics.json 管理主題與別名；media.json 管理影片與出版品。這樣後續新增 FAQ、影片逐字稿、圖片或出版品時，可引用穩定 ID，而不必重複複製來源資訊。</p></section>
-<section><h2>AI／GEO 語義地圖</h2><div class="card"><p><strong><a href="./semantic-map.html">查看語義地圖 →</a></strong></p><p>追蹤使用者需求 → 概念 → 中天術語 → 公開證據 → AI 盲測的完整鏈。</p></div></section>
-<section><h2>SEO／GEO 工具</h2><div class="card"><p><strong><a href="../seo-dashboard/index.html">開啟 SEO／GEO 趨勢雷達 →</a></strong></p><p>查看 Google Trends、本站內容覆蓋、AI/GEO 知識庫與搜尋需求缺口。</p></div></section>
+
+<section class="panel">
+<h2>🔗 你實際要記住的入口</h2>
+<p class="lead">只需要記這一個：</p>
+<p class="mono"><strong>https://annynn1990.github.io/wuwujitest/ai-knowledge/index.html</strong></p>
+<p>其他工具全部由上面的控制中心進入；工具頁本身也會提供「回到 AI/GEO 控制中心」的入口。</p>
+<a class="btn primary" href="./semantic-map.html">立即查看全量語義地圖</a>
+<a class="btn" href="../seo-dashboard/geo-bot-report.html">立即查看機器人報告</a>
+</section>
+
+<section class="panel">
+<h2>🗂️ 結構化資料層</h2>
+<div class="data-grid">
+<div class="data"><strong>知識圖譜</strong><p><a href="./knowledge-graph.json">knowledge-graph.json</a></p><span class="small">實體、主題、來源與關係索引</span></div>
+<div class="data"><strong>全量語義圖</strong><p><a href="./semantic-map.json">semantic-map.json</a></p><span class="small">全部文件→主題→概念→Intent→來源</span></div>
+<div class="data"><strong>來源登錄表</strong><p><a href="./sources.json">sources.json</a></p><span class="small">來源類型與用途</span></div>
+<div class="data"><strong>主題索引</strong><p><a href="./topics.json">topics.json</a></p><span class="small">主題、別名與來源關係</span></div>
+<div class="data"><strong>多媒體索引</strong><p><a href="./media.json">media.json</a></p><span class="small">影片、播放清單與出版品</span></div>
+<div class="data"><strong>機器入口</strong><p><a href="./knowledge.json">knowledge.json</a> · <a href="./manifest.json">manifest.json</a> · <a href="./llms.txt">llms.txt</a></p><span class="small">原始機器可讀資料</span></div>
+</div>
+</section>
+
+<section class="panel">
+<h2>🌐 公開來源</h2>
+<p><a href="https://web.wuwuji.tw/">官方網站 web.wuwuji.tw</a> · <a href="https://www.wuwuji.tw/forum/">中天園地公開論壇</a> · <a href="../seminar-data.json">說明會同步資料</a></p>
+<p class="small">只處理公開可取得內容；論壇內容不自動視為官方立場。摘要是 extractive_v1 抽取式摘要，不是事實查核。</p>
+</section>
+
+<section class="panel">
+<h2>🕸️ 核心資料鏈</h2>
+<div class="mono">Entity → Concept → User Intent → Evidence → Retrieval → AI Citation</div>
+<p class="small">語義地圖負責知識結構；機器人報告負責網站狀態；SEO/GEO Dashboard 負責搜尋與趨勢觀測；優化進度負責管理可控工作。</p>
+</section>
+
+<section class="panel">
+<h2>近期自動摘要</h2><div id="summaries">讀取中…</div>
+</section>
+
+<footer class="small" style="margin-top:36px;border-top:1px solid var(--line);padding-top:18px">
+本頁是 AI/GEO 管理入口，不代表搜尋排名、AI 引用率或模型優先採用率。
+</footer>
+</div>
 <script>
 (async()=>{try{const r=await fetch("./knowledge.json?t="+Date.now(),{cache:"no-store"}),d=await r.json();
-document.getElementById("updated").textContent="最後生成："+d.generated_at;
-document.getElementById("official").textContent=d.stats.official_pages;
-document.getElementById("forum").textContent=d.stats.forum_index_pages+d.stats.forum_threads;
-document.getElementById("docs").textContent=d.stats.documents;
-document.getElementById("claims").textContent=d.stats.claims;
-document.getElementById("summaries").innerHTML=(d.documents||[]).slice(0,12).map(x=>`<article class="card" style="margin:10px 0"><strong>${esc(x.title||x.url)}</strong><p>${esc(x.summary||"無摘要")}</p><small>${esc(x.source_type)} · <a href="${esc(x.url)}">來源</a></small></article>`).join("");
+document.getElementById("official").textContent=d.stats?.official_pages??"-";
+document.getElementById("forum").textContent=(d.stats?.forum_index_pages??0)+(d.stats?.forum_threads??0);
+document.getElementById("docs").textContent=d.stats?.documents??"-";
+document.getElementById("claims").textContent=d.stats?.claims??"-";
+document.getElementById("summaries").innerHTML=(d.documents||[]).slice(0,8).map(x=>'<article class="card" style="margin:9px 0"><strong>'+esc(x.title||x.url)+'</strong><p>'+esc(x.summary||"無摘要")+'</p><span class="small">'+esc(x.source_type)+' · <a href="'+esc(x.url)+'" target="_blank" rel="noopener">來源</a></span></article>').join("");
 }catch(e){document.getElementById("summaries").textContent="目前無法讀取 knowledge.json。";}})();
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));}
-</script></body></html>
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));}
+</script>
+</body></html>
