@@ -7,7 +7,8 @@
     "official_pages": 7,
     "forum_index_pages": 298,
     "forum_threads": 771,
-    "documents": 1076
+    "documents": 1076,
+    "semantic_map": "2026-09-22"
   },
   "runs": [
     {
@@ -52,5 +53,10 @@
       "forum_threads": 771,
       "documents": 1076
     }
-  ]
+  ],
+  "semantic_map": {
+    "path": "./semantic-map.json",
+    "html_path": "./semantic-map.html",
+    "role": "使用者需求、問題概念、中天術語、公開證據與 AI 盲測的語義鏈"
+  }
 }
