@@ -113,13 +113,23 @@ def _direct_trends(terms, group):
     return result
 
 def trends():
-    groups=[
-        ("修行與禪修",["禪修","修行","修道","冥想","靈性"]),
-        ("宗教與靜坐",["打坐","靜坐","佛教","道教","宗教"]),
-        ("中天與地區",["中天法門","中天法門台南","中天法門東山","台南禪修","東山禪修"])
-    ]
+    # Google Trends 每次最多比較少量詞，因此以固定「禪修」作台灣基準，
+    # 分批監測全部 TERMS。這不是絕對搜尋量，而是相對搜尋興趣。
+    anchor="禪修"
+    all_terms=[]
+    term_group={}
+    for group,terms in TERMS.items():
+        for term in terms:
+            if term not in all_terms:
+                all_terms.append(term)
+                term_group[term]=group
+    targets=[t for t in all_terms if t != anchor]
     result={}; batches=[]; errors=[]
-    for group,terms in groups:
+    for i in range(0,len(targets),4):
+        chunk=targets[i:i+4]
+        terms=[anchor]+chunk
+        groups=sorted({term_group.get(t,"禪修") for t in chunk})
+        group="、".join(groups)
         done=False
         try:
             from pytrends.request import TrendReq
@@ -127,51 +137,42 @@ def trends():
             py.build_payload(terms,cat=0,timeframe="today 12-m",geo="TW",gprop="")
             interest=py.interest_over_time()
             av=interest.mean(numeric_only=True).to_dict()
-            for term in terms:
+            anchor_avg=float(av.get(anchor,0) or 0)
+            for term in chunk:
                 vals=[float(x) for x in interest[term].tolist()] if term in interest else []
                 recent=sum(vals[-4:])/len(vals[-4:]) if vals[-4:] else 0
                 previous=sum(vals[-8:-4])/len(vals[-8:-4]) if len(vals)>=8 else 0
                 average=float(av.get(term,0) or 0)
                 change=((recent-previous)/previous*100) if previous else 0
-                result[term]={"term":term,"group":group,"average":average,"recent":recent,
-                              "previous":previous,"change_pct":change,"points":len(vals),
+                relative=(average/anchor_avg*100) if anchor_avg else 0
+                result[term]={"term":term,"group":term_group.get(term,""),"average":average,
+                              "recent":recent,"previous":previous,"change_pct":change,
+                              "relative_to_anchor":relative,"anchor":anchor,
+                              "anchor_average":anchor_avg,"points":len(vals),
                               "explore_url":"https://trends.google.com/trends/explore?geo=TW&q="+quote(term)}
-            batches.append({"group":group,"status":"ok","method":"pytrends","terms":terms})
             done=True
+            batches.append({"group":group,"status":"ok","method":"pytrends","terms":chunk,"anchor":anchor})
         except Exception as e:
             errors.append(group+" pytrends: "+type(e).__name__+": "+str(e))
         if not done:
             try:
                 direct=_direct_trends(terms,group)
-                result.update(direct)
-                batches.append({"group":group,"status":"ok","method":"direct-trends","terms":terms})
+                anchor_avg=float(direct.get(anchor,{}).get("average",0) or 0)
+                for term in chunk:
+                    if term in direct:
+                        direct[term]["relative_to_anchor"]=(
+                            float(direct[term].get("average",0) or 0)/anchor_avg*100
+                            if anchor_avg else 0)
+                        direct[term]["anchor"]=anchor
+                        direct[term]["anchor_average"]=anchor_avg
+                result.update({k:v for k,v in direct.items() if k != anchor})
+                batches.append({"group":group,"status":"ok","method":"direct-trends","terms":chunk,"anchor":anchor})
                 done=True
             except Exception as e:
                 errors.append(group+" direct: "+type(e).__name__+": "+str(e))
-                batches.append({"group":group,"status":"error","terms":terms,"error":str(e)})
+                batches.append({"group":group,"status":"error","terms":chunk,"anchor":anchor,"error":str(e)})
     return {"available":bool(result),"fetched_at":datetime.now(timezone.utc).isoformat(),
             "keywords":result,"batches":batches,
             "error":"；".join(errors) if errors else None,
-            "source_note":"Google Trends 網站資料；pytrends 失敗時改用 Trends web widget endpoint"}
+            "source_note":"Google Trends 台灣 Web Search；全部監測關鍵字分批以「禪修」作固定基準。relative_to_anchor 為相對搜尋興趣，不是實際搜尋人數或使用率。"}
 
-
-def main():
-    OUT.parent.mkdir(exist_ok=True)
-    old={}
-    try: old=json.loads(OUT.read_text(encoding="utf-8"))
-    except Exception: pass
-    rows,n=sources() and calculate()
-    site_rows,source_count=rows,n
-    gt=trends()
-    by={x["term"]:x for x in site_rows}
-    for term,x in gt.get("keywords",{}).items():
-        x["site_score"]=by.get(term,{"score":0})["score"]
-        x["opportunity"]=round(max(0,min(100,x["average"]*.55+(100-x["site_score"])*.45)),1)
-    opp=sorted([{"term":x["term"],"group":x["group"],"google_average":x["average"],"change_pct":x["change_pct"],"site_score":x["site_score"],"opportunity":x["opportunity"]} for x in gt.get("keywords",{}).values() if x.get("average",0)>=10 and x.get("site_score",0)<=60],key=lambda x:(x["opportunity"],x["change_pct"]),reverse=True)
-    week=datetime.now(timezone.utc).date().isoformat()
-    hist=[h for h in old.get("history",[]) if h.get("week")!=week]
-    hist=(hist+[{"week":week,"keywords":[{"term":x["term"],"score":x["score"]} for x in site_rows]}])[-12:]
-    data={"schema_version":"2.0","type":"seo_geo_trend","generated_at":datetime.now(timezone.utc).isoformat(),"corpus":{"sources":source_count,"public_pages":sum((ROOT/x).exists() for x in PUBLIC),"ai_knowledge_files":sum((ROOT/x).exists() for x in AI)},"groups":TERMS,"keywords":site_rows,"google_trends":gt,"google_opportunities":opp,"history":hist,"recommendations":[{"term":x["term"],"action":"補充直接回答搜尋問題的正文、FAQ、H2與內部連結。"} for x in sorted(site_rows,key=lambda z:z["score"]) if x["score"]<35][:12],"method":{"site":"公開頁面＋AI/GEO可讀檔；每一來源單詞最多計20次","google":"Google Trends Taiwan Web Search，12個月，分三批比較","opportunity":"Trends 55% + 內容缺口45%；不代表排名預測"}}
-    OUT.write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding="utf-8")
-    print(json.dumps({"sources":source_count,"public_pages":data["corpus"]["public_pages"],"ai_knowledge_files":data["corpus"]["ai_knowledge_files"],"google_trends":gt["available"],"google_keywords":len(gt["keywords"])},ensure_ascii=False))
-if __name__=="__main__": main()
