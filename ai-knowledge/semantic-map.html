@@ -31,6 +31,11 @@ GEO Retrieval / Citation 觀測</div>
 
 <h2>📊 全量統計</h2><div id="stats" class="grid"></div>
 
+<h2>📚 Concept → Evidence 證據層</h2>
+<p class="muted">這裡直接顯示現有 1,076 份公開文件中可追溯到各概念的來源、匹配詞與原文摘錄。摘錄是從原始文件擷取的文字，不是 AI 改寫，也不代表本站對內容真實性的獨立認證。</p>
+<div id="evidenceSummary" class="grid"></div>
+<div class="tablewrap"><table><thead><tr><th>Concept</th><th>來源</th><th>標題</th><th>匹配詞</th><th>原文摘錄</th></tr></thead><tbody id="evidence"></tbody></table></div>
+
 <h2>🧠 策展概念節點</h2>
 <div id="concepts" class="grid"></div>
 
@@ -67,7 +72,7 @@ async function load(){
   DATA=await r.json();
   DOCS=DATA.document_nodes||[];
   ALL_INTENT_EDGES=DATA.edges?.documents_to_intents||[];
-  renderSummary(); renderStats(); renderConcepts(); renderTerms(); renderIntents(); renderFilters(); renderDocs(); renderEdges(); renderGaps();
+  renderSummary(); renderStats(); renderEvidence(); renderConcepts(); renderTerms(); renderIntents(); renderFilters(); renderDocs(); renderEdges(); renderGaps();
  }catch(e){
   document.body.insertAdjacentHTML("beforeend",'<div class="notice bad">語義地圖載入失敗：'+esc(e.message)+'</div>');
  }
@@ -96,6 +101,22 @@ function renderStats(){
   ["文件→主題",s.document_topic_edges],["文件→概念",s.document_concept_edges],
   ["文件→來源",s.document_source_edges],["文件→Intent",s.document_intent_edges],["概念關係",s.concept_edges]
  ].map(x=>statCard(x[0],x[1])).join("");
+}
+
+function renderEvidence(){
+ const es=DATA.evidence_stats||{};
+ document.getElementById("evidenceSummary").innerHTML=[
+  ["有證據的概念",es.concepts_with_evidence||0],
+  ["概念總數",es.concepts_total||0],
+  ["證據項目",es.total_evidence_items||0],
+  ["有第一方證據",es.concepts_with_primary_source_evidence||0],
+  ["第一方證據項目",es.primary_source_evidence_items||0]
+ ].map(x=>statCard(x[0],x[1])).join("");
+ const items=(DATA.evidence_registry||[]).flatMap(x=>(x.evidence_items||[]).map(e=>({...e,concept_name:x.concept_name})));
+ document.getElementById("evidence").innerHTML=items.slice(0,300).map(e=>
+  '<tr><td><strong>'+esc(e.concept_name)+'</strong></td><td>'+esc(e.source_id)+'<div class="small">'+esc(e.source_type)+'</div></td><td>'+esc(e.title)+'</td><td>'+esc((e.matched_terms||[]).join("、"))+'</td><td>'+esc(e.excerpt||"")+'</td></tr>'
+ ).join("") || '<tr><td colspan="5" class="muted">目前沒有可追溯證據項目。</td></tr>';
+ if(items.length>300) document.getElementById("evidence").insertAdjacentHTML("beforeend",'<tr><td colspan="5" class="muted">目前頁面顯示前 300 筆證據；完整證據仍保留在 semantic-map.json。</td></tr>');
 }
 
 function renderConcepts(){
