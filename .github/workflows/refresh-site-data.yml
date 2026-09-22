@@ -2,6 +2,10 @@ name: 中天法門資料自動化流水線
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/pipeline-trigger.json"
   schedule:
     - cron: "0 3 */3 * *"
 
@@ -38,7 +42,9 @@ jobs:
 
       - name: ③ 安裝 Google Trends
         run: |
-          pip install pytrends
+          # pytrends 4.9.2 仍使用 urllib3 1.x 的 method_whitelist，
+          # 固定 urllib3 < 2 避免相容性錯誤。
+          pip install "pytrends==4.9.2" "urllib3<2"
 
       - name: ④ 更新 SEO/GEO 趨勢
         run: |
