@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>中天法門｜AI 引用實測監控</title>
+<meta name="description" content="以固定問題集觀測 AI 搜尋系統是否提及、引用中天法門公開網站。">
+<link rel="canonical" href="https://annynn1990.github.io/wuwujitest/seo-dashboard/citation-monitor.html">
+<style>
+:root{--bg:#07111e;--panel:#0d1d2d;--line:#29465f;--text:#eef6ff;--muted:#9fb5c9;--gold:#f3cb71;--green:#62d79a;--yellow:#f2c96d;--red:#ff7f7f;--blue:#74b8e8}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#07111e,#06101a);color:var(--text);font-family:Arial,"Microsoft JhengHei","Noto Sans TC",sans-serif;line-height:1.65}.wrap{width:min(1100px,calc(100% - 28px));margin:auto;padding:25px 0 60px}a{color:var(--gold)}h1,h2{color:var(--gold)}.lead,.small{color:var(--muted)}.panel,.card{background:rgba(13,29,45,.97);border:1px solid var(--line);border-radius:18px;padding:19px;margin:16px 0}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.metric{font-size:2rem;font-weight:800;color:var(--gold)}.label{font-weight:700}.notice{border-left:4px solid var(--gold);padding:12px 15px;background:#0a1725}.ok{color:var(--green)}.warn{color:var(--yellow)}.bad{color:var(--red)}.row{display:grid;grid-template-columns:1.3fr .8fr .8fr 1.4fr;gap:10px;padding:11px 0;border-bottom:1px solid rgba(41,70,95,.65)}.row:last-child{border:0}.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 8px;color:var(--muted);font-size:.78rem}.btn{display:inline-block;padding:8px 13px;border:1px solid var(--gold);border-radius:999px;text-decoration:none;margin:6px 6px 0 0}.btn.primary{background:var(--gold);color:#171717;font-weight:800}@media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}.row{grid-template-columns:1fr 1fr}.row .wide{grid-column:1/-1}}@media(max-width:480px){.grid{grid-template-columns:1fr}}
+</style></head>
+<body><main class="wrap">
+<p><a href="./index.html">← SEO／AI 搜尋曝光監控中心</a>　<a href="./optimization-progress.html">優化進度</a></p>
+<h1>AI 引用實測監控</h1>
+<p class="lead">這裡只顯示「實際測試觀察」，不把 SEO 分數或 AI 準備度冒充成引用機率。</p>
+<div class="notice"><b>目前測量定義：</b>固定問題集 × 固定重複次數。引用率 = 成功測試中，回答至少出現一個本站網址的比例。這是條件式的實測估計，不代表所有使用者、所有模型或所有 AI 介面的真實機率。</div>
+<section class="grid">
+<div class="card"><div class="metric" id="total">—</div><div class="label">成功測試次數</div></div>
+<div class="card"><div class="metric" id="cited">—</div><div class="label">本站被引用次數</div></div>
+<div class="card"><div class="metric" id="rate">—</div><div class="label">實測引用率</div></div>
+<div class="card"><div class="metric" id="coverage">—</div><div class="label">問題覆蓋率</div></div>
+</section>
+<section class="panel"><h2>平台結果</h2><div id="providers">載入中……</div></section>
+<section class="panel"><h2>被引用的本站頁面</h2><div id="urls">載入中……</div></section>
+<section class="panel"><h2>逐次測試</h2><div id="runs">載入中……</div></section>
+<section class="panel"><h2>測量限制</h2>
+<ul class="small"><li>目前只代表已接入的 API 測試，不等同消費者版 ChatGPT、Google AI Overview、Gemini 等所有介面。</li><li>同一問題重複測試仍可能得到不同引用；因此這是觀測分布，不是永久固定的機率。</li><li>Google AI Overview 等介面沒有在這個頁面中被假裝成「已測量」；未接入就保持未測量。</li><li>第一次成功跑完後才形成第一個基準；在此之前顯示「尚無基準」，不填 0%。</li></ul>
+</section>
+<a class="btn primary" href="./index.html">回到總監控</a>
+</main>
+<script>
+const esc=v=>String(v==null?"":v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
+fetch("../ai-citation/latest.json?v="+Date.now(),{cache:"no-store"}).then(r=>r.json()).then(d=>{
+ const ss=d.summary||{}, all=Object.values(ss), ok=all.reduce((n,x)=>n+(x.successful_runs||0),0), cited=all.reduce((n,x)=>n+(x.cited_runs||0),0), prompts=7, covered=new Set();
+ (d.runs||[]).filter(x=>x.status==="ok"&&x.citations&&x.citations.length).forEach(x=>covered.add(x.prompt_id));
+ document.getElementById("total").textContent=ok||"—";document.getElementById("cited").textContent=ok?cited:"—";document.getElementById("rate").textContent=ok?((cited/ok*100).toFixed(1)+"%"):"尚無基準";document.getElementById("coverage").textContent=ok?((covered.size/prompts*100).toFixed(1)+"%"):"尚無基準";
+ document.getElementById("providers").innerHTML=all.map((x,i)=>{const p=Object.keys(ss)[i];return '<div class="row"><div><b>'+esc(p)+'</b></div><div class="'+(x.status==="ok"?"ok":x.status==="not_configured"?"warn":"bad")+'">'+esc(x.status)+'</div><div>'+((x.citation_rate_pct==null)?"—":x.citation_rate_pct+"%")+'</div><div class="wide small">成功 '+(x.successful_runs||0)+'｜引用 '+(x.cited_runs||0)+'｜問題覆蓋 '+(x.prompt_coverage_pct==null?"—":x.prompt_coverage_pct+"%")+'</div></div>'}).join("");
+ const urlCounts={};(d.runs||[]).forEach(x=>(x.citations||[]).forEach(u=>urlCounts[u]=(urlCounts[u]||0)+1));
+ const urls=Object.entries(urlCounts).sort((a,b)=>b[1]-a[1]);document.getElementById("urls").innerHTML=urls.length?urls.map(x=>'<div class="row"><div class="wide"><a href="'+esc(x[0])+'" target="_blank" rel="noopener">'+esc(x[0])+'</a></div><div>'+x[1]+' 次</div><div></div><div></div></div>').join(""):'<div class="small">尚無本站網址被觀測到。這與「引用率 0%」不同：可能只是尚未配置或尚未成功執行。</div>';
+ const runs=(d.runs||[]).slice().reverse().slice(0,60);document.getElementById("runs").innerHTML=runs.length?runs.map(x=>'<div class="row"><div><b>'+esc(x.provider)+'</b><br><span class="small">'+esc(x.prompt_id)+'｜第 '+x.repeat+' 次</span></div><div class="'+(x.status==="ok"?"ok":x.status==="not_configured"?"warn":"bad")+'">'+esc(x.status)+'</div><div>'+(x.citations?.length?"🟢 有引用":"—")+'</div><div class="wide small">'+(x.citations?.length?x.citations.map(esc).join("<br>"):(x.error?esc(x.error):"沒有本站引用"))+'</div></div>').join(""):'<div class="small">尚無測試紀錄。</div>';
+}).catch(e=>{document.getElementById("providers").innerHTML='<span class="bad">無法讀取監測資料：'+esc(e.message)+'</span>'});
+</script></body></html>
