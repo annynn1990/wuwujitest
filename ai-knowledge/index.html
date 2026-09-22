@@ -26,6 +26,7 @@ header{border-bottom:1px solid #ddd;padding-bottom:18px;margin-bottom:22px}.grid
 <section><h2>近期自動摘要</h2><div id="summaries">讀取中…</div></section>
 <section><h2>資料規則</h2><p>只處理公開可取得內容；不抓登入頁、後台及不必要會員個資。摘要為 extractive_v1 抽取式摘要，不是事實查核。宗教性或世界觀內容保留來源網址並標示來源類型。</p></section>
 <section><h2>機器入口</h2><p><a href="./knowledge.json">knowledge.json</a> · <a href="./manifest.json">manifest.json</a> · <a href="./official/index.json">official/index.json</a> · <a href="./forum/index.json">forum/index.json</a> · <a href="./llms.txt">llms.txt</a></p></section>
+<section><h2>SEO／GEO 工具</h2><div class="card"><p><strong><a href="../seo-dashboard/index.html">開啟 SEO／GEO 趨勢雷達 →</a></strong></p><p>查看 Google Trends、本站內容覆蓋、AI/GEO 知識庫與搜尋需求缺口。</p></div></section>
 <script>
 (async()=>{try{const r=await fetch("./knowledge.json?t="+Date.now(),{cache:"no-store"}),d=await r.json();
 document.getElementById("updated").textContent="最後生成："+d.generated_at;
