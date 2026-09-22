@@ -40,11 +40,37 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Validate build scripts
+        run: python3 -m py_compile scripts/build_semantic_map.py scripts/build_geo_bot_report.py
+
       - name: Build semantic map
         run: python3 scripts/build_semantic_map.py
 
+      - name: Validate generated JSON
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          for path in [
+              Path("ai-knowledge/semantic-map.json"),
+              Path("seo-dashboard/geo-bot-report.json"),
+              Path("seo-dashboard/geo-effect-history.json"),
+          ]:
+              json.loads(path.read_text(encoding="utf-8"))
+              print(f"VALID JSON: {path}")
+          PY
+
       - name: Build GEO robot report
         run: python3 scripts/build_geo_bot_report.py
+
+      - name: Validate GEO report JSON
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          json.loads(Path("seo-dashboard/geo-bot-report.json").read_text(encoding="utf-8"))
+          print("VALID JSON: seo-dashboard/geo-bot-report.json")
+          PY
 
       - name: Notify IndexNow
         shell: bash
@@ -159,5 +185,5 @@ jobs:
             echo "Generated files unchanged."
             exit 0
           fi
-          git commit -m "自動更新 AI/GEO 語義圖與機器人報告"
+          git commit -m "自動更新 AI/GEO 語義圖與機器人報告 [skip ci]"
           git push
