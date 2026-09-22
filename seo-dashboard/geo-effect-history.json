@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "dataset": "中天法門 GEO AI 實測歷史",
+  "definition": "只在盲測資料集內容實際變更時新增一筆快照；未測槽位不視為成功或失敗。",
+  "history": [
+    {
+      "recorded_at": "2026-09-22T11:36:41.350595+00:00",
+      "dataset_sha256": "5b1c7c25b501917f83e3d842710db4c6c6898fcf105ec7c13b28b822701c0316",
+      "effect_score": 0,
+      "tested_slots": 0,
+      "planned_slots": 250,
+      "mention_rate": 0,
+      "citation_rate": 0,
+      "primary_source_citation_rate": 0,
+      "concept_recall": 0,
+      "accuracy": 0,
+      "mention_consistency": 0,
+      "citation_consistency": 0,
+      "complete_consistency": 0
+    }
+  ]
+}

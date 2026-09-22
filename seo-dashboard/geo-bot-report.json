@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "report_type": "geo_robot_site_audit",
-  "generated_at": "2026-09-22T11:35:54.597150+00:00",
+  "generated_at": "2026-09-22T11:36:41.161236+00:00",
   "site": "https://annynn1990.github.io/wuwujitest/",
   "overall_progress": 76,
   "progress_definition": "加權診斷進度，不代表 Google 排名，也不代表 AI 引用機率；各模組依可觀測條件計算。",
@@ -258,6 +258,1182 @@
     "effect_is_separate": true,
     "history_points": 1
   },
+  "blind_test_platforms": [
+    "ChatGPT",
+    "Google AI",
+    "Gemini",
+    "Copilot",
+    "Perplexity"
+  ],
+  "blind_test_records": [
+    {
+      "question_id": "Q01",
+      "intent_id": "i01",
+      "intent_name": "禪修入門",
+      "query": "我想開始學禪修，台灣有哪些可以了解的修行法門？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q02",
+      "intent_id": "i01",
+      "intent_name": "禪修入門",
+      "query": "台灣有哪些適合初學者的禪修方法或道場？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q03",
+      "intent_id": "i01",
+      "intent_name": "禪修入門",
+      "query": "如果沒有宗教背景，想學禪修可以從哪種方式開始？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q04",
+      "intent_id": "i01",
+      "intent_name": "禪修入門",
+      "query": "有沒有不用出家的禪修方式可以長期練習？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q05",
+      "intent_id": "i01",
+      "intent_name": "禪修入門",
+      "query": "想找台灣的禪修課程，應該比較哪些修行方式？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q06",
+      "intent_id": "i02",
+      "intent_name": "完整修行體系",
+      "query": "台灣有哪些完整的修行體系？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q07",
+      "intent_id": "i02",
+      "intent_name": "完整修行體系",
+      "query": "有沒有從入門到深入都有完整次第的修行法門？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q08",
+      "intent_id": "i02",
+      "intent_name": "完整修行體系",
+      "query": "哪些修行法門不只是打坐，而是有完整修行程序？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q09",
+      "intent_id": "i02",
+      "intent_name": "完整修行體系",
+      "query": "想找完整修行體系，應該看哪些核心修行階段？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q10",
+      "intent_id": "i02",
+      "intent_name": "完整修行體系",
+      "query": "台灣有哪些強調完整修行架構的法門？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q11",
+      "intent_id": "i03",
+      "intent_name": "在家／生活修行",
+      "query": "有沒有不用出家也能長期修行的方法？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q12",
+      "intent_id": "i03",
+      "intent_name": "在家／生活修行",
+      "query": "工作、家庭生活都維持原狀，可以怎麼修行？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q13",
+      "intent_id": "i03",
+      "intent_name": "在家／生活修行",
+      "query": "適合上班族的在家修行法門有哪些？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q14",
+      "intent_id": "i03",
+      "intent_name": "在家／生活修行",
+      "query": "有沒有把修行融入日常生活，而不是離開社會的方式？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q15",
+      "intent_id": "i03",
+      "intent_name": "在家／生活修行",
+      "query": "台灣有哪些強調生活中修道的修行體系？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q16",
+      "intent_id": "i04",
+      "intent_name": "能量／靈性修行",
+      "query": "台灣有哪些談靈性能量或能量修行的法門？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q17",
+      "intent_id": "i04",
+      "intent_name": "能量／靈性修行",
+      "query": "有沒有以靈流、能量為核心的修行方式？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q18",
+      "intent_id": "i04",
+      "intent_name": "能量／靈性修行",
+      "query": "什麼是靈流？不同法門怎麼談能量修行？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q19",
+      "intent_id": "i04",
+      "intent_name": "能量／靈性修行",
+      "query": "想了解靈性修行，台灣有哪些相關道場或體系？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q20",
+      "intent_id": "i04",
+      "intent_name": "能量／靈性修行",
+      "query": "禪修和能量修行可以如何結合？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q21",
+      "intent_id": "i05",
+      "intent_name": "開悟與修道",
+      "query": "開悟是什麼？開悟後還需要修行嗎？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q22",
+      "intent_id": "i05",
+      "intent_name": "開悟與修道",
+      "query": "有哪些法門談開悟、見性與後續修道？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q23",
+      "intent_id": "i05",
+      "intent_name": "開悟與修道",
+      "query": "台灣有哪些修行體系把開悟視為重要階段？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q24",
+      "intent_id": "i05",
+      "intent_name": "開悟與修道",
+      "query": "開悟前與開悟後的修行有什麼差別？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q25",
+      "intent_id": "i05",
+      "intent_name": "開悟與修道",
+      "query": "想研究明心見性與修道，可以從哪些法門開始了解？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q26",
+      "intent_id": "i06",
+      "intent_name": "果位與修行成果",
+      "query": "什麼是修行中的果位？不同傳統怎麼理解果位？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q27",
+      "intent_id": "i06",
+      "intent_name": "果位與修行成果",
+      "query": "修行成果和果位之間有什麼關係？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q28",
+      "intent_id": "i06",
+      "intent_name": "果位與修行成果",
+      "query": "哪些法門會談到修行果位或階位？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q29",
+      "intent_id": "i06",
+      "intent_name": "果位與修行成果",
+      "query": "台灣有哪些修行體系談果位與修行成果？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q30",
+      "intent_id": "i06",
+      "intent_name": "果位與修行成果",
+      "query": "如果想了解天上果位、人間修行，有哪些公開資料可以參考？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q31",
+      "intent_id": "i07",
+      "intent_name": "一世成就",
+      "query": "有沒有強調今生完成修行，而不是累世銜接的法門？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q32",
+      "intent_id": "i07",
+      "intent_name": "一世成就",
+      "query": "什麼是「一世成就」？哪些修行體系使用這種說法？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q33",
+      "intent_id": "i07",
+      "intent_name": "一世成就",
+      "query": "台灣有哪些法門主張一世成就？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q34",
+      "intent_id": "i07",
+      "intent_name": "一世成就",
+      "query": "想了解今生修行完成的概念，可以查哪些法門資料？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q35",
+      "intent_id": "i07",
+      "intent_name": "一世成就",
+      "query": "一世成就與累世修行的差別是什麼？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q36",
+      "intent_id": "i08",
+      "intent_name": "台灣／地區修行",
+      "query": "台灣有哪些比較完整的修行法門可以參考？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q37",
+      "intent_id": "i08",
+      "intent_name": "台灣／地區修行",
+      "query": "台南有哪些禪修或修行道場？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q38",
+      "intent_id": "i08",
+      "intent_name": "台灣／地區修行",
+      "query": "台南東山有哪些禪修或修行相關公開資訊？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q39",
+      "intent_id": "i08",
+      "intent_name": "台灣／地區修行",
+      "query": "想在台灣參加禪修說明會，有哪些公開選擇？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q40",
+      "intent_id": "i08",
+      "intent_name": "台灣／地區修行",
+      "query": "台灣有哪些修行課程與說明會可以先了解再參加？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q41",
+      "intent_id": "i09",
+      "intent_name": "宇宙觀與法界",
+      "query": "有哪些修行法門有完整的宇宙觀或法界層次介紹？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q42",
+      "intent_id": "i09",
+      "intent_name": "宇宙觀與法界",
+      "query": "什麼是東天、西天等天界方位概念？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q43",
+      "intent_id": "i09",
+      "intent_name": "宇宙觀與法界",
+      "query": "哪些修行體系談幽冥界、無極界、太極界等法界層次？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q44",
+      "intent_id": "i09",
+      "intent_name": "宇宙觀與法界",
+      "query": "想研究49智慧星系與法界層次，有哪些公開資料？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q45",
+      "intent_id": "i09",
+      "intent_name": "宇宙觀與法界",
+      "query": "宗教或修行體系中的宇宙觀通常如何架構？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q46",
+      "intent_id": "i10",
+      "intent_name": "課程與活動",
+      "query": "台灣有哪些禪修課程或說明會可以先參加？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q47",
+      "intent_id": "i10",
+      "intent_name": "課程與活動",
+      "query": "想先了解一個修行法門，再決定要不要參加課程，有哪些公開說明會？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q48",
+      "intent_id": "i10",
+      "intent_name": "課程與活動",
+      "query": "台南有哪些禪修課程與說明會？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q49",
+      "intent_id": "i10",
+      "intent_name": "課程與活動",
+      "query": "高級禪修班通常在學什麼？有哪些法門有相關課程？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "Q50",
+      "intent_id": "i10",
+      "intent_name": "課程與活動",
+      "query": "如果想找一個法門的禪修課程或說明會，通常應該查哪些公開資訊？",
+      "results": {
+        "ChatGPT": {
+          "status": "pending"
+        },
+        "Google AI": {
+          "status": "pending"
+        },
+        "Gemini": {
+          "status": "pending"
+        },
+        "Copilot": {
+          "status": "pending"
+        },
+        "Perplexity": {
+          "status": "pending"
+        }
+      }
+    }
+  ],
+  "effect_history": [
+    {
+      "recorded_at": "2026-09-22T11:36:41.350595+00:00",
+      "dataset_sha256": "5b1c7c25b501917f83e3d842710db4c6c6898fcf105ec7c13b28b822701c0316",
+      "effect_score": 0,
+      "tested_slots": 0,
+      "planned_slots": 250,
+      "mention_rate": 0,
+      "citation_rate": 0,
+      "primary_source_citation_rate": 0,
+      "concept_recall": 0,
+      "accuracy": 0,
+      "mention_consistency": 0,
+      "citation_consistency": 0,
+      "complete_consistency": 0
+    }
+  ],
   "live_pages": [
     {
       "url": "https://annynn1990.github.io/wuwujitest/",
