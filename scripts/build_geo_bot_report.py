@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 from __future__ import annotations
-import json, re, urllib.request, urllib.error
+import json, re, urllib.request, urllib.error, hashlib
 from pathlib import Path
 from datetime import datetime, timezone
 from html.parser import HTMLParser
@@ -11,6 +11,7 @@ from collections import Counter
 ROOT = Path(__file__).resolve().parents[1]
 AI = ROOT / "ai-knowledge"
 OUT = ROOT / "seo-dashboard" / "geo-bot-report.json"
+HISTORY = ROOT / "seo-dashboard" / "geo-effect-history.json"
 SITE_BASE = "https://annynn1990.github.io/wuwujitest/"
 
 CORE_PAGES = {
@@ -165,6 +166,135 @@ def score_retrieval(repo_files, blind_db):
         "pending_slots":pending
     }
 
+def blind_test_metrics(blind_db):
+    """Compute measurable AI/GEO results from tested blind-test slots only."""
+    records=blind_db.get("records",[]) or []
+    platforms=blind_db.get("platforms",[]) or []
+    slot_rows=[]
+    for q in records:
+        for platform in platforms:
+            result=(q.get("results",{}) or {}).get(platform,{}) or {}
+            if result.get("status")=="tested":
+                slot_rows.append({
+                    "question_id":q.get("question_id"),
+                    "intent_id":q.get("intent_id"),
+                    "platform":platform,
+                    "mentioned_entity":bool(result.get("mentioned_entity")),
+                    "citation":bool(result.get("citation")),
+                    "primary_source_citation":bool(result.get("primary_source_citation")),
+                    "concept_recall":bool(result.get("concept_recall")),
+                    "factual_accuracy":bool(result.get("factual_accuracy")),
+                })
+
+    tested=len(slot_rows)
+    slots=len(records)*len(platforms)
+    def rate(key):
+        return round(sum(1 for x in slot_rows if x[key])/tested*100) if tested else 0
+
+    full_questions={}
+    for q in records:
+        qid=q.get("question_id")
+        per=[]
+        for p in platforms:
+            x=(q.get("results",{}) or {}).get(p,{}) or {}
+            if x.get("status")=="tested":
+                per.append((p,x))
+        if len(per)==len(platforms) and platforms:
+            full_questions[qid]=per
+
+    mention_consistent=round(sum(
+        1 for per in full_questions.values()
+        if len({bool(x.get("mentioned_entity")) for _,x in per})==1
+    )/max(len(full_questions),1)*100) if full_questions else 0
+
+    citation_consistent=round(sum(
+        1 for per in full_questions.values()
+        if len({bool(x.get("citation")) for _,x in per})==1
+    )/max(len(full_questions),1)*100) if full_questions else 0
+
+    complete_consistent=round(sum(
+        1 for per in full_questions.values()
+        if len({(bool(x.get("mentioned_entity")),bool(x.get("citation"))) for _,x in per})==1
+    )/max(len(full_questions),1)*100) if full_questions else 0
+
+    effect=round(
+        rate("mentioned_entity")*.25 +
+        rate("citation")*.20 +
+        rate("primary_source_citation")*.20 +
+        rate("concept_recall")*.20 +
+        rate("factual_accuracy")*.15
+    ) if tested else 0
+
+    per_platform={}
+    for p in platforms:
+        rows=[x for x in slot_rows if x["platform"]==p]
+        n=len(rows)
+        per_platform[p]={
+            "tested":n,
+            "mention_rate":round(sum(x["mentioned_entity"] for x in rows)/n*100) if n else 0,
+            "citation_rate":round(sum(x["citation"] for x in rows)/n*100) if n else 0,
+            "primary_source_citation_rate":round(sum(x["primary_source_citation"] for x in rows)/n*100) if n else 0,
+            "concept_recall":round(sum(x["concept_recall"] for x in rows)/n*100) if n else 0,
+            "accuracy":round(sum(x["factual_accuracy"] for x in rows)/n*100) if n else 0,
+        }
+
+    return {
+        "tested_slots":tested,
+        "planned_slots":slots,
+        "pending_slots":max(slots-tested,0),
+        "coverage_percent":round(tested/max(slots,1)*100),
+        "effect_score":effect,
+        "mention_rate":rate("mentioned_entity"),
+        "citation_rate":rate("citation"),
+        "primary_source_citation_rate":rate("primary_source_citation"),
+        "concept_recall":rate("concept_recall"),
+        "accuracy":rate("factual_accuracy"),
+        "fully_tested_questions":len(full_questions),
+        "mention_consistency":mention_consistent,
+        "citation_consistency":citation_consistent,
+        "complete_consistency":complete_consistent,
+        "per_platform":per_platform,
+    }
+
+def update_effect_history(blind_db, metrics):
+    """Append one history point per distinct blind-test dataset state."""
+    try:
+        raw=(ROOT/"seo-dashboard"/"geo-blind-tests.json").read_bytes()
+        dataset_hash=hashlib.sha256(raw).hexdigest()
+    except Exception:
+        return []
+    history=[]
+    if HISTORY.exists():
+        try:
+            existing=load_json(HISTORY)
+            history=existing.get("history",[]) or []
+        except Exception:
+            history=[]
+    if history and history[-1].get("dataset_sha256")==dataset_hash:
+        return history
+    history.append({
+        "recorded_at":utc_now(),
+        "dataset_sha256":dataset_hash,
+        "effect_score":metrics["effect_score"],
+        "tested_slots":metrics["tested_slots"],
+        "planned_slots":metrics["planned_slots"],
+        "mention_rate":metrics["mention_rate"],
+        "citation_rate":metrics["citation_rate"],
+        "primary_source_citation_rate":metrics["primary_source_citation_rate"],
+        "concept_recall":metrics["concept_recall"],
+        "accuracy":metrics["accuracy"],
+        "mention_consistency":metrics["mention_consistency"],
+        "citation_consistency":metrics["citation_consistency"],
+        "complete_consistency":metrics["complete_consistency"],
+    })
+    HISTORY.write_text(json.dumps({
+        "schema_version":"1.0",
+        "dataset":"中天法門 GEO AI 實測歷史",
+        "definition":"只在盲測資料集內容實際變更時新增一筆快照；未測槽位不視為成功或失敗。",
+        "history":history
+    },ensure_ascii=False,indent=2),encoding="utf-8")
+    return history
+
 def score_evidence(semantic, pages):
     """Measure the evidence layer without requiring new pages."""
     ev=semantic.get("evidence_matrix",[]) or []
@@ -259,7 +389,9 @@ def main():
     blind_db=load_json(ROOT/"seo-dashboard/geo-blind-tests.json") if (ROOT/"seo-dashboard/geo-blind-tests.json").exists() else {}
     retrieval_score, retrieval_meta=score_retrieval([Path(x["path"]) for x in files], blind_db)
     evidence_score, evidence_meta=score_evidence(semantic,pages)
-    tested_slots=retrieval_meta.get("tested_slots",0)
+    blind_metrics=blind_test_metrics(blind_db)
+    effect_history=update_effect_history(blind_db,blind_metrics)
+    tested_slots=blind_metrics["tested_slots"]
     citation_score=100 if tested_slots>0 else 0
     observability=100 if (ROOT/".github/workflows/geo-bot-report.yml").exists() else 0
 
@@ -301,13 +433,11 @@ def main():
         "intent":intent_meta,
         "retrieval":retrieval_meta,
         "blind_test":{
+            **blind_metrics,
             "questions":retrieval_meta.get("questions",0),
             "platforms":retrieval_meta.get("platforms",0),
-            "planned_slots":retrieval_meta.get("planned_slots",0),
-            "tested_slots":retrieval_meta.get("tested_slots",0),
-            "pending_slots":retrieval_meta.get("pending_slots",0),
-            "coverage_percent":round(retrieval_meta.get("tested_slots",0)/max(retrieval_meta.get("planned_slots",1),1)*100),
-            "effect_is_separate":True
+            "effect_is_separate":True,
+            "history_points":len(effect_history)
         },
         "live_pages":live,
         "site_inventory_summary":{
@@ -328,7 +458,8 @@ def main():
         "automation":{
             "workflow":"geo-bot-report.yml",
             "trigger":"網站／知識庫相關檔案更新 + 每 6 小時排程",
-            "next_action":"重新掃描後覆寫本報告，不需人工調整百分比。",
+            "next_action":"重新掃描後覆寫本報告；盲測資料集變更時同步增加一筆 AI GEO 歷史快照。",
+            "effect_history_file":"seo-dashboard/geo-effect-history.json"
         }
     }
     OUT.write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
