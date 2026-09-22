@@ -41,6 +41,125 @@ jobs:
       - name: Build robot report
         run: python3 scripts/build_geo_bot_report.py
 
+      - name: Notify IndexNow of changed public URLs
+        shell: bash
+        env:
+          SITE_BASE: https://annynn1990.github.io/wuwujitest/
+          KEY_LOCATION: https://annynn1990.github.io/wuwujitest/$(find . -maxdepth 1 -type f -name '*.txt' -print | sed 's#^./##' | head -n 1)
+        run: |
+          set -euo pipefail
+
+          key_file="$(find . -maxdepth 1 -type f -name '*.txt' -print | while read -r f; do
+            value="$(tr -d '\r\n' < "$f" || true)"
+            if printf '%s' "$value" | grep -Eq '^[0-9a-fA-F]{32}        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add seo-dashboard/geo-bot-report.json seo-dashboard/geo-effect-history.json
+          if git diff --cached --quiet; then
+            echo "Report unchanged."
+            exit 0
+          fi
+          git commit -m "自動更新 GEO 機器人全站報告"
+          git push
+; then
+              echo "$f"
+              break
+            fi
+          done)"
+
+          if [ -z "$key_file" ]; then
+            echo "No 32-hex IndexNow key file found; skip notification."
+            exit 0
+          fi
+
+          key="$(tr -d '\r\n' < "$key_file")"
+          key_name="$(basename "$key_file")"
+          key_location="$SITE_BASE$key_name"
+          public_key="$(curl -fsSL "$key_location" | tr -d '\r\n')"
+          test "$public_key" = "$key"
+
+          before="${{ github.event.before }}"
+          after="${{ github.sha }}"
+
+          if [ -z "$before" ] || [ "$before" = "0000000000000000000000000000000000000000" ]; then
+            git diff-tree --no-commit-id --name-status -r "$after" > /tmp/changed.txt
+          else
+            git diff --name-status "$before" "$after" > /tmp/changed.txt
+          fi
+
+          : > /tmp/indexnow-urls.txt
+          while IFS=        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add seo-dashboard/geo-bot-report.json seo-dashboard/geo-effect-history.json
+          if git diff --cached --quiet; then
+            echo "Report unchanged."
+            exit 0
+          fi
+          git commit -m "自動更新 GEO 機器人全站報告"
+          git push
+\t' read -r status path _rest; do
+            case "$path" in
+              index.html)
+                echo "$SITE_BASE" >> /tmp/indexnow-urls.txt ;;
+              about.html|meditation.html|course.html|seminar.html|faq.html|media.html)
+                echo "$SITE_BASE$path" >> /tmp/indexnow-urls.txt ;;
+              llms.txt|robots.txt|sitemap.xml|seminar-data.json)
+                echo "$SITE_BASE$path" >> /tmp/indexnow-urls.txt ;;
+              ai-knowledge/*.html|ai-knowledge/*.json|ai-knowledge/*.txt|ai-knowledge/*.xml)
+                echo "$SITE_BASE$path" >> /tmp/indexnow-urls.txt ;;
+              seo-dashboard/geo-blind-tests.json)
+                echo "$SITE_BASE$path" >> /tmp/indexnow-urls.txt ;;
+            esac
+          done < /tmp/changed.txt
+
+          sort -u /tmp/indexnow-urls.txt > /tmp/indexnow-urls-unique.txt
+          count="$(grep -c . /tmp/indexnow-urls-unique.txt || true)"
+          echo "IndexNow candidate URLs: $count"
+
+          if [ "$count" -eq 0 ]; then
+            echo "No changed public URLs require notification."
+            exit 0
+          fi
+
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          urls=[x.strip() for x in Path("/tmp/indexnow-urls-unique.txt").read_text().splitlines() if x.strip()]
+          key=Path("/tmp/indexnow-key.txt").read_text().strip()
+          Path("/tmp/indexnow-payload.json").write_text(json.dumps({
+              "host":"annynn1990.github.io",
+              "key":key,
+              "keyLocation":__import__("os").environ["KEY_LOCATION"],
+              "urlList":urls
+          },ensure_ascii=False),encoding="utf-8")
+          PY
+
+          printf '%s' "$key" > /tmp/indexnow-key.txt
+          # Rebuild payload now that the key has been loaded.
+          KEY_LOCATION="$key_location" python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          urls=[x.strip() for x in Path("/tmp/indexnow-urls-unique.txt").read_text().splitlines() if x.strip()]
+          key=Path("/tmp/indexnow-key.txt").read_text().strip()
+          Path("/tmp/indexnow-payload.json").write_text(json.dumps({
+              "host":"annynn1990.github.io",
+              "key":key,
+              "keyLocation":os.environ["KEY_LOCATION"],
+              "urlList":urls
+          },ensure_ascii=False),encoding="utf-8")
+          PY
+
+          code="$(curl -sS -o /tmp/indexnow-response.txt -w '%{http_code}'             -X POST 'https://api.indexnow.org/indexnow'             -H 'Content-Type: application/json; charset=utf-8'             --data-binary @/tmp/indexnow-payload.json)"
+
+          echo "IndexNow HTTP status: $code"
+          cat /tmp/indexnow-response.txt || true
+
+          case "$code" in
+            200|202) echo "IndexNow notification accepted." ;;
+            *) echo "IndexNow notification failed with HTTP $code."; exit 1 ;;
+          esac
+
       - name: Commit report
         run: |
           git config user.name "github-actions[bot]"
