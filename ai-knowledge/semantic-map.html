@@ -13,7 +13,7 @@ a{color:#0645ad}h1,h2{margin-top:1.35em}.grid{display:grid;grid-template-columns
 <body>
 <p><a href="./index.html">← 🧠 AI/GEO 控制中心</a> · <a href="../seo-dashboard/index.html">SEO/GEO Dashboard</a> · <a href="../seo-dashboard/geo-bot-report.html">🤖 GEO 機器人報告</a></p>
 <h1>中天法門 AI/GEO 全量語義地圖</h1>
-<p class="muted">本頁直接讀取 <code>semantic-map.json</code>。目前資料採 v2 全量模式：<strong>全部公開文件 → 主題 → 概念 → 使用者意圖 → 來源</strong>。不是搜尋排名分數，也不是 AI 引用機率。</p>
+<p class="muted">本頁直接讀取 <code>semantic-map.json</code>。目前資料採 v3 全量模式：<strong>Entity → Query → Intent → Concept → Claim → Evidence → Source / Time</strong>。不是搜尋排名分數，也不是 AI 引用機率。</p>
 <div id="summary" class="grid"></div>
 
 <h2>核心語義架構</h2>
@@ -45,10 +45,13 @@ GEO Retrieval / Citation 觀測</div>
 <div id="claimSummary" class="grid"></div>
 <div class="tablewrap"><table><thead><tr><th>Claim</th><th>Concept</th><th>Evidence</th><th>來源／時間</th></tr></thead><tbody id="claims"></tbody></table></div>
 
-<h2>❓ Query → Intent → Concept → Claim</h2>
+<h2>❓ Query → Intent → Concept → Claim → Evidence</h2>
 <p class="muted">50 題盲測問題現在也成為 Query Layer。這些問題用來描述「使用者可能怎麼問」，但平台回答本身不會被當成本站證據。</p>
 <div class="grid" id="querySummary"></div>
-<div class="tablewrap"><table><thead><tr><th>Question</th><th>Intent</th><th>Concept</th><th>Candidate Claim</th><th>測試平台</th></tr></thead><tbody id="questions"></tbody></table></div>
+<div class="tablewrap"><table><thead><tr><th>Question</th><th>Intent</th><th>Concept</th><th>Candidate Claim</th><th>Candidate Evidence</th><th>測試平台</th></tr></thead><tbody id="questions"></tbody></table></div>
+
+<h2>🧭 Entity Resolution</h2>
+<div id="entityResolution" class="notice"></div>
 
 <h2>🧠 策展概念節點</h2>
 <div id="concepts" class="grid"></div>
@@ -94,6 +97,13 @@ async function load(){
 
 function renderSummary(){
  const s=DATA.stats||{};
+ const ce=DATA.core_entity||{};
+ document.getElementById("entityResolution").innerHTML=
+  '<strong>'+esc(ce.preferred_name||ce.name||"中天法門")+'</strong> · Entity ID <code>'+esc(ce.entity_id||"zhongtian-famen")+'</code>'+
+  '<br>官方：<a href="'+esc(ce.official_url||"https://web.wuwuji.tw/")+'" target="_blank" rel="noopener">'+esc(ce.official_url||"https://web.wuwuji.tw/")+'</a>'+
+  '<br>公開論壇：<a href="'+esc(ce.public_forum_url||"https://www.wuwuji.tw/")+'" target="_blank" rel="noopener">'+esc(ce.public_forum_url||"https://www.wuwuji.tw/")+'</a>'+
+  '<br>本站 Hub：<a href="'+esc(ce.public_site_url||"../")+'" target="_blank" rel="noopener">'+esc(ce.public_site_url||"../")+'</a>'+
+  '<br><span class="small">固定 Entity ID 用於跨頁面辨識；來源角色不混同。</span>';
  document.getElementById("summary").innerHTML=[
   ["Core Entity",DATA.core_entity?.name||"中天法門"],
   ["文件節點",s.documents],
@@ -102,7 +112,8 @@ function renderSummary(){
   ["觀察詞",s.observed_term_nodes],
   ["User Intent",s.intent_nodes],
   ["文件→概念",s.document_concept_edges],
-  ["文件→Intent",s.document_intent_edges]
+  ["文件→Intent",s.document_intent_edges],
+  ["Query→Evidence",s.question_evidence_edges||0]
  ].map(x=>'<div class="card"><div class="small">'+esc(x[0])+'</div><div class="metric">'+esc(x[1])+'</div></div>').join("");
 }
 
@@ -156,13 +167,15 @@ function renderQuestions(){
   ["Query",qs.length],
   ["有 Intent",qs.filter(x=>x.intent_id).length],
   ["有直接 Concept",qs.filter(x=>(x.direct_concept_ids||[]).length).length],
-  ["有 Candidate Claim",qs.filter(x=>(x.candidate_claim_ids||[]).length).length]
+  ["有 Candidate Claim",qs.filter(x=>(x.candidate_claim_ids||[]).length).length],
+  ["有 Candidate Evidence",qs.filter(x=>(x.candidate_evidence_ids||[]).length).length]
  ].map(x=>statCard(x[0],x[1])).join("");
  document.getElementById("questions").innerHTML=qs.map(q=>
   '<tr><td><strong>'+esc(q.question_id)+'</strong><br>'+esc(q.query)+'</td>'+
   '<td>'+esc(q.intent_name||q.intent_id||"")+'</td>'+
   '<td>'+esc([...(q.direct_concept_ids||[]),...(q.intent_concept_ids||[])].filter((v,i,a)=>a.indexOf(v)===i).join("、"))+'</td>'+
   '<td>'+esc((q.candidate_claim_ids||[]).join("、"))+'</td>'+
+  '<td>'+esc((q.candidate_evidence_ids||[]).join("、")||"尚未建立")+'</td>'+
   '<td>'+esc((q.tested_platforms||[]).join("、")||"尚未測試")+'</td></tr>'
  ).join("")||'<tr><td colspan="5">目前沒有 Query Layer。</td></tr>';
 }
@@ -233,6 +246,8 @@ function renderEdges(){
   ["文件→來源",DATA.edges?.documents_to_sources||[]],
   ["文件→Intent",DATA.edges?.documents_to_intents||[]],
   ["概念關係",DATA.edges?.concept_relations||[]],
+  ["Query→Claim",DATA.edges?.questions_to_claims||[]],
+  ["Query→Evidence",DATA.edges?.questions_to_evidence||[]],
  ];
  document.getElementById("edgeStats").innerHTML=groups.map(g=>statCard(g[0],g[1].length)).join("");
  const sample=groups.flatMap(g=>g[1].slice(0,120).map(e=>({...e,_group:g[0]})));
