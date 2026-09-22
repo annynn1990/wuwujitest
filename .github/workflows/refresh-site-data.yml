@@ -1,0 +1,110 @@
+name: 中天法門資料自動化流水線
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/update_seminar.py"
+      - "scripts/update_ai_knowledge.py"
+      - "scripts/update_keyword_trends.py"
+      - ".github/workflows/refresh-site-data.yml"
+  schedule:
+    - cron: "0 3 */3 * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: main-data-pipeline
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Checkout 最新 main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: ① 同步說明會
+        run: |
+          python scripts/update_seminar.py
+
+      - name: ② 同步 AI/GEO 知識庫
+        run: |
+          python scripts/update_ai_knowledge.py
+
+      - name: ③ 安裝 Google Trends
+        run: |
+          pip install pytrends
+
+      - name: ④ 更新 SEO/GEO 趨勢
+        run: |
+          python scripts/update_keyword_trends.py
+
+      - name: 檢查三階段結果
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          p = Path("seminar-data.json")
+          if p.exists():
+              d = json.loads(p.read_text(encoding="utf-8"))
+              print("seminar events:", len(d.get("events", [])))
+              print("seminar updated_at:", d.get("updated_at"))
+
+          p = Path("ai-knowledge/knowledge.json")
+          if p.exists():
+              d = json.loads(p.read_text(encoding="utf-8"))
+              print("AI forum_threads:", d.get("stats", {}).get("forum_threads", 0))
+              print("AI forum_posts:", d.get("stats", {}).get("forum_posts", 0))
+              print("AI documents:", d.get("stats", {}).get("documents", 0))
+              print("AI generated_at:", d.get("generated_at"))
+
+          p = Path("seo-dashboard/trend-data.json")
+          if p.exists():
+              d = json.loads(p.read_text(encoding="utf-8"))
+              print("SEO generated_at:", d.get("generated_at"))
+              print("SEO keywords:", len(d.get("keywords", [])))
+              print("Google Trends available:", d.get("google_trends", {}).get("available"))
+          PY
+
+      - name: ⑤ 一次提交全部資料
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add             seminar-data.json             seminar-debug.json             ai-knowledge             seo-dashboard/trend-data.json
+
+          if git diff --cached --quiet; then
+            echo "三階段均沒有資料變更。"
+            exit 0
+          fi
+
+          git commit -m "自動更新說明會 AI GEO 與 SEO 資料"
+
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git rebase origin/main
+
+            if git push origin HEAD:main; then
+              echo "全部資料已成功推送（第 ${attempt} 次）"
+              exit 0
+            fi
+
+            echo "遠端 main 有新變更，重新同步（第 ${attempt} 次）"
+            sleep 5
+          done
+
+          echo "5 次 push 仍然失敗。"
+          exit 1
