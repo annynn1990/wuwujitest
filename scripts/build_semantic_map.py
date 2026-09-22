@@ -150,7 +150,8 @@ def doc_blob(doc: dict) -> str:
     for h in doc.get("headings",[]) or []:
         bits.append(h.get("text",""))
     bits.extend(doc.get("keywords",[]) or [])
-    return norm("\n".join(str(x) for x in bits))
+    return norm("
+".join(str(x) for x in bits))
 
 def source_id_for(doc: dict) -> str:
     st = doc.get("source_type","")
@@ -167,7 +168,8 @@ def extract_evidence_excerpt(text: str, terms: list[str], limit: int = 360) -> s
     text = norm(text)
     if not text:
         return ""
-    sentences = re.split(r"(?<=[。！？!?；;])\s*|\n+", text)
+    sentences = re.split(r"(?<=[。！？!?；;])\s*|
++", text)
     for term in terms:
         if not term:
             continue
@@ -297,7 +299,8 @@ def main():
     data=json.loads(KNOWLEDGE.read_text(encoding="utf-8"))
     docs=data.get("documents",[]) or []
     topics_data=json.loads(TOPICS.read_text(encoding="utf-8")) if TOPICS.exists() else {"topics":[]}
-    source_data=json.loads(SOURCES.read_text(encoding="utf-8")) if SOURCES.exists() else {"sources":[]}\n    blind_data=json.loads(BLIND_TESTS.read_text(encoding="utf-8")) if BLIND_TESTS.exists() else {"records":[]}
+    source_data=json.loads(SOURCES.read_text(encoding="utf-8")) if SOURCES.exists() else {"sources":[]}
+    blind_data=json.loads(BLIND_TESTS.read_text(encoding="utf-8")) if BLIND_TESTS.exists() else {"records":[]}
 
     topic_nodes=[]
     for t in topics_data.get("topics",[]) or []:
@@ -323,7 +326,9 @@ def main():
     matched_topic_count=Counter()
     matched_concept_count=Counter()
     observed_terms=Counter()
-    concept_evidence=defaultdict(list)\n    document_blobs={}\n
+    concept_evidence=defaultdict(list)
+    document_blobs={}
+
     # Map broad topic definitions first.
     for t in topic_nodes:
         t_blob="|".join([t.get("name","")]+t.get("aliases",[]))
@@ -335,7 +340,9 @@ def main():
         # Stable ID: source + ordinal + short hash.
         digest=(doc.get("content_sha256") or str(idx))[:12]
         doc_id=f"doc-{idx:04d}-{digest}"
-        blob=doc_blob(doc)\n        document_blobs[doc_id]=blob\n
+        blob=doc_blob(doc)
+        document_blobs[doc_id]=blob
+
         topic_ids=[]
         for t in topic_nodes:
             hits=topic_match(t,blob)
@@ -496,7 +503,10 @@ def main():
             "observed_terms_note":"observed_term 僅表示原始資料中觀察到的詞，不代表策展者認定為正式術語。",
             "no_ranking_claim":True,
             "no_ai_citation_claim":True,
-            "source_rule":"source_type 是來源角色，不是可信度分數；論壇內容不自動等同官方立場。",\n            "query_rule":"盲測問題屬於 Query Layer；平台回答只作觀測，不自動轉為 Evidence。",\n            "claim_rule":"Claim 必須保留原始來源與精確摘錄；無證據時標為 gap。",\n            "temporal_rule":"涉及課程、活動、地點等易變資訊時保留來源時間欄位，避免把歷史資料當作目前狀態。"
+            "source_rule":"source_type 是來源角色，不是可信度分數；論壇內容不自動等同官方立場。",
+            "query_rule":"盲測問題屬於 Query Layer；平台回答只作觀測，不自動轉為 Evidence。",
+            "claim_rule":"Claim 必須保留原始來源與精確摘錄；無證據時標為 gap。",
+            "temporal_rule":"涉及課程、活動、地點等易變資訊時保留來源時間欄位，避免把歷史資料當作目前狀態。"
         },
         "core_entity":{
             "entity_id":"zhongtian-famen",
@@ -515,7 +525,13 @@ def main():
             "document_concept_edges":len(doc_concept_edges),
             "document_source_edges":len(doc_source_edges),
             "document_intent_edges":len(intent_edges),
-            "concept_edges":len(concept_edges),\n            "claim_nodes":len(claim_nodes),\n            "question_nodes":len(question_nodes),\n            "claim_edges":len(claim_edges),\n            "question_intent_edges":len(question_intent_edges),\n            "question_concept_edges":len(question_concept_edges),\n            "question_claim_edges":len(question_claim_edges),
+            "concept_edges":len(concept_edges),
+            "claim_nodes":len(claim_nodes),
+            "question_nodes":len(question_nodes),
+            "claim_edges":len(claim_edges),
+            "question_intent_edges":len(question_intent_edges),
+            "question_concept_edges":len(question_concept_edges),
+            "question_claim_edges":len(question_claim_edges),
             "mapped_documents":sum(1 for d in doc_nodes if d["topic_ids"] or d["concept_ids"]),
             "unmapped_documents":sum(1 for d in doc_nodes if not d["topic_ids"] and not d["concept_ids"]),
         },
