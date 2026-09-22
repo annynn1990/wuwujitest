@@ -1,0 +1,529 @@
+{
+  "schema_version": "1.0",
+  "dataset": "中天法門 AI/GEO 語義地圖",
+  "last_checked": "2026-09-22",
+  "purpose": "建立「使用者需求 → 問題概念 → 中天法門概念／術語 → 公開證據 → AI 盲測問題」的可追溯語義鏈。此資料集不代表搜尋排名或 AI 引用機率。",
+  "core_entity": {
+    "entity_id": "zhongtian-famen",
+    "name": "中天法門",
+    "entity_type": "organization",
+    "official_url": "https://web.wuwuji.tw/",
+    "public_site_url": "https://annynn1990.github.io/wuwujitest/",
+    "evidence_policy": "只有已有公開頁面或已登錄來源可支持的關係才標記為 evidenced；沒有證據的橋接只標記為 candidate 或 gap。"
+  },
+  "concept_nodes": [
+    {
+      "concept_id": "zen-meditation",
+      "name": "禪修",
+      "type": "general_concept",
+      "topic_id": "zen-meditation",
+      "aliases": [
+        "靜坐",
+        "打坐",
+        "冥想"
+      ],
+      "status": "evidenced"
+    },
+    {
+      "concept_id": "practice-system",
+      "name": "完整修行體系",
+      "type": "bridge_concept",
+      "aliases": [
+        "完整修行",
+        "修行次第",
+        "修行階段",
+        "修行程序"
+      ],
+      "status": "candidate"
+    },
+    {
+      "concept_id": "four-procedures",
+      "name": "四程序",
+      "type": "zhongtian_term",
+      "topic_id": "zhongtian-core",
+      "status": "evidenced"
+    },
+    {
+      "concept_id": "home-practice",
+      "name": "在家修行／生活修道",
+      "type": "bridge_concept",
+      "aliases": [
+        "在家修行",
+        "生活修道",
+        "工作與修行並行"
+      ],
+      "status": "gap"
+    },
+    {
+      "concept_id": "energy-flow",
+      "name": "靈流／能量",
+      "type": "zhongtian_term",
+      "topic_id": "energy-practice",
+      "aliases": [
+        "靈流",
+        "智慧能量",
+        "靈性能量"
+      ],
+      "status": "evidenced"
+    },
+    {
+      "concept_id": "awakening",
+      "name": "開悟",
+      "type": "bridge_and_zhongtian_term",
+      "topic_id": "awakening",
+      "aliases": [
+        "明心見自性",
+        "頓悟"
+      ],
+      "status": "evidenced"
+    },
+    {
+      "concept_id": "cultivation-after-awakening",
+      "name": "開悟後修道",
+      "type": "bridge_concept",
+      "aliases": [
+        "開悟後還要修行嗎",
+        "修行與修道"
+      ],
+      "status": "candidate"
+    },
+    {
+      "concept_id": "fruit-status",
+      "name": "果位",
+      "type": "zhongtian_term",
+      "topic_id": "zhongtian-core",
+      "status": "gap"
+    },
+    {
+      "concept_id": "one-life-achievement",
+      "name": "一世成就",
+      "type": "zhongtian_term",
+      "topic_id": "awakening",
+      "status": "evidenced"
+    },
+    {
+      "concept_id": "three-treasures",
+      "name": "中天三寶",
+      "type": "zhongtian_term",
+      "topic_id": "zhongtian-core",
+      "status": "evidenced"
+    },
+    {
+      "concept_id": "cosmology",
+      "name": "宇宙觀",
+      "type": "concept_cluster",
+      "topic_id": "cosmology",
+      "status": "evidenced"
+    },
+    {
+      "concept_id": "courses-events",
+      "name": "課程與說明會",
+      "type": "service_entity",
+      "topic_id": "courses-events",
+      "status": "evidenced"
+    }
+  ],
+  "bridges": [
+    {
+      "bridge_id": "b01",
+      "intent_family": "學禪修",
+      "user_concepts": [
+        "禪修",
+        "打坐",
+        "冥想"
+      ],
+      "zhongtian_concepts": [
+        "禪修"
+      ],
+      "relation": "relevant_to",
+      "evidence_status": "evidenced"
+    },
+    {
+      "bridge_id": "b02",
+      "intent_family": "尋找完整體系",
+      "user_concepts": [
+        "完整修行體系",
+        "修行次第",
+        "修行程序"
+      ],
+      "zhongtian_concepts": [
+        "四程序"
+      ],
+      "relation": "possible_relation",
+      "evidence_status": "partial"
+    },
+    {
+      "bridge_id": "b03",
+      "intent_family": "在家修行",
+      "user_concepts": [
+        "在家修行",
+        "工作與修行並行"
+      ],
+      "zhongtian_concepts": [
+        "生活修道"
+      ],
+      "relation": "possible_relation",
+      "evidence_status": "gap"
+    },
+    {
+      "bridge_id": "b04",
+      "intent_family": "能量／靈性修行",
+      "user_concepts": [
+        "能量",
+        "靈性",
+        "靈流"
+      ],
+      "zhongtian_concepts": [
+        "靈流／能量"
+      ],
+      "relation": "relevant_to",
+      "evidence_status": "evidenced"
+    },
+    {
+      "bridge_id": "b05",
+      "intent_family": "開悟",
+      "user_concepts": [
+        "開悟",
+        "明心見性"
+      ],
+      "zhongtian_concepts": [
+        "開悟"
+      ],
+      "relation": "relevant_to",
+      "evidence_status": "evidenced"
+    },
+    {
+      "bridge_id": "b06",
+      "intent_family": "開悟後的修行",
+      "user_concepts": [
+        "開悟後還要修行嗎",
+        "修行與修道"
+      ],
+      "zhongtian_concepts": [
+        "開悟",
+        "修道"
+      ],
+      "relation": "possible_relation",
+      "evidence_status": "partial"
+    },
+    {
+      "bridge_id": "b07",
+      "intent_family": "果位",
+      "user_concepts": [
+        "果位",
+        "修行成果"
+      ],
+      "zhongtian_concepts": [
+        "果位"
+      ],
+      "relation": "relevant_to",
+      "evidence_status": "gap"
+    },
+    {
+      "bridge_id": "b08",
+      "intent_family": "今生完成修行",
+      "user_concepts": [
+        "今生完成修行",
+        "一世成就"
+      ],
+      "zhongtian_concepts": [
+        "一世成就"
+      ],
+      "relation": "relevant_to",
+      "evidence_status": "evidenced"
+    },
+    {
+      "bridge_id": "b09",
+      "intent_family": "傳統／法門比較",
+      "user_concepts": [
+        "台灣修行法門",
+        "非出家型修行",
+        "完整法門"
+      ],
+      "zhongtian_concepts": [
+        "中天法門",
+        "禪修",
+        "四程序",
+        "一世成就"
+      ],
+      "relation": "comparison_candidate",
+      "evidence_status": "partial"
+    },
+    {
+      "bridge_id": "b10",
+      "intent_family": "實體與活動",
+      "user_concepts": [
+        "台南禪修",
+        "禪修課程",
+        "說明會"
+      ],
+      "zhongtian_concepts": [
+        "中天總壇",
+        "課程與說明會"
+      ],
+      "relation": "relevant_to",
+      "evidence_status": "evidenced"
+    }
+  ],
+  "intent_clusters": [
+    {
+      "intent_id": "i01",
+      "name": "禪修入門",
+      "goal": "找到可開始學習的禪修／靜坐方式",
+      "related_concepts": [
+        "zen-meditation"
+      ],
+      "test_queries": [
+        "台灣有哪些適合初學者的禪修方法？",
+        "除了打坐之外還有什麼禪修方式？",
+        "台灣有哪些禪修課程？",
+        "想開始學禪修，應該先了解哪些方法？"
+      ]
+    },
+    {
+      "intent_id": "i02",
+      "name": "完整修行體系",
+      "goal": "尋找有架構、有階段或程序的修行體系",
+      "related_concepts": [
+        "practice-system",
+        "four-procedures"
+      ],
+      "test_queries": [
+        "有沒有完整的修行體系？",
+        "修行有沒有固定次第？",
+        "有沒有從入門到進階的修行程序？",
+        "哪些法門有明確的修行階段？"
+      ]
+    },
+    {
+      "intent_id": "i03",
+      "name": "在家／生活修行",
+      "goal": "尋找能與家庭與工作並行的修行方式",
+      "related_concepts": [
+        "home-practice"
+      ],
+      "test_queries": [
+        "不出家可以長期修行嗎？",
+        "有沒有能融入日常生活的修行法門？",
+        "上班族可以怎麼修行？",
+        "家庭與修行可以同時進行嗎？"
+      ]
+    },
+    {
+      "intent_id": "i04",
+      "name": "能量／靈性修行",
+      "goal": "了解以靈性、能量或靈流描述的修行概念",
+      "related_concepts": [
+        "energy-flow"
+      ],
+      "test_queries": [
+        "有哪些修行法門談能量？",
+        "什麼是靈流？",
+        "禪修和靈性能量有什麼關係？",
+        "台灣有哪些靈性修行體系？"
+      ]
+    },
+    {
+      "intent_id": "i05",
+      "name": "開悟與修道",
+      "goal": "理解開悟、修行與修道之間的關係",
+      "related_concepts": [
+        "awakening",
+        "cultivation-after-awakening"
+      ],
+      "test_queries": [
+        "什麼叫開悟？",
+        "開悟之後還需要修行嗎？",
+        "開悟和修道有什麼不同？",
+        "明心見自性是什麼意思？"
+      ]
+    },
+    {
+      "intent_id": "i06",
+      "name": "果位與修行成果",
+      "goal": "尋找以果位或修行成果描述進程的資料",
+      "related_concepts": [
+        "fruit-status"
+      ],
+      "test_queries": [
+        "什麼是修行果位？",
+        "果位和開悟有什麼不同？",
+        "有哪些修行體系談果位？",
+        "修行成果如何理解？"
+      ]
+    },
+    {
+      "intent_id": "i07",
+      "name": "一世成就",
+      "goal": "了解是否存在強調今生完成修行的主張或法門",
+      "related_concepts": [
+        "one-life-achievement"
+      ],
+      "test_queries": [
+        "什麼是一世成就？",
+        "有沒有強調今生完成修行的法門？",
+        "今生可以完成修行嗎？",
+        "一世成就與累世修行有什麼不同？"
+      ]
+    },
+    {
+      "intent_id": "i08",
+      "name": "台灣法門／地區需求",
+      "goal": "找台灣、台南、東山一帶的修行資訊與活動",
+      "related_concepts": [
+        "courses-events",
+        "zen-meditation"
+      ],
+      "test_queries": [
+        "台南有哪些禪修課程？",
+        "東山有哪些禪修活動？",
+        "台灣有哪些比較少見的修行法門？",
+        "台南有沒有修行說明會？"
+      ]
+    }
+  ],
+  "evidence_matrix": [
+    {
+      "concept_id": "zen-meditation",
+      "status": "supported",
+      "pages": [
+        "https://annynn1990.github.io/wuwujitest/index.html",
+        "https://annynn1990.github.io/wuwujitest/meditation.html",
+        "https://annynn1990.github.io/wuwujitest/faq.html"
+      ],
+      "source_ids": [
+        "official-site"
+      ]
+    },
+    {
+      "concept_id": "four-procedures",
+      "status": "supported",
+      "pages": [
+        "https://annynn1990.github.io/wuwujitest/faq.html"
+      ],
+      "source_ids": [
+        "official-site",
+        "official-forum"
+      ]
+    },
+    {
+      "concept_id": "energy-flow",
+      "status": "supported",
+      "pages": [
+        "https://annynn1990.github.io/wuwujitest/index.html",
+        "https://annynn1990.github.io/wuwujitest/course.html",
+        "https://annynn1990.github.io/wuwujitest/faq.html"
+      ],
+      "source_ids": [
+        "official-site",
+        "official-forum"
+      ]
+    },
+    {
+      "concept_id": "awakening",
+      "status": "supported",
+      "pages": [
+        "https://annynn1990.github.io/wuwujitest/index.html",
+        "https://annynn1990.github.io/wuwujitest/meditation.html",
+        "https://annynn1990.github.io/wuwujitest/faq.html"
+      ],
+      "source_ids": [
+        "official-site",
+        "official-forum"
+      ]
+    },
+    {
+      "concept_id": "one-life-achievement",
+      "status": "supported",
+      "pages": [
+        "https://annynn1990.github.io/wuwujitest/index.html",
+        "https://annynn1990.github.io/wuwujitest/faq.html"
+      ],
+      "source_ids": [
+        "official-site",
+        "official-forum"
+      ]
+    },
+    {
+      "concept_id": "three-treasures",
+      "status": "supported",
+      "pages": [
+        "https://annynn1990.github.io/wuwujitest/faq.html"
+      ],
+      "source_ids": [
+        "official-site",
+        "official-forum"
+      ]
+    },
+    {
+      "concept_id": "cosmology",
+      "status": "supported",
+      "pages": [
+        "https://annynn1990.github.io/wuwujitest/faq.html"
+      ],
+      "source_ids": [
+        "official-forum"
+      ]
+    },
+    {
+      "concept_id": "courses-events",
+      "status": "supported",
+      "pages": [
+        "https://annynn1990.github.io/wuwujitest/course.html",
+        "https://annynn1990.github.io/wuwujitest/seminar.html"
+      ],
+      "source_ids": [
+        "official-site",
+        "seminar-data"
+      ]
+    },
+    {
+      "concept_id": "practice-system",
+      "status": "gap",
+      "pages": [],
+      "source_ids": []
+    },
+    {
+      "concept_id": "home-practice",
+      "status": "gap",
+      "pages": [],
+      "source_ids": []
+    },
+    {
+      "concept_id": "fruit-status",
+      "status": "gap",
+      "pages": [],
+      "source_ids": []
+    },
+    {
+      "concept_id": "cultivation-after-awakening",
+      "status": "gap",
+      "pages": [],
+      "source_ids": []
+    }
+  ],
+  "test_protocol": {
+    "unit": "每題固定問題、固定平台、固定日期記錄一次",
+    "platforms": [
+      "ChatGPT",
+      "Google AI",
+      "Gemini",
+      "Copilot",
+      "Perplexity"
+    ],
+    "fields": [
+      "mentioned_entity",
+      "cited_url",
+      "cited_page",
+      "concept_match",
+      "description_accuracy",
+      "notes"
+    ],
+    "rule": "測試問題不預先寫入「中天法門」；只有在 AI 自發提到或引用時才計入召回。"
+  },
+  "coverage_definition": {
+    "formula": "語義鏈完整度 = 有證據的橋接數 ÷ 全部橋接數 × 100",
+    "interpretation": "只衡量目前網站已建立且有公開證據的語義鏈完整程度，不代表 AI 引用率或搜尋排名。",
+    "current_note": "candidate / gap 關係不可視為已建立；需要內容頁或原始證據後才能升級。"
+  }
+}
