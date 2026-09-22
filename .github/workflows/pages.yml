@@ -1,10 +1,9 @@
 name: Deploy static content to Pages
 
 on:
-  push:
-    branches:
-      - main
-
+  workflow_run:
+    workflows: ["中天法門資料自動化流水線"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -18,6 +17,7 @@ concurrency:
 
 jobs:
   deploy:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     name: Deploy to GitHub Pages
 
     environment:
