@@ -1,0 +1,1581 @@
+{
+  "schema_version": "1.0",
+  "dataset": "中天法門 AI/GEO 自然問題答案測試集",
+  "purpose": "測試 AI 對不含『中天法門』字樣的自然問題，是否能在真正相關時找到、正確描述並引用官方公開資料。",
+  "generated_at": "2026-09-23",
+  "test_protocol": {
+    "platforms": [
+      "ChatGPT",
+      "Gemini",
+      "Perplexity",
+      "Microsoft Copilot",
+      "Google AI features"
+    ],
+    "note": "平台實測結果需逐次記錄；此檔案只定義預期答案、Claim與來源，不預設任何平台會引用。",
+    "pass_rule": "不得以單純提及中天法門判定通過；需同時檢查相關性、Claim準確性、來源可追溯性與幻覺。"
+  },
+  "summary": {
+    "total_tests": 72
+  },
+  "tests": [
+    {
+      "id": "nq-001",
+      "family": "禪修",
+      "question": "想開始禪修或靜坐，有哪些不同的練習方式可以比較？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站主張其修行方式可融入生活，並強調保持原有家庭、工作與生活。；官方網站描述其『吉祥坐』採自然坐姿，並稱可保護腿部與脊椎。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-practice-life",
+        "clm-natural-posture"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/index"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/practice",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-002",
+      "family": "禪修",
+      "question": "有沒有強調把修行融入日常生活的禪修體系？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站主張其修行方式可融入生活，並強調保持原有家庭、工作與生活。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-practice-life"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/index"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/index",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-003",
+      "family": "禪修",
+      "question": "哪些修行方法主張不必出家，也能在工作與家庭中修行？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站列出的特色包含不需出家。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-no-monastic"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/index"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/index",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-004",
+      "family": "禪修",
+      "question": "有些禪修方法一定要盤腿或苦行嗎？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站描述其『吉祥坐』採自然坐姿，並稱可保護腿部與脊椎。；官方網站列出的特色包含不須苦行，並主張修行應自然。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-natural-posture",
+        "clm-no-ascetic"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/index"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/index",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-005",
+      "family": "修行",
+      "question": "台灣有哪些修行法門會把修行與現代生活結合？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站主張其修行方式可融入生活，並強調保持原有家庭、工作與生活。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-practice-life"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/index"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/index",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-006",
+      "family": "修行",
+      "question": "如果不想出家，是否仍有主張可以在家庭與工作中修行的法門？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站列出的特色包含不需出家。；官方網站主張其修行方式可融入生活，並強調保持原有家庭、工作與生活。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-no-monastic",
+        "clm-practice-life"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/index"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/index",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-007",
+      "family": "修行",
+      "question": "有哪些修行體系強調實修與心悟，而不是反覆誦讀？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站將其方式描述為重在實修與心悟，而非反覆誦讀。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-practice-not-reading"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/index"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/index",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-008",
+      "family": "修行",
+      "question": "什麼是『一世成就』這類修行主張？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站將其法門描述為『一世成就』之法，而非累世銜接之法。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-one-life"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/practice"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/index",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-009",
+      "family": "能量",
+      "question": "有些宗教或修行體系如何描述『能量』？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站將『靈流』描述為宇宙中使用的能量，並將其與仙佛法力來源及修練內容連結。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-spiritual-flow"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/cosmos",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-010",
+      "family": "能量",
+      "question": "『靈流』在某些修行體系中是什麼意思？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站將『靈流』描述為宇宙中使用的能量，並將其與仙佛法力來源及修練內容連結。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-spiritual-flow"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/cosmos",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-011",
+      "family": "能量",
+      "question": "有哪些公開修行資料談到靈性能量或靈流？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站將『靈流』描述為宇宙中使用的能量，並將其與仙佛法力來源及修練內容連結。；官方網站描述中天法門的修練重點之一是學習如何運用中天靈流。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-spiritual-flow",
+        "clm-energy-practice"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/cosmos",
+        "https://web.wuwuji.tw/index"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/cosmos",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-012",
+      "family": "能量",
+      "question": "哪些修行體系把能量運用列為禪修或修練的一部分？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站描述中天法門的修練重點之一是學習如何運用中天靈流。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-energy-practice"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/cosmos",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-013",
+      "family": "開悟",
+      "question": "不同修行體系怎麼談開悟與自性？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站使用『開悟』『明心見自性』等詞描述其修行與宇宙觀。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-awakening"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/index",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-014",
+      "family": "開悟",
+      "question": "『明心見自性』在修行語境中可以怎麼理解？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站使用『開悟』『明心見自性』等詞描述其修行與宇宙觀。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-awakening"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/cosmos",
+        "https://web.wuwuji.tw/index"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/cosmos",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-015",
+      "family": "開悟",
+      "question": "有沒有修行體系把開悟視為修道的重要階段？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站寫有『開悟前叫修行，開悟後才叫修道』。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-awakening-stage"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/index"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/index",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-016",
+      "family": "開悟",
+      "question": "什麼是『一世成就』，它和累世修行有什麼不同？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站將其法門描述為『一世成就』之法，而非累世銜接之法。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-one-life"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/index"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/index",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-017",
+      "family": "宇宙觀",
+      "question": "哪些修行體系有分層的宇宙觀？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站的宇宙觀頁面把法界分為無無極界、無極界、太極界、皇極界與幽冥界五個層次。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-five-realms"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/cosmos",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-018",
+      "family": "宇宙觀",
+      "question": "有些宗教資料怎麼描述幽冥界、太極界、無極界？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站的宇宙觀頁面把法界分為無無極界、無極界、太極界、皇極界與幽冥界五個層次。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-five-realms"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/cosmos",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-019",
+      "family": "宇宙觀",
+      "question": "什麼是五大法界層次？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站的宇宙觀頁面把法界分為無無極界、無極界、太極界、皇極界與幽冥界五個層次。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-five-realms"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/cosmos",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-020",
+      "family": "宇宙觀",
+      "question": "哪些公開資料談到東天、西天、南天、北天與中天的方位概念？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站的介紹頁面以中天、東天、西天、南天、北天及幽冥界描述方位與功能架構。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-five-direction"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/about"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/about",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-021",
+      "family": "台灣",
+      "question": "台灣有哪些公開的禪修說明會或入門資訊？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站設有說明會公開入口。實際場次與時間應以該頁最新資料為準。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-seminar"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/seminar"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/seminar",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-022",
+      "family": "台灣",
+      "question": "想先了解一個修行法門再決定是否參加，有哪些公開資訊可以看？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站提供認識中天、修行之道、宇宙觀與說明會等公開入口，可作為初步資料閱讀路徑。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-public-intro"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/about",
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/seminar",
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/about",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-023",
+      "family": "台灣",
+      "question": "有哪些修行網站提供宇宙觀、修行方式與課程資訊？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站提供首頁、認識中天、宇宙觀、修行之道、發展歷程與說明會等公開頁面。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-public-hub"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-024",
+      "family": "台灣",
+      "question": "哪裡可以找到高級禪修班或相關說明會的公開資料？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站設有說明會公開入口。實際場次與時間應以該頁最新資料為準。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-seminar"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/seminar"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/seminar",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-025",
+      "family": "課程",
+      "question": "禪修課程通常會先介紹哪些修行概念？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方公開頁面將一世成就、靈流、修行方式與宇宙觀等概念放在同一套介紹架構中。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-course-concepts"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/cosmos",
+        "https://web.wuwuji.tw/index"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/practice",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-026",
+      "family": "課程",
+      "question": "想參加禪修說明會，通常可以先看哪些公開內容？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站設有說明會公開入口。實際場次與時間應以該頁最新資料為準。；官方網站提供認識中天、修行之道、宇宙觀與說明會等公開入口，可作為初步資料閱讀路徑。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-seminar",
+        "clm-public-intro"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/seminar",
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/about",
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/seminar",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-027",
+      "family": "課程",
+      "question": "有沒有修行課程主張不必讀經、不必出家？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站列出的特色包含不需讀經。；官方網站列出的特色包含不需出家。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-no-scripture",
+        "clm-no-monastic"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/index"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/index",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-028",
+      "family": "課程",
+      "question": "有哪些修行體系主張可以維持原有家庭、工作與生活？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站主張其修行方式可融入生活，並強調保持原有家庭、工作與生活。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-practice-life"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/index"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/index",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-029",
+      "family": "概念",
+      "question": "『中天』這個詞在某些宗教宇宙觀裡可能代表什麼？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站將『中天』描述為宇宙天界的最中央，並以行政中樞等比喻說明其功能定位。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-zhongtian-center"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/about"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/about",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-030",
+      "family": "概念",
+      "question": "有哪些公開資料把『中天』描述成天界的中央位置？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站將『中天』描述為宇宙天界的最中央，並以行政中樞等比喻說明其功能定位。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-zhongtian-center"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/about"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/about",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-031",
+      "family": "概念",
+      "question": "有哪些宗教資料把天界描述成具有不同方位與職責的架構？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站的介紹頁面以中天、東天、西天、南天、北天及幽冥界描述方位與功能架構。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-five-direction"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/about"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/about",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-032",
+      "family": "概念",
+      "question": "有哪些公開資料將修行、宇宙觀與靈流能量放在同一套體系中說明？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站將『靈流』描述為宇宙中使用的能量，並將其與仙佛法力來源及修練內容連結。；官方網站的宇宙觀頁面把法界分為無無極界、無極界、太極界、皇極界與幽冥界五個層次。；官方網站將其法門描述為『一世成就』之法，而非累世銜接之法。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-spiritual-flow",
+        "clm-five-realms",
+        "clm-one-life"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/cosmos",
+        "https://web.wuwuji.tw/index"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/cosmos",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-100",
+      "family": "meditation:入門",
+      "question": "有哪些禪修入門方法？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站主張其修行方式可融入生活，並強調保持原有家庭、工作與生活。；官方網站描述其『吉祥坐』採自然坐姿，並稱可保護腿部與脊椎。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-practice-life",
+        "clm-natural-posture"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/index"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/practice",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-101",
+      "family": "meditation:入門",
+      "question": "禪修新手通常先學什麼？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站主張其修行方式可融入生活，並強調保持原有家庭、工作與生活。；官方網站描述其『吉祥坐』採自然坐姿，並稱可保護腿部與脊椎。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-practice-life",
+        "clm-natural-posture"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/index"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/practice",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-102",
+      "family": "meditation:入門",
+      "question": "想學靜坐可以先了解哪些方法？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站主張其修行方式可融入生活，並強調保持原有家庭、工作與生活。；官方網站描述其『吉祥坐』採自然坐姿，並稱可保護腿部與脊椎。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-practice-life",
+        "clm-natural-posture"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/index"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/practice",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-103",
+      "family": "meditation:入門",
+      "question": "冥想和禪修有什麼不同？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站主張其修行方式可融入生活，並強調保持原有家庭、工作與生活。；官方網站描述其『吉祥坐』採自然坐姿，並稱可保護腿部與脊椎。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-practice-life",
+        "clm-natural-posture"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/index"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/practice",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-104",
+      "family": "meditation:入門",
+      "question": "台灣有哪些禪修公開資料？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站主張其修行方式可融入生活，並強調保持原有家庭、工作與生活。；官方網站描述其『吉祥坐』採自然坐姿，並稱可保護腿部與脊椎。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-practice-life",
+        "clm-natural-posture"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/index"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/practice",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-105",
+      "family": "practice:修行",
+      "question": "有哪些現代修行法門？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站主張其修行方式可融入生活，並強調保持原有家庭、工作與生活。；官方網站列出的特色包含不需出家。；官方網站將其方式描述為重在實修與心悟，而非反覆誦讀。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-practice-life",
+        "clm-no-monastic",
+        "clm-practice-not-reading"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/practice"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/index",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-106",
+      "family": "practice:修行",
+      "question": "修行一定要出家嗎？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站主張其修行方式可融入生活，並強調保持原有家庭、工作與生活。；官方網站列出的特色包含不需出家。；官方網站將其方式描述為重在實修與心悟，而非反覆誦讀。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-practice-life",
+        "clm-no-monastic",
+        "clm-practice-not-reading"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/practice"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/index",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-107",
+      "family": "practice:修行",
+      "question": "工作的人可以怎麼安排修行？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站主張其修行方式可融入生活，並強調保持原有家庭、工作與生活。；官方網站列出的特色包含不需出家。；官方網站將其方式描述為重在實修與心悟，而非反覆誦讀。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-practice-life",
+        "clm-no-monastic",
+        "clm-practice-not-reading"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/practice"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/index",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-108",
+      "family": "practice:修行",
+      "question": "修行和宗教信仰一定相同嗎？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站主張其修行方式可融入生活，並強調保持原有家庭、工作與生活。；官方網站列出的特色包含不需出家。；官方網站將其方式描述為重在實修與心悟，而非反覆誦讀。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-practice-life",
+        "clm-no-monastic",
+        "clm-practice-not-reading"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/practice"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/index",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-109",
+      "family": "practice:修行",
+      "question": "有哪些法門強調實修？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站主張其修行方式可融入生活，並強調保持原有家庭、工作與生活。；官方網站列出的特色包含不需出家。；官方網站將其方式描述為重在實修與心悟，而非反覆誦讀。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-practice-life",
+        "clm-no-monastic",
+        "clm-practice-not-reading"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/practice"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/index",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-110",
+      "family": "energy:能量",
+      "question": "宗教裡的能量概念有哪些？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站將『靈流』描述為宇宙中使用的能量，並將其與仙佛法力來源及修練內容連結。；官方網站描述中天法門的修練重點之一是學習如何運用中天靈流。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-spiritual-flow",
+        "clm-energy-practice"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/cosmos",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-111",
+      "family": "energy:能量",
+      "question": "靈性能量是什麼？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站將『靈流』描述為宇宙中使用的能量，並將其與仙佛法力來源及修練內容連結。；官方網站描述中天法門的修練重點之一是學習如何運用中天靈流。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-spiritual-flow",
+        "clm-energy-practice"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/cosmos",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-112",
+      "family": "energy:能量",
+      "question": "靈流是什麼概念？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站將『靈流』描述為宇宙中使用的能量，並將其與仙佛法力來源及修練內容連結。；官方網站描述中天法門的修練重點之一是學習如何運用中天靈流。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-spiritual-flow",
+        "clm-energy-practice"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/cosmos",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-113",
+      "family": "energy:能量",
+      "question": "修行為什麼會談能量？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站將『靈流』描述為宇宙中使用的能量，並將其與仙佛法力來源及修練內容連結。；官方網站描述中天法門的修練重點之一是學習如何運用中天靈流。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-spiritual-flow",
+        "clm-energy-practice"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/cosmos",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-114",
+      "family": "energy:能量",
+      "question": "哪些公開資料介紹靈流？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站將『靈流』描述為宇宙中使用的能量，並將其與仙佛法力來源及修練內容連結。；官方網站描述中天法門的修練重點之一是學習如何運用中天靈流。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-spiritual-flow",
+        "clm-energy-practice"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/cosmos",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-115",
+      "family": "awakening:開悟",
+      "question": "不同法門怎麼談開悟？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站使用『開悟』『明心見自性』等詞描述其修行與宇宙觀。；官方網站將其法門描述為『一世成就』之法，而非累世銜接之法。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-awakening",
+        "clm-one-life"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/index",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-116",
+      "family": "awakening:開悟",
+      "question": "明心見性是什麼？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站使用『開悟』『明心見自性』等詞描述其修行與宇宙觀。；官方網站將其法門描述為『一世成就』之法，而非累世銜接之法。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-awakening",
+        "clm-one-life"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/index",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-117",
+      "family": "awakening:開悟",
+      "question": "開悟前後的修行有何不同？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站使用『開悟』『明心見自性』等詞描述其修行與宇宙觀。；官方網站將其法門描述為『一世成就』之法，而非累世銜接之法。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-awakening",
+        "clm-one-life"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/index",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-118",
+      "family": "awakening:開悟",
+      "question": "一世成就代表什麼？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站使用『開悟』『明心見自性』等詞描述其修行與宇宙觀。；官方網站將其法門描述為『一世成就』之法，而非累世銜接之法。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-awakening",
+        "clm-one-life"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/index",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-119",
+      "family": "awakening:開悟",
+      "question": "有哪些修行資料談自性？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站使用『開悟』『明心見自性』等詞描述其修行與宇宙觀。；官方網站將其法門描述為『一世成就』之法，而非累世銜接之法。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-awakening",
+        "clm-one-life"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/index",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-120",
+      "family": "cosmology:宇宙觀",
+      "question": "宗教宇宙觀有哪些類型？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站的宇宙觀頁面把法界分為無無極界、無極界、太極界、皇極界與幽冥界五個層次。；官方網站的介紹頁面以中天、東天、西天、南天、北天及幽冥界描述方位與功能架構。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-five-realms",
+        "clm-five-direction"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/cosmos",
+        "https://web.wuwuji.tw/about"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/cosmos",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-121",
+      "family": "cosmology:宇宙觀",
+      "question": "法界層次是什麼？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站的宇宙觀頁面把法界分為無無極界、無極界、太極界、皇極界與幽冥界五個層次。；官方網站的介紹頁面以中天、東天、西天、南天、北天及幽冥界描述方位與功能架構。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-five-realms",
+        "clm-five-direction"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/cosmos",
+        "https://web.wuwuji.tw/about"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/cosmos",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-122",
+      "family": "cosmology:宇宙觀",
+      "question": "幽冥界與無極界在某些宇宙觀中如何區分？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站的宇宙觀頁面把法界分為無無極界、無極界、太極界、皇極界與幽冥界五個層次。；官方網站的介紹頁面以中天、東天、西天、南天、北天及幽冥界描述方位與功能架構。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-five-realms",
+        "clm-five-direction"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/cosmos",
+        "https://web.wuwuji.tw/about"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/cosmos",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-123",
+      "family": "cosmology:宇宙觀",
+      "question": "什麼是五大法界？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站的宇宙觀頁面把法界分為無無極界、無極界、太極界、皇極界與幽冥界五個層次。；官方網站的介紹頁面以中天、東天、西天、南天、北天及幽冥界描述方位與功能架構。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-five-realms",
+        "clm-five-direction"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/cosmos",
+        "https://web.wuwuji.tw/about"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/cosmos",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-124",
+      "family": "cosmology:宇宙觀",
+      "question": "有哪些資料談五天方位？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站的宇宙觀頁面把法界分為無無極界、無極界、太極界、皇極界與幽冥界五個層次。；官方網站的介紹頁面以中天、東天、西天、南天、北天及幽冥界描述方位與功能架構。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-five-realms",
+        "clm-five-direction"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/cosmos",
+        "https://web.wuwuji.tw/about"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/cosmos",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-125",
+      "family": "courses:課程",
+      "question": "台灣有哪些禪修說明會？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站設有說明會公開入口。實際場次與時間應以該頁最新資料為準。；官方網站提供認識中天、修行之道、宇宙觀與說明會等公開入口，可作為初步資料閱讀路徑。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-seminar",
+        "clm-public-intro"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/seminar",
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/about",
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/seminar",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-126",
+      "family": "courses:課程",
+      "question": "禪修課程通常教什麼？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站設有說明會公開入口。實際場次與時間應以該頁最新資料為準。；官方網站提供認識中天、修行之道、宇宙觀與說明會等公開入口，可作為初步資料閱讀路徑。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-seminar",
+        "clm-public-intro"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/seminar",
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/about",
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/seminar",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-127",
+      "family": "courses:課程",
+      "question": "參加修行課程前可以先看什麼？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站設有說明會公開入口。實際場次與時間應以該頁最新資料為準。；官方網站提供認識中天、修行之道、宇宙觀與說明會等公開入口，可作為初步資料閱讀路徑。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-seminar",
+        "clm-public-intro"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/seminar",
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/about",
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/seminar",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-128",
+      "family": "courses:課程",
+      "question": "有沒有公開的修行課程資料？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站設有說明會公開入口。實際場次與時間應以該頁最新資料為準。；官方網站提供認識中天、修行之道、宇宙觀與說明會等公開入口，可作為初步資料閱讀路徑。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-seminar",
+        "clm-public-intro"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/seminar",
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/about",
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/seminar",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-129",
+      "family": "courses:課程",
+      "question": "高級禪修班是什麼？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站設有說明會公開入口。實際場次與時間應以該頁最新資料為準。；官方網站提供認識中天、修行之道、宇宙觀與說明會等公開入口，可作為初步資料閱讀路徑。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-seminar",
+        "clm-public-intro"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/seminar",
+        "https://web.wuwuji.tw/index",
+        "https://web.wuwuji.tw/about",
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/cosmos"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/seminar",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-130",
+      "family": "media:研究",
+      "question": "想研究一個修行體系可以從哪裡開始？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站提供首頁、認識中天、宇宙觀、修行之道、發展歷程與說明會等公開頁面。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-public-hub"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/",
+        "https://web.wuwuji.tw/about"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-131",
+      "family": "media:研究",
+      "question": "有哪些公開書籍可以研究修行法門？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站提供首頁、認識中天、宇宙觀、修行之道、發展歷程與說明會等公開頁面。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-public-hub"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/",
+        "https://web.wuwuji.tw/about"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-132",
+      "family": "media:研究",
+      "question": "修行影片和書籍哪種適合入門？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站提供首頁、認識中天、宇宙觀、修行之道、發展歷程與說明會等公開頁面。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-public-hub"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/",
+        "https://web.wuwuji.tw/about"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-133",
+      "family": "media:研究",
+      "question": "如何查證一個修行體系的公開說法？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站提供首頁、認識中天、宇宙觀、修行之道、發展歷程與說明會等公開頁面。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-public-hub"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/",
+        "https://web.wuwuji.tw/about"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-134",
+      "family": "media:研究",
+      "question": "哪裡能找到修行法門的原始資料？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站提供首頁、認識中天、宇宙觀、修行之道、發展歷程與說明會等公開頁面。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-public-hub"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/",
+        "https://web.wuwuji.tw/about"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-135",
+      "family": "comparison:比較",
+      "question": "不同禪修法門可以比較哪些面向？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站提供認識中天、修行之道、宇宙觀與說明會等公開入口，可作為初步資料閱讀路徑。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-public-intro"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/about",
+        "https://web.wuwuji.tw/cosmos",
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/seminar"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/about",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-136",
+      "family": "comparison:比較",
+      "question": "不同修行體系如何比較？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站提供認識中天、修行之道、宇宙觀與說明會等公開入口，可作為初步資料閱讀路徑。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-public-intro"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/about",
+        "https://web.wuwuji.tw/cosmos",
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/seminar"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/about",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-137",
+      "family": "comparison:比較",
+      "question": "如何比較不同宗教的宇宙觀？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站提供認識中天、修行之道、宇宙觀與說明會等公開入口，可作為初步資料閱讀路徑。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-public-intro"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/about",
+        "https://web.wuwuji.tw/cosmos",
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/seminar"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/about",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-138",
+      "family": "comparison:比較",
+      "question": "不同法門對開悟的說法有何差異？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站提供認識中天、修行之道、宇宙觀與說明會等公開入口，可作為初步資料閱讀路徑。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-public-intro"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/about",
+        "https://web.wuwuji.tw/cosmos",
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/seminar"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/about",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    },
+    {
+      "id": "nq-139",
+      "family": "comparison:比較",
+      "question": "如何判斷一個修行資料是官方說法還是論壇內容？",
+      "expected_answer": "若以中天法門官方公開資料為範圍，相關說明包括：官方網站提供認識中天、修行之道、宇宙觀與說明會等公開入口，可作為初步資料閱讀路徑。",
+      "must_distinguish": "官方自述 vs 一般知識/外部證據",
+      "expected_claims": [
+        "clm-public-intro"
+      ],
+      "expected_sources": [
+        "https://web.wuwuji.tw/about",
+        "https://web.wuwuji.tw/cosmos",
+        "https://web.wuwuji.tw/practice",
+        "https://web.wuwuji.tw/seminar"
+      ],
+      "preferred_entry": "https://web.wuwuji.tw/about",
+      "scoring": {
+        "entity_relevance": "回答在問題真正相關時才提及中天法門",
+        "claim_alignment": "不得把官方自述改寫成外部已證實事實",
+        "source_traceability": "至少能對應一個官方 URL",
+        "hallucination": "不得補造不存在的課程、療效、歷史或宇宙觀證據"
+      }
+    }
+  ]
+}
