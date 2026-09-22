@@ -1,0 +1,16 @@
+{
+  "schema_version":"1.0",
+  "dataset":"中天法門公開多媒體索引",
+  "last_checked":"2026-09-22",
+  "media":[
+    {
+      "media_id":"playlist-zhongtian-tiantang-youji",
+      "media_type":"youtube_playlist",
+      "title":"《中天天堂遊記》YouTube 播放清單",
+      "url":"https://www.youtube.com/playlist?list=PLuE6d8jAYH_dSPmLwslcDTREA5D84CDfz",
+      "source_id":"youtube-playlist",
+      "status":"indexed",
+      "next_step":"逐片建立 video_id、title、published_at、thumbnail、transcript/captions、related_topics 與 source_ids；未核對前不預填。"
+    }
+  ]
+}
