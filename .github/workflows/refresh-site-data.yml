@@ -70,7 +70,7 @@ jobs:
               print("AI documents:", d.get("stats", {}).get("documents", 0))
               print("AI generated_at:", d.get("generated_at"))
 
-          p = Path("seo-dashboard/trend-data.json")
+          p = Path("seo-dashboard/trend-data.json             seo-dashboard/last-auto-optimization.json")
           if p.exists():
               d = json.loads(p.read_text(encoding="utf-8"))
               print("SEO generated_at:", d.get("generated_at"))
@@ -96,7 +96,7 @@ jobs:
                   "seminar-data.json",
                   "seminar-debug.json",
                   "ai-knowledge",
-                  "seo-dashboard/trend-data.json"
+                  "seo-dashboard/trend-data.json             seo-dashboard/last-auto-optimization.json"
               ],
               "note": "此紀錄只代表自動資料更新流程完成，不代表搜尋排名、AI 引用率或模型採用率提升。"
           }
@@ -109,7 +109,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add             seminar-data.json             seminar-debug.json             ai-knowledge             seo-dashboard/trend-data.json             seo-dashboard/last-auto-optimization.json
+          git add             seminar-data.json             seminar-debug.json             ai-knowledge             seo-dashboard/trend-data.json             seo-dashboard/last-auto-optimization.json             seo-dashboard/last-auto-optimization.json
 
           if git diff --cached --quiet; then
             echo "三階段均沒有資料變更。"
@@ -126,7 +126,7 @@ jobs:
               seminar-data.json \
               seminar-debug.json \
               ai-knowledge \
-              seo-dashboard/trend-data.json
+              seo-dashboard/trend-data.json             seo-dashboard/last-auto-optimization.json
 
             if git diff --cached --quiet; then
               echo "最新 main 已包含相同資料，沒有需要提交的變更。"
