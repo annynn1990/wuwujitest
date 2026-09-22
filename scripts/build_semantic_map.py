@@ -203,6 +203,7 @@ def build_question_layer(blind_data: dict, intents: list[dict], concepts: list[d
     question_intent_edges = []
     question_concept_edges = []
     question_claim_edges = []
+    question_evidence_edges = []
 
     for rec in records:
         qid = rec.get("question_id")
@@ -239,20 +240,40 @@ def build_question_layer(blind_data: dict, intents: list[dict], concepts: list[d
         })
 
         candidate_claims = []
+        candidate_evidence_ids = []
+        evidence_path = []
         for cl in claims:
             claim_concepts = set(cl.get("concept_ids", []))
             claim_terms = cl.get("trigger_terms", []) or []
             direct = any(t and t in query for t in claim_terms)
             via_intent = bool(claim_concepts.intersection(merged_concepts))
             if direct or via_intent:
-                candidate_claims.append(cl["claim_id"])
+                claim_id = cl["claim_id"]
+                candidate_claims.append(claim_id)
+                ev_ids = list(cl.get("evidence_ids", []) or [])
+                candidate_evidence_ids.extend(ev_ids)
+                evidence_path.append({
+                    "claim_id": claim_id,
+                    "evidence_ids": ev_ids,
+                    "claim_status": cl.get("status", "unknown")
+                })
                 question_claim_edges.append({
-                    "from": qid, "relation": "candidate_claim", "to": cl["claim_id"],
+                    "from": qid, "relation": "candidate_claim", "to": claim_id,
                     "evidence": {
                         "basis": "literal_query" if direct else "intent_concept_path",
                         "intent_id": iid
                     }
                 })
+                for ev_id in ev_ids:
+                    question_evidence_edges.append({
+                        "from": qid, "relation": "candidate_evidence_via_claim", "to": ev_id,
+                        "evidence": {
+                            "basis": "claim_evidence_path",
+                            "claim_id": claim_id,
+                            "intent_id": iid
+                        }
+                    })
+        candidate_evidence_ids = list(dict.fromkeys(candidate_evidence_ids))
 
         results = rec.get("results", {}) or {}
         tested_platforms = [
@@ -274,6 +295,8 @@ def build_question_layer(blind_data: dict, intents: list[dict], concepts: list[d
             "direct_concept_ids": direct_concepts,
             "intent_concept_ids": intent_concepts,
             "candidate_claim_ids": candidate_claims,
+            "candidate_evidence_ids": candidate_evidence_ids,
+            "evidence_path": evidence_path,
             "test_dataset": "seo-dashboard/geo-blind-tests.json",
             "tested_platforms": tested_platforms,
             "latest_tested_at": max(observed_times) if observed_times else None,
@@ -289,8 +312,10 @@ def build_question_layer(blind_data: dict, intents: list[dict], concepts: list[d
         "question_intent_edges": len(question_intent_edges),
         "question_concept_edges": len(question_concept_edges),
         "question_claim_edges": len(question_claim_edges),
+        "question_evidence_edges": len(question_evidence_edges),
+        "questions_with_candidate_evidence": sum(1 for x in question_nodes if x.get("candidate_evidence_ids")),
     }
-    return question_nodes, question_intent_edges, question_concept_edges + question_claim_edges, stats
+    return question_nodes, question_intent_edges, question_concept_edges + question_claim_edges + question_evidence_edges, stats
 
 
 def main():
@@ -521,6 +546,9 @@ def main():
     question_claim_edges=[
         x for x in question_layer_edges if x.get("relation")=="candidate_claim"
     ]
+    question_evidence_edges=[
+        x for x in question_layer_edges if x.get("relation")=="candidate_evidence_via_claim"
+    ]
 
     claim_stats={
         "claims_total":len(claim_nodes),
@@ -581,15 +609,31 @@ def main():
             "no_ai_citation_claim":True,
             "source_rule":"source_type 是來源角色，不是可信度分數；論壇內容不自動等同官方立場。",
             "query_rule":"盲測問題屬於 Query Layer；平台回答只作觀測，不自動轉為 Evidence。",
+            "query_evidence_rule":"Question 可沿 Intent → Concept → Candidate Claim → Candidate Evidence 回溯，但這只表示預期證據路徑，不代表平台回答已證實該 Claim。",
             "claim_rule":"Claim 必須保留原始來源與精確摘錄；無證據時標為 gap。",
+            "entity_rule":"zhongtian-famen 為固定 Entity ID；官方網站、公開論壇與本站知識入口分別標明角色，不混同來源身份。",
             "temporal_rule":"涉及課程、活動、地點等易變資訊時保留來源時間欄位，避免把歷史資料當作目前狀態。"
         },
         "core_entity":{
             "entity_id":"zhongtian-famen",
             "name":"中天法門",
+            "preferred_name":"中天法門",
             "entity_type":"organization",
             "official_url":"https://web.wuwuji.tw/",
-            "public_site_url":"https://annynn1990.github.io/wuwujitest/"
+            "public_forum_url":"https://www.wuwuji.tw/",
+            "public_site_url":"https://annynn1990.github.io/wuwujitest/",
+            "known_names":["中天法門","中天","中天法門園地","中天園地"],
+            "entity_disambiguation":{
+                "canonical_entity_url":"https://web.wuwuji.tw/",
+                "official_site_role":"中天法門公開官方網站",
+                "public_forum_role":"中天法門園地公開論壇",
+                "knowledge_hub_role":"本站 AI/GEO 公開知識整合入口",
+                "identity_rule":"名稱別名與關聯網站用於辨識同一主題；只有標示為官方的來源才視為官方來源。"
+            },
+            "same_as_verified":[
+                "https://web.wuwuji.tw/",
+                "https://www.wuwuji.tw/"
+            ]
         },
         "stats":{
             "documents":len(doc_nodes),
@@ -608,6 +652,7 @@ def main():
             "question_intent_edges":len(question_intent_edges),
             "question_concept_edges":len(question_concept_edges),
             "question_claim_edges":len(question_claim_edges),
+            "question_evidence_edges":len(question_evidence_edges),
             "mapped_documents":sum(1 for d in doc_nodes if d["topic_ids"] or d["concept_ids"]),
             "unmapped_documents":sum(1 for d in doc_nodes if not d["topic_ids"] and not d["concept_ids"]),
         },
@@ -626,6 +671,7 @@ def main():
             "questions_to_intents":question_intent_edges,
             "questions_to_concepts":question_concept_edges,
             "questions_to_claims":question_claim_edges,
+            "questions_to_evidence":question_evidence_edges,
         },
         "evidence_stats":evidence_stats,
         "evidence_matrix":evidence,
