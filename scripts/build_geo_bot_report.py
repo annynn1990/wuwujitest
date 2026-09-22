@@ -439,6 +439,9 @@ def main():
             "effect_is_separate":True,
             "history_points":len(effect_history)
         },
+        "blind_test_platforms":blind_db.get("platforms",[]),
+        "blind_test_records":blind_db.get("records",[]),
+        "effect_history":effect_history,
         "live_pages":live,
         "site_inventory_summary":{
             "invalid_json":len(invalid_json),
