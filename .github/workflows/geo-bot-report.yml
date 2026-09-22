@@ -112,15 +112,16 @@ jobs:
             exit 0
           fi
 
-          python3 - <<'PY'
-          import json
+          KEY_FILE="$key_file" python3 - <<'PY'
+          import json, os
           from pathlib import Path
-          key=Path("$key_file").read_text(encoding="utf-8").strip()
+          key_path=Path(os.environ["KEY_FILE"])
+          key=key_path.read_text(encoding="utf-8").strip()
           urls=[x.strip() for x in Path("/tmp/indexnow-urls.txt").read_text().splitlines() if x.strip()]
           payload={
               "host":"annynn1990.github.io",
               "key":key,
-              "keyLocation":"https://annynn1990.github.io/wuwujitest/"+Path("$key_file").name,
+              "keyLocation":"https://annynn1990.github.io/wuwujitest/"+key_path.name,
               "urlList":urls
           }
           Path("/tmp/indexnow-payload.json").write_text(json.dumps(payload,ensure_ascii=False),encoding="utf-8")
