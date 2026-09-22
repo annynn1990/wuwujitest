@@ -39,12 +39,12 @@ table{width:100%;border-collapse:collapse}th,td{border-bottom:1px solid #eee;pad
 
 <section class="card" style="margin-top:14px;padding:17px">
 <h2>🧪 AI 盲測實績</h2>
-<p class="muted">固定盲測集：50 題 × 5 平台。只有 <strong>status=tested</strong> 的結果才會進入統計；未測不算成功，也不算失敗。</p>
+<p class="muted">平台定義：Gemini 指 gemini.google.com 的獨立對話；Google 搜尋 AI 指 Google Search 的 AI Mode／AI Overviews。兩者不視為同一測試。<br>固定盲測集：50 題 × 5 平台。只有 <strong>status=tested</strong> 的結果才會進入統計；未測不算成功，也不算失敗。</p>
 <div class="kpi-grid" id="blindSummary"></div>
 <h3>各平台實績</h3><div class="grid" id="platformSummary"></div>
 <h3>Cross-platform Consistency</h3><div class="kpi-grid" id="consistencySummary"></div>
 <h3>50 題 × 5 平台矩陣</h3>
-<div class="scroll matrix"><table><thead><tr><th>Question</th><th>Intent</th><th>ChatGPT</th><th>Google AI</th><th>Gemini</th><th>Copilot</th><th>Perplexity</th></tr></thead><tbody id="blindMatrix"></tbody></table></div>
+<div class="scroll matrix"><table><thead><tr><th>Question</th><th>Intent</th><th>ChatGPT</th><th>Google 搜尋 AI</th><th>Gemini</th><th>Copilot</th><th>Perplexity</th></tr></thead><tbody id="blindMatrix"></tbody></table></div>
 <h3>📈 AI GEO 歷史趨勢</h3>
 <div class="scroll trend" id="effectHistory">尚無歷史資料。</div>
 <a class="btn" href="./geo-blind-tests.json">查看盲測資料庫</a>
@@ -145,7 +145,7 @@ async function main(){
 function stat(k,v){return '<div class="stat"><div class="muted">'+esc(k)+'</div><div class="num">'+esc(v??"—")+'</div></div>'}
 main();
 function renderBlind(d){
- const b=d.blind_test||{}, records=d.blind_test_records||[], platforms=d.blind_test_platforms||["ChatGPT","Google AI","Gemini","Copilot","Perplexity"];
+ const b=d.blind_test||{}, records=d.blind_test_records||[], platforms=d.blind_test_platforms||["ChatGPT","Google 搜尋 AI","Gemini","Copilot","Perplexity"];
  const pct=n=>Number(n||0);
  document.getElementById("effectScore").textContent=pct(b.effect_score)+"%";
  document.getElementById("effectBar").style.width=pct(b.effect_score)+"%";
