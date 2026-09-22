@@ -59,3 +59,16 @@ footer h3{color:var(--gold)}
 .event p{margin:8px 0}
 .notice{border-left:4px solid #f3c969;background:rgba(243,201,105,.07);padding:18px 20px;border-radius:8px}
 .source-note{color:#8fa6bc;font-size:.9rem}
+
+
+/* AI / GEO: compact entity-root Q&A */
+.qa-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:20px}
+.qa-card{border:1px solid #ddd;border-radius:14px;padding:18px;background:#fff}
+.qa-card h3{margin-top:0}
+.qa-answer{margin:10px 0 12px}
+.qa-source{font-size:.9rem;color:#666;border-top:1px solid #eee;padding-top:10px}
+.qa-source a{margin-left:4px}
+.entity-strip{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.entity-pill{display:inline-block;border:1px solid #d7d7d7;border-radius:999px;padding:4px 10px;background:#fafafa;font-size:.9rem}
+.source-method{border-left:4px solid #555;padding:4px 0 4px 14px}
+@media(max-width:760px){.qa-grid{grid-template-columns:1fr}}
