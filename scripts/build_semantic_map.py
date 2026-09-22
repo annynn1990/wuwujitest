@@ -458,6 +458,84 @@ def main():
     intents=[{"intent_id":iid,"name":name,"trigger_terms":triggers,"related_concepts":concepts_}
              for iid,name,triggers,concepts_ in INTENTS]
 
+    claim_nodes=[]
+    claim_edges=[]
+    claim_evidence=[]
+    primary_source_ids={"official-site","official-forum"}
+    for cid,claim_text,ctype,terms,concept_ids,preferred_sources in CLAIM_CATALOG:
+        claim={"claim_id":cid,"claim_text":claim_text,"claim_type":ctype,
+               "subject_entity_id":"zhongtian-famen","concept_ids":concept_ids,
+               "trigger_terms":terms,
+               "source_policy":{"preferred_source_ids":preferred_sources,
+                                "evidence_rule":"exact_document_excerpt"},
+               "temporal_status":"source_timestamp_required",
+               "is_asserted_by_ai":False}
+        candidates=[]
+        for d in doc_nodes:
+            if d.get("source_id") not in preferred_sources:
+                continue
+            blob=document_blobs.get(d["document_id"],"")
+            hits=[t for t in terms if t and t in blob]
+            if hits:
+                candidates.append((0 if d.get("source_id") in primary_source_ids else 1,
+                                   d["document_id"],hits,d))
+        candidates=sorted(candidates,key=lambda x:(x[0],x[1]))[:8]
+        for n,(_,doc_id,hits,d) in enumerate(candidates,1):
+            ev_id=f"{cid}-ev-{n:02d}"
+            claim_evidence.append({
+                "evidence_id":ev_id,"claim_id":cid,"document_id":doc_id,
+                "url":d.get("url",""),"title":d.get("title",""),
+                "source_id":d.get("source_id"),"source_type":d.get("source_type"),
+                "matched_terms":hits[:8],
+                "excerpt":extract_evidence_excerpt(document_blobs.get(doc_id,""),hits[:8]),
+                "content_sha256":d.get("content_sha256"),
+                "first_seen_at":d.get("first_seen_at"),
+                "last_changed_at":d.get("last_changed_at"),
+                "retrieved_at":d.get("retrieved_at"),
+                "evidence_type":"literal_excerpt",
+                "derivation":"deterministic_term_match"
+            })
+            claim_edges.append({
+                "from":cid,"relation":"supported_by_evidence","to":ev_id,
+                "evidence":{"basis":"exact_document_excerpt"}
+            })
+        claim["evidence_ids"]=[x["evidence_id"] for x in claim_evidence if x["claim_id"]==cid]
+        claim["evidence_count"]=len(claim["evidence_ids"])
+        claim["primary_source_evidence_count"]=sum(
+            1 for x in claim_evidence
+            if x["claim_id"]==cid and x["source_id"] in primary_source_ids
+        )
+        claim["status"]="grounded" if claim["evidence_count"] else "gap"
+        claim_nodes.append(claim)
+        for concept_id in concept_ids:
+            claim_edges.append({
+                "from":cid,"relation":"about_concept","to":concept_id,
+                "evidence":{"basis":"curated_claim_catalog"}
+            })
+
+    question_nodes, question_intent_edges, question_layer_edges, question_stats = build_question_layer(
+        blind_data, intents, concepts, claim_nodes
+    )
+    question_concept_edges=[
+        x for x in question_layer_edges
+        if x.get("relation") in {"directly_matches_concept","intent_maps_to_concept"}
+    ]
+    question_claim_edges=[
+        x for x in question_layer_edges if x.get("relation")=="candidate_claim"
+    ]
+
+    claim_stats={
+        "claims_total":len(claim_nodes),
+        "grounded_claims":sum(1 for x in claim_nodes if x.get("status")=="grounded"),
+        "claims_with_primary_source":sum(
+            1 for x in claim_nodes
+            if int(x.get("primary_source_evidence_count",0) or 0)>0
+        ),
+        "claim_evidence_items":len(claim_evidence),
+        "claim_concept_edges":sum(1 for x in claim_edges if x.get("relation")=="about_concept"),
+        "claim_evidence_edges":sum(1 for x in claim_edges if x.get("relation")=="supported_by_evidence"),
+    }
+
     # Evidence matrix + evidence registry are computed from actual document relations.
     # Each evidence item points back to a public document URL and an exact extracted excerpt.
     evidence=[]
@@ -546,10 +624,19 @@ def main():
             "documents_to_sources":doc_source_edges,
             "documents_to_intents":intent_edges,
             "concept_relations":concept_edges,
+            "claims":claim_edges,
+            "questions_to_intents":question_intent_edges,
+            "questions_to_concepts":question_concept_edges,
+            "questions_to_claims":question_claim_edges,
         },
         "evidence_stats":evidence_stats,
         "evidence_matrix":evidence,
         "evidence_registry":evidence_registry,
+        "claim_nodes":claim_nodes,
+        "claim_evidence":claim_evidence,
+        "claim_stats":claim_stats,
+        "question_nodes":question_nodes,
+        "question_stats":question_stats,
         "source_nodes":source_data.get("sources",[]),
     }
     OUTPUT.write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding="utf-8")
