@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
   "report_type": "geo_robot_site_audit",
-  "generated_at": "2026-09-22T11:15:40.432808+00:00",
+  "generated_at": "2026-09-22T11:30:35.413326+00:00",
   "site": "https://annynn1990.github.io/wuwujitest/",
-  "overall_progress": 69,
+  "overall_progress": 76,
   "progress_definition": "加權診斷進度，不代表 Google 排名，也不代表 AI 引用機率；各模組依可觀測條件計算。",
   "scan_scope": {
     "repo_public_data_files": 32,
@@ -35,11 +35,11 @@
       "definition": "1,076 份文件與主題、概念、觀察詞之間是否形成可追溯關係。"
     },
     {
-      "id": "concept-pages",
-      "name": "核心 Concept Page",
+      "id": "concept-evidence",
+      "name": "核心 Concept／Evidence",
       "weight": 15,
-      "score": 75,
-      "definition": "12 個核心概念是否在公開核心頁面形成明確內容訊號；這不是文章數量。"
+      "score": 22,
+      "definition": "核心概念是否同時有現有頁面訊號與可追溯的公開文件證據；不要求每個概念新增頁面。"
     },
     {
       "id": "intent",
@@ -50,10 +50,10 @@
     },
     {
       "id": "retrieval",
-      "name": "GEO 盲測／Retrieval",
+      "name": "GEO 盲測／Retrieval 基礎設施",
       "weight": 15,
-      "score": 0,
-      "definition": "是否已建立並持續記錄 AI 盲測與召回結果。"
+      "score": 100,
+      "definition": "50 題 × 5 平台盲測資料庫與評估欄位是否已具備；實際成效另計。"
     },
     {
       "id": "citation",
@@ -178,12 +178,32 @@
       ]
     }
   ],
+  "evidence": {
+    "concepts_with_evidence": 0,
+    "concepts_with_primary_source_evidence": 0,
+    "concepts_total": 61,
+    "core_page_coverage": 75
+  },
   "intent": {
     "intent_nodes": 10,
     "mapped_intents": 10
   },
   "retrieval": {
-    "test_data_files": 0
+    "test_data_files": 1,
+    "questions": 50,
+    "platforms": 5,
+    "planned_slots": 250,
+    "tested_slots": 0,
+    "pending_slots": 250
+  },
+  "blind_test": {
+    "questions": 50,
+    "platforms": 5,
+    "planned_slots": 250,
+    "tested_slots": 0,
+    "pending_slots": 250,
+    "coverage_percent": 0,
+    "effect_is_separate": true
   },
   "live_pages": [
     {
@@ -245,8 +265,8 @@
   },
   "flags": [
     "核心 Concept Page 仍缺 3 個概念",
-    "尚未建立 AI Citation 長期結果資料，Citation 模組目前 0 分。",
-    "尚未建立 GEO 盲測結果資料，Retrieval 模組目前 0 分。"
+    "目前有 250 個盲測槽位尚未測試；這不視為失敗。",
+    "尚未有 AI Citation 實測結果；AI GEO 實際效果分數維持 0%，不以工程完成度代替。"
   ],
   "automation": {
     "workflow": "geo-bot-report.yml",
