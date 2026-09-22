@@ -104,7 +104,17 @@
           "status": "pending"
         },
         "Gemini": {
-          "status": "pending"
+          "status": "tested",
+          "tested_at": "2026-09-22T16:00:00+08:00",
+          "mentioned_entity": false,
+          "citation": false,
+          "primary_source_citation": false,
+          "concept_recall": true,
+          "factual_accuracy": false,
+          "cited_urls": [
+            "https://encrypted-tbn2.gstatic.com/"
+          ],
+          "notes": "Gemini 回答有直接處理『沒有宗教背景如何開始禪修』，提出數息、MBSR/身體掃描、坐姿與初學資源，因此 Concept Recall 記為 true。未提及「中天法門」，也未引用本站或 web.wuwuji.tw。Accuracy 記為 false，主要因明確錯誤把 Jon Kabat-Zinn 與 MBSR 的創立背景連結到麻省理工學院；可靠來源顯示他在 MIT 求學，但 1979 年是在 University of Massachusetts Medical School 創立 Stress Reduction Clinic，MBSR 亦由此發展。另有『完全不帶宗教色彩』等過度概括表述，因此不給 Accuracy 通過。"
         },
         "Copilot": {
           "status": "pending"
