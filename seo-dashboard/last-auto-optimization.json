@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "type": "automated_data_refresh",
-  "updated_at": "2026-10-04T09:26:09.972660+00:00",
+  "updated_at": "2026-10-07T09:55:57.293292+00:00",
   "workflow": "中天法門資料自動化流水線",
   "status": "completed",
   "changes": [
