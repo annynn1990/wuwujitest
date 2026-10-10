@@ -3,11 +3,11 @@
   "dataset": "中天法門 AI / GEO 公開知識庫",
   "update_schedule": "every 3 days",
   "last_run": {
-    "completed_at": "2026-10-07T09:55:50.187426+00:00",
+    "completed_at": "2026-10-10T09:41:25.481536+00:00",
     "official_pages": 8,
-    "forum_index_pages": 298,
+    "forum_index_pages": 379,
     "forum_threads": 771,
-    "documents": 1077
+    "documents": 1158
   },
   "runs": [
     {
@@ -86,6 +86,13 @@
       "forum_index_pages": 298,
       "forum_threads": 771,
       "documents": 1077
+    },
+    {
+      "completed_at": "2026-10-10T09:41:25.481536+00:00",
+      "official_pages": 8,
+      "forum_index_pages": 379,
+      "forum_threads": 771,
+      "documents": 1158
     }
   ],
   "semantic_map": {
