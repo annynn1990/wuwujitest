@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
   "dataset": "中天法門 AI/GEO 全量語義地圖",
-  "generated_at": "2026-10-21T04:57:09.313418+00:00",
+  "generated_at": "2026-10-21T11:58:48.429561+00:00",
   "purpose": "將全部公開文件、核心概念、User Intent、盲測 Query、可回溯 Claim 與原始 Evidence 整合成可追溯的 AI/GEO Knowledge Graph。",
   "policy": {
     "all_documents_included": true,
